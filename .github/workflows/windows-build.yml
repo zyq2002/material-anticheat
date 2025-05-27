@@ -30,15 +30,30 @@ jobs:
     - name: 构建 Windows 应用
       run: flutter build windows --release
       
+    - name: 验证构建结果
+      run: |
+        if exist "build\windows\x64\runner\Release\material_anticheat.exe" (
+          echo ✅ Windows应用构建成功
+          dir "build\windows\x64\runner\Release\material_anticheat.exe"
+        ) else (
+          echo ❌ 构建失败 - 可执行文件不存在
+          exit 1
+        )
+      shell: cmd
+      
     - name: 创建应用包
       run: |
+        if exist "windows-package" rmdir /s /q "windows-package"
         mkdir windows-package
-        xcopy "build\\windows\\x64\\runner\\Release\\*" "windows-package\\" /s /e /y
+        xcopy "build\windows\x64\runner\Release\*" "windows-package\" /s /e /y /i
+        echo ✅ 应用包创建完成
       shell: cmd
         
     - name: 压缩应用
       run: |
-        powershell Compress-Archive -Path "windows-package\\*" -DestinationPath "material-anticheat-windows.zip"
+        if exist "material-anticheat-windows.zip" del "material-anticheat-windows.zip"
+        powershell Compress-Archive -Path "windows-package\*" -DestinationPath "material-anticheat-windows.zip"
+        echo ✅ 压缩包创建完成
       shell: cmd
         
     - name: 上传构建产物
@@ -46,4 +61,4 @@ jobs:
       with:
         name: windows-app
         path: material-anticheat-windows.zip
-        retention-days: 30 
+        retention-days: 30
