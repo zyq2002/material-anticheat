@@ -8,6 +8,7 @@ import '../widgets/date_selector_card.dart';
 import '../widgets/interval_setting_card.dart';
 import '../widgets/save_path_card.dart';
 import '../widgets/retry_settings_card.dart';
+import '../widgets/api_settings_card.dart';
 import '../widgets/control_buttons_card.dart';
 import '../widgets/progress_display_card.dart';
 import '../widgets/log_display_card.dart';
@@ -175,6 +176,13 @@ class MainScreen extends HookConsumerWidget {
                     
                     // 重试设置
                     RetrySettingsCard(
+                      enabled: !crawlerState.isRunning,
+                    ),
+                    
+                    const SizedBox(height: 16),
+                    
+                    // API设置
+                    ApiSettingsCard(
                       enabled: !crawlerState.isRunning,
                     ),
                     

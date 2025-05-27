@@ -7,6 +7,7 @@ import '../widgets/auth_input_card.dart';
 import '../widgets/date_selector_card.dart';
 import '../widgets/interval_setting_card.dart';
 import '../widgets/save_path_card.dart';
+import '../widgets/api_settings_card.dart';
 import '../widgets/control_buttons_card.dart';
 import '../widgets/log_display_card.dart';
 import 'weighbridge_batch_download_screen.dart';
@@ -227,6 +228,13 @@ class WeighbridgeScreen extends HookConsumerWidget {
                       
                       // 重试设置
                       WeighbridgeRetrySettingsCard(
+                        enabled: !crawlerState.isRunning,
+                      ),
+                      
+                      const SizedBox(height: 16),
+                      
+                      // API设置
+                      ApiSettingsCard(
                         enabled: !crawlerState.isRunning,
                       ),
                       
