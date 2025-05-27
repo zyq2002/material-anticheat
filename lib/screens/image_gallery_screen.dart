@@ -172,7 +172,7 @@ class ImageGalleryScreen extends HookConsumerWidget {
                             
                             return ListTile(
                               selected: isSelected,
-                              selectedTileColor: Colors.blue.withValues(alpha: 0.1),
+                              selectedTileColor: Colors.blue.withOpacity(0.1),
                               title: Text(
                                 date,
                                 style: TextStyle(
@@ -193,7 +193,7 @@ class ImageGalleryScreen extends HookConsumerWidget {
                                       vertical: 4,
                                     ),
                                     decoration: BoxDecoration(
-                                      color: Colors.blue.withValues(alpha: 0.1),
+                                      color: Colors.blue.withOpacity(0.1),
                                       borderRadius: BorderRadius.circular(12),
                                     ),
                                     child: Text(
@@ -365,7 +365,7 @@ class ImageGridView extends HookConsumerWidget {
         Container(
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
-            color: Colors.blue.withValues(alpha: 0.1),
+            color: Colors.blue.withOpacity(0.1),
             border: Border(
               bottom: BorderSide(color: Colors.grey.shade300),
             ),
@@ -493,9 +493,9 @@ class ImageGridView extends HookConsumerWidget {
                                 vertical: 6,
                               ),
                               decoration: BoxDecoration(
-                                color: Colors.blue.withValues(alpha: 0.1),
+                                color: Colors.blue.withOpacity(0.1),
                                 borderRadius: BorderRadius.circular(6),
-                                border: Border.all(color: Colors.blue.withValues(alpha: 0.3)),
+                                border: Border.all(color: Colors.blue.withOpacity(0.3)),
                               ),
                               child: Text(
                                 '验收记录: $groupName',
@@ -532,9 +532,9 @@ class ImageGridView extends HookConsumerWidget {
                                   vertical: 8,
                                 ),
                                 decoration: BoxDecoration(
-                                  color: Colors.red.withValues(alpha: 0.1),
+                                  color: Colors.red.withOpacity(0.1),
                                   borderRadius: BorderRadius.circular(6),
-                                  border: Border.all(color: Colors.red.withValues(alpha: 0.3)),
+                                  border: Border.all(color: Colors.red.withOpacity(0.3)),
                                 ),
                                 child: Row(
                                   children: [
@@ -598,7 +598,7 @@ class ImageGridView extends HookConsumerWidget {
                                   ),
                                   boxShadow: isSuspicious ? [
                                     BoxShadow(
-                                      color: Colors.red.withValues(alpha: 0.3),
+                                      color: Colors.red.withOpacity(0.3),
                                       blurRadius: 8,
                                       spreadRadius: 2,
                                     ),
@@ -656,7 +656,7 @@ class ImageGridView extends HookConsumerWidget {
                                             begin: Alignment.bottomCenter,
                                             end: Alignment.topCenter,
                                             colors: [
-                                              Colors.black.withValues(alpha: 0.7),
+                                              Colors.black.withOpacity(0.7),
                                               Colors.transparent,
                                             ],
                                           ),

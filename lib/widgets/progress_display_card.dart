@@ -39,10 +39,10 @@ class ProgressDisplayCard extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
               decoration: BoxDecoration(
-                color: state.isRunning ? Colors.green.withValues(alpha: 0.1) : Colors.grey.withValues(alpha: 0.1),
+                color: state.isRunning ? Colors.green.withOpacity(0.1) : Colors.grey.withOpacity(0.1),
                 borderRadius: BorderRadius.circular(4),
                 border: Border.all(
-                  color: state.isRunning ? Colors.green.withValues(alpha: 0.3) : Colors.grey.withValues(alpha: 0.3),
+                  color: state.isRunning ? Colors.green.withOpacity(0.3) : Colors.grey.withOpacity(0.3),
                 ),
               ),
               child: Text(

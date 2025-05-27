@@ -491,7 +491,7 @@ class WeighbridgeDuplicateResultCard extends StatelessWidget {
                   width: 32,
                   height: 32,
                   decoration: BoxDecoration(
-                    color: Colors.orange.withValues(alpha: 0.1),
+                    color: Colors.orange.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(16),
                   ),
                   child: Center(
@@ -530,10 +530,10 @@ class WeighbridgeDuplicateResultCard extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   decoration: BoxDecoration(
-                    color: _getSimilarityColor(result.similarity).withValues(alpha: 0.1),
+                    color: _getSimilarityColor(result.similarity).withOpacity(0.1),
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(
-                      color: _getSimilarityColor(result.similarity).withValues(alpha: 0.3),
+                      color: _getSimilarityColor(result.similarity).withOpacity(0.3),
                     ),
                   ),
                   child: Text(

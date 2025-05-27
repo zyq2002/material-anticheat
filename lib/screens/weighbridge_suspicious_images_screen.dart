@@ -65,7 +65,7 @@ class WeighbridgeSuspiciousImagesScreen extends HookConsumerWidget {
                 color: Colors.white,
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.grey.withValues(alpha: 0.1),
+                    color: Colors.grey.withOpacity(0.1),
                     blurRadius: 4,
                     offset: const Offset(0, 2),
                   ),
@@ -185,10 +185,10 @@ class WeighbridgeSuspiciousImagesScreen extends HookConsumerWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: hasResults ? Colors.orange.withValues(alpha: 0.1) : Colors.green.withValues(alpha: 0.1),
+        color: hasResults ? Colors.orange.withOpacity(0.1) : Colors.green.withOpacity(0.1),
         borderRadius: BorderRadius.circular(8),
         border: Border.all(
-          color: hasResults ? Colors.orange.withValues(alpha: 0.3) : Colors.green.withValues(alpha: 0.3),
+          color: hasResults ? Colors.orange.withOpacity(0.3) : Colors.green.withOpacity(0.3),
         ),
       ),
       child: Row(
@@ -243,10 +243,10 @@ class WeighbridgeSuspiciousImagesScreen extends HookConsumerWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.blue.withValues(alpha: 0.1),
+        color: Colors.blue.withOpacity(0.1),
         borderRadius: BorderRadius.circular(8),
         border: Border.all(
-          color: Colors.blue.withValues(alpha: 0.3),
+          color: Colors.blue.withOpacity(0.3),
         ),
       ),
       child: const Row(
@@ -289,10 +289,10 @@ class WeighbridgeSuspiciousImagesScreen extends HookConsumerWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.red.withValues(alpha: 0.1),
+        color: Colors.red.withOpacity(0.1),
         borderRadius: BorderRadius.circular(8),
         border: Border.all(
-          color: Colors.red.withValues(alpha: 0.3),
+          color: Colors.red.withOpacity(0.3),
         ),
       ),
       child: Row(
@@ -362,10 +362,10 @@ class WeighbridgeSuspiciousImagesScreen extends HookConsumerWidget {
           Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: Colors.green.withValues(alpha: 0.1),
+              color: Colors.green.withOpacity(0.1),
               borderRadius: BorderRadius.circular(8),
               border: Border.all(
-                color: Colors.green.withValues(alpha: 0.3),
+                color: Colors.green.withOpacity(0.3),
               ),
             ),
             child: Column(
@@ -569,7 +569,7 @@ class WeighbridgeSuspiciousImageCard extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
-            color: _getSimilarityColor(result.similarity).withValues(alpha: 0.3),
+            color: _getSimilarityColor(result.similarity).withOpacity(0.3),
             width: 2,
           ),
         ),
@@ -585,7 +585,7 @@ class WeighbridgeSuspiciousImageCard extends StatelessWidget {
                     width: 36,
                     height: 36,
                     decoration: BoxDecoration(
-                      color: _getSimilarityColor(result.similarity).withValues(alpha: 0.1),
+                      color: _getSimilarityColor(result.similarity).withOpacity(0.1),
                       borderRadius: BorderRadius.circular(18),
                     ),
                     child: Center(
@@ -619,10 +619,10 @@ class WeighbridgeSuspiciousImageCard extends StatelessWidget {
                                 vertical: 4,
                               ),
                               decoration: BoxDecoration(
-                                color: _getSimilarityColor(result.similarity).withValues(alpha: 0.1),
+                                color: _getSimilarityColor(result.similarity).withOpacity(0.1),
                                 borderRadius: BorderRadius.circular(12),
                                 border: Border.all(
-                                  color: _getSimilarityColor(result.similarity).withValues(alpha: 0.3),
+                                  color: _getSimilarityColor(result.similarity).withOpacity(0.3),
                                 ),
                               ),
                               child: Text(

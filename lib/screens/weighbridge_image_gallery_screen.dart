@@ -192,7 +192,7 @@ class WeighbridgeImageGalleryScreen extends HookConsumerWidget {
                             
                             return ListTile(
                               selected: isSelected,
-                              selectedTileColor: Colors.orange.withValues(alpha: 0.1),
+                              selectedTileColor: Colors.orange.withOpacity(0.1),
                               title: Text(
                                 date,
                                 style: TextStyle(
@@ -213,7 +213,7 @@ class WeighbridgeImageGalleryScreen extends HookConsumerWidget {
                                       vertical: 4,
                                     ),
                                     decoration: BoxDecoration(
-                                      color: Colors.orange.withValues(alpha: 0.1),
+                                      color: Colors.orange.withOpacity(0.1),
                                       borderRadius: BorderRadius.circular(12),
                                     ),
                                     child: Text(
@@ -386,7 +386,7 @@ class WeighbridgeImageGridView extends HookConsumerWidget {
           child: Container(
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: Colors.orange.withValues(alpha: 0.1),
+              color: Colors.orange.withOpacity(0.1),
               border: Border(
                 bottom: BorderSide(color: Colors.grey.shade300),
               ),
@@ -567,9 +567,9 @@ class WeighbridgeRecordImagesCard extends HookWidget {
                       vertical: 6,
                     ),
                     decoration: BoxDecoration(
-                      color: Colors.orange.withValues(alpha: 0.1),
+                      color: Colors.orange.withOpacity(0.1),
                       borderRadius: BorderRadius.circular(6),
-                      border: Border.all(color: Colors.orange.withValues(alpha: 0.3)),
+                      border: Border.all(color: Colors.orange.withOpacity(0.3)),
                     ),
                     child: Text(
                       '过磅ID: $reportId',
@@ -642,9 +642,9 @@ class WeighbridgeRecordImagesCard extends HookWidget {
                         vertical: 8,
                       ),
                       decoration: BoxDecoration(
-                        color: Colors.red.withValues(alpha: 0.1),
+                        color: Colors.red.withOpacity(0.1),
                         borderRadius: BorderRadius.circular(6),
-                        border: Border.all(color: Colors.red.withValues(alpha: 0.3)),
+                        border: Border.all(color: Colors.red.withOpacity(0.3)),
                       ),
                       child: Row(
                         children: [
@@ -725,7 +725,7 @@ class WeighbridgeRecordImagesCard extends HookWidget {
               borderRadius: BorderRadius.circular(8),
               boxShadow: isSuspicious ? [
                 BoxShadow(
-                  color: Colors.red.withValues(alpha: 0.3),
+                  color: Colors.red.withOpacity(0.3),
                   blurRadius: 8,
                   spreadRadius: 2,
                 ),
@@ -783,7 +783,7 @@ class WeighbridgeRecordImagesCard extends HookWidget {
                         begin: Alignment.bottomCenter,
                         end: Alignment.topCenter,
                         colors: [
-                          Colors.black.withValues(alpha: 0.7),
+                          Colors.black.withOpacity(0.7),
                           Colors.transparent,
                         ],
                       ),

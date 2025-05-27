@@ -198,7 +198,7 @@ class BatchDownloadScreen extends HookConsumerWidget {
                             Container(
                               padding: const EdgeInsets.all(8),
                               decoration: BoxDecoration(
-                                color: Colors.blue.withValues(alpha: 0.1),
+                                color: Colors.blue.withOpacity(0.1),
                                 borderRadius: BorderRadius.circular(4),
                               ),
                               child: Text(
@@ -272,7 +272,7 @@ class BatchDownloadScreen extends HookConsumerWidget {
                             Container(
                               padding: const EdgeInsets.all(8),
                               decoration: BoxDecoration(
-                                color: Colors.orange.withValues(alpha: 0.1),
+                                color: Colors.orange.withOpacity(0.1),
                                 borderRadius: BorderRadius.circular(4),
                               ),
                               child: const Column(
@@ -467,9 +467,9 @@ class BatchDownloadScreen extends HookConsumerWidget {
                             child: Container(
                               padding: const EdgeInsets.all(12),
                               decoration: BoxDecoration(
-                                color: Colors.green.withValues(alpha: 0.1),
+                                color: Colors.green.withOpacity(0.1),
                                 borderRadius: BorderRadius.circular(8),
-                                border: Border.all(color: Colors.green.withValues(alpha: 0.3)),
+                                border: Border.all(color: Colors.green.withOpacity(0.3)),
                               ),
                               child: Column(
                                 children: [
@@ -499,9 +499,9 @@ class BatchDownloadScreen extends HookConsumerWidget {
                             child: Container(
                               padding: const EdgeInsets.all(12),
                               decoration: BoxDecoration(
-                                color: Colors.red.withValues(alpha: 0.1),
+                                color: Colors.red.withOpacity(0.1),
                                 borderRadius: BorderRadius.circular(8),
-                                border: Border.all(color: Colors.red.withValues(alpha: 0.3)),
+                                border: Border.all(color: Colors.red.withOpacity(0.3)),
                               ),
                               child: Column(
                                 children: [
@@ -580,7 +580,7 @@ class BatchDownloadScreen extends HookConsumerWidget {
             Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: Colors.amber.withValues(alpha: 0.1),
+                color: Colors.amber.withOpacity(0.1),
                 borderRadius: BorderRadius.circular(4),
               ),
               child: const Text(
