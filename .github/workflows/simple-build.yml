@@ -1,0 +1,69 @@
+name: Simple Build Test
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/simple-build.yml'
+
+jobs:
+  test-windows-build:
+    runs-on: windows-latest
+    
+    steps:
+    - name: 检出代码
+      uses: actions/checkout@v4
+      
+    - name: 显示目录结构
+      run: |
+        echo "=== 工作目录 ==="
+        pwd
+        echo ""
+        echo "=== 根目录内容 ==="
+        dir
+        echo ""
+        echo "=== 检查关键文件 ==="
+        if (Test-Path "pubspec.yaml") {
+          echo "✅ pubspec.yaml 存在"
+          echo ""
+          echo "=== pubspec.yaml 内容 ==="
+          Get-Content "pubspec.yaml"
+        } else {
+          echo "❌ pubspec.yaml 不存在"
+        }
+      shell: powershell
+      
+    - name: 设置 Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.24.0'
+        channel: 'stable'
+        
+    - name: Flutter 诊断
+      run: |
+        echo "=== Flutter 版本 ==="
+        flutter --version
+        echo ""
+        echo "=== Flutter 医生检查 ==="
+        flutter doctor -v
+      
+    - name: 尝试获取依赖
+      run: |
+        echo "=== 当前目录 ==="
+        pwd
+        echo ""
+        echo "=== 清理项目 ==="
+        flutter clean
+        echo ""
+        echo "=== 获取依赖 ==="
+        flutter pub get
+      continue-on-error: true
+      
+    - name: 尝试构建
+      run: |
+        echo "=== 启用Windows桌面支持 ==="
+        flutter config --enable-windows-desktop
+        echo ""
+        echo "=== 开始构建 ==="
+        flutter build windows --release --verbose
+      continue-on-error: true 
