@@ -90,7 +90,9 @@ jobs:
           $exeFiles = Get-ChildItem $buildPath -Filter "*.exe" -Recurse
           if ($exeFiles.Count -gt 0) {
             echo "✅ 找到可执行文件:"
-            $exeFiles | ForEach-Object { echo "  - $($_.FullName)" }
+            foreach ($file in $exeFiles) {
+              echo "  - $($file.FullName)"
+            }
           } else {
             echo "❌ 未找到可执行文件"
           }
