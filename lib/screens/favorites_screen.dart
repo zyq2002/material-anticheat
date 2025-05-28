@@ -425,7 +425,7 @@ class FavoriteItemCard extends StatelessWidget {
                           vertical: 2,
                         ),
                         decoration: BoxDecoration(
-                          color: Colors.amber.withValues(alpha: 0.1),
+                          color: Colors.amber.withOpacity(0.1),
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: Text(
@@ -493,8 +493,8 @@ class FavoriteItemCard extends StatelessWidget {
       height: 64,
       decoration: BoxDecoration(
         color: item.type == FavoriteType.id 
-            ? Colors.blue.withValues(alpha: 0.1)
-            : Colors.green.withValues(alpha: 0.1),
+            ? Colors.blue.withOpacity(0.1)
+            : Colors.green.withOpacity(0.1),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Icon(
@@ -699,7 +699,7 @@ class FavoriteImageDialog extends HookWidget {
                       vertical: 2,
                     ),
                     decoration: BoxDecoration(
-                      color: Colors.amber.withValues(alpha: 0.1),
+                      color: Colors.amber.withOpacity(0.1),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Text(
