@@ -52,3 +52,8 @@ release-*/
 bundled_python/
 python_scripts/dist/
 python_scripts/build/
+
+# Windows路径长度限制 - 排除中文路径文件
+物资anticheat-*/
+物资anticheat.app/
+*.app/

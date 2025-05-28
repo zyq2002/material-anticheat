@@ -1,0 +1,42 @@
+﻿2025-05-28T02:34:19.8326481Z Current runner version: '2.324.0'
+2025-05-28T02:34:19.8356382Z ##[group]Operating System
+2025-05-28T02:34:19.8357148Z Microsoft Windows Server 2022
+2025-05-28T02:34:19.8357642Z 10.0.20348
+2025-05-28T02:34:19.8358105Z Datacenter
+2025-05-28T02:34:19.8358501Z ##[endgroup]
+2025-05-28T02:34:19.8358938Z ##[group]Runner Image
+2025-05-28T02:34:19.8359396Z Image: windows-2022
+2025-05-28T02:34:19.8359854Z Version: 20250511.1.0
+2025-05-28T02:34:19.8360770Z Included Software: https://github.com/actions/runner-images/blob/win22/20250511.1/images/windows/Windows2022-Readme.md
+2025-05-28T02:34:19.8362073Z Image Release: https://github.com/actions/runner-images/releases/tag/win22%2F20250511.1
+2025-05-28T02:34:19.8362897Z ##[endgroup]
+2025-05-28T02:34:19.8363348Z ##[group]Runner Image Provisioner
+2025-05-28T02:34:19.8363896Z 2.0.437.1
+2025-05-28T02:34:19.8364274Z ##[endgroup]
+2025-05-28T02:34:19.8365250Z ##[group]GITHUB_TOKEN Permissions
+2025-05-28T02:34:19.8367041Z Contents: read
+2025-05-28T02:34:19.8368014Z Metadata: read
+2025-05-28T02:34:19.8368502Z Packages: read
+2025-05-28T02:34:19.8368905Z ##[endgroup]
+2025-05-28T02:34:19.8370964Z Secret source: Actions
+2025-05-28T02:34:19.8371636Z Prepare workflow directory
+2025-05-28T02:34:19.8703546Z Prepare all required actions
+2025-05-28T02:34:19.8738527Z Getting action download info
+2025-05-28T02:34:20.0603752Z ##[group]Download immutable action package 'actions/checkout@v4'
+2025-05-28T02:34:20.0604904Z Version: 4.2.2
+2025-05-28T02:34:20.0606061Z Digest: sha256:ccb2698953eaebd21c7bf6268a94f9c26518a7e38e27e0b83c1fe1ad049819b1
+2025-05-28T02:34:20.0607348Z Source commit SHA: 11bd71901bbe5b1630ceea73d27597364c9af683
+2025-05-28T02:34:20.0608146Z ##[endgroup]
+2025-05-28T02:34:20.5852919Z Download action repository 'subosito/flutter-action@v2' (SHA:e938fdf56512cc96ef2f93601a5a40bde3801046)
+2025-05-28T02:34:20.7843803Z ##[group]Download immutable action package 'actions/upload-artifact@v4'
+2025-05-28T02:34:20.7844554Z Version: 4.6.2
+2025-05-28T02:34:20.7845247Z Digest: sha256:290722aa3281d5caf23d0acdc3dbeb3424786a1a01a9cc97e72f147225e37c38
+2025-05-28T02:34:20.7846093Z Source commit SHA: ea165f8d65b6e75b540449e92b4886f43607fa02
+2025-05-28T02:34:20.7846706Z ##[endgroup]
+2025-05-28T02:34:21.1937571Z Getting action download info
+2025-05-28T02:34:21.2799189Z ##[group]Download immutable action package 'actions/cache@v4'
+2025-05-28T02:34:21.2799958Z Version: 4.2.3
+2025-05-28T02:34:21.2800680Z Digest: sha256:c8a3bb963e1f1826d8fcc8d1354f0dd29d8ac1db1d4f6f20247055ae11b81ed9
+2025-05-28T02:34:21.2801671Z Source commit SHA: 5a3ec84eff668545956fd18022155c47e93e2684
+2025-05-28T02:34:21.2802352Z ##[endgroup]
+2025-05-28T02:34:21.5273321Z Complete job name: build-windows
