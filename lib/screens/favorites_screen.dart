@@ -384,10 +384,10 @@ class FavoriteItemCard extends HookWidget {
                           vertical: 6,
                         ),
                         decoration: BoxDecoration(
-                          color: Colors.amber.withValues(alpha: 0.1),
+                          color: Colors.amber.withOpacity(0.1),
                           borderRadius: BorderRadius.circular(6),
                           border: Border.all(
-                            color: Colors.amber.withValues(alpha: 0.3),
+                            color: Colors.amber.withOpacity(0.3),
                             width: 1,
                           ),
                         ),
@@ -535,7 +535,7 @@ class FavoriteItemCard extends HookWidget {
                       vertical: 2,
                     ),
                     decoration: BoxDecoration(
-                      color: Colors.amber.withValues(alpha: 0.1),
+                      color: Colors.amber.withOpacity(0.1),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Text(
@@ -614,7 +614,7 @@ class FavoriteItemCard extends HookWidget {
                         begin: Alignment.bottomCenter,
                         end: Alignment.topCenter,
                         colors: [
-                          Colors.black.withValues(alpha: 0.7),
+                          Colors.black.withOpacity(0.7),
                           Colors.transparent,
                         ],
                       ),
@@ -722,8 +722,8 @@ class FavoriteItemCard extends HookWidget {
       height: 64,
       decoration: BoxDecoration(
         color: item.type == FavoriteType.id 
-            ? Colors.blue.withValues(alpha: 0.1)
-            : Colors.green.withValues(alpha: 0.1),
+            ? Colors.blue.withOpacity(0.1)
+            : Colors.green.withOpacity(0.1),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Icon(
@@ -936,7 +936,7 @@ class FavoriteImageDialog extends HookWidget {
                       vertical: 2,
                     ),
                     decoration: BoxDecoration(
-                      color: Colors.amber.withValues(alpha: 0.1),
+                      color: Colors.amber.withOpacity(0.1),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Text(
