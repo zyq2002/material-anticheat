@@ -16,6 +16,7 @@ import 'batch_download_screen.dart';
 import 'image_gallery_screen.dart';
 import 'duplicate_detection_screen.dart';
 import 'suspicious_images_screen.dart';
+import 'favorites_screen.dart';
 
 class MainScreen extends HookConsumerWidget {
   const MainScreen({super.key});
@@ -83,6 +84,14 @@ class MainScreen extends HookConsumerWidget {
                     ),
                   );
                   break;
+                case 'favorites':
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const FavoritesScreen(),
+                    ),
+                  );
+                  break;
 
               }
             },
@@ -117,6 +126,14 @@ class MainScreen extends HookConsumerWidget {
                   leading: Icon(Icons.security),
                   title: Text('可疑图片检测'),
                   subtitle: Text('检测相似度过高的图片'),
+                ),
+              ),
+              const PopupMenuItem(
+                value: 'favorites',
+                child: ListTile(
+                  leading: Icon(Icons.star),
+                  title: Text('我的收藏'),
+                  subtitle: Text('查看收藏的ID和车牌'),
                 ),
               ),
 

@@ -1,0 +1,81 @@
+﻿2025-05-27T09:01:11.4662303Z ##[group]Run flutter doctor -v
+2025-05-27T09:01:11.4662660Z [36;1mflutter doctor -v[0m
+2025-05-27T09:01:11.4695724Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2025-05-27T09:01:11.4696068Z env:
+2025-05-27T09:01:11.4696328Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:01:11.4696741Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T09:01:11.4697172Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:01:11.4697540Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:01:11.4697904Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:01:11.4698285Z   FLUTTER_ROOT: C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64
+2025-05-27T09:01:11.4698647Z   PUB_CACHE: C:\Users\runneradmin\AppData\Local\Pub\Cache
+2025-05-27T09:01:11.4698917Z ##[endgroup]
+2025-05-27T09:01:12.7306760Z 
+2025-05-27T09:01:12.7333172Z   ╔════════════════════════════════════════════════════════════════════════════╗
+2025-05-27T09:01:12.7334139Z   ║                 Welcome to Flutter! - https://flutter.dev                  ║
+2025-05-27T09:01:12.7334778Z   ║                                                                            ║
+2025-05-27T09:01:12.7335477Z   ║ The Flutter tool uses Google Analytics to anonymously report feature usage ║
+2025-05-27T09:01:12.7336384Z   ║ statistics and basic crash reports. This data is used to help improve      ║
+2025-05-27T09:01:12.7337204Z   ║ Flutter tools over time.                                                   ║
+2025-05-27T09:01:12.7337823Z   ║                                                                            ║
+2025-05-27T09:01:12.7338503Z   ║ Flutter tool analytics are not sent on the very first run. To disable      ║
+2025-05-27T09:01:12.7339396Z   ║ reporting, type 'flutter config --no-analytics'. To display the current    ║
+2025-05-27T09:01:12.7340350Z   ║ setting, type 'flutter config'. If you opt out of analytics, an opt-out    ║
+2025-05-27T09:01:12.7341651Z   ║ event will be sent, and then no further information will be sent by the    ║
+2025-05-27T09:01:12.7342431Z   ║ Flutter tool.                                                              ║
+2025-05-27T09:01:12.7343041Z   ║                                                                            ║
+2025-05-27T09:01:12.7343759Z   ║ By downloading the Flutter SDK, you agree to the Google Terms of Service.  ║
+2025-05-27T09:01:12.7344726Z   ║ The Google Privacy Policy describes how data is handled in this service.   ║
+2025-05-27T09:01:12.7345502Z   ║                                                                            ║
+2025-05-27T09:01:12.7346275Z   ║ Moreover, Flutter includes the Dart SDK, which may send usage metrics and  ║
+2025-05-27T09:01:12.7347174Z   ║ crash reports to Google.                                                   ║
+2025-05-27T09:01:12.7347869Z   ║                                                                            ║
+2025-05-27T09:01:12.7348644Z   ║ Read about data we send with crash reports:                                ║
+2025-05-27T09:01:12.7349551Z   ║ https://flutter.dev/to/crash-reporting                                     ║
+2025-05-27T09:01:12.7350310Z   ║                                                                            ║
+2025-05-27T09:01:12.7351017Z   ║ See Google's privacy policy:                                               ║
+2025-05-27T09:01:12.7351889Z   ║ https://policies.google.com/privacy                                        ║
+2025-05-27T09:01:12.7352641Z   ║                                                                            ║
+2025-05-27T09:01:12.7353268Z   ║ To disable animations in this tool, use                                    ║
+2025-05-27T09:01:12.7353769Z   ║ 'flutter config --no-cli-animations'.                                      ║
+2025-05-27T09:01:12.7354209Z   ╚════════════════════════════════════════════════════════════════════════════╝
+2025-05-27T09:01:12.7356704Z 
+2025-05-27T09:01:32.1645518Z [√] Flutter (Channel stable, 3.24.0, on Microsoft Windows [Version 10.0.20348.3561], locale en-US)
+2025-05-27T09:01:32.1649713Z     • Flutter version 3.24.0 on channel stable at C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64
+2025-05-27T09:01:32.1651586Z     • Upstream repository https://github.com/flutter/flutter.git
+2025-05-27T09:01:32.1652950Z     • Framework revision 80c2e84975 (10 months ago), 2024-07-30 23:06:49 +0700
+2025-05-27T09:01:32.1654088Z     • Engine revision b8800d88be
+2025-05-27T09:01:32.1655585Z     • Dart version 3.5.0
+2025-05-27T09:01:32.1657240Z     • DevTools version 2.37.2
+2025-05-27T09:01:32.1658229Z 
+2025-05-27T09:01:33.1281978Z [√] Windows Version (Installed version of Windows is version 10 or higher)
+2025-05-27T09:01:33.1282435Z 
+2025-05-27T09:02:08.0362905Z [!] Android toolchain - develop for Android devices (Android SDK version 36.0.0)
+2025-05-27T09:02:08.0363964Z     • Android SDK at C:\Android\android-sdk
+2025-05-27T09:02:08.0365142Z     • Platform android-36, build-tools 36.0.0
+2025-05-27T09:02:08.0366227Z     • ANDROID_HOME = C:\Android\android-sdk
+2025-05-27T09:02:08.0367288Z     • ANDROID_SDK_ROOT = C:\Android\android-sdk
+2025-05-27T09:02:08.0368725Z     • Java binary at: C:\hostedtoolcache\windows\Java_Temurin-Hotspot_jdk\8.0.452-9\x64\bin\java
+2025-05-27T09:02:08.0369797Z     X Could not determine java version
+2025-05-27T09:02:08.0371980Z     • All Android licenses accepted.
+2025-05-27T09:02:08.0372889Z 
+2025-05-27T09:02:08.0375210Z [√] Chrome - develop for the web
+2025-05-27T09:02:08.0377232Z     • Chrome at C:\Program Files\Google\Chrome\Application\chrome.exe
+2025-05-27T09:02:08.0377895Z 
+2025-05-27T09:02:08.0381073Z [√] Visual Studio - develop Windows apps (Visual Studio Enterprise 2022 17.13.2)
+2025-05-27T09:02:08.0382261Z     • Visual Studio at C:\Program Files\Microsoft Visual Studio\2022\Enterprise
+2025-05-27T09:02:08.0383591Z     • Visual Studio Enterprise 2022 version 17.13.35825.156
+2025-05-27T09:02:08.0385898Z     • Windows 10 SDK version 10.0.26100.0
+2025-05-27T09:02:08.0386089Z 
+2025-05-27T09:02:08.0387908Z [!] Android Studio (not installed)
+2025-05-27T09:02:08.0389746Z     • Android Studio not found; download from https://developer.android.com/studio/index.html
+2025-05-27T09:02:08.0391137Z       (or visit https://flutter.dev/to/windows-android-setup for detailed instructions).
+2025-05-27T09:02:08.0391897Z 
+2025-05-27T09:02:08.0393769Z [√] Connected device (2 available)
+2025-05-27T09:02:08.0396863Z     • Windows (desktop) • windows • windows-x64    • Microsoft Windows [Version 10.0.20348.3561]
+2025-05-27T09:02:08.0398651Z     • Chrome (web)      • chrome  • web-javascript • unknown
+2025-05-27T09:02:08.0398919Z 
+2025-05-27T09:02:08.0400365Z [√] Network resources
+2025-05-27T09:02:08.0401513Z     • All expected network resources are available.
+2025-05-27T09:02:08.0401887Z 
+2025-05-27T09:02:08.0403153Z ! Doctor found issues in 2 categories.

@@ -14,6 +14,8 @@ import 'weighbridge_batch_download_screen.dart';
 import 'weighbridge_image_gallery_screen.dart';
 import 'weighbridge_duplicate_detection_screen.dart';
 import 'weighbridge_suspicious_images_screen.dart';
+import 'detection_history_screen.dart';
+import 'background_tasks_screen.dart';
 
 class WeighbridgeScreen extends HookConsumerWidget {
   const WeighbridgeScreen({super.key});
@@ -83,6 +85,22 @@ class WeighbridgeScreen extends HookConsumerWidget {
                     ),
                   );
                   break;
+                case 'detection_history':
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const DetectionHistoryScreen(),
+                    ),
+                  );
+                  break;
+                case 'background_tasks':
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const BackgroundTasksScreen(),
+                    ),
+                  );
+                  break;
               }
             },
             itemBuilder: (context) => [
@@ -116,6 +134,22 @@ class WeighbridgeScreen extends HookConsumerWidget {
                   leading: Icon(Icons.security),
                   title: Text('可疑图片检测'),
                   subtitle: Text('检测相似度过高的图片'),
+                ),
+              ),
+              const PopupMenuItem(
+                value: 'detection_history',
+                child: ListTile(
+                  leading: Icon(Icons.history),
+                  title: Text('检测历史'),
+                  subtitle: Text('查看历史检测记录'),
+                ),
+              ),
+              const PopupMenuItem(
+                value: 'background_tasks',
+                child: ListTile(
+                  leading: Icon(Icons.cloud_queue),
+                  title: Text('后台任务'),
+                  subtitle: Text('管理后台运行的检测任务'),
                 ),
               ),
             ],

@@ -1,0 +1,5 @@
+2025-05-27T09:21:51.6272398Z Requested labels: windows-latest
+2025-05-27T09:21:51.6272398Z Job defined at: zyq2002/material-anticheat/.github/workflows/build-windows-only.yml@refs/heads/main
+2025-05-27T09:21:51.6272398Z Waiting for a runner to pick up this job...
+2025-05-27T09:21:52.4807970Z Job is waiting for a hosted runner to come online.
+2025-05-27T09:21:52.4808070Z Job is about to start running on the hosted runner: GitHub Actions 1000000010

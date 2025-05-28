@@ -1,10 +1,15 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
 import 'package:path/path.dart' as path;
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:uuid/uuid.dart';
 
+import '../models/detection_result.dart';
+import '../services/detection_history_service.dart';
 import 'log_service.dart';
 
 // part 'weighbridge_duplicate_detection_service.g.dart';
@@ -120,13 +125,22 @@ class WeighbridgeDuplicateDetectionService {
 
   /// 执行过磅重复检测
   Stream<WeighbridgeDuplicateProgress> detectDuplicates(WeighbridgeDuplicateConfig config, [dynamic ref]) async* {
+    DetectionHistoryService? historyService;
+    
     if (ref != null) {
       try {
         _logService ??= ref.read(logServiceProvider.notifier);
+        historyService = ref.read(detectionHistoryServiceProvider);
       } catch (e) {
         // Fallback if ref is not available
       }
     }
+
+    // 创建检测会话
+    final sessionId = const Uuid().v4();
+    final startTime = DateTime.now();
+    final detectionResults = <DetectionResult>[];
+    
     try {
       _logger.i('开始过磅重复检测');
       _logService?.info('开始过磅重复检测，阈值: ${(config.similarityThreshold * 100).toStringAsFixed(0)}%，天数: ${config.compareDays}天');
@@ -215,6 +229,27 @@ class WeighbridgeDuplicateDetectionService {
             try {
               final similarity = await _compareImages(image1.filePath, image2.filePath);
               
+              // 为每次比对添加详细的相似率日志输出
+              final image1Name = path.basename(image1.filePath);
+              final image2Name = path.basename(image2.filePath);
+              _logger.d('图片对比: $image1Name vs $image2Name, 相似度: ${(similarity * 100).toStringAsFixed(2)}%');
+              _logService?.debug('图片对比: $image1Name vs $image2Name, 相似度: ${(similarity * 100).toStringAsFixed(2)}%');
+              
+              // 创建检测结果记录
+              final detectionResult = DetectionResult(
+                id: const Uuid().v4(),
+                detectionType: 'duplicate',
+                detectionTime: DateTime.now(),
+                imagePath1: image1.filePath,
+                imagePath2: image2.filePath,
+                recordName1: image1.recordName,
+                recordName2: image2.recordName,
+                similarity: similarity,
+                imageType: imageType,
+                level: SimilarityStandards.getSimilarityLevel(imageType, similarity),
+              );
+              detectionResults.add(detectionResult);
+              
               if (similarity >= config.similarityThreshold) {
                 final result = WeighbridgeDuplicateResult(
                   imagePath1: image1.filePath,
@@ -228,13 +263,16 @@ class WeighbridgeDuplicateDetectionService {
                 
                 results.add(result);
                 
-                _logger.w('发现重复图片: ${image1.recordName} vs ${image2.recordName}, 相似度: ${(similarity * 100).toStringAsFixed(1)}%');
-                _logService?.warning('发现重复过磅图片: ${image1.recordName} vs ${image2.recordName}, 相似度: ${(similarity * 100).toStringAsFixed(1)}%');
+                _logger.w('⚠️ 发现重复图片: ${image1.recordName} vs ${image2.recordName}, 相似度: ${(similarity * 100).toStringAsFixed(1)}%');
+                _logService?.warning('⚠️ 发现重复过磅图片: ${image1.recordName} vs ${image2.recordName}, 相似度: ${(similarity * 100).toStringAsFixed(1)}%');
+              } else {
+                _logger.i('✓ 图片对比正常: ${image1.recordName} vs ${image2.recordName}, 相似度: ${(similarity * 100).toStringAsFixed(1)}%');
+                _logService?.info('✓ 图片对比正常: ${image1.recordName} vs ${image2.recordName}, 相似度: ${(similarity * 100).toStringAsFixed(1)}%');
               }
               
             } catch (e) {
-              _logger.e('对比图片时出错: ${image1.filePath} vs ${image2.filePath}, 错误: $e');
-              _logService?.error('对比过磅图片时出错: $e');
+              _logger.e('❌ 对比图片时出错: ${image1.filePath} vs ${image2.filePath}, 错误: $e');
+              _logService?.error('❌ 对比过磅图片时出错: $e');
             }
           }
         }
@@ -248,6 +286,36 @@ class WeighbridgeDuplicateDetectionService {
 
       _logger.i('过磅重复检测完成，总计发现 ${results.length} 组重复图片');
       _logService?.success('过磅重复检测完成，总计发现 ${results.length} 组重复图片');
+
+      // 保存检测会话
+      if (historyService != null) {
+        try {
+          final session = DetectionSession(
+            id: sessionId,
+            startTime: startTime,
+            endTime: DateTime.now(),
+            detectionType: 'duplicate',
+            config: {
+              'similarityThreshold': config.similarityThreshold,
+              'compareDays': config.compareDays,
+              'compareCarFrontImages': config.compareCarFrontImages,
+              'compareCarLeftImages': config.compareCarLeftImages,
+              'compareCarRightImages': config.compareCarRightImages,
+              'compareCarPlateImages': config.compareCarPlateImages,
+            },
+            totalComparisons: totalComparisons,
+            foundIssues: results.length,
+            results: detectionResults,
+          );
+
+          await historyService.saveDetectionSession(session);
+          _logger.i('检测会话已保存: $sessionId');
+          _logService?.info('检测会话已保存到历史记录');
+        } catch (e) {
+          _logger.e('保存检测会话失败: $e');
+          _logService?.error('保存检测会话失败: $e');
+        }
+      }
 
       yield WeighbridgeDuplicateProgress(
         currentTask: '检测完成，发现 ${results.length} 组重复图片',
@@ -278,7 +346,16 @@ class WeighbridgeDuplicateDetectionService {
       return path.join(customPath, 'weighbridge');
     } else {
       final currentDir = Directory.current.path;
+      
+      // 确保路径是绝对路径，不是根目录
+      if (currentDir == '/' || currentDir.isEmpty) {
+        // 如果当前目录是根目录，使用用户文档目录
+        final safePath = path.join(Platform.environment['HOME'] ?? '/tmp', 'Downloads', 'material_anticheat', 'pic', 'weighbridge');
+        return safePath;
+      } else {
+        // 使用相对于当前工作目录的路径
       return path.join(currentDir, 'pic', 'weighbridge');
+      }
     }
   }
 
@@ -376,16 +453,69 @@ class WeighbridgeDuplicateDetectionService {
   /// 对比两张图片的相似度
   Future<double> _compareImages(String imagePath1, String imagePath2) async {
     try {
-      // 使用Python脚本进行图片相似度对比
-      final result = await Process.run(
-        'python3',
+      // 优先使用打包的可执行文件，如果不存在则使用Python脚本
+      String? executablePath;
+      
+      // 检查多个可能的路径
+      final possiblePaths = [
+        // 开发环境路径
+        path.join(Directory.current.path, 'bundled_python', 'weighbridge_image_similarity'),
+        // macOS应用包内路径
+        path.join(Directory.current.path, '..', 'Resources', 'bundled_python', 'weighbridge_image_similarity'),
+        // 备用路径
+        path.join(path.dirname(Platform.resolvedExecutable), '..', 'Resources', 'bundled_python', 'weighbridge_image_similarity'),
+      ];
+      
+      File? executableFile;
+      for (final testPath in possiblePaths) {
+        final file = File(testPath);
+        if (await file.exists()) {
+          executablePath = testPath;
+          executableFile = file;
+          break;
+        }
+      }
+      
+      ProcessResult result;
+      
+      if (executableFile != null) {
+        // 使用打包的可执行文件（推荐，无需Python环境）
+        final process = await Process.start(
+          executablePath!,
+          [imagePath1, imagePath2],
+          workingDirectory: Directory.current.path,
+          environment: {
+            'PATH': '/usr/local/bin:/usr/bin:/bin',
+          },
+        );
+        
+        final stdout = await process.stdout.transform(const SystemEncoding().decoder).join();
+        final stderr = await process.stderr.transform(const SystemEncoding().decoder).join();
+        final exitCode = await process.exitCode;
+        
+        result = ProcessResult(process.pid, exitCode, stdout, stderr);
+      } else {
+        // 回退到系统Python（需要用户安装Python和依赖）
+        final process = await Process.start(
+          '/usr/bin/python3',
         [
           path.join(Directory.current.path, 'python_scripts', 'weighbridge_image_similarity.py'),
           imagePath1,
           imagePath2,
         ],
         workingDirectory: Directory.current.path,
-      );
+          environment: {
+            'PATH': '/usr/local/bin:/usr/bin:/bin',
+            'PYTHONPATH': path.join(Directory.current.path, '.venv', 'lib', 'python3.9', 'site-packages'),
+          },
+        );
+        
+        final stdout = await process.stdout.transform(const SystemEncoding().decoder).join();
+        final stderr = await process.stderr.transform(const SystemEncoding().decoder).join();
+        final exitCode = await process.exitCode;
+        
+        result = ProcessResult(process.pid, exitCode, stdout, stderr);
+      }
 
       if (result.exitCode == 0) {
         final output = result.stdout.toString().trim();

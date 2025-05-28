@@ -1,0 +1,73 @@
+接口校验方式：Authorization token
+Bearer eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleWFkbWluIjoiOGFjMTBiYzgtMGIwYS00MWMwLWEwNjItMzdlMDMwOTI0YmQxIn0.gWGItzTEFEdIGH92McjjpATnx1OrXVWOBnr9ScWJg-xTfAAEQvRoTp2BbwQpeaQCTQgHXTEta4kmzXLNmEBVDw  请求头： 请求网址
+http://pc.mmis.cnllx.cn/minp-admin/project/weighbridge/info/listPage
+请求方法
+POST
+状态代码
+200 OK
+远程地址
+127.0.0.1:1082
+引荐来源网址政策
+strict-origin-when-cross-origin HTTP/1.1 200
+Server: nginx
+Date: Mon, 26 May 2025 16:08:42 GMT
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0 POST /minp-admin/project/weighbridge/info/listPage HTTP/1.1
+Accept: application/json, text/plain, */*
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh-TW;q=0.9,zh;q=0.8,en-US;q=0.7,en;q=0.6,ja;q=0.5
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleWFkbWluIjoiOGFjMTBiYzgtMGIwYS00MWMwLWEwNjItMzdlMDMwOTI0YmQxIn0.gWGItzTEFEdIGH92McjjpATnx1OrXVWOBnr9ScWJg-xTfAAEQvRoTp2BbwQpeaQCTQgHXTEta4kmzXLNmEBVDw
+Content-Length: 240
+Content-Type: application/json;charset=UTF-8
+Cookie: rememberMe=true; username=13599116415; password=AzARZRbBR21AnwP31bMsN6paL8IUUIE0/xpOikDT5dcba2+MBhdQG7hh3gKDAPTZRFL3EdigKcolFYqH6s9hdA==; Admin-Token=eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleWFkbWluIjoiOGFjMTBiYzgtMGIwYS00MWMwLWEwNjItMzdlMDMwOTI0YmQxIn0.gWGItzTEFEdIGH92McjjpATnx1OrXVWOBnr9ScWJg-xTfAAEQvRoTp2BbwQpeaQCTQgHXTEta4kmzXLNmEBVDw; sidebarStatus=0
+Host: pc.mmis.cnllx.cn
+Origin: http://pc.mmis.cnllx.cn
+Proxy-Connection: keep-alive
+Referer: http://pc.mmis.cnllx.cn/
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36  请求载荷： {"pageNum":1,"pageSize":50,"weighbridgeName":null,"supplyName":null,"carNumber":null,"userLocation":null,"pumpingMethod":null,"adminxture":null,"model":null,"materialName":null,"projectId":287,"onlyNumber":null,"checkState":"2","state":"0"}   返回：{
+    "total": 7569,
+    "rows": [
+        {
+            "reportInfoId": 283610,
+            "projectId": 287,
+            "projectName": "南安国际石材智慧产业园基础设施项目",
+            "orderId": null,
+            "weighbridgeName": "南安国际石材智慧产业园基础设施项目",
+            "materialName": "商品砼",
+            "model": "C20",
+            "unitName": "立方",
+            "adminxture": "普通",
+            "pumpingMethod": "车载泵",
+            "supplyName": "福建万筑混凝土发展有限公司",
+            "weightM": 43220,
+            "weightP": 17900,
+            "weightJ": 25320,
+            "weightMTime": "2025-05-26 16:43:13",
+            "createTime": "2025-05-26 18:08:06",
+            "weightPTime": "2025-05-26 18:04:58",
+            "state": "1",
+            "checkState": "1",
+            "carNumber": "赣M63686",
+            "onlyNumber": "W20250526164313017-J8Z1R",
+            "fromType": "3",
+            "userLocation": "智一路通信管道包封、智二路EK0+236.454圆管涵一字墙、洞口铺砌",
+            "carFrontImage": "https://cscec4b4.oss-cn-shenzhen.aliyuncs.com/minp/wbs/2024100913201508888/W20250526164313017-J8Z1R-1-pic-200.jpg,https://cscec4b4.oss-cn-shenzhen.aliyuncs.com/minp/wbs/2024100913201508888/W20250526164313017-J8Z1R-2-pic-200.jpg”,//车前照片
+            "carLeftImage": "https://cscec4b4.oss-cn-shenzhen.aliyuncs.com/minp/wbs/2024100913201508888/W20250526164313017-J8Z1R-1-pic-201.jpg,https://cscec4b4.oss-cn-shenzhen.aliyuncs.com/minp/wbs/2024100913201508888/W20250526164313017-J8Z1R-2-pic-201.jpg”,//左侧照片
+            "carRightImage": "https://cscec4b4.oss-cn-shenzhen.aliyuncs.com/minp/wbs/2024100913201508888/W20250526164313017-J8Z1R-1-pic-202.jpg,https://cscec4b4.oss-cn-shenzhen.aliyuncs.com/minp/wbs/2024100913201508888/W20250526164313017-J8Z1R-2-pic-202.jpg”,//右侧
+            "carNumImage": "https://cscec4b4.oss-cn-shenzhen.aliyuncs.com/minp/wbs/2024100913201508888/W20250526164313017-J8Z1R-1-plate.jpg”,//车牌照片
+            "amount": 10.87,
+            "complexValue": 10.87,
+            "bulkDensity": 2330,
+            "originalAmount": 11
+        },
+      …..
+    ],
+    "code": 200,
+    "msg": "查询成功"
+}

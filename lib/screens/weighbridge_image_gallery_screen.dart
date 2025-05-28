@@ -1,12 +1,16 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:path/path.dart' as path;
 import 'package:shared_preferences/shared_preferences.dart';
 import '../services/weighbridge_image_similarity_service.dart';
+import '../services/favorite_service.dart';
+import '../models/favorite_item.dart';
 import 'weighbridge_suspicious_images_screen.dart';
 import 'weighbridge_duplicate_detection_screen.dart';
+import 'favorites_screen.dart';
 
 class WeighbridgeImageGalleryScreen extends HookConsumerWidget {
   const WeighbridgeImageGalleryScreen({super.key});
@@ -17,6 +21,7 @@ class WeighbridgeImageGalleryScreen extends HookConsumerWidget {
     final availableDates = useState<List<String>>([]);
     final isLoading = useState(true);
     final imageSize = useState(150.0); // 图片显示大小
+    final isDatePanelCollapsed = useState(false); // 日期面板收起状态
 
     // 初始化可用日期列表
     useEffect(() {
@@ -44,6 +49,25 @@ class WeighbridgeImageGalleryScreen extends HookConsumerWidget {
         backgroundColor: Colors.orange.shade700,
         foregroundColor: Colors.white,
         actions: [
+          // 车牌筛选
+          IconButton(
+            icon: const Icon(Icons.filter_list),
+            tooltip: '车牌筛选',
+            onPressed: () => _showLicensePlateFilter(context, ref, selectedDate.value),
+          ),
+          // 收藏按钮
+          IconButton(
+            icon: const Icon(Icons.star),
+            tooltip: '我的收藏',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const FavoritesScreen(),
+                ),
+              );
+            },
+          ),
           // 图片大小控制
           PopupMenuButton<double>(
             icon: const Icon(Icons.photo_size_select_actual),
@@ -152,8 +176,9 @@ class WeighbridgeImageGalleryScreen extends HookConsumerWidget {
           : Row(
               children: [
                 // 左侧日期选择器
-                Container(
-                  width: 200,
+                AnimatedContainer(
+                  duration: const Duration(milliseconds: 200),
+                  width: isDatePanelCollapsed.value ? 50 : 200,
                   decoration: BoxDecoration(
                     border: Border(
                       right: BorderSide(color: Colors.grey.shade300),
@@ -169,72 +194,114 @@ class WeighbridgeImageGalleryScreen extends HookConsumerWidget {
                             bottom: BorderSide(color: Colors.grey.shade300),
                           ),
                         ),
-                        child: const Row(
+                        child: Row(
                           children: [
-                            Icon(Icons.calendar_today, size: 20, color: Colors.orange),
-                            SizedBox(width: 8),
-                            Text(
-                              '选择日期',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.orange,
+                            const Icon(Icons.calendar_today, size: 20, color: Colors.orange),
+                            if (!isDatePanelCollapsed.value) ...[
+                              const SizedBox(width: 8),
+                              const Expanded(
+                                child: Text(
+                                  '选择日期',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.orange,
+                                  ),
+                                ),
                               ),
+                            ],
+                            IconButton(
+                              icon: Icon(
+                                isDatePanelCollapsed.value 
+                                    ? Icons.keyboard_arrow_right 
+                                    : Icons.keyboard_arrow_left,
+                                color: Colors.orange,
+                                size: 20,
+                              ),
+                              onPressed: () {
+                                isDatePanelCollapsed.value = !isDatePanelCollapsed.value;
+                              },
+                              padding: EdgeInsets.zero,
+                              constraints: const BoxConstraints(),
+                              tooltip: isDatePanelCollapsed.value ? '展开日期面板' : '收起日期面板',
                             ),
                           ],
                         ),
                       ),
-                      Expanded(
-                        child: ListView.builder(
-                          itemCount: availableDates.value.length,
-                          itemBuilder: (context, index) {
-                            final date = availableDates.value[index];
-                            final isSelected = selectedDate.value == date;
-                            
-                            return ListTile(
-                              selected: isSelected,
-                              selectedTileColor: Colors.orange.withOpacity(0.1),
-                              title: Text(
-                                date,
-                                style: TextStyle(
-                                  fontWeight: isSelected 
-                                      ? FontWeight.bold 
-                                      : FontWeight.normal,
-                                  color: isSelected 
-                                      ? Colors.orange 
-                                      : null,
+                      if (!isDatePanelCollapsed.value)
+                        Expanded(
+                          child: ListView.builder(
+                            itemCount: availableDates.value.length,
+                            itemBuilder: (context, index) {
+                              final date = availableDates.value[index];
+                              final isSelected = selectedDate.value == date;
+                              
+                              return ListTile(
+                                selected: isSelected,
+                                selectedTileColor: Colors.orange.withOpacity(0.1),
+                                title: Text(
+                                  date,
+                                  style: TextStyle(
+                                    fontWeight: isSelected 
+                                        ? FontWeight.bold 
+                                        : FontWeight.normal,
+                                    color: isSelected 
+                                        ? Colors.orange 
+                                        : null,
+                                  ),
                                 ),
-                              ),
-                              trailing: FutureBuilder<int>(
-                                future: _getImageCountForDate(date),
-                                builder: (context, snapshot) {
-                                  return Container(
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: 8,
-                                      vertical: 4,
-                                    ),
-                                    decoration: BoxDecoration(
-                                      color: Colors.orange.withOpacity(0.1),
-                                      borderRadius: BorderRadius.circular(12),
-                                    ),
-                                    child: Text(
-                                      snapshot.hasData 
-                                          ? '${snapshot.data}' 
-                                          : '...',
-                                      style: const TextStyle(
-                                        fontSize: 12,
-                                        color: Colors.orange,
+                                trailing: FutureBuilder<int>(
+                                  future: _getImageCountForDate(date),
+                                  builder: (context, snapshot) {
+                                    return Container(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 8,
+                                        vertical: 4,
                                       ),
-                                    ),
-                                  );
+                                      decoration: BoxDecoration(
+                                        color: Colors.orange.withValues(alpha: 0.1),
+                                        borderRadius: BorderRadius.circular(12),
+                                      ),
+                                      child: Text(
+                                        snapshot.hasData 
+                                            ? '${snapshot.data}' 
+                                            : '...',
+                                        style: const TextStyle(
+                                          fontSize: 12,
+                                          color: Colors.orange,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ),
+                                onTap: () {
+                                  selectedDate.value = date;
                                 },
-                              ),
-                              onTap: () {
-                                selectedDate.value = date;
-                              },
-                            );
-                          },
+                              );
+                            },
+                          ),
                         ),
-                      ),
+                      if (isDatePanelCollapsed.value && selectedDate.value != null)
+                        Expanded(
+                          child: Container(
+                            padding: const EdgeInsets.all(8),
+                            child: Column(
+                              children: [
+                                const SizedBox(height: 8),
+                                RotatedBox(
+                                  quarterTurns: 1,
+                                  child: Text(
+                                    selectedDate.value!,
+                                    style: const TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.orange,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
                     ],
                   ),
                 ),
@@ -266,7 +333,15 @@ class WeighbridgeImageGalleryScreen extends HookConsumerWidget {
         imagesPath = path.join(customPath, 'weighbridge');
       } else {
         final currentDir = Directory.current.path;
-        imagesPath = path.join(currentDir, 'pic', 'weighbridge');
+        
+        // 确保路径是绝对路径，不是根目录
+        if (currentDir == '/' || currentDir.isEmpty) {
+          // 如果当前目录是根目录，使用用户文档目录
+          imagesPath = path.join(Platform.environment['HOME'] ?? '/tmp', 'Downloads', 'material_anticheat', 'pic', 'weighbridge');
+        } else {
+          // 使用相对于当前工作目录的路径
+          imagesPath = path.join(currentDir, 'pic', 'weighbridge');
+        }
       }
 
       final imagesDir = Directory(imagesPath);
@@ -305,7 +380,15 @@ class WeighbridgeImageGalleryScreen extends HookConsumerWidget {
         datePath = path.join(customPath, 'weighbridge', date);
       } else {
         final currentDir = Directory.current.path;
-        datePath = path.join(currentDir, 'pic', 'weighbridge', date);
+        
+        // 确保路径是绝对路径，不是根目录
+        if (currentDir == '/' || currentDir.isEmpty) {
+          // 如果当前目录是根目录，使用用户文档目录
+          datePath = path.join(Platform.environment['HOME'] ?? '/tmp', 'Downloads', 'material_anticheat', 'pic', 'weighbridge', date);
+        } else {
+          // 使用相对于当前工作目录的路径
+          datePath = path.join(currentDir, 'pic', 'weighbridge', date);
+        }
       }
 
       final dateDir = Directory(datePath);
@@ -330,6 +413,309 @@ class WeighbridgeImageGalleryScreen extends HookConsumerWidget {
       return 0;
     }
   }
+
+  /// 显示车牌筛选对话框
+  void _showLicensePlateFilter(BuildContext context, WidgetRef ref, String? selectedDate) {
+    if (selectedDate == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('请先选择日期'),
+          backgroundColor: Colors.orange,
+        ),
+      );
+      return;
+    }
+
+    showDialog(
+      context: context,
+      builder: (context) => LicensePlateFilterDialog(
+        selectedDate: selectedDate,
+      ),
+    );
+  }
+}
+
+/// 车牌筛选对话框
+class LicensePlateFilterDialog extends HookConsumerWidget {
+    final String selectedDate;
+
+    const LicensePlateFilterDialog({
+      super.key,
+      required this.selectedDate,
+    });
+
+    @override
+    Widget build(BuildContext context, WidgetRef ref) {
+      final searchController = useTextEditingController();
+      final availableLicensePlates = useState<List<String>>([]);
+      final filteredPlates = useState<List<String>>([]);
+      final isLoading = useState(true);
+
+      // 加载当天的车牌列表
+      useEffect(() {
+        Future.microtask(() async {
+          final plates = await _getAvailableLicensePlates(selectedDate);
+          availableLicensePlates.value = plates;
+          filteredPlates.value = plates;
+          isLoading.value = false;
+        });
+        return null;
+      }, [selectedDate]);
+
+      // 监听搜索文本变化
+      useEffect(() {
+        void onSearchChanged() {
+          final searchText = searchController.text.toLowerCase();
+          if (searchText.isEmpty) {
+            filteredPlates.value = availableLicensePlates.value;
+          } else {
+            filteredPlates.value = availableLicensePlates.value
+                .where((plate) => plate.toLowerCase().contains(searchText))
+                .toList();
+          }
+        }
+        searchController.addListener(onSearchChanged);
+        return () => searchController.removeListener(onSearchChanged);
+      }, []);
+
+      return Dialog(
+        child: Container(
+          width: 400,
+          height: 600,
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            children: [
+              // 标题
+              Row(
+                children: [
+                  const Icon(Icons.filter_list, color: Colors.orange),
+                  const SizedBox(width: 8),
+                  Text(
+                    '$selectedDate 车牌筛选',
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const Spacer(),
+                  IconButton(
+                    icon: const Icon(Icons.close),
+                    onPressed: () => Navigator.of(context).pop(),
+                  ),
+                ],
+              ),
+              
+              const SizedBox(height: 16),
+              
+              // 搜索框
+              TextField(
+                controller: searchController,
+                decoration: InputDecoration(
+                  hintText: '搜索车牌号...',
+                  prefixIcon: const Icon(Icons.search),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+              ),
+              
+              const SizedBox(height: 16),
+              
+              // 车牌列表
+              Expanded(
+                child: isLoading.value
+                    ? const Center(child: CircularProgressIndicator())
+                    : filteredPlates.value.isEmpty
+                        ? const Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(Icons.directions_car_outlined, size: 64, color: Colors.grey),
+                                SizedBox(height: 16),
+                                Text('暂无车牌数据', style: TextStyle(color: Colors.grey)),
+                              ],
+                            ),
+                          )
+                        : ListView.builder(
+                            itemCount: filteredPlates.value.length,
+                            itemBuilder: (context, index) {
+                              final licensePlate = filteredPlates.value[index];
+                              final favorites = ref.watch(favoriteServiceProvider);
+                              final isFavorited = favorites.any((item) => 
+                                item.type == FavoriteType.licensePlate && 
+                                item.name == licensePlate
+                              );
+                              
+                              return Card(
+                                child: ListTile(
+                                  leading: const Icon(Icons.directions_car, color: Colors.orange),
+                                  title: Text(
+                                    licensePlate,
+                                    style: const TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                  subtitle: FutureBuilder<int>(
+                                    future: _getImageCountForLicensePlate(selectedDate, licensePlate),
+                                    builder: (context, snapshot) {
+                                      return Text(
+                                        snapshot.hasData ? '${snapshot.data} 张图片' : '加载中...',
+                                      );
+                                    },
+                                  ),
+                                  trailing: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      // 收藏按钮
+                                      IconButton(
+                                        icon: Icon(
+                                          isFavorited ? Icons.star : Icons.star_border,
+                                          color: isFavorited ? Colors.amber : null,
+                                        ),
+                                        onPressed: () async {
+                                          await ref
+                                              .read(favoriteServiceProvider.notifier)
+                                              .toggleFavorite(
+                                                name: licensePlate,
+                                                type: FavoriteType.licensePlate,
+                                                date: selectedDate,
+                                                description: '车牌收藏',
+                                                // 车牌收藏不传递图片
+                                              );
+                                        },
+                                      ),
+                                      // 查看按钮
+                                      IconButton(
+                                        icon: const Icon(Icons.visibility),
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                          ref.read(licensePlateFilterProvider.notifier).setFilter(licensePlate);
+                                          ScaffoldMessenger.of(context).showSnackBar(
+                                            SnackBar(
+                                              content: Text('已筛选车牌: $licensePlate'),
+                                              backgroundColor: Colors.green,
+                                              action: SnackBarAction(
+                                                label: '清除筛选',
+                                                onPressed: () {
+                                                  ref.read(licensePlateFilterProvider.notifier).clearFilter();
+                                                },
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+
+    /// 获取指定日期的可用车牌列表
+    Future<List<String>> _getAvailableLicensePlates(String date) async {
+      try {
+        final prefs = await SharedPreferences.getInstance();
+        final customPath = prefs.getString('save_path');
+        
+        String datePath;
+        if (customPath != null && customPath.isNotEmpty) {
+          datePath = path.join(customPath, 'weighbridge_images', date);
+        } else {
+          final currentDir = Directory.current.path;
+          
+          // 确保路径是绝对路径，不是根目录
+          if (currentDir == '/' || currentDir.isEmpty) {
+            // 如果当前目录是根目录，使用用户文档目录
+            datePath = path.join(Platform.environment['HOME'] ?? '/tmp', 'Downloads', 'material_anticheat', 'pic', 'weighbridge_images', date);
+          } else {
+            // 使用相对于当前工作目录的路径
+            datePath = path.join(currentDir, 'pic', 'weighbridge_images', date);
+          }
+        }
+
+        final dateDir = Directory(datePath);
+        if (!await dateDir.exists()) {
+          return [];
+        }
+
+        final licensePlates = <String>{};
+        
+        await for (final entity in dateDir.list(recursive: true)) {
+          if (entity is File) {
+            final fileName = path.basename(entity.path);
+            // 从文件名中提取车牌号（假设文件名格式包含车牌号）
+            final licensePlate = _extractLicensePlateFromFileName(fileName);
+            if (licensePlate != null) {
+              licensePlates.add(licensePlate);
+            }
+          }
+        }
+
+        final sortedPlates = licensePlates.toList();
+        sortedPlates.sort();
+        return sortedPlates;
+      } catch (e) {
+        debugPrint('获取车牌列表失败: $e');
+        return [];
+      }
+    }
+
+    /// 从文件名中提取车牌号
+    String? _extractLicensePlateFromFileName(String fileName) {
+      // 这里需要根据实际的文件命名规则来提取车牌号
+      // 假设文件名格式类似: "2024-01-01_12-30-45_川A12345_1.jpg"
+      final regex = RegExp(r'[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z][A-Z]?[A-Z0-9]{4,5}[A-Z0-9挂学警港澳]?');
+      final match = regex.firstMatch(fileName);
+      return match?.group(0);
+    }
+
+    /// 获取指定车牌在指定日期的图片数量
+    Future<int> _getImageCountForLicensePlate(String date, String licensePlate) async {
+      try {
+        final prefs = await SharedPreferences.getInstance();
+        final customPath = prefs.getString('save_path');
+        
+        String datePath;
+        if (customPath != null && customPath.isNotEmpty) {
+          datePath = path.join(customPath, 'weighbridge_images', date);
+        } else {
+          final currentDir = Directory.current.path;
+          
+          // 确保路径是绝对路径，不是根目录
+          if (currentDir == '/' || currentDir.isEmpty) {
+            // 如果当前目录是根目录，使用用户文档目录
+            datePath = path.join(Platform.environment['HOME'] ?? '/tmp', 'Downloads', 'material_anticheat', 'pic', 'weighbridge_images', date);
+          } else {
+            // 使用相对于当前工作目录的路径
+            datePath = path.join(currentDir, 'pic', 'weighbridge_images', date);
+          }
+        }
+
+        final dateDir = Directory(datePath);
+        if (!await dateDir.exists()) {
+          return 0;
+        }
+
+        int count = 0;
+        await for (final entity in dateDir.list(recursive: true)) {
+          if (entity is File) {
+            final fileName = path.basename(entity.path);
+            if (fileName.contains(licensePlate)) {
+              count++;
+            }
+          }
+        }
+
+        return count;
+      } catch (e) {
+        debugPrint('获取车牌图片数量失败: $e');
+        return 0;
+      }
+    }
 }
 
 class WeighbridgeImageGridView extends HookConsumerWidget {
@@ -348,6 +734,9 @@ class WeighbridgeImageGridView extends HookConsumerWidget {
     final isLoading = useState(true);
     final suspiciousThreshold = useState(30.0);
     
+    // 监听车牌筛选器
+    final licensePlateFilter = ref.watch(licensePlateFilterProvider);
+    
     // 获取今日可疑图片
     final suspiciousImagesAsync = ref.watch(
       weighbridgeSuspiciousImagesProvider(suspiciousThreshold.value),
@@ -362,18 +751,49 @@ class WeighbridgeImageGridView extends HookConsumerWidget {
       return null;
     }, [date]);
 
+    // 根据车牌筛选过滤图片组
+    final filteredImageGroups = useMemoized(() {
+      if (licensePlateFilter.isEmpty) {
+        return imageGroups.value;
+      }
+      
+      return Map<String, List<File>>.fromEntries(
+        imageGroups.value.entries.where((entry) {
+          // 检查过磅记录名称是否包含筛选的车牌号
+          final recordName = entry.key;
+          final parts = recordName.split('_');
+          final carNumber = parts.length > 2 ? parts[2] : '';
+          return carNumber.contains(licensePlateFilter);
+        }),
+      );
+    }, [imageGroups.value, licensePlateFilter]);
+
     if (isLoading.value) {
       return const Center(child: CircularProgressIndicator());
     }
 
-    if (imageGroups.value.isEmpty) {
+    if (filteredImageGroups.isEmpty) {
       return Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Icon(Icons.image_not_supported, size: 64, color: Colors.grey),
             const SizedBox(height: 16),
-            Text('$date 没有过磅图片', style: const TextStyle(color: Colors.grey)),
+            Text(
+              licensePlateFilter.isNotEmpty 
+                  ? '没有找到车牌 "$licensePlateFilter" 的图片'
+                  : '$date 没有过磅图片', 
+              style: const TextStyle(color: Colors.grey)
+            ),
+            if (licensePlateFilter.isNotEmpty) ...[
+              const SizedBox(height: 8),
+              TextButton(
+                onPressed: () {
+                  ref.read(licensePlateFilterProvider.notifier).clearFilter();
+                },
+                child: const Text('清除筛选'),
+              ),
+            ],
           ],
         ),
       );
@@ -474,9 +894,25 @@ class WeighbridgeImageGridView extends HookConsumerWidget {
                 const Icon(Icons.scale, size: 20, color: Colors.orange),
                 const SizedBox(width: 8),
                 Text(
-                  '$date (${imageGroups.value.keys.length} 个过磅记录)',
+                  licensePlateFilter.isNotEmpty
+                      ? '$date - 车牌筛选: $licensePlateFilter (${filteredImageGroups.keys.length} 个匹配记录)'
+                      : '$date (${filteredImageGroups.keys.length} 个过磅记录)',
                   style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
+                if (licensePlateFilter.isNotEmpty) ...[
+                  const SizedBox(width: 8),
+                  TextButton.icon(
+                    onPressed: () {
+                      ref.read(licensePlateFilterProvider.notifier).clearFilter();
+                    },
+                    icon: const Icon(Icons.clear, size: 16),
+                    label: const Text('清除筛选'),
+                    style: TextButton.styleFrom(
+                      foregroundColor: Colors.orange,
+                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    ),
+                  ),
+                ],
                 const Spacer(),
               ],
             ),
@@ -487,8 +923,8 @@ class WeighbridgeImageGridView extends HookConsumerWidget {
         SliverList(
           delegate: SliverChildBuilderDelegate(
             (context, index) {
-              final recordName = imageGroups.value.keys.elementAt(index);
-              final images = imageGroups.value[recordName]!;
+              final recordName = filteredImageGroups.keys.elementAt(index);
+              final images = filteredImageGroups[recordName]!;
               
               return WeighbridgeRecordImagesCard(
                 recordName: recordName,
@@ -500,16 +936,14 @@ class WeighbridgeImageGridView extends HookConsumerWidget {
                 ),
                 onImagesChanged: () {
                   // 刷新图片列表时重新加载数据
-                  Future.microtask(() {
-                    imageGroups.value = {}; // 先清空触发重建
-                    _loadWeighbridgeImageGroups(date).then((groups) {
-                      imageGroups.value = groups;
-                    });
+                  Future.microtask(() async {
+                    final groups = await _loadWeighbridgeImageGroups(date);
+                    imageGroups.value = groups;
                   });
                 },
               );
             },
-            childCount: imageGroups.value.keys.length,
+            childCount: filteredImageGroups.keys.length,
           ),
         ),
       ],
@@ -517,7 +951,7 @@ class WeighbridgeImageGridView extends HookConsumerWidget {
   }
 }
 
-class WeighbridgeRecordImagesCard extends HookWidget {
+class WeighbridgeRecordImagesCard extends HookConsumerWidget {
   final String recordName;
   final List<File> images;
   final double imageSize;
@@ -534,7 +968,7 @@ class WeighbridgeRecordImagesCard extends HookWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
 
     // 解析过磅记录名称
     final parts = recordName.split('_');
@@ -547,39 +981,59 @@ class WeighbridgeRecordImagesCard extends HookWidget {
       suspiciousImages.contains(image.path)
     ).length;
 
+    // 检查收藏状态
+    final favorites = ref.watch(favoriteServiceProvider);
+    final isIdFavorited = favorites.any((item) => 
+      item.type == FavoriteType.id && item.name == reportId
+    );
+    final isLicensePlateFavorited = favorites.any((item) => 
+      item.type == FavoriteType.licensePlate && item.name == carNumber
+    );
+
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: Container(
         padding: const EdgeInsets.all(16),
-        child: Row(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // 左侧相关信息
-            SizedBox(
-              width: 250,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // 过磅ID
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 12,
-                      vertical: 6,
-                    ),
-                    decoration: BoxDecoration(
-                      color: Colors.orange.withOpacity(0.1),
-                      borderRadius: BorderRadius.circular(6),
-                      border: Border.all(color: Colors.orange.withOpacity(0.3)),
-                    ),
-                    child: Text(
-                      '过磅ID: $reportId',
-                      style: const TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.orange,
+            // 顶部信息行
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // 左侧相关信息
+                SizedBox(
+                  width: 200,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                                        // 过磅ID
+                      Container(
+                        width: 160,
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 12,
+                          vertical: 6,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.orange.withValues(alpha: 0.1),
+                          borderRadius: BorderRadius.circular(6),
+                          border: Border.all(
+                            color: Colors.orange.withValues(alpha: 0.3),
+                            width: 1,
+                          ),
+                        ),
+                        child: GestureDetector(
+                          onTap: () => _copyToClipboard(context, reportId, 'ID'),
+                          child: Text(
+                            '过磅ID: $reportId',
+                            style: const TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.orange,
+                            ),
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
                   const SizedBox(height: 12),
                   
                   // 物资名称
@@ -601,20 +1055,22 @@ class WeighbridgeRecordImagesCard extends HookWidget {
                   const SizedBox(height: 8),
                   
                   // 车牌号码
-                  Row(
-                    children: [
-                      const Icon(Icons.local_shipping, size: 16, color: Colors.grey),
-                      const SizedBox(width: 8),
-                      Expanded(
-                        child: Text(
+                  GestureDetector(
+                    onTap: () => _copyToClipboard(context, carNumber, '车牌'),
+                    onDoubleTap: () => _filterByLicensePlate(context, ref, carNumber),
+                    child: Row(
+                      children: [
+                        const Icon(Icons.local_shipping, size: 16, color: Colors.grey),
+                        const SizedBox(width: 8),
+                        Text(
                           '车牌: $carNumber',
                           style: const TextStyle(
                             fontSize: 13,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                   const SizedBox(height: 8),
                   
@@ -642,9 +1098,9 @@ class WeighbridgeRecordImagesCard extends HookWidget {
                         vertical: 8,
                       ),
                       decoration: BoxDecoration(
-                        color: Colors.red.withOpacity(0.1),
+                        color: Colors.red.withValues(alpha: 0.1),
                         borderRadius: BorderRadius.circular(6),
-                        border: Border.all(color: Colors.red.withOpacity(0.3)),
+                        border: Border.all(color: Colors.red.withValues(alpha: 0.3)),
                       ),
                       child: Row(
                         children: [
@@ -665,30 +1121,142 @@ class WeighbridgeRecordImagesCard extends HookWidget {
                     ),
                   ],
                   
-                  const SizedBox(height: 16),
-                  
-                  // 批量删除按钮
-                  SizedBox(
-                    width: double.infinity,
-                    child: OutlinedButton.icon(
-                      onPressed: () => _showBatchDeleteDialog(context, images, '全部图片', onImagesChanged),
-                      icon: const Icon(Icons.delete_sweep, size: 18),
-                      label: const Text('批量删除'),
-                      style: OutlinedButton.styleFrom(
-                        foregroundColor: Colors.red,
-                        side: const BorderSide(color: Colors.red),
-                      ),
-                    ),
+ 
+                    ],
                   ),
-                ],
-              ),
+                ),
+                
+                const SizedBox(width: 16),
+                
+                // 右侧图片网格 - 固定7列
+                Expanded(
+                  child: _buildImageGrid(context),
+                ),
+              ],
             ),
             
-            const SizedBox(width: 16),
+            const SizedBox(height: 16),
             
-            // 右侧图片网格 - 固定7列
-            Expanded(
-              child: _buildImageGrid(context),
+            // 底部操作按钮行
+            Row(
+              children: [
+                // 收藏按钮组
+                Row(
+                  children: [
+                    // ID收藏按钮
+                    Column(
+                      children: [
+                        IconButton(
+                          icon: Icon(
+                            isIdFavorited ? Icons.star : Icons.star_border,
+                            color: isIdFavorited ? Colors.amber : Colors.grey,
+                            size: 20,
+                          ),
+                          onPressed: () async {
+                            await ref
+                                .read(favoriteServiceProvider.notifier)
+                                .toggleFavorite(
+                                  name: reportId,
+                                  type: FavoriteType.id,
+                                  description: '过磅ID收藏',
+                                  imagePath: images.isNotEmpty ? images.first.path : null,
+                                  allImages: images, // 传递所有图片
+                                );
+                          },
+                          tooltip: isIdFavorited ? '取消收藏ID' : '收藏ID',
+                          padding: EdgeInsets.zero,
+                          constraints: const BoxConstraints(),
+                        ),
+                        Text(
+                          isIdFavorited ? 'ID已收藏' : '收藏ID',
+                          style: TextStyle(
+                            fontSize: 10,
+                            color: isIdFavorited ? Colors.amber : Colors.grey,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(width: 16),
+                    // 车牌收藏按钮
+                    Column(
+                      children: [
+                        IconButton(
+                          icon: Icon(
+                            isLicensePlateFavorited ? Icons.star : Icons.star_border,
+                            color: isLicensePlateFavorited ? Colors.amber : Colors.grey,
+                            size: 20,
+                          ),
+                          onPressed: () async {
+                            await ref
+                                .read(favoriteServiceProvider.notifier)
+                                .toggleFavorite(
+                                  name: carNumber,
+                                  type: FavoriteType.licensePlate,
+                                  description: '车牌收藏',
+                                  // 车牌收藏不传递图片
+                                );
+                          },
+                          tooltip: isLicensePlateFavorited ? '取消收藏车牌' : '收藏车牌',
+                          padding: EdgeInsets.zero,
+                          constraints: const BoxConstraints(),
+                        ),
+                        Text(
+                          isLicensePlateFavorited ? '车牌已收藏' : '收藏车牌',
+                          style: TextStyle(
+                            fontSize: 10,
+                            color: isLicensePlateFavorited ? Colors.amber : Colors.grey,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(width: 16),
+                    // 车牌收藏警告提示
+                    if (isLicensePlateFavorited && !isIdFavorited) 
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 8,
+                          vertical: 4,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.amber.withValues(alpha: 0.1),
+                          borderRadius: BorderRadius.circular(4),
+                          border: Border.all(color: Colors.amber.withValues(alpha: 0.3)),
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            const Icon(Icons.star, size: 12, color: Colors.amber),
+                            const SizedBox(width: 4),
+                            Text(
+                              '建议关注此ID',
+                              style: TextStyle(
+                                fontSize: 10,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.amber.shade700,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                  ],
+                ),
+                
+                const Spacer(),
+                
+                // 批量删除按钮
+                SizedBox(
+                  width: 150,
+                  child: OutlinedButton.icon(
+                    onPressed: () => _showBatchDeleteDialog(context, images, '全部图片', onImagesChanged),
+                    icon: const Icon(Icons.delete_sweep, size: 18),
+                    label: const Text('批量删除'),
+                    style: OutlinedButton.styleFrom(
+                      foregroundColor: Colors.red,
+                      side: const BorderSide(color: Colors.red),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
@@ -740,6 +1308,8 @@ class WeighbridgeRecordImagesCard extends HookWidget {
                     fit: BoxFit.cover,
                     width: double.infinity,
                     height: double.infinity,
+                    // 根据图片位置设置对齐方式
+                    alignment: _getImageAlignment(imageIndex),
                     errorBuilder: (context, error, stackTrace) {
                       return Container(
                         color: Colors.grey.shade200,
@@ -808,6 +1378,51 @@ class WeighbridgeRecordImagesCard extends HookWidget {
           ),
         );
       },
+    );
+  }
+
+  /// 获取图片对齐方式
+  Alignment _getImageAlignment(int imageIndex) {
+    // 第一第二张图片（索引0,1）偏右显示顶头
+    if (imageIndex == 0 || imageIndex == 1) {
+      return Alignment.topRight;
+    }
+    // 第三第四张图片（索引2,3）偏左显示顶头
+    else if (imageIndex == 2 || imageIndex == 3) {
+      return Alignment.topLeft;
+    }
+    // 其他图片保持居中
+    else {
+      return Alignment.center;
+    }
+  }
+
+  /// 复制到剪贴板
+  void _copyToClipboard(BuildContext context, String text, String type) {
+    Clipboard.setData(ClipboardData(text: text));
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('已复制$type: $text'),
+        backgroundColor: Colors.green,
+        duration: const Duration(seconds: 1),
+      ),
+    );
+  }
+
+  /// 车牌筛选功能
+  void _filterByLicensePlate(BuildContext context, WidgetRef ref, String licensePlate) {
+    ref.read(licensePlateFilterProvider.notifier).setFilter(licensePlate);
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('已筛选车牌: $licensePlate'),
+        backgroundColor: Colors.green,
+        action: SnackBarAction(
+          label: '清除筛选',
+          onPressed: () {
+            ref.read(licensePlateFilterProvider.notifier).clearFilter();
+          },
+        ),
+      ),
     );
   }
 
@@ -963,6 +1578,22 @@ class WeighbridgeImagePreviewDialog extends HookWidget {
     this.onImagesChanged,
   });
 
+  /// 获取预览图片对齐方式
+  static Alignment _getImageAlignmentForPreview(int imageIndex) {
+    // 第一第二张图片（索引0,1）偏右显示顶头
+    if (imageIndex == 0 || imageIndex == 1) {
+      return Alignment.topRight;
+    }
+    // 第三第四张图片（索引2,3）偏左显示顶头
+    else if (imageIndex == 2 || imageIndex == 3) {
+      return Alignment.topLeft;
+    }
+    // 其他图片保持居中
+    else {
+      return Alignment.center;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final currentIndex = useState(initialIndex);
@@ -1016,6 +1647,8 @@ class WeighbridgeImagePreviewDialog extends HookWidget {
                   child: Image.file(
                     images[currentIndex.value],
                     fit: BoxFit.contain,
+                    // 根据图片位置设置对齐方式
+                    alignment: _getImageAlignmentForPreview(currentIndex.value),
                     errorBuilder: (context, error, stackTrace) {
                       return Container(
                         color: Colors.grey.shade200,

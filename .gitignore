@@ -43,3 +43,12 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# 排除大文件
+*.zip
+*.tar.gz
+*.pkg
+release-*/
+bundled_python/
+python_scripts/dist/
+python_scripts/build/

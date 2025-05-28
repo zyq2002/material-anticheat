@@ -1,0 +1,1444 @@
+﻿2025-05-27T09:22:01.4669760Z Current runner version: '2.324.0'
+2025-05-27T09:22:01.4708289Z ##[group]Operating System
+2025-05-27T09:22:01.4709560Z Microsoft Windows Server 2022
+2025-05-27T09:22:01.4710422Z 10.0.20348
+2025-05-27T09:22:01.4711144Z Datacenter
+2025-05-27T09:22:01.4711842Z ##[endgroup]
+2025-05-27T09:22:01.4712602Z ##[group]Runner Image
+2025-05-27T09:22:01.4713394Z Image: windows-2022
+2025-05-27T09:22:01.4714187Z Version: 20250511.1.0
+2025-05-27T09:22:01.4716111Z Included Software: https://github.com/actions/runner-images/blob/win22/20250511.1/images/windows/Windows2022-Readme.md
+2025-05-27T09:22:01.4718570Z Image Release: https://github.com/actions/runner-images/releases/tag/win22%2F20250511.1
+2025-05-27T09:22:01.4720232Z ##[endgroup]
+2025-05-27T09:22:01.4721061Z ##[group]Runner Image Provisioner
+2025-05-27T09:22:01.4722018Z 2.0.437.1
+2025-05-27T09:22:01.4723018Z ##[endgroup]
+2025-05-27T09:22:01.4724970Z ##[group]GITHUB_TOKEN Permissions
+2025-05-27T09:22:01.4728287Z Contents: read
+2025-05-27T09:22:01.4729403Z Metadata: read
+2025-05-27T09:22:01.4730237Z Packages: read
+2025-05-27T09:22:01.4730976Z ##[endgroup]
+2025-05-27T09:22:01.4733911Z Secret source: Actions
+2025-05-27T09:22:01.4735160Z Prepare workflow directory
+2025-05-27T09:22:01.5132638Z Prepare all required actions
+2025-05-27T09:22:01.5169428Z Getting action download info
+2025-05-27T09:22:01.7819678Z ##[group]Download immutable action package 'actions/checkout@v4'
+2025-05-27T09:22:01.7820972Z Version: 4.2.2
+2025-05-27T09:22:01.7822163Z Digest: sha256:ccb2698953eaebd21c7bf6268a94f9c26518a7e38e27e0b83c1fe1ad049819b1
+2025-05-27T09:22:01.7823637Z Source commit SHA: 11bd71901bbe5b1630ceea73d27597364c9af683
+2025-05-27T09:22:01.7824551Z ##[endgroup]
+2025-05-27T09:22:02.0544832Z ##[group]Download immutable action package 'actions/setup-python@v4'
+2025-05-27T09:22:02.0545686Z Version: 4.9.1
+2025-05-27T09:22:02.0546384Z Digest: sha256:f03e505388af670b5a108629e0ba26befc08d5c62b41f46146a45fe29ae509a5
+2025-05-27T09:22:02.0547329Z Source commit SHA: 7f4fc3e22c37d6ff65e88745f38bd3157c663f7c
+2025-05-27T09:22:02.0547999Z ##[endgroup]
+2025-05-27T09:22:02.3122801Z Download action repository 'subosito/flutter-action@v2' (SHA:e938fdf56512cc96ef2f93601a5a40bde3801046)
+2025-05-27T09:22:02.4902884Z ##[group]Download immutable action package 'actions/upload-artifact@v4'
+2025-05-27T09:22:02.4903743Z Version: 4.6.2
+2025-05-27T09:22:02.4904516Z Digest: sha256:290722aa3281d5caf23d0acdc3dbeb3424786a1a01a9cc97e72f147225e37c38
+2025-05-27T09:22:02.4905520Z Source commit SHA: ea165f8d65b6e75b540449e92b4886f43607fa02
+2025-05-27T09:22:02.4906231Z ##[endgroup]
+2025-05-27T09:22:03.1792876Z Getting action download info
+2025-05-27T09:22:03.3259908Z ##[group]Download immutable action package 'actions/cache@v4'
+2025-05-27T09:22:03.3261203Z Version: 4.2.3
+2025-05-27T09:22:03.3262010Z Digest: sha256:c8a3bb963e1f1826d8fcc8d1354f0dd29d8ac1db1d4f6f20247055ae11b81ed9
+2025-05-27T09:22:03.3263686Z Source commit SHA: 5a3ec84eff668545956fd18022155c47e93e2684
+2025-05-27T09:22:03.3264657Z ##[endgroup]
+2025-05-27T09:22:03.5730734Z Complete job name: build-windows
+2025-05-27T09:22:03.6879902Z ##[group]Run actions/checkout@v4
+2025-05-27T09:22:03.6881057Z with:
+2025-05-27T09:22:03.6881616Z   repository: zyq2002/material-anticheat
+2025-05-27T09:22:03.6882477Z   token: ***
+2025-05-27T09:22:03.6882944Z   ssh-strict: true
+2025-05-27T09:22:03.6883424Z   ssh-user: git
+2025-05-27T09:22:03.6883920Z   persist-credentials: true
+2025-05-27T09:22:03.6884458Z   clean: true
+2025-05-27T09:22:03.6884950Z   sparse-checkout-cone-mode: true
+2025-05-27T09:22:03.6885525Z   fetch-depth: 1
+2025-05-27T09:22:03.6885970Z   fetch-tags: false
+2025-05-27T09:22:03.6886468Z   show-progress: true
+2025-05-27T09:22:03.6886924Z   lfs: false
+2025-05-27T09:22:03.6887383Z   submodules: false
+2025-05-27T09:22:03.6887846Z   set-safe-directory: true
+2025-05-27T09:22:03.6888606Z ##[endgroup]
+2025-05-27T09:22:04.4836345Z Syncing repository: zyq2002/material-anticheat
+2025-05-27T09:22:04.5207606Z ##[group]Getting Git version info
+2025-05-27T09:22:04.5211802Z Working directory is 'D:\a\material-anticheat\material-anticheat'
+2025-05-27T09:22:04.8353078Z [command]"C:\Program Files\Git\bin\git.exe" version
+2025-05-27T09:22:04.9668251Z git version 2.49.0.windows.1
+2025-05-27T09:22:04.9683634Z ##[endgroup]
+2025-05-27T09:22:04.9784392Z Temporarily overriding HOME='D:\a\_temp\13386700-057c-4eac-b9b9-b08fe76846f8' before making global git config changes
+2025-05-27T09:22:04.9786526Z Adding repository directory to the temporary git global config as a safe directory
+2025-05-27T09:22:04.9796558Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\material-anticheat\material-anticheat
+2025-05-27T09:22:05.0537781Z Deleting the contents of 'D:\a\material-anticheat\material-anticheat'
+2025-05-27T09:22:05.0544036Z ##[group]Initializing the repository
+2025-05-27T09:22:05.0553945Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\material-anticheat\material-anticheat
+2025-05-27T09:22:05.2597853Z Initialized empty Git repository in D:/a/material-anticheat/material-anticheat/.git/
+2025-05-27T09:22:05.2641693Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/zyq2002/material-anticheat
+2025-05-27T09:22:05.3344822Z ##[endgroup]
+2025-05-27T09:22:05.3346238Z ##[group]Disabling automatic garbage collection
+2025-05-27T09:22:05.3354251Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2025-05-27T09:22:05.3599448Z ##[endgroup]
+2025-05-27T09:22:05.3600763Z ##[group]Setting up auth
+2025-05-27T09:22:05.3613437Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2025-05-27T09:22:05.3862758Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2025-05-27T09:22:07.2906595Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-05-27T09:22:07.3153187Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2025-05-27T09:22:07.8084521Z [command]"C:\Program Files\Git\bin\git.exe" config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2025-05-27T09:22:07.8332301Z ##[endgroup]
+2025-05-27T09:22:07.8333272Z ##[group]Fetching the repository
+2025-05-27T09:22:07.8353462Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +e25d63c772d5361a64ba2f79e0881bc9a9f367eb:refs/remotes/origin/main
+2025-05-27T09:22:09.1635647Z From https://github.com/zyq2002/material-anticheat
+2025-05-27T09:22:09.1636530Z  * [new ref]         e25d63c772d5361a64ba2f79e0881bc9a9f367eb -> origin/main
+2025-05-27T09:22:09.1873488Z ##[endgroup]
+2025-05-27T09:22:09.1878110Z ##[group]Determining the checkout info
+2025-05-27T09:22:09.1879115Z ##[endgroup]
+2025-05-27T09:22:09.1890274Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+2025-05-27T09:22:09.2510559Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+2025-05-27T09:22:09.2732505Z ##[group]Checking out the ref
+2025-05-27T09:22:09.2741427Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force -B main refs/remotes/origin/main
+2025-05-27T09:22:09.3633489Z branch 'main' set up to track 'origin/main'.
+2025-05-27T09:22:09.3639134Z Switched to a new branch 'main'
+2025-05-27T09:22:09.3670043Z ##[endgroup]
+2025-05-27T09:22:09.4057988Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+2025-05-27T09:22:09.4275521Z e25d63c772d5361a64ba2f79e0881bc9a9f367eb
+2025-05-27T09:22:09.4745931Z ##[group]Run actions/setup-python@v4
+2025-05-27T09:22:09.4746264Z with:
+2025-05-27T09:22:09.4747255Z   python-version: 3.11
+2025-05-27T09:22:09.4747471Z   check-latest: false
+2025-05-27T09:22:09.4747775Z   token: ***
+2025-05-27T09:22:09.4747970Z   update-environment: true
+2025-05-27T09:22:09.4748198Z   allow-prereleases: false
+2025-05-27T09:22:09.4748389Z ##[endgroup]
+2025-05-27T09:22:09.7137371Z ##[group]Installed versions
+2025-05-27T09:22:09.7365160Z Successfully set up CPython (3.11.9)
+2025-05-27T09:22:09.7366688Z ##[endgroup]
+2025-05-27T09:22:09.7609859Z ##[group]Run python -m pip install --upgrade pip
+2025-05-27T09:22:09.7610325Z [36;1mpython -m pip install --upgrade pip[0m
+2025-05-27T09:22:09.7610669Z [36;1mif (Test-Path "python_scripts/requirements.txt") {[0m
+2025-05-27T09:22:09.7611035Z [36;1m  pip install -r python_scripts/requirements.txt[0m
+2025-05-27T09:22:09.7611306Z [36;1m} else {[0m
+2025-05-27T09:22:09.7611589Z [36;1m  echo "警告: python_scripts/requirements.txt 不存在，跳过Python依赖安装"[0m
+2025-05-27T09:22:09.7611905Z [36;1m}[0m
+2025-05-27T09:22:09.7879606Z shell: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE -command ". '{0}'"
+2025-05-27T09:22:09.7880117Z env:
+2025-05-27T09:22:09.7880390Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:22:09.7880851Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T09:22:09.7881244Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:22:09.7881665Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:22:09.7882025Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:22:09.7882311Z ##[endgroup]
+2025-05-27T09:22:25.3464142Z Requirement already satisfied: pip in c:\hostedtoolcache\windows\python\3.11.9\x64\lib\site-packages (25.1.1)
+2025-05-27T09:22:27.8082922Z Collecting opencv-python==4.8.1.78 (from -r python_scripts/requirements.txt (line 1))
+2025-05-27T09:22:27.8378795Z   Downloading opencv_python-4.8.1.78-cp37-abi3-win_amd64.whl.metadata (20 kB)
+2025-05-27T09:22:28.0434410Z Collecting numpy==1.24.3 (from -r python_scripts/requirements.txt (line 2))
+2025-05-27T09:22:28.0496430Z   Downloading numpy-1.24.3-cp311-cp311-win_amd64.whl.metadata (5.6 kB)
+2025-05-27T09:22:28.2081822Z Collecting matplotlib==3.9.4 (from -r python_scripts/requirements.txt (line 3))
+2025-05-27T09:22:28.2148401Z   Downloading matplotlib-3.9.4-cp311-cp311-win_amd64.whl.metadata (11 kB)
+2025-05-27T09:22:28.3054191Z Collecting scikit-image==0.24.0 (from -r python_scripts/requirements.txt (line 4))
+2025-05-27T09:22:28.3121177Z   Downloading scikit_image-0.24.0-cp311-cp311-win_amd64.whl.metadata (14 kB)
+2025-05-27T09:22:28.4770019Z Collecting scipy==1.13.1 (from -r python_scripts/requirements.txt (line 5))
+2025-05-27T09:22:28.4843820Z   Downloading scipy-1.13.1-cp311-cp311-win_amd64.whl.metadata (60 kB)
+2025-05-27T09:22:28.5649764Z Collecting networkx==3.2.1 (from -r python_scripts/requirements.txt (line 6))
+2025-05-27T09:22:28.5699516Z   Downloading networkx-3.2.1-py3-none-any.whl.metadata (5.2 kB)
+2025-05-27T09:22:28.7684949Z Collecting pillow==11.2.1 (from -r python_scripts/requirements.txt (line 7))
+2025-05-27T09:22:28.7744071Z   Downloading pillow-11.2.1-cp311-cp311-win_amd64.whl.metadata (9.1 kB)
+2025-05-27T09:22:28.8447326Z Collecting tifffile==2024.8.30 (from -r python_scripts/requirements.txt (line 8))
+2025-05-27T09:22:28.8496686Z   Downloading tifffile-2024.8.30-py3-none-any.whl.metadata (31 kB)
+2025-05-27T09:22:28.9949552Z Collecting contourpy>=1.0.1 (from matplotlib==3.9.4->-r python_scripts/requirements.txt (line 3))
+2025-05-27T09:22:29.0023862Z   Downloading contourpy-1.3.2-cp311-cp311-win_amd64.whl.metadata (5.5 kB)
+2025-05-27T09:22:29.0451866Z Collecting cycler>=0.10 (from matplotlib==3.9.4->-r python_scripts/requirements.txt (line 3))
+2025-05-27T09:22:29.0498756Z   Downloading cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+2025-05-27T09:22:29.2027962Z Collecting fonttools>=4.22.0 (from matplotlib==3.9.4->-r python_scripts/requirements.txt (line 3))
+2025-05-27T09:22:29.2091087Z   Downloading fonttools-4.58.0-cp311-cp311-win_amd64.whl.metadata (106 kB)
+2025-05-27T09:22:29.3424051Z Collecting kiwisolver>=1.3.1 (from matplotlib==3.9.4->-r python_scripts/requirements.txt (line 3))
+2025-05-27T09:22:29.3479082Z   Downloading kiwisolver-1.4.8-cp311-cp311-win_amd64.whl.metadata (6.3 kB)
+2025-05-27T09:22:29.4042497Z Collecting packaging>=20.0 (from matplotlib==3.9.4->-r python_scripts/requirements.txt (line 3))
+2025-05-27T09:22:29.4096183Z   Downloading packaging-25.0-py3-none-any.whl.metadata (3.3 kB)
+2025-05-27T09:22:29.4754030Z Collecting pyparsing>=2.3.1 (from matplotlib==3.9.4->-r python_scripts/requirements.txt (line 3))
+2025-05-27T09:22:29.4806991Z   Downloading pyparsing-3.2.3-py3-none-any.whl.metadata (5.0 kB)
+2025-05-27T09:22:29.5269703Z Collecting python-dateutil>=2.7 (from matplotlib==3.9.4->-r python_scripts/requirements.txt (line 3))
+2025-05-27T09:22:29.5320050Z   Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+2025-05-27T09:22:29.6111571Z Collecting imageio>=2.33 (from scikit-image==0.24.0->-r python_scripts/requirements.txt (line 4))
+2025-05-27T09:22:29.6162628Z   Downloading imageio-2.37.0-py3-none-any.whl.metadata (5.2 kB)
+2025-05-27T09:22:29.6843186Z Collecting lazy-loader>=0.4 (from scikit-image==0.24.0->-r python_scripts/requirements.txt (line 4))
+2025-05-27T09:22:29.6893769Z   Downloading lazy_loader-0.4-py3-none-any.whl.metadata (7.6 kB)
+2025-05-27T09:22:29.7673531Z Collecting six>=1.5 (from python-dateutil>=2.7->matplotlib==3.9.4->-r python_scripts/requirements.txt (line 3))
+2025-05-27T09:22:29.7727058Z   Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+2025-05-27T09:22:29.8044481Z Downloading opencv_python-4.8.1.78-cp37-abi3-win_amd64.whl (38.1 MB)
+2025-05-27T09:22:30.1980325Z    ---------------------------------------- 38.1/38.1 MB 96.7 MB/s eta 0:00:00
+2025-05-27T09:22:30.2092702Z Downloading numpy-1.24.3-cp311-cp311-win_amd64.whl (14.8 MB)
+2025-05-27T09:22:30.4169762Z    ---------------------------------------- 14.8/14.8 MB 71.8 MB/s eta 0:00:00
+2025-05-27T09:22:30.4223884Z Downloading matplotlib-3.9.4-cp311-cp311-win_amd64.whl (7.8 MB)
+2025-05-27T09:22:30.5018606Z    ---------------------------------------- 7.8/7.8 MB 97.1 MB/s eta 0:00:00
+2025-05-27T09:22:30.5079728Z Downloading scikit_image-0.24.0-cp311-cp311-win_amd64.whl (12.8 MB)
+2025-05-27T09:22:30.6304065Z    ---------------------------------------- 12.8/12.8 MB 100.7 MB/s eta 0:00:00
+2025-05-27T09:22:30.6355520Z Downloading scipy-1.13.1-cp311-cp311-win_amd64.whl (46.2 MB)
+2025-05-27T09:22:31.0409143Z    ---------------------------------------- 46.2/46.2 MB 112.9 MB/s eta 0:00:00
+2025-05-27T09:22:31.0458286Z Downloading networkx-3.2.1-py3-none-any.whl (1.6 MB)
+2025-05-27T09:22:31.0763850Z    ---------------------------------------- 1.6/1.6 MB 44.7 MB/s eta 0:00:00
+2025-05-27T09:22:31.0852018Z Downloading pillow-11.2.1-cp311-cp311-win_amd64.whl (2.7 MB)
+2025-05-27T09:22:31.1239008Z    ---------------------------------------- 2.7/2.7 MB 77.9 MB/s eta 0:00:00
+2025-05-27T09:22:31.1303092Z Downloading tifffile-2024.8.30-py3-none-any.whl (227 kB)
+2025-05-27T09:22:31.1564466Z Downloading contourpy-1.3.2-cp311-cp311-win_amd64.whl (222 kB)
+2025-05-27T09:22:31.1861863Z Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)
+2025-05-27T09:22:31.2108852Z Downloading fonttools-4.58.0-cp311-cp311-win_amd64.whl (2.2 MB)
+2025-05-27T09:22:31.2476320Z    ---------------------------------------- 2.2/2.2 MB 63.6 MB/s eta 0:00:00
+2025-05-27T09:22:31.2548505Z Downloading imageio-2.37.0-py3-none-any.whl (315 kB)
+2025-05-27T09:22:31.2774430Z Downloading kiwisolver-1.4.8-cp311-cp311-win_amd64.whl (71 kB)
+2025-05-27T09:22:31.3005806Z Downloading lazy_loader-0.4-py3-none-any.whl (12 kB)
+2025-05-27T09:22:31.3515093Z Downloading packaging-25.0-py3-none-any.whl (66 kB)
+2025-05-27T09:22:31.3871500Z Downloading pyparsing-3.2.3-py3-none-any.whl (111 kB)
+2025-05-27T09:22:31.4128049Z Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+2025-05-27T09:22:31.4362024Z Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+2025-05-27T09:22:31.7224938Z Installing collected packages: six, pyparsing, pillow, packaging, numpy, networkx, kiwisolver, fonttools, cycler, tifffile, scipy, python-dateutil, opencv-python, lazy-loader, imageio, contourpy, scikit-image, matplotlib
+2025-05-27T09:23:00.7048894Z 
+2025-05-27T09:23:00.7069558Z Successfully installed contourpy-1.3.2 cycler-0.12.1 fonttools-4.58.0 imageio-2.37.0 kiwisolver-1.4.8 lazy-loader-0.4 matplotlib-3.9.4 networkx-3.2.1 numpy-1.24.3 opencv-python-4.8.1.78 packaging-25.0 pillow-11.2.1 pyparsing-3.2.3 python-dateutil-2.9.0.post0 scikit-image-0.24.0 scipy-1.13.1 six-1.17.0 tifffile-2024.8.30
+2025-05-27T09:23:01.0348092Z ##[group]Run subosito/flutter-action@v2
+2025-05-27T09:23:01.0348473Z with:
+2025-05-27T09:23:01.0348653Z   flutter-version: 3.24.0
+2025-05-27T09:23:01.0348858Z   channel: stable
+2025-05-27T09:23:01.0349028Z   architecture: X64
+2025-05-27T09:23:01.0349202Z   cache: false
+2025-05-27T09:23:01.0349403Z   pub-cache-path: default
+2025-05-27T09:23:01.0349599Z   dry-run: false
+2025-05-27T09:23:01.0349820Z   git-source: https://github.com/flutter/flutter.git
+2025-05-27T09:23:01.0350102Z env:
+2025-05-27T09:23:01.0350329Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:23:01.0350731Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T09:23:01.0351132Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:23:01.0351495Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:23:01.0351861Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:23:01.0352190Z ##[endgroup]
+2025-05-27T09:23:01.0515730Z ##[group]Run choco install yq
+2025-05-27T09:23:01.0515986Z [36;1mchoco install yq[0m
+2025-05-27T09:23:01.0532268Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+2025-05-27T09:23:01.0532631Z env:
+2025-05-27T09:23:01.0532886Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:23:01.0533320Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T09:23:01.0533719Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:23:01.0534079Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:23:01.0534437Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:23:01.0534736Z ##[endgroup]
+2025-05-27T09:23:05.8991807Z Chocolatey v2.4.3
+2025-05-27T09:23:06.2948657Z Installing the following packages:
+2025-05-27T09:23:06.2957742Z yq
+2025-05-27T09:23:06.2963287Z By installing, you accept licenses for the packages.
+2025-05-27T09:23:19.0826901Z Downloading package from source 'https://community.chocolatey.org/api/v2/'
+2025-05-27T09:23:19.2208472Z 
+2025-05-27T09:23:19.2209800Z Progress: Downloading yq 4.45.4... 28%
+2025-05-27T09:23:19.2210338Z Progress: Downloading yq 4.45.4... 83%
+2025-05-27T09:23:19.2211397Z Progress: Downloading yq 4.45.4... 100%
+2025-05-27T09:23:19.4299883Z 
+2025-05-27T09:23:19.4300291Z yq v4.45.4 [Approved]
+2025-05-27T09:23:19.4491385Z yq package files install completed. Performing other installation steps.
+2025-05-27T09:23:22.0867719Z Downloading yq 64 bit
+2025-05-27T09:23:22.0868413Z   from 'https://github.com/mikefarah/yq/releases/download/v4.45.4/yq_windows_amd64.exe'
+2025-05-27T09:23:22.2255979Z 
+2025-05-27T09:23:22.2271837Z Progress: 0% - Saving 13.46 KB of 11.18 MB
+2025-05-27T09:23:22.2291762Z Progress: 0% - Saving 26.91 KB of 11.18 MB
+2025-05-27T09:23:22.2311943Z Progress: 0% - Saving 40.07 KB of 11.18 MB
+2025-05-27T09:23:22.2334547Z Progress: 0% - Saving 53.38 KB of 11.18 MB
+2025-05-27T09:23:22.2356602Z Progress: 1% - Saving 124.19 KB of 11.18 MB
+2025-05-27T09:23:22.2378166Z Progress: 2% - Saving 284.19 KB of 11.18 MB
+2025-05-27T09:23:22.2459901Z Progress: 3% - Saving 444.19 KB of 11.18 MB
+2025-05-27T09:23:22.2460678Z Progress: 5% - Saving 604.19 KB of 11.18 MB
+2025-05-27T09:23:22.2535330Z Progress: 6% - Saving 764.19 KB of 11.18 MB
+2025-05-27T09:23:22.2547187Z Progress: 8% - Saving 920.44 KB of 11.18 MB
+2025-05-27T09:23:22.2565315Z Progress: 9% - Saving 1.06 MB of 11.18 MB
+2025-05-27T09:23:22.2579249Z Progress: 10% - Saving 1.21 MB of 11.18 MB
+2025-05-27T09:23:22.2593001Z Progress: 12% - Saving 1.36 MB of 11.18 MB
+2025-05-27T09:23:22.2607678Z Progress: 13% - Saving 1.52 MB of 11.18 MB
+2025-05-27T09:23:22.2626240Z Progress: 14% - Saving 1.68 MB of 11.18 MB
+2025-05-27T09:23:22.2641997Z Progress: 16% - Saving 1.83 MB of 11.18 MB
+2025-05-27T09:23:22.2655947Z Progress: 17% - Saving 1.98 MB of 11.18 MB
+2025-05-27T09:23:22.2680000Z Progress: 19% - Saving 2.14 MB of 11.18 MB
+2025-05-27T09:23:22.2693948Z Progress: 20% - Saving 2.29 MB of 11.18 MB
+2025-05-27T09:23:22.2707066Z Progress: 21% - Saving 2.45 MB of 11.18 MB
+2025-05-27T09:23:22.2720351Z Progress: 23% - Saving 2.61 MB of 11.18 MB
+2025-05-27T09:23:22.2733074Z Progress: 24% - Saving 2.76 MB of 11.18 MB
+2025-05-27T09:23:22.2746498Z Progress: 26% - Saving 2.91 MB of 11.18 MB
+2025-05-27T09:23:22.2763150Z Progress: 27% - Saving 3.07 MB of 11.18 MB
+2025-05-27T09:23:22.2780512Z Progress: 28% - Saving 3.23 MB of 11.18 MB
+2025-05-27T09:23:22.2800517Z Progress: 30% - Saving 3.38 MB of 11.18 MB
+2025-05-27T09:23:22.2822872Z Progress: 31% - Saving 3.54 MB of 11.18 MB
+2025-05-27T09:23:22.2839342Z Progress: 33% - Saving 3.7 MB of 11.18 MB
+2025-05-27T09:23:22.2855085Z Progress: 34% - Saving 3.85 MB of 11.18 MB
+2025-05-27T09:23:22.2934761Z Progress: 35% - Saving 4 MB of 11.18 MB
+2025-05-27T09:23:22.2953131Z Progress: 37% - Saving 4.15 MB of 11.18 MB
+2025-05-27T09:23:22.2963573Z Progress: 38% - Saving 4.31 MB of 11.18 MB
+2025-05-27T09:23:22.2979607Z Progress: 39% - Saving 4.46 MB of 11.18 MB
+2025-05-27T09:23:22.2990649Z Progress: 41% - Saving 4.62 MB of 11.18 MB
+2025-05-27T09:23:22.3001832Z Progress: 42% - Saving 4.77 MB of 11.18 MB
+2025-05-27T09:23:22.3014033Z Progress: 43% - Saving 4.92 MB of 11.18 MB
+2025-05-27T09:23:22.3023926Z Progress: 45% - Saving 5.07 MB of 11.18 MB
+2025-05-27T09:23:22.3036319Z Progress: 46% - Saving 5.23 MB of 11.18 MB
+2025-05-27T09:23:22.3045584Z Progress: 48% - Saving 5.39 MB of 11.18 MB
+2025-05-27T09:23:22.3056353Z Progress: 49% - Saving 5.54 MB of 11.18 MB
+2025-05-27T09:23:22.3067279Z Progress: 50% - Saving 5.69 MB of 11.18 MB
+2025-05-27T09:23:22.3078986Z Progress: 52% - Saving 5.85 MB of 11.18 MB
+2025-05-27T09:23:22.3090222Z Progress: 53% - Saving 6 MB of 11.18 MB
+2025-05-27T09:23:22.3101197Z Progress: 55% - Saving 6.16 MB of 11.18 MB
+2025-05-27T09:23:22.3112030Z Progress: 56% - Saving 6.29 MB of 11.18 MB
+2025-05-27T09:23:22.3123253Z Progress: 57% - Saving 6.45 MB of 11.18 MB
+2025-05-27T09:23:22.3135662Z Progress: 59% - Saving 6.6 MB of 11.18 MB
+2025-05-27T09:23:22.3147711Z Progress: 60% - Saving 6.75 MB of 11.18 MB
+2025-05-27T09:23:22.3157781Z Progress: 61% - Saving 6.9 MB of 11.18 MB
+2025-05-27T09:23:22.3170472Z Progress: 63% - Saving 7.05 MB of 11.18 MB
+2025-05-27T09:23:22.3180529Z Progress: 64% - Saving 7.21 MB of 11.18 MB
+2025-05-27T09:23:22.3191877Z Progress: 65% - Saving 7.37 MB of 11.18 MB
+2025-05-27T09:23:22.3202878Z Progress: 67% - Saving 7.51 MB of 11.18 MB
+2025-05-27T09:23:22.3214494Z Progress: 68% - Saving 7.67 MB of 11.18 MB
+2025-05-27T09:23:22.3226107Z Progress: 69% - Saving 7.82 MB of 11.18 MB
+2025-05-27T09:23:22.3237695Z Progress: 71% - Saving 7.98 MB of 11.18 MB
+2025-05-27T09:23:22.3249405Z Progress: 72% - Saving 8.14 MB of 11.18 MB
+2025-05-27T09:23:22.3260859Z Progress: 74% - Saving 8.29 MB of 11.18 MB
+2025-05-27T09:23:22.3272557Z Progress: 75% - Saving 8.44 MB of 11.18 MB
+2025-05-27T09:23:22.3286631Z Progress: 76% - Saving 8.6 MB of 11.18 MB
+2025-05-27T09:23:22.3298252Z Progress: 78% - Saving 8.76 MB of 11.18 MB
+2025-05-27T09:23:22.3318671Z Progress: 79% - Saving 8.91 MB of 11.18 MB
+2025-05-27T09:23:22.3330478Z Progress: 81% - Saving 9.06 MB of 11.18 MB
+2025-05-27T09:23:22.3342064Z Progress: 82% - Saving 9.22 MB of 11.18 MB
+2025-05-27T09:23:22.3353164Z Progress: 83% - Saving 9.37 MB of 11.18 MB
+2025-05-27T09:23:22.3363686Z Progress: 85% - Saving 9.53 MB of 11.18 MB
+2025-05-27T09:23:22.3374549Z Progress: 86% - Saving 9.64 MB of 11.18 MB
+2025-05-27T09:23:22.3386283Z Progress: 87% - Saving 9.79 MB of 11.18 MB
+2025-05-27T09:23:22.3398578Z Progress: 88% - Saving 9.94 MB of 11.18 MB
+2025-05-27T09:23:22.3410128Z Progress: 90% - Saving 10.09 MB of 11.18 MB
+2025-05-27T09:23:22.3421466Z Progress: 91% - Saving 10.25 MB of 11.18 MB
+2025-05-27T09:23:22.3433960Z Progress: 93% - Saving 10.4 MB of 11.18 MB
+2025-05-27T09:23:22.3448281Z Progress: 94% - Saving 10.56 MB of 11.18 MB
+2025-05-27T09:23:22.3460083Z Progress: 95% - Saving 10.72 MB of 11.18 MB
+2025-05-27T09:23:22.3470486Z Progress: 97% - Saving 10.87 MB of 11.18 MB
+2025-05-27T09:23:22.3512096Z Progress: 98% - Saving 11.03 MB of 11.18 MB
+2025-05-27T09:23:22.3519190Z Progress: 100% - Saving 11.18 MB of 11.18 MB
+2025-05-27T09:23:22.3523803Z Progress: 100% - Completed download of C:\ProgramData\chocolatey\lib\yq\tools\yq.exe (11.18 MB).
+2025-05-27T09:23:22.3542710Z Download of yq.exe (11.18 MB) completed.
+2025-05-27T09:23:33.5498406Z Hashes match.
+2025-05-27T09:23:33.6958317Z C:\ProgramData\chocolatey\lib\yq\tools\yq.exe
+2025-05-27T09:23:38.0696127Z  ShimGen has successfully created a shim for yq.exe
+2025-05-27T09:23:38.0927912Z  The install of yq was successful.
+2025-05-27T09:23:38.0932573Z   Software install location not explicitly set, it could be in package or
+2025-05-27T09:23:38.0933091Z   default install location of installer.
+2025-05-27T09:23:38.1534457Z 
+2025-05-27T09:23:38.1534951Z Chocolatey installed 1/1 packages. 
+2025-05-27T09:23:38.1538181Z  See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+2025-05-27T09:23:38.1990532Z ##[group]Run chmod +x "$GITHUB_ACTION_PATH/setup.sh"
+2025-05-27T09:23:38.1990853Z [36;1mchmod +x "$GITHUB_ACTION_PATH/setup.sh"[0m
+2025-05-27T09:23:38.2003167Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+2025-05-27T09:23:38.2003532Z env:
+2025-05-27T09:23:38.2003766Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:23:38.2004181Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T09:23:38.2004560Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:23:38.2004911Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:23:38.2005266Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:23:38.2005533Z ##[endgroup]
+2025-05-27T09:23:38.2848027Z ##[group]Run $GITHUB_ACTION_PATH/setup.sh -p \
+2025-05-27T09:23:38.2848358Z [36;1m$GITHUB_ACTION_PATH/setup.sh -p \[0m
+2025-05-27T09:23:38.2848595Z [36;1m  -n '3.24.0' \[0m
+2025-05-27T09:23:38.2848788Z [36;1m  -f '' \[0m
+2025-05-27T09:23:38.2848955Z [36;1m  -a 'X64' \[0m
+2025-05-27T09:23:38.2849126Z [36;1m  -k '' \[0m
+2025-05-27T09:23:38.2849287Z [36;1m  -c '' \[0m
+2025-05-27T09:23:38.2849438Z [36;1m  -l '' \[0m
+2025-05-27T09:23:38.2849618Z [36;1m  -d 'default' \[0m
+2025-05-27T09:23:38.2849886Z [36;1m  -g 'https://github.com/flutter/flutter.git' \[0m
+2025-05-27T09:23:38.2850161Z [36;1m  stable[0m
+2025-05-27T09:23:38.2862241Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+2025-05-27T09:23:38.2862584Z env:
+2025-05-27T09:23:38.2862828Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:23:38.2863229Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T09:23:38.2863623Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:23:38.2863990Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:23:38.2864336Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:23:38.2864612Z ##[endgroup]
+2025-05-27T09:23:40.7185028Z ##[group]Run $GITHUB_ACTION_PATH/setup.sh \
+2025-05-27T09:23:40.7185327Z [36;1m$GITHUB_ACTION_PATH/setup.sh \[0m
+2025-05-27T09:23:40.7185719Z [36;1m  -n '3.24.0' \[0m
+2025-05-27T09:23:40.7185914Z [36;1m  -a 'x64' \[0m
+2025-05-27T09:23:40.7186169Z [36;1m  -c 'C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64' \[0m
+2025-05-27T09:23:40.7186536Z [36;1m  -d 'C:\Users\runneradmin\AppData\Local\Pub\Cache' \[0m
+2025-05-27T09:23:40.7186796Z [36;1m  stable[0m
+2025-05-27T09:23:40.7198545Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+2025-05-27T09:23:40.7198894Z env:
+2025-05-27T09:23:40.7199132Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:23:40.7200075Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T09:23:40.7200486Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:23:40.7200827Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:23:40.7201176Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:23:40.7201445Z ##[endgroup]
+2025-05-27T09:23:42.4389982Z   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+2025-05-27T09:23:42.4390444Z                                  Dload  Upload   Total   Spent    Left  Speed
+2025-05-27T09:23:42.4390654Z 
+2025-05-27T09:23:42.8819422Z   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+2025-05-27T09:23:43.8028310Z   1  964M    1 16.0M    0     0  36.1M      0  0:00:26 --:--:--  0:00:26 36.1M
+2025-05-27T09:23:44.8945419Z  17  964M   17  168M    0     0   123M      0  0:00:07  0:00:01  0:00:06  123M
+2025-05-27T09:23:45.8163744Z  33  964M   33  322M    0     0   131M      0  0:00:07  0:00:02  0:00:05  131M
+2025-05-27T09:23:46.7986730Z  51  964M   51  494M    0     0   146M      0  0:00:06  0:00:03  0:00:03  146M
+2025-05-27T09:23:47.8102115Z  68  964M   68  660M    0     0   151M      0  0:00:06  0:00:04  0:00:02  151M
+2025-05-27T09:23:48.2810312Z  89  964M   89  862M    0     0   160M      0  0:00:06  0:00:05  0:00:01  171M
+2025-05-27T09:23:48.2818452Z 100  964M  100  964M    0     0   165M      0  0:00:05  0:00:05 --:--:--  177M
+2025-05-27T09:25:09.5454473Z ##[group]Run echo "=== 当前工作目录 ==="
+2025-05-27T09:25:09.5455084Z [36;1mecho "=== 当前工作目录 ==="[0m
+2025-05-27T09:25:09.5455419Z [36;1mpwd[0m
+2025-05-27T09:25:09.5455624Z [36;1mecho ""[0m
+2025-05-27T09:25:09.5455866Z [36;1mecho "=== 目录内容 ==="[0m
+2025-05-27T09:25:09.5456347Z [36;1mGet-ChildItem | Format-Table Name, Length, LastWriteTime[0m
+2025-05-27T09:25:09.5456895Z [36;1mecho ""[0m
+2025-05-27T09:25:09.5457116Z [36;1mecho "=== 检查关键文件 ==="[0m
+2025-05-27T09:25:09.5457427Z [36;1mif (Test-Path "pubspec.yaml") { [0m
+2025-05-27T09:25:09.5457831Z [36;1m  echo "✅ pubspec.yaml 存在" [0m
+2025-05-27T09:25:09.5458162Z [36;1m} else { [0m
+2025-05-27T09:25:09.5458449Z [36;1m  echo "❌ pubspec.yaml 不存在" [0m
+2025-05-27T09:25:09.5458774Z [36;1m  exit 1[0m
+2025-05-27T09:25:09.5459016Z [36;1m}[0m
+2025-05-27T09:25:09.5459306Z [36;1mecho ""[0m
+2025-05-27T09:25:09.5459662Z [36;1mecho "=== Flutter 版本信息 ==="[0m
+2025-05-27T09:25:09.5460043Z [36;1mflutter --version[0m
+2025-05-27T09:25:09.5502498Z shell: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE -command ". '{0}'"
+2025-05-27T09:25:09.5503081Z env:
+2025-05-27T09:25:09.5503468Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:25:09.5503951Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T09:25:09.5504360Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:25:09.5504920Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:25:09.5505500Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:25:09.5505873Z   FLUTTER_ROOT: C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64
+2025-05-27T09:25:09.5506256Z   PUB_CACHE: C:\Users\runneradmin\AppData\Local\Pub\Cache
+2025-05-27T09:25:09.5506712Z ##[endgroup]
+2025-05-27T09:25:09.8112366Z === å½
+2025-05-27T09:25:09.8113280Z å‰å·¥ä½œç›®å½•
+2025-05-27T09:25:09.8114180Z ===
+2025-05-27T09:25:09.8114413Z pwd
+2025-05-27T09:25:09.8114676Z echo "
+2025-05-27T09:25:09.8114836Z echo ===
+2025-05-27T09:25:09.8115424Z ç›®å½•å†…å®¹
+2025-05-27T09:25:09.8116015Z ===
+2025-05-27T09:25:09.8116605Z Get-ChildItem | Format-Table Name, Length, LastWriteTime
+2025-05-27T09:25:09.8117604Z echo "
+2025-05-27T09:25:09.8117906Z echo ===
+2025-05-27T09:25:09.8118466Z æ£€æŸ¥å…³é®æ–‡ä»¶ ===
+2025-05-27T09:25:09.8615229Z âœ… pubspec.yaml å­˜åœ¨
+2025-05-27T09:25:09.8616193Z 
+2025-05-27T09:25:09.8618773Z === Flutter ç‰ˆæœ¬ä¿¡æ¯ ===
+2025-05-27T09:25:10.7195985Z Flutter 3.24.0 • channel stable • https://github.com/flutter/flutter.git
+2025-05-27T09:25:10.7197046Z Framework • revision 80c2e84975 (10 months ago) • 2024-07-30 23:06:49 +0700
+2025-05-27T09:25:10.7197689Z Engine • revision b8800d88be
+2025-05-27T09:25:10.7198130Z Tools • Dart 3.5.0 • DevTools 2.37.2
+2025-05-27T09:25:10.7560107Z ##[group]Run flutter config --enable-windows-desktop
+2025-05-27T09:25:10.7560587Z [36;1mflutter config --enable-windows-desktop[0m
+2025-05-27T09:25:10.7593549Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2025-05-27T09:25:10.7593861Z env:
+2025-05-27T09:25:10.7594119Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:25:10.7594527Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T09:25:10.7594914Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:25:10.7595281Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:25:10.7595641Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:25:10.7596019Z   FLUTTER_ROOT: C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64
+2025-05-27T09:25:10.7596363Z   PUB_CACHE: C:\Users\runneradmin\AppData\Local\Pub\Cache
+2025-05-27T09:25:10.7596627Z ##[endgroup]
+2025-05-27T09:25:11.3723088Z 
+2025-05-27T09:25:11.3750982Z   ╔════════════════════════════════════════════════════════════════════════════╗
+2025-05-27T09:25:11.3752001Z   ║                 Welcome to Flutter! - https://flutter.dev                  ║
+2025-05-27T09:25:11.3752705Z   ║                                                                            ║
+2025-05-27T09:25:11.3753394Z   ║ The Flutter tool uses Google Analytics to anonymously report feature usage ║
+2025-05-27T09:25:11.3754002Z   ║ statistics and basic crash reports. This data is used to help improve      ║
+2025-05-27T09:25:11.3754491Z   ║ Flutter tools over time.                                                   ║
+2025-05-27T09:25:11.3754902Z   ║                                                                            ║
+2025-05-27T09:25:11.3755326Z   ║ Flutter tool analytics are not sent on the very first run. To disable      ║
+2025-05-27T09:25:11.3755872Z   ║ reporting, type 'flutter config --no-analytics'. To display the current    ║
+2025-05-27T09:25:11.3756408Z   ║ setting, type 'flutter config'. If you opt out of analytics, an opt-out    ║
+2025-05-27T09:25:11.3756960Z   ║ event will be sent, and then no further information will be sent by the    ║
+2025-05-27T09:25:11.3757433Z   ║ Flutter tool.                                                              ║
+2025-05-27T09:25:11.3757790Z   ║                                                                            ║
+2025-05-27T09:25:11.3758265Z   ║ By downloading the Flutter SDK, you agree to the Google Terms of Service.  ║
+2025-05-27T09:25:11.3758807Z   ║ The Google Privacy Policy describes how data is handled in this service.   ║
+2025-05-27T09:25:11.3759268Z   ║                                                                            ║
+2025-05-27T09:25:11.3759725Z   ║ Moreover, Flutter includes the Dart SDK, which may send usage metrics and  ║
+2025-05-27T09:25:11.3760214Z   ║ crash reports to Google.                                                   ║
+2025-05-27T09:25:11.3760621Z   ║                                                                            ║
+2025-05-27T09:25:11.3762323Z   ║ Read about data we send with crash reports:                                ║
+2025-05-27T09:25:11.3762880Z   ║ https://flutter.dev/to/crash-reporting                                     ║
+2025-05-27T09:25:11.3763313Z   ║                                                                            ║
+2025-05-27T09:25:11.3763743Z   ║ See Google's privacy policy:                                               ║
+2025-05-27T09:25:11.3764267Z   ║ https://policies.google.com/privacy                                        ║
+2025-05-27T09:25:11.3764700Z   ║                                                                            ║
+2025-05-27T09:25:11.3765135Z   ║ To disable animations in this tool, use                                    ║
+2025-05-27T09:25:11.3765630Z   ║ 'flutter config --no-cli-animations'.                                      ║
+2025-05-27T09:25:11.3768678Z   ╚════════════════════════════════════════════════════════════════════════════╝
+2025-05-27T09:25:11.3769016Z 
+2025-05-27T09:25:11.4194321Z Setting "enable-windows-desktop" value to "true".
+2025-05-27T09:25:11.4196163Z 
+2025-05-27T09:25:11.4196492Z You may need to restart any open editors for them to read new settings.
+2025-05-27T09:25:11.7868867Z ##[group]Run echo "=== 清理项目 ==="
+2025-05-27T09:25:11.7869195Z [36;1mecho "=== 清理项目 ==="[0m
+2025-05-27T09:25:11.7869412Z [36;1mflutter clean[0m
+2025-05-27T09:25:11.7869596Z [36;1mecho ""[0m
+2025-05-27T09:25:11.7869769Z [36;1mecho "=== 获取依赖 ==="[0m
+2025-05-27T09:25:11.7869961Z [36;1mflutter pub get[0m
+2025-05-27T09:25:11.7902584Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2025-05-27T09:25:11.7902902Z env:
+2025-05-27T09:25:11.7903141Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:25:11.7903546Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T09:25:11.7903932Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:25:11.7904287Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:25:11.7904684Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:25:11.7905082Z   FLUTTER_ROOT: C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64
+2025-05-27T09:25:11.7905428Z   PUB_CACHE: C:\Users\runneradmin\AppData\Local\Pub\Cache
+2025-05-27T09:25:11.7905687Z ##[endgroup]
+2025-05-27T09:25:12.1376193Z === 清理项目 ===
+2025-05-27T09:25:26.6653956Z 
+2025-05-27T09:25:26.6657801Z === 获取依赖 ===
+2025-05-27T09:25:27.1243775Z Resolving dependencies...
+2025-05-27T09:25:28.7016984Z Downloading packages...
+2025-05-27T09:25:42.6423280Z < _fe_analyzer_shared 72.0.0 (was 76.0.0) (82.0.0 available)
+2025-05-27T09:25:42.6423937Z < _macros 0.3.2 from sdk dart (was 0.3.3 from sdk dart)
+2025-05-27T09:25:42.6424446Z ! analyzer 6.7.0 (overridden) (7.4.5 available)
+2025-05-27T09:25:42.6424846Z < async 2.11.0 (was 2.13.0) (2.13.0 available)
+2025-05-27T09:25:42.6425253Z < boolean_selector 2.1.1 (was 2.1.2) (2.1.2 available)
+2025-05-27T09:25:42.6425707Z < build 2.4.1 (was 2.4.2) (2.4.2 available)
+2025-05-27T09:25:42.6426097Z < build_config 1.1.1 (was 1.1.2) (1.1.2 available)
+2025-05-27T09:25:42.6426578Z < build_daemon 4.0.2 (was 4.0.4) (4.0.4 available)
+2025-05-27T09:25:42.6427066Z < build_resolvers 2.4.2 (was 2.4.4) (2.4.4 available)
+2025-05-27T09:25:42.6427512Z < build_runner 2.4.13 (was 2.4.15) (2.4.15 available)
+2025-05-27T09:25:42.6427974Z < build_runner_core 7.3.2 (was 8.0.0) (8.0.0 available)
+2025-05-27T09:25:42.6428435Z   built_value 8.9.5 (8.10.0 available)
+2025-05-27T09:25:42.6428799Z < characters 1.3.0 (was 1.4.0) (1.4.0 available)
+2025-05-27T09:25:42.6429197Z < clock 1.1.1 (was 1.1.2) (1.1.2 available)
+2025-05-27T09:25:42.6429589Z < collection 1.18.0 (was 1.19.1) (1.19.1 available)
+2025-05-27T09:25:42.6430011Z < dart_style 2.3.8 (was 3.1.0) (3.1.0 available)
+2025-05-27T09:25:42.6430398Z < fake_async 1.3.1 (was 1.3.3) (1.3.3 available)
+2025-05-27T09:25:42.6430767Z < ffi 2.1.3 (was 2.1.4) (2.1.4 available)
+2025-05-27T09:25:42.6431444Z   file_picker 6.2.1 (10.1.9 available)
+2025-05-27T09:25:42.6431787Z   flutter_hooks 0.20.5 (0.21.2 available)
+2025-05-27T09:25:42.6432149Z   flutter_lints 3.0.2 (5.0.0 available)
+2025-05-27T09:25:42.6432646Z < flutter_plugin_android_lifecycle 2.0.26 (was 2.0.28) (2.0.28 available)
+2025-05-27T09:25:42.6433186Z < freezed 2.5.7 (was 2.5.8) (3.0.6 available)
+2025-05-27T09:25:42.6433560Z   freezed_annotation 2.4.4 (3.0.0 available)
+2025-05-27T09:25:42.6434043Z < http_parser 4.0.2 (was 4.1.2) (4.1.2 available)
+2025-05-27T09:25:42.6434465Z   intl 0.19.0 (0.20.2 available)
+2025-05-27T09:25:42.6434883Z < js 0.7.1 (was 0.7.2) (0.7.2 available)
+2025-05-27T09:25:42.6435472Z < json_serializable 6.9.0 (was 6.9.5) (6.9.5 available)
+2025-05-27T09:25:42.6436046Z < leak_tracker 10.0.5 (was 10.0.9) (11.0.1 available)
+2025-05-27T09:25:42.6436604Z < leak_tracker_flutter_testing 3.0.5 (was 3.0.9) (3.0.10 available)
+2025-05-27T09:25:42.6437222Z   leak_tracker_testing 3.0.1 (3.0.2 available)
+2025-05-27T09:25:42.6437514Z   lints 3.0.0 (6.0.0 available)
+2025-05-27T09:25:42.6437849Z < macros 0.1.2-main.4 (was 0.1.3-main.0) (0.1.3-main.0 available)
+2025-05-27T09:25:42.6440189Z < matcher 0.12.16+1 (was 0.12.17) (0.12.17 available)
+2025-05-27T09:25:42.6440705Z   material_color_utilities 0.11.1 (0.12.0 available)
+2025-05-27T09:25:42.6441074Z < meta 1.15.0 (was 1.16.0) (1.17.0 available)
+2025-05-27T09:25:42.6441376Z < path 1.9.0 (was 1.9.1) (1.9.1 available)
+2025-05-27T09:25:42.6441754Z < path_provider_android 2.2.15 (was 2.2.17) (2.2.17 available)
+2025-05-27T09:25:42.6522214Z < pubspec_parse 1.4.0 (was 1.5.0) (1.5.0 available)
+2025-05-27T09:25:42.6522753Z < riverpod_analyzer_utils 0.5.8 (was 0.5.9) (0.5.10 available)
+2025-05-27T09:25:42.6523242Z < riverpod_generator 2.6.3 (was 2.6.4) (2.6.5 available)
+2025-05-27T09:25:42.6526083Z < shared_preferences_android 2.4.7 (was 2.4.10) (2.4.10 available)
+2025-05-27T09:25:42.6526594Z < shelf 1.4.1 (was 1.4.2) (1.4.2 available)
+2025-05-27T09:25:42.6527050Z < shelf_web_socket 2.0.1 (was 3.0.0) (3.0.0 available)
+2025-05-27T09:25:42.6527507Z > sky_engine 0.0.99 from sdk flutter (was 0.0.0 from sdk flutter)
+2025-05-27T09:25:42.6527963Z < source_gen 1.5.0 (was 2.0.0) (2.0.0 available)
+2025-05-27T09:25:42.6528397Z < source_span 1.10.0 (was 1.10.1) (1.10.1 available)
+2025-05-27T09:25:42.6528800Z < stack_trace 1.11.1 (was 1.12.1) (1.12.1 available)
+2025-05-27T09:25:42.6529188Z < stream_channel 2.1.2 (was 2.1.4) (2.1.4 available)
+2025-05-27T09:25:42.6529616Z < string_scanner 1.2.0 (was 1.4.1) (1.4.1 available)
+2025-05-27T09:25:42.6530036Z < term_glyph 1.2.1 (was 1.2.2) (1.2.2 available)
+2025-05-27T09:25:42.6530430Z < test_api 0.7.2 (was 0.7.4) (0.7.6 available)
+2025-05-27T09:25:42.6530739Z < url_launcher_android 6.3.14 (was 6.3.16) (6.3.16 available)
+2025-05-27T09:25:42.6531054Z < url_launcher_web 2.3.3 (was 2.4.1) (2.4.1 available)
+2025-05-27T09:25:42.6531310Z   vector_math 2.1.4 (2.2.0 available)
+2025-05-27T09:25:42.6531549Z < vm_service 14.2.4 (was 15.0.0) (15.0.1 available)
+2025-05-27T09:25:42.6531809Z < win32 5.10.1 (was 5.13.0) (5.13.0 available)
+2025-05-27T09:25:42.6532077Z These packages are no longer being depended on:
+2025-05-27T09:25:42.6532323Z - http 1.4.0
+2025-05-27T09:25:42.6532522Z Changed 47 dependencies!
+2025-05-27T09:25:42.6532833Z 55 packages have newer versions incompatible with dependency constraints.
+2025-05-27T09:25:42.6533199Z Try `flutter pub outdated` for more information.
+2025-05-27T09:25:43.2854139Z ##[group]Run flutter analyze
+2025-05-27T09:25:43.2854466Z [36;1mflutter analyze[0m
+2025-05-27T09:25:43.2888067Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2025-05-27T09:25:43.2888379Z env:
+2025-05-27T09:25:43.2888624Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:25:43.2889034Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T09:25:43.2889423Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:25:43.2890756Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:25:43.2891137Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:25:43.2891511Z   FLUTTER_ROOT: C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64
+2025-05-27T09:25:43.2891865Z   PUB_CACHE: C:\Users\runneradmin\AppData\Local\Pub\Cache
+2025-05-27T09:25:43.2892133Z ##[endgroup]
+2025-05-27T09:25:57.5460262Z Analyzing material-anticheat...                                 
+2025-05-27T09:25:57.5467831Z 
+2025-05-27T09:25:57.5483889Z   error - The method 'withValues' isn't defined for the type 'Color' - lib\main.dart:195:28 - undefined_method
+2025-05-27T09:25:57.5485666Z   error - The method 'withValues' isn't defined for the type 'Color' - lib\main.dart:208:36 - undefined_method
+2025-05-27T09:25:57.5487777Z warning - The method doesn't override an inherited method - lib\models\similarity_result.freezed.dart:271:24 - override_on_non_overriding_member
+2025-05-27T09:25:57.5489421Z warning - The method doesn't override an inherited method - lib\models\similarity_result.freezed.dart:527:24 - override_on_non_overriding_member
+2025-05-27T09:25:57.5491642Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\batch_download_screen.dart:201:52 - undefined_method
+2025-05-27T09:25:57.5494145Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\batch_download_screen.dart:275:54 - undefined_method
+2025-05-27T09:25:57.5496529Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\batch_download_screen.dart:470:53 - undefined_method
+2025-05-27T09:25:57.5499821Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\batch_download_screen.dart:472:72 - undefined_method
+2025-05-27T09:25:57.5501440Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\batch_download_screen.dart:502:51 - undefined_method
+2025-05-27T09:25:57.5502738Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\batch_download_screen.dart:504:70 - undefined_method
+2025-05-27T09:25:57.5503794Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\batch_download_screen.dart:583:37 - undefined_method
+2025-05-27T09:25:57.5505191Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\image_gallery_screen.dart:175:62 - undefined_method
+2025-05-27T09:25:57.5507386Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\image_gallery_screen.dart:196:58 - undefined_method
+2025-05-27T09:25:57.5509603Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\image_gallery_screen.dart:368:32 - undefined_method
+2025-05-27T09:25:57.5511619Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\image_gallery_screen.dart:496:52 - undefined_method
+2025-05-27T09:25:57.5514140Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\image_gallery_screen.dart:498:71 - undefined_method
+2025-05-27T09:25:57.5516115Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\image_gallery_screen.dart:535:53 - undefined_method
+2025-05-27T09:25:57.5520535Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\image_gallery_screen.dart:537:72 - undefined_method
+2025-05-27T09:25:57.5521705Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\image_gallery_screen.dart:601:57 - undefined_method
+2025-05-27T09:25:57.5523155Z   error - The method 'withValues' isn't defined for the type 'Color' - lib\screens\image_gallery_screen.dart:659:60 - undefined_method
+2025-05-27T09:25:57.5524064Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\suspicious_images_screen.dart:369:30 - undefined_method
+2025-05-27T09:25:57.5525534Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\suspicious_images_screen.dart:371:49 - undefined_method
+2025-05-27T09:25:57.5526398Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_batch_download_screen.dart:434:54 - undefined_method
+2025-05-27T09:25:57.5527743Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_batch_download_screen.dart:434:91 - undefined_method
+2025-05-27T09:25:57.5528751Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_batch_download_screen.dart:437:56 - undefined_method
+2025-05-27T09:25:57.5529926Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_batch_download_screen.dart:437:93 - undefined_method
+2025-05-27T09:25:57.5531187Z warning - Unused import: 'package:shared_preferences/shared_preferences.dart' - lib\screens\weighbridge_duplicate_detection_screen.dart:6:8 - unused_import
+2025-05-27T09:25:57.5532525Z    info - Use 'const' with the constructor to improve performance - lib\screens\weighbridge_duplicate_detection_screen.dart:16:29 - prefer_const_constructors
+2025-05-27T09:25:57.5534373Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_duplicate_detection_screen.dart:494:42 - undefined_method
+2025-05-27T09:25:57.5536620Z   error - The method 'withValues' isn't defined for the type 'Color' - lib\screens\weighbridge_duplicate_detection_screen.dart:533:67 - undefined_method
+2025-05-27T09:25:57.5540196Z   error - The method 'withValues' isn't defined for the type 'Color' - lib\screens\weighbridge_duplicate_detection_screen.dart:536:69 - undefined_method
+2025-05-27T09:25:57.5542634Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_image_gallery_screen.dart:195:64 - undefined_method
+2025-05-27T09:25:57.5546351Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_image_gallery_screen.dart:216:60 - undefined_method
+2025-05-27T09:25:57.5548926Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_image_gallery_screen.dart:389:36 - undefined_method
+2025-05-27T09:25:57.5552197Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_image_gallery_screen.dart:570:44 - undefined_method
+2025-05-27T09:25:57.5555194Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_image_gallery_screen.dart:572:63 - undefined_method
+2025-05-27T09:25:57.5558252Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_image_gallery_screen.dart:645:43 - undefined_method
+2025-05-27T09:25:57.5564706Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_image_gallery_screen.dart:647:62 - undefined_method
+2025-05-27T09:25:57.5568402Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_image_gallery_screen.dart:728:37 - undefined_method
+2025-05-27T09:25:57.5570302Z   error - The method 'withValues' isn't defined for the type 'Color' - lib\screens\weighbridge_image_gallery_screen.dart:786:40 - undefined_method
+2025-05-27T09:25:57.5599067Z    info - Don't invoke 'print' in production code - lib\screens\weighbridge_image_gallery_screen.dart:921:9 - avoid_print
+2025-05-27T09:25:57.5600027Z    info - Don't use 'BuildContext's across async gaps - lib\screens\weighbridge_image_gallery_screen.dart:1117:24 - use_build_context_synchronously
+2025-05-27T09:25:57.5600892Z    info - Don't use 'BuildContext's across async gaps - lib\screens\weighbridge_image_gallery_screen.dart:1120:30 - use_build_context_synchronously
+2025-05-27T09:25:57.5601705Z    info - Don't use 'BuildContext's across async gaps - lib\screens\weighbridge_image_gallery_screen.dart:1131:28 - use_build_context_synchronously
+2025-05-27T09:25:57.5602933Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_screen.dart:348:54 - undefined_method
+2025-05-27T09:25:57.5604001Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_screen.dart:348:91 - undefined_method
+2025-05-27T09:25:57.5604772Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_screen.dart:351:56 - undefined_method
+2025-05-27T09:25:57.5605512Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_screen.dart:351:93 - undefined_method
+2025-05-27T09:25:57.5606320Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_suspicious_images_screen.dart:68:40 - undefined_method
+2025-05-27T09:25:57.5607186Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_suspicious_images_screen.dart:188:43 - undefined_method
+2025-05-27T09:25:57.5608046Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_suspicious_images_screen.dart:188:81 - undefined_method
+2025-05-27T09:25:57.5608908Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_suspicious_images_screen.dart:191:45 - undefined_method
+2025-05-27T09:25:57.5609762Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_suspicious_images_screen.dart:191:83 - undefined_method
+2025-05-27T09:25:57.5610609Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_suspicious_images_screen.dart:246:28 - undefined_method
+2025-05-27T09:25:57.5611473Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_suspicious_images_screen.dart:249:30 - undefined_method
+2025-05-27T09:25:57.5612338Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_suspicious_images_screen.dart:292:27 - undefined_method
+2025-05-27T09:25:57.5613188Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_suspicious_images_screen.dart:295:29 - undefined_method
+2025-05-27T09:25:57.5614044Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_suspicious_images_screen.dart:365:35 - undefined_method
+2025-05-27T09:25:57.5614893Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_suspicious_images_screen.dart:368:37 - undefined_method
+2025-05-27T09:25:57.5615725Z   error - The method 'withValues' isn't defined for the type 'Color' - lib\screens\weighbridge_suspicious_images_screen.dart:572:59 - undefined_method
+2025-05-27T09:25:57.5616530Z   error - The method 'withValues' isn't defined for the type 'Color' - lib\screens\weighbridge_suspicious_images_screen.dart:588:69 - undefined_method
+2025-05-27T09:25:57.5617317Z   error - The method 'withValues' isn't defined for the type 'Color' - lib\screens\weighbridge_suspicious_images_screen.dart:622:79 - undefined_method
+2025-05-27T09:25:57.5618233Z   error - The method 'withValues' isn't defined for the type 'Color' - lib\screens\weighbridge_suspicious_images_screen.dart:625:81 - undefined_method
+2025-05-27T09:25:57.5619128Z warning - The member 'Provider<ApiService>.internal' can only be used within its package - lib\services\api_service.g.dart:13:28 - invalid_use_of_internal_member
+2025-05-27T09:25:57.5620121Z    info - 'ProviderRef' is deprecated and shouldn't be used. will be removed in 3.0.0. Use Ref instead - lib\services\api_service.g.dart:22:25 - deprecated_member_use
+2025-05-27T09:25:57.5621179Z warning - The member 'AutoDisposeNotifierProvider<CrawlerService, CrawlerState>.internal' can only be used within its package - lib\services\crawler_service.g.dart:14:5 - invalid_use_of_internal_member
+2025-05-27T09:25:57.5622411Z    info - Use 'const' with the constructor to improve performance - lib\services\weighbridge_duplicate_detection_service.dart:134:13 - prefer_const_constructors
+2025-05-27T09:25:57.5624344Z    info - Use 'const' with the constructor to improve performance - lib\services\weighbridge_duplicate_detection_service.dart:146:15 - prefer_const_constructors
+2025-05-27T09:25:57.5625871Z    info - Use 'const' with the constructor to improve performance - lib\services\weighbridge_duplicate_detection_service.dart:158:13 - prefer_const_constructors
+2025-05-27T09:25:57.5626796Z   error - Undefined name 'ProviderFor' used as an annotation - lib\services\weighbridge_duplicate_detection_service.g.dart:13:1 - undefined_annotation
+2025-05-27T09:25:57.5627884Z   error - Undefined name 'WeighbridgeDuplicateDetectionService' - lib\services\weighbridge_duplicate_detection_service.g.dart:13:14 - undefined_identifier
+2025-05-27T09:25:57.5628979Z   error - The name 'AutoDisposeAsyncNotifierProvider' isn't a class - lib\services\weighbridge_duplicate_detection_service.g.dart:14:54 - creation_with_non_type
+2025-05-27T09:25:57.5630262Z   error - The name 'WeighbridgeDuplicateDetectionService' isn't a type, so it can't be used as a type argument - lib\services\weighbridge_duplicate_detection_service.g.dart:15:5 - non_type_as_type_argument
+2025-05-27T09:25:57.5631590Z   error - The name 'WeighbridgeDuplicateDetectionResult' isn't a type, so it can't be used as a type argument - lib\services\weighbridge_duplicate_detection_service.g.dart:15:48 - non_type_as_type_argument
+2025-05-27T09:25:57.5632795Z   error - Undefined name 'WeighbridgeDuplicateDetectionService' - lib\services\weighbridge_duplicate_detection_service.g.dart:16:3 - undefined_identifier
+2025-05-27T09:25:57.5633821Z   error - The getter 'new' isn't defined for the type 'InvalidType' - lib\services\weighbridge_duplicate_detection_service.g.dart:16:40 - undefined_getter
+2025-05-27T09:25:57.5635307Z    info - The declaration '_$WeighbridgeDuplicateDetectionService' isn't referenced - lib\services\weighbridge_duplicate_detection_service.g.dart:25:9 - unused_element
+2025-05-27T09:25:57.5636272Z   error - Undefined class 'AutoDisposeAsyncNotifier' - lib\services\weighbridge_duplicate_detection_service.g.dart:26:7 - undefined_class
+2025-05-27T09:25:57.5637273Z   error - The name 'WeighbridgeDuplicateDetectionResult' isn't a type, so it can't be used as a type argument - lib\services\weighbridge_duplicate_detection_service.g.dart:26:37 - non_type_as_type_argument
+2025-05-27T09:25:57.5638216Z warning - The value of the field '_logService' isn't used - lib\services\weighbridge_image_similarity_service.dart:45:15 - unused_field
+2025-05-27T09:25:57.5639006Z   error - Undefined name 'ProviderFor' used as an annotation - lib\services\weighbridge_image_similarity_service.g.dart:13:1 - undefined_annotation
+2025-05-27T09:25:57.5639907Z   error - Undefined name 'WeighbridgeImageSimilarityService' - lib\services\weighbridge_image_similarity_service.g.dart:13:14 - undefined_identifier
+2025-05-27T09:25:57.5640821Z   error - The name 'AutoDisposeAsyncNotifierProvider' isn't a class - lib\services\weighbridge_image_similarity_service.g.dart:14:51 - creation_with_non_type
+2025-05-27T09:25:57.5642001Z   error - The name 'WeighbridgeImageSimilarityService' isn't a type, so it can't be used as a type argument - lib\services\weighbridge_image_similarity_service.g.dart:15:5 - non_type_as_type_argument
+2025-05-27T09:25:57.5643100Z   error - The name 'WeighbridgeImageSimilarityResult' isn't a type, so it can't be used as a type argument - lib\services\weighbridge_image_similarity_service.g.dart:15:45 - non_type_as_type_argument
+2025-05-27T09:25:57.5644620Z   error - Undefined name 'WeighbridgeImageSimilarityService' - lib\services\weighbridge_image_similarity_service.g.dart:16:3 - undefined_identifier
+2025-05-27T09:25:57.5646637Z   error - The getter 'new' isn't defined for the type 'InvalidType' - lib\services\weighbridge_image_similarity_service.g.dart:16:37 - undefined_getter
+2025-05-27T09:25:57.5648528Z    info - The declaration '_$WeighbridgeImageSimilarityService' isn't referenced - lib\services\weighbridge_image_similarity_service.g.dart:25:9 - unused_element
+2025-05-27T09:25:57.5650198Z   error - Undefined class 'AutoDisposeAsyncNotifier' - lib\services\weighbridge_image_similarity_service.g.dart:26:7 - undefined_class
+2025-05-27T09:25:57.5652012Z   error - The name 'WeighbridgeImageSimilarityResult' isn't a type, so it can't be used as a type argument - lib\services\weighbridge_image_similarity_service.g.dart:26:37 - non_type_as_type_argument
+2025-05-27T09:25:57.5653825Z   error - Undefined name 'ProviderFor' used as an annotation - lib\services\weighbridge_image_similarity_service.g.dart:32:1 - undefined_annotation
+2025-05-27T09:25:57.5655448Z   error - Undefined name 'weighbridgeSuspiciousImages' - lib\services\weighbridge_image_similarity_service.g.dart:32:14 - undefined_identifier
+2025-05-27T09:25:57.5657039Z   error - The name 'AutoDisposeProvider' isn't a class - lib\services\weighbridge_image_similarity_service.g.dart:33:45 - creation_with_non_type
+2025-05-27T09:25:57.5658652Z   error - The name 'AsyncValue' isn't a type, so it can't be used as a type argument - lib\services\weighbridge_image_similarity_service.g.dart:33:65 - non_type_as_type_argument
+2025-05-27T09:25:57.5660571Z   error - The name 'WeighbridgeImageSimilarityResult' isn't a type, so it can't be used as a type argument - lib\services\weighbridge_image_similarity_service.g.dart:33:81 - non_type_as_type_argument
+2025-05-27T09:25:57.5662359Z   error - Undefined name 'weighbridgeSuspiciousImages' - lib\services\weighbridge_image_similarity_service.g.dart:34:3 - undefined_identifier
+2025-05-27T09:25:57.5664357Z   error - Undefined class 'AutoDisposeProviderRef' - lib\services\weighbridge_image_similarity_service.g.dart:43:42 - undefined_class
+2025-05-27T09:25:57.5666752Z   error - The name 'AsyncValue' isn't a type, so it can't be used as a type argument - lib\services\weighbridge_image_similarity_service.g.dart:43:65 - non_type_as_type_argument
+2025-05-27T09:25:57.5668179Z   error - The name 'WeighbridgeImageSimilarityResult' isn't a type, so it can't be used as a type argument - lib\services\weighbridge_image_similarity_service.g.dart:43:81 - non_type_as_type_argument
+2025-05-27T09:25:57.5669415Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\widgets\progress_display_card.dart:42:55 - undefined_method
+2025-05-27T09:25:57.5670204Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\widgets\progress_display_card.dart:42:92 - undefined_method
+2025-05-27T09:25:57.5671525Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\widgets\progress_display_card.dart:45:57 - undefined_method
+2025-05-27T09:25:57.5672987Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\widgets\progress_display_card.dart:45:94 - undefined_method
+2025-05-27T09:25:57.5673722Z 
+2025-05-27T09:25:57.5803264Z 103 issues found. (ran in 12.9s)
+2025-05-27T09:25:57.6779455Z ##[error]Process completed with exit code 1.
+2025-05-27T09:25:57.6905306Z ##[group]Run echo "=== 开始构建 Windows 应用 ==="
+2025-05-27T09:25:57.6905676Z [36;1mecho "=== 开始构建 Windows 应用 ==="[0m
+2025-05-27T09:25:57.6905957Z [36;1mflutter build windows --release --verbose[0m
+2025-05-27T09:25:57.6939333Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2025-05-27T09:25:57.6939647Z env:
+2025-05-27T09:25:57.6939884Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:25:57.6940285Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T09:25:57.6940690Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:25:57.6941036Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:25:57.6941860Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:25:57.6942423Z   FLUTTER_ROOT: C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64
+2025-05-27T09:25:57.6942818Z   PUB_CACHE: C:\Users\runneradmin\AppData\Local\Pub\Cache
+2025-05-27T09:25:57.6943082Z ##[endgroup]
+2025-05-27T09:25:57.9827312Z === 开始构建 Windows 应用 ===
+2025-05-27T09:25:58.1483838Z [  +47 ms] Artifact Instance of 'AndroidGenSnapshotArtifacts' is not required, skipping update.
+2025-05-27T09:25:58.1486369Z [   +4 ms] Artifact Instance of 'AndroidInternalBuildArtifacts' is not required, skipping update.
+2025-05-27T09:25:58.1487839Z [        ] Artifact Instance of 'IOSEngineArtifacts' is not required, skipping update.
+2025-05-27T09:25:58.1489231Z [        ] Artifact Instance of 'FlutterWebSdk' is not required, skipping update.
+2025-05-27T09:25:58.1490707Z [        ] Artifact Instance of 'LegacyCanvasKitRemover' is not required, skipping update.
+2025-05-27T09:25:58.1515041Z [   +2 ms] Artifact Instance of 'WindowsEngineArtifacts' is not required, skipping update.
+2025-05-27T09:25:58.1516874Z [        ] Artifact Instance of 'MacOSEngineArtifacts' is not required, skipping update.
+2025-05-27T09:25:58.1519095Z [        ] Artifact Instance of 'LinuxEngineArtifacts' is not required, skipping update.
+2025-05-27T09:25:58.1521446Z [        ] Artifact Instance of 'LinuxFuchsiaSDKArtifacts' is not required, skipping update.
+2025-05-27T09:25:58.1523608Z [        ] Artifact Instance of 'MacOSFuchsiaSDKArtifacts' is not required, skipping update.
+2025-05-27T09:25:58.1525860Z [        ] Artifact Instance of 'FlutterRunnerSDKArtifacts' is not required, skipping update.
+2025-05-27T09:25:58.1528070Z [        ] Artifact Instance of 'FlutterRunnerDebugSymbols' is not required, skipping update.
+2025-05-27T09:25:58.1993406Z [  +46 ms] Artifact Instance of 'MaterialFonts' is not required, skipping update.
+2025-05-27T09:25:58.1994522Z [        ] Artifact Instance of 'GradleWrapper' is not required, skipping update.
+2025-05-27T09:25:58.1996992Z [        ] Artifact Instance of 'AndroidGenSnapshotArtifacts' is not required, skipping update.
+2025-05-27T09:25:58.1999102Z [        ] Artifact Instance of 'AndroidInternalBuildArtifacts' is not required, skipping update.
+2025-05-27T09:25:58.2001379Z [        ] Artifact Instance of 'IOSEngineArtifacts' is not required, skipping update.
+2025-05-27T09:25:58.2003451Z [        ] Artifact Instance of 'FlutterWebSdk' is not required, skipping update.
+2025-05-27T09:25:58.2005541Z [        ] Artifact Instance of 'LegacyCanvasKitRemover' is not required, skipping update.
+2025-05-27T09:25:58.2007462Z [        ] Artifact Instance of 'FlutterSdk' is not required, skipping update.
+2025-05-27T09:25:58.2029077Z [   +2 ms] Artifact Instance of 'MacOSEngineArtifacts' is not required, skipping update.
+2025-05-27T09:25:58.2029871Z [        ] Artifact Instance of 'LinuxEngineArtifacts' is not required, skipping update.
+2025-05-27T09:25:58.2031053Z [        ] Artifact Instance of 'LinuxFuchsiaSDKArtifacts' is not required, skipping update.
+2025-05-27T09:25:58.2031793Z [        ] Artifact Instance of 'MacOSFuchsiaSDKArtifacts' is not required, skipping update.
+2025-05-27T09:25:58.2035671Z [        ] Artifact Instance of 'FlutterRunnerSDKArtifacts' is not required, skipping update.
+2025-05-27T09:25:58.2036326Z [        ] Artifact Instance of 'FlutterRunnerDebugSymbols' is not required, skipping update.
+2025-05-27T09:25:58.2036815Z [        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+2025-05-27T09:25:58.2037412Z [        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+2025-05-27T09:25:58.2038475Z [        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+2025-05-27T09:25:58.2039552Z [        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+2025-05-27T09:25:58.2040472Z [        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+2025-05-27T09:25:58.2041253Z [        ] Artifact Instance of 'FontSubsetArtifacts' is not required, skipping update.
+2025-05-27T09:25:58.2043144Z [        ] Artifact Instance of 'PubDependencies' is not required, skipping update.
+2025-05-27T09:25:58.2559498Z [  +51 ms] Skipping pub get: version match.
+2025-05-27T09:25:58.3316657Z [  +75 ms] Found plugin file_picker at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\file_picker-6.2.1\
+2025-05-27T09:25:58.3407604Z [   +9 ms] Found plugin flutter_plugin_android_lifecycle at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_plugin_android_lifecycle-2.0.26\
+2025-05-27T09:25:58.3805717Z [  +39 ms] Found plugin path_provider at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider-2.1.5\
+2025-05-27T09:25:58.3822507Z [   +1 ms] Found plugin path_provider_android at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_android-2.2.15\
+2025-05-27T09:25:58.3842526Z [   +2 ms] Found plugin path_provider_foundation at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_foundation-2.4.1\
+2025-05-27T09:25:58.3864147Z [   +2 ms] Found plugin path_provider_linux at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_linux-2.2.1\
+2025-05-27T09:25:58.3895700Z [   +3 ms] Found plugin path_provider_windows at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_windows-2.3.0\
+2025-05-27T09:25:58.4029577Z [  +13 ms] Found plugin shared_preferences at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences-2.5.3\
+2025-05-27T09:25:58.4046087Z [   +1 ms] Found plugin shared_preferences_android at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_android-2.4.7\
+2025-05-27T09:25:58.4062459Z [   +1 ms] Found plugin shared_preferences_foundation at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_foundation-2.5.4\
+2025-05-27T09:25:58.4077455Z [   +1 ms] Found plugin shared_preferences_linux at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_linux-2.4.1\
+2025-05-27T09:25:58.4115699Z [   +3 ms] Found plugin shared_preferences_web at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_web-2.4.3\
+2025-05-27T09:25:58.4132382Z [   +1 ms] Found plugin shared_preferences_windows at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_windows-2.4.1\
+2025-05-27T09:25:58.4308745Z [  +17 ms] Found plugin url_launcher at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher-6.3.1\
+2025-05-27T09:25:58.4325792Z [   +1 ms] Found plugin url_launcher_android at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_android-6.3.14\
+2025-05-27T09:25:58.4353315Z [   +1 ms] Found plugin url_launcher_ios at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_ios-6.3.3\
+2025-05-27T09:25:58.4371348Z [   +2 ms] Found plugin url_launcher_linux at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_linux-3.2.1\
+2025-05-27T09:25:58.4390555Z [   +1 ms] Found plugin url_launcher_macos at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_macos-3.2.2\
+2025-05-27T09:25:58.4418966Z [   +2 ms] Found plugin url_launcher_web at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_web-2.3.3\
+2025-05-27T09:25:58.4432379Z [   +1 ms] Found plugin url_launcher_windows at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_windows-3.1.4\
+2025-05-27T09:25:58.5104854Z [  +67 ms] Found plugin file_picker at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\file_picker-6.2.1\
+2025-05-27T09:25:58.5141875Z [   +3 ms] Found plugin flutter_plugin_android_lifecycle at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_plugin_android_lifecycle-2.0.26\
+2025-05-27T09:25:58.5360501Z [  +21 ms] Found plugin path_provider at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider-2.1.5\
+2025-05-27T09:25:58.5372385Z [   +1 ms] Found plugin path_provider_android at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_android-2.2.15\
+2025-05-27T09:25:58.5382830Z [   +1 ms] Found plugin path_provider_foundation at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_foundation-2.4.1\
+2025-05-27T09:25:58.5396227Z [   +1 ms] Found plugin path_provider_linux at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_linux-2.2.1\
+2025-05-27T09:25:58.5417358Z [   +2 ms] Found plugin path_provider_windows at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_windows-2.3.0\
+2025-05-27T09:25:58.5507984Z [   +9 ms] Found plugin shared_preferences at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences-2.5.3\
+2025-05-27T09:25:58.5518172Z [   +1 ms] Found plugin shared_preferences_android at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_android-2.4.7\
+2025-05-27T09:25:58.5530058Z [   +1 ms] Found plugin shared_preferences_foundation at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_foundation-2.5.4\
+2025-05-27T09:25:58.5541735Z [   +1 ms] Found plugin shared_preferences_linux at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_linux-2.4.1\
+2025-05-27T09:25:58.5563148Z [   +2 ms] Found plugin shared_preferences_web at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_web-2.4.3\
+2025-05-27T09:25:58.5574600Z [   +1 ms] Found plugin shared_preferences_windows at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_windows-2.4.1\
+2025-05-27T09:25:58.5692111Z [  +11 ms] Found plugin url_launcher at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher-6.3.1\
+2025-05-27T09:25:58.5702734Z [   +1 ms] Found plugin url_launcher_android at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_android-6.3.14\
+2025-05-27T09:25:58.5712771Z [   +1 ms] Found plugin url_launcher_ios at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_ios-6.3.3\
+2025-05-27T09:25:58.5723761Z [   +1 ms] Found plugin url_launcher_linux at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_linux-3.2.1\
+2025-05-27T09:25:58.5735174Z [   +1 ms] Found plugin url_launcher_macos at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_macos-3.2.2\
+2025-05-27T09:25:58.5754499Z [   +2 ms] Found plugin url_launcher_web at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_web-2.3.3\
+2025-05-27T09:25:58.5764875Z [        ] Found plugin url_launcher_windows at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_windows-3.1.4\
+2025-05-27T09:25:58.6332461Z [  +56 ms] Found plugin file_picker at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\file_picker-6.2.1\
+2025-05-27T09:25:58.6363974Z [   +3 ms] Found plugin flutter_plugin_android_lifecycle at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_plugin_android_lifecycle-2.0.26\
+2025-05-27T09:25:58.6570979Z [  +20 ms] Found plugin path_provider at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider-2.1.5\
+2025-05-27T09:25:58.6581835Z [   +1 ms] Found plugin path_provider_android at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_android-2.2.15\
+2025-05-27T09:25:58.6594092Z [   +1 ms] Found plugin path_provider_foundation at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_foundation-2.4.1\
+2025-05-27T09:25:58.6603188Z [        ] Found plugin path_provider_linux at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_linux-2.2.1\
+2025-05-27T09:25:58.6618647Z [   +1 ms] Found plugin path_provider_windows at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_windows-2.3.0\
+2025-05-27T09:25:58.6691063Z [   +7 ms] Found plugin shared_preferences at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences-2.5.3\
+2025-05-27T09:25:58.6701635Z [   +1 ms] Found plugin shared_preferences_android at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_android-2.4.7\
+2025-05-27T09:25:58.6712148Z [   +1 ms] Found plugin shared_preferences_foundation at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_foundation-2.5.4\
+2025-05-27T09:25:58.6722606Z [   +1 ms] Found plugin shared_preferences_linux at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_linux-2.4.1\
+2025-05-27T09:25:58.6740535Z [   +1 ms] Found plugin shared_preferences_web at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_web-2.4.3\
+2025-05-27T09:25:58.6755320Z [   +1 ms] Found plugin shared_preferences_windows at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_windows-2.4.1\
+2025-05-27T09:25:58.6882903Z [  +12 ms] Found plugin url_launcher at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher-6.3.1\
+2025-05-27T09:25:58.6893801Z [   +1 ms] Found plugin url_launcher_android at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_android-6.3.14\
+2025-05-27T09:25:58.6903177Z [        ] Found plugin url_launcher_ios at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_ios-6.3.3\
+2025-05-27T09:25:58.6915686Z [   +1 ms] Found plugin url_launcher_linux at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_linux-3.2.1\
+2025-05-27T09:25:58.6928052Z [   +1 ms] Found plugin url_launcher_macos at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_macos-3.2.2\
+2025-05-27T09:25:58.6948179Z [   +2 ms] Found plugin url_launcher_web at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_web-2.3.3\
+2025-05-27T09:25:58.6958544Z [   +1 ms] Found plugin url_launcher_windows at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_windows-3.1.4\
+2025-05-27T09:25:58.7544262Z [  +58 ms] executing: C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe -format json -products * -utf8 -latest -version 16 -requires Microsoft.VisualStudio.Workload.NativeDesktop Microsoft.VisualStudio.Component.VC.Tools.x86.x64 Microsoft.VisualStudio.Component.VC.CMake.Project
+2025-05-27T09:25:59.3449777Z [ +590 ms] Exit code 0 from: C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe -format json -products * -utf8 -latest -version 16 -requires Microsoft.VisualStudio.Workload.NativeDesktop Microsoft.VisualStudio.Component.VC.Tools.x86.x64 Microsoft.VisualStudio.Component.VC.CMake.Project
+2025-05-27T09:25:59.3451910Z [        ] [
+2025-05-27T09:25:59.3452153Z              {
+2025-05-27T09:25:59.3452400Z                "instanceId": "91fe6584",
+2025-05-27T09:25:59.3452769Z                "installDate": "2025-05-11T21:44:15Z",
+2025-05-27T09:25:59.3453196Z                "installationName": "VisualStudio/17.13.2+35825.156",
+2025-05-27T09:25:59.3453647Z                "installationPath": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise",
+2025-05-27T09:25:59.3454016Z                "installationVersion": "17.13.35825.156",
+2025-05-27T09:25:59.3454587Z                "productId": "Microsoft.VisualStudio.Product.Enterprise",
+2025-05-27T09:25:59.3455073Z                "productPath": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\Common7\\IDE\\devenv.exe",
+2025-05-27T09:25:59.3455477Z                "state": 4294967295,
+2025-05-27T09:25:59.3455690Z                "isComplete": true,
+2025-05-27T09:25:59.3455917Z                "isLaunchable": true,
+2025-05-27T09:25:59.3456128Z                "isPrerelease": false,
+2025-05-27T09:25:59.3456343Z                "isRebootRequired": false,
+2025-05-27T09:25:59.3456611Z                "displayName": "Visual Studio Enterprise 2022",
+2025-05-27T09:25:59.3456956Z                "description": "Scalable, end-to-end solution for teams of any size",
+2025-05-27T09:25:59.3457427Z                "channelId": "VisualStudio.17.Release",
+2025-05-27T09:25:59.3457733Z                "channelUri": "https://aka.ms/vs/17/release/channel",
+2025-05-27T09:25:59.3458338Z                "enginePath": "C:\\Program Files (x86)\\Microsoft Visual Studio\\Installer\\resources\\app\\ServiceHub\\Services\\Microsoft.VisualStudio.Setup.Service",
+2025-05-27T09:25:59.3459005Z                "installChannelUri": "https://aka.ms/vs/17/release/658092423_1519083591/channel",
+2025-05-27T09:25:59.3459387Z                "installedChannelId": "VisualStudio.17.Release",
+2025-05-27T09:25:59.3459730Z                "installedChannelUri": "https://aka.ms/vs/17/release/channel",
+2025-05-27T09:25:59.3460247Z                "releaseNotes": "https://docs.microsoft.com/en-us/visualstudio/releases/2022/release-notes-v17.13#17.13.2",
+2025-05-27T09:25:59.3460834Z                "resolvedInstallationPath": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise",
+2025-05-27T09:25:59.3461308Z                "thirdPartyNotices": "https://go.microsoft.com/fwlink/?LinkId=661288",
+2025-05-27T09:25:59.3461648Z                "updateDate": "2025-05-11T21:44:15.4258402Z",
+2025-05-27T09:25:59.3461887Z                "catalog": {
+2025-05-27T09:25:59.3462085Z                  "buildBranch": "d17.13",
+2025-05-27T09:25:59.3462314Z                  "buildVersion": "17.13.35825.156",
+2025-05-27T09:25:59.3462557Z                  "id": "VisualStudio/17.13.2+35825.156",
+2025-05-27T09:25:59.3462792Z                  "localBuild": "build-lab",
+2025-05-27T09:25:59.3463028Z                  "manifestName": "VisualStudio",
+2025-05-27T09:25:59.3463262Z                  "manifestType": "installer",
+2025-05-27T09:25:59.3463509Z                  "productDisplayVersion": "17.13.2",
+2025-05-27T09:25:59.3463745Z                  "productLine": "Dev17",
+2025-05-27T09:25:59.3463976Z                  "productLineVersion": "2022",
+2025-05-27T09:25:59.3464209Z                  "productMilestone": "RTW",
+2025-05-27T09:25:59.3464461Z                  "productMilestoneIsPreRelease": "False",
+2025-05-27T09:25:59.3464719Z                  "productName": "Visual Studio",
+2025-05-27T09:25:59.3464953Z                  "productPatchVersion": "2",
+2025-05-27T09:25:59.3465220Z                  "productPreReleaseMilestoneSuffix": "1.0",
+2025-05-27T09:25:59.3465506Z                  "productSemanticVersion": "17.13.2+35825.156",
+2025-05-27T09:25:59.3465797Z                  "requiredEngineVersion": "3.13.2069.59209"
+2025-05-27T09:25:59.3466028Z                },
+2025-05-27T09:25:59.3466188Z                "properties": {
+2025-05-27T09:25:59.3466385Z                  "campaignId": "",
+2025-05-27T09:25:59.3466669Z                  "channelManifestId": "VisualStudio.17.Release/17.13.2+35825.156",
+2025-05-27T09:25:59.3466986Z                  "includeRecommended": "1",
+2025-05-27T09:25:59.3467204Z                  "nickname": "",
+2025-05-27T09:25:59.3467579Z                  "setupEngineFilePath": "C:\\Program Files (x86)\\Microsoft Visual Studio\\Installer\\setup.exe"
+2025-05-27T09:25:59.3467959Z                }
+2025-05-27T09:25:59.3468105Z              }
+2025-05-27T09:25:59.3468242Z            ]
+2025-05-27T09:25:59.3682377Z [  +23 ms] Building Windows application...
+2025-05-27T09:25:59.3711130Z [   +2 ms] executing: C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -S D:\a\material-anticheat\material-anticheat\windows -B D:\a\material-anticheat\material-anticheat\build\windows\x64 -G Visual Studio 17 2022 -A x64 -DFLUTTER_TARGET_PLATFORM=windows-x64
+2025-05-27T09:26:40.6396442Z [+41268 ms] -- The CXX compiler identification is MSVC 19.43.34808.0
+2025-05-27T09:26:40.9493623Z [ +309 ms] -- Detecting CXX compiler ABI info
+2025-05-27T09:26:44.0047392Z [+3055 ms] -- Detecting CXX compiler ABI info - done
+2025-05-27T09:26:44.0494933Z [  +44 ms] -- Check for working CXX compiler: C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/MSVC/14.43.34808/bin/Hostx64/x64/cl.exe - skipped
+2025-05-27T09:26:44.0505614Z [   +1 ms] -- Detecting CXX compile features
+2025-05-27T09:26:44.0518781Z [   +1 ms] -- Detecting CXX compile features - done
+2025-05-27T09:26:44.1059055Z [  +53 ms] -- Configuring done (42.2s)
+2025-05-27T09:26:44.1605708Z [  +54 ms] -- Generating done (0.1s)
+2025-05-27T09:26:44.1610606Z [        ] -- Build files have been written to: D:/a/material-anticheat/material-anticheat/build/windows/x64
+2025-05-27T09:26:44.1969519Z [  +35 ms] executing: C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe --build D:\a\material-anticheat\material-anticheat\build\windows\x64 --config Release --target INSTALL --verbose
+2025-05-27T09:26:44.2502646Z [  +53 ms] Change Dir: 'D:/a/material-anticheat/material-anticheat/build/windows/x64'
+2025-05-27T09:26:44.2508127Z [        ] Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Enterprise/MSBuild/Current/Bin/amd64/MSBuild.exe" INSTALL.vcxproj /p:Configuration=Release /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+2025-05-27T09:26:44.3092112Z [  +58 ms] MSBuild version 17.13.15+18b3035f6 for .NET Framework
+2025-05-27T09:26:44.3433814Z [  +34 ms] Build started 5/27/2025 9:26:44 AM.
+2025-05-27T09:26:44.5589796Z [ +215 ms] Project "D:\a\material-anticheat\material-anticheat\build\windows\x64\INSTALL.vcxproj" on node 1 (default targets).
+2025-05-27T09:26:44.5593727Z [        ] Project "D:\a\material-anticheat\material-anticheat\build\windows\x64\INSTALL.vcxproj" (1) is building "D:\a\material-anticheat\material-anticheat\build\windows\x64\ZERO_CHECK.vcxproj" (2) on node 1 (default targets).
+2025-05-27T09:26:44.5595279Z [        ] PrepareForBuild:
+2025-05-27T09:26:44.5595788Z [        ]   Creating directory "x64\Release\ZERO_CHECK\".
+2025-05-27T09:26:44.5654535Z [   +5 ms]   Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+2025-05-27T09:26:44.5657405Z [        ]   Creating directory "x64\Release\ZERO_CHECK\ZERO_CHECK.tlog\".
+2025-05-27T09:26:44.5683706Z [   +2 ms] InitializeBuildStatus:
+2025-05-27T09:26:44.5687302Z [        ]   Creating "x64\Release\ZERO_CHECK\ZERO_CHECK.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+2025-05-27T09:26:44.5689234Z [        ]   Touching "x64\Release\ZERO_CHECK\ZERO_CHECK.tlog\unsuccessfulbuild".
+2025-05-27T09:26:44.9611820Z [ +392 ms] CustomBuild:
+2025-05-27T09:26:44.9613514Z [        ]   1>Checking Build System
+2025-05-27T09:26:45.0239927Z [  +62 ms] FinalizeBuildStatus:
+2025-05-27T09:26:45.0240985Z [        ]   Deleting file "x64\Release\ZERO_CHECK\ZERO_CHECK.tlog\unsuccessfulbuild".
+2025-05-27T09:26:45.0243340Z [        ]   Touching "x64\Release\ZERO_CHECK\ZERO_CHECK.tlog\ZERO_CHECK.lastbuildstate".
+2025-05-27T09:26:45.0256420Z [   +1 ms] Done Building Project "D:\a\material-anticheat\material-anticheat\build\windows\x64\ZERO_CHECK.vcxproj" (default targets).
+2025-05-27T09:26:45.1403965Z [ +114 ms] Project "D:\a\material-anticheat\material-anticheat\build\windows\x64\INSTALL.vcxproj" (1) is building "D:\a\material-anticheat\material-anticheat\build\windows\x64\ALL_BUILD.vcxproj" (3) on node 1 (default targets).
+2025-05-27T09:26:45.1406677Z [        ] Project "D:\a\material-anticheat\material-anticheat\build\windows\x64\ALL_BUILD.vcxproj" (3) is building "D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_wrapper_app.vcxproj" (4) on node 1 (default targets).
+2025-05-27T09:26:45.1409309Z [        ] Project "D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_wrapper_app.vcxproj" (4) is building "D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj" (5) on node 1 (default targets).
+2025-05-27T09:26:45.1410960Z [        ] PrepareForBuild:
+2025-05-27T09:26:45.1411420Z [        ]   Creating directory "x64\Release\flutter_assemble\".
+2025-05-27T09:26:45.1420091Z [   +1 ms]   Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+2025-05-27T09:26:45.1421641Z [        ]   Creating directory "x64\Release\flutter_assemble\flutter_assemble.tlog\".
+2025-05-27T09:26:45.1434746Z [   +1 ms] InitializeBuildStatus:
+2025-05-27T09:26:45.1436802Z [        ]   Creating "x64\Release\flutter_assemble\flutter_assemble.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+2025-05-27T09:26:45.1437925Z [        ]   Touching "x64\Release\flutter_assemble\flutter_assemble.tlog\unsuccessfulbuild".
+2025-05-27T09:26:45.1445973Z [        ] ComputeCustomBuildOutput:
+2025-05-27T09:26:45.1448235Z [        ]   Creating directory "D:\a\material-anticheat\material-anticheat\windows\flutter\ephemeral\cpp_client_wrapper\".
+2025-05-27T09:26:45.1458920Z [   +1 ms] CustomBuild:
+2025-05-27T09:26:45.1462609Z [        ]   "The build of 'D:\a\material-anticheat\material-anticheat\build\windows\x64\CMakeFiles\5116d33fa54645aee4cc0dd2bf38f93d\flutter_assemble.rule' depends on 'D:\A\MATERIAL-ANTICHEAT\MATERIAL-ANTICHEAT\WINDOWS\FLUTTER\EPHEMERAL\FLUTTER_WINDOWS.DLL' which is produced by the build of 'D:\a\material-anticheat\material-anticheat\build\windows\x64\CMakeFiles\ade246b61e87ebac2e9509f81a237b53\flutter_windows.dll.rule'. The items cannot be built in parallel."
+2025-05-27T09:26:45.2285860Z [  +81 ms]   Generating D:/a/material-anticheat/material-anticheat/windows/flutter/ephemeral/flutter_windows.dll, D:/a/material-anticheat/material-anticheat/windows/flutter/ephemeral/flutter_export.h, D:/a/material-anticheat/material-anticheat/windows/flutter/ephemeral/flutter_windows.h, D:/a/material-anticheat/material-anticheat/windows/flutter/ephemeral/flutter_messenger.h, D:/a/material-anticheat/material-anticheat/windows/flutter/ephemeral/flutter_plugin_registrar.h, D:/a/material-anticheat/material-anticheat/windows/flutter/ephemeral/flutter_texture_registrar.h, D:/a/material-anticheat/material-anticheat/windows/flutter/ephemeral/cpp_client_wrapper/core_implementations.cc, D:/a/material-anticheat/material-anticheat/windows/flutter/ephemeral/cpp_client_wrapper/standard_codec.cc, D:/a/material-anticheat/material-anticheat/windows/flutter/ephemeral/cpp_client_wrapper/plugin_registrar.cc, D:/a/material-anticheat/material-anticheat/windows/flutter/ephemeral/cpp_client_wrapper/flutter_engine.cc, D:/a/material-anticheat/material-anticheat/windows/flutter/ephemeral/cpp_client_wrapper/flutter_view_controller.cc, _phony_
+2025-05-27T09:26:45.9623315Z [ +733 ms]   [  +50 ms] Artifact Instance of 'AndroidGenSnapshotArtifacts' is not required, skipping update.
+2025-05-27T09:26:45.9628095Z [        ]   [   +4 ms] Artifact Instance of 'AndroidInternalBuildArtifacts' is not required, skipping update.
+2025-05-27T09:26:45.9630012Z [        ]   [        ] Artifact Instance of 'IOSEngineArtifacts' is not required, skipping update.
+2025-05-27T09:26:45.9631507Z [        ]   [        ] Artifact Instance of 'FlutterWebSdk' is not required, skipping update.
+2025-05-27T09:26:45.9632714Z [        ]   [        ] Artifact Instance of 'LegacyCanvasKitRemover' is not required, skipping update.
+2025-05-27T09:26:45.9637504Z [        ]   [   +2 ms] Artifact Instance of 'WindowsEngineArtifacts' is not required, skipping update.
+2025-05-27T09:26:45.9642776Z [        ]   [        ] Artifact Instance of 'MacOSEngineArtifacts' is not required, skipping update.
+2025-05-27T09:26:45.9643874Z [        ]   [        ] Artifact Instance of 'LinuxEngineArtifacts' is not required, skipping update.
+2025-05-27T09:26:45.9644925Z [        ]   [        ] Artifact Instance of 'LinuxFuchsiaSDKArtifacts' is not required, skipping update.
+2025-05-27T09:26:45.9646026Z [        ]   [        ] Artifact Instance of 'MacOSFuchsiaSDKArtifacts' is not required, skipping update.
+2025-05-27T09:26:45.9647107Z [        ]   [        ] Artifact Instance of 'FlutterRunnerSDKArtifacts' is not required, skipping update.
+2025-05-27T09:26:45.9648206Z [        ]   [        ] Artifact Instance of 'FlutterRunnerDebugSymbols' is not required, skipping update.
+2025-05-27T09:26:46.0500167Z [  +82 ms]   [  +91 ms] Artifact Instance of 'MaterialFonts' is not required, skipping update.
+2025-05-27T09:26:46.0502461Z [        ]   [        ] Artifact Instance of 'GradleWrapper' is not required, skipping update.
+2025-05-27T09:26:46.0503283Z [        ]   [        ] Artifact Instance of 'AndroidGenSnapshotArtifacts' is not required, skipping update.
+2025-05-27T09:26:46.0504192Z [   +2 ms]   [        ] Artifact Instance of 'AndroidInternalBuildArtifacts' is not required, skipping update.
+2025-05-27T09:26:46.0505051Z [        ]   [   +1 ms] Artifact Instance of 'IOSEngineArtifacts' is not required, skipping update.
+2025-05-27T09:26:46.0505797Z [        ]   [        ] Artifact Instance of 'FlutterWebSdk' is not required, skipping update.
+2025-05-27T09:26:46.0506544Z [        ]   [        ] Artifact Instance of 'LegacyCanvasKitRemover' is not required, skipping update.
+2025-05-27T09:26:46.0507324Z [        ]   [        ] Artifact Instance of 'FlutterSdk' is not required, skipping update.
+2025-05-27T09:26:46.0528942Z [   +2 ms]   [   +3 ms] Artifact Instance of 'MacOSEngineArtifacts' is not required, skipping update.
+2025-05-27T09:26:46.0531952Z [        ]   [        ] Artifact Instance of 'LinuxEngineArtifacts' is not required, skipping update.
+2025-05-27T09:26:46.0534500Z [        ]   [        ] Artifact Instance of 'LinuxFuchsiaSDKArtifacts' is not required, skipping update.
+2025-05-27T09:26:46.0538746Z [        ]   [        ] Artifact Instance of 'MacOSFuchsiaSDKArtifacts' is not required, skipping update.
+2025-05-27T09:26:46.0542116Z [        ]   [        ] Artifact Instance of 'FlutterRunnerSDKArtifacts' is not required, skipping update.
+2025-05-27T09:26:46.0544091Z [        ]   [        ] Artifact Instance of 'FlutterRunnerDebugSymbols' is not required, skipping update.
+2025-05-27T09:26:46.0544831Z [        ]   [        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+2025-05-27T09:26:46.0545572Z [        ]   [        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+2025-05-27T09:26:46.0546273Z [        ]   [        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+2025-05-27T09:26:46.0546719Z [        ]   [        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+2025-05-27T09:26:46.0547215Z [        ]   [        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+2025-05-27T09:26:46.0547962Z [        ]   [        ] Artifact Instance of 'FontSubsetArtifacts' is not required, skipping update.
+2025-05-27T09:26:46.0549124Z [        ]   [        ] Artifact Instance of 'PubDependencies' is not required, skipping update.
+2025-05-27T09:26:46.0721955Z [  +17 ms]   [  +16 ms] Initializing file store
+2025-05-27T09:26:46.0929555Z [  +20 ms]   [  +20 ms] Skipping target: gen_localizations
+2025-05-27T09:26:46.1043923Z [  +11 ms]   [  +11 ms] gen_dart_plugin_registrant: Starting due to {InvalidatedReasonKind.inputChanged: The following inputs have updated contents: D:\a\material-anticheat\material-anticheat\.dart_tool\package_config_subset}
+2025-05-27T09:26:46.1090238Z [   +4 ms]   [   +4 ms] unpack_windows: Starting due to {}
+2025-05-27T09:26:46.2466570Z [ +137 ms]   [ +137 ms] unpack_windows: Complete
+2025-05-27T09:26:48.6393877Z [+2392 ms]   [+2392 ms] Found plugin file_picker at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\file_picker-6.2.1\
+2025-05-27T09:26:48.6483432Z [   +9 ms]   [   +9 ms] Found plugin flutter_plugin_android_lifecycle at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_plugin_android_lifecycle-2.0.26\
+2025-05-27T09:26:48.6819661Z [  +33 ms]   [  +33 ms] Found plugin path_provider at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider-2.1.5\
+2025-05-27T09:26:48.6831723Z [   +1 ms]   [   +1 ms] Found plugin path_provider_android at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_android-2.2.15\
+2025-05-27T09:26:48.6849397Z [   +1 ms]   [   +1 ms] Found plugin path_provider_foundation at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_foundation-2.4.1\
+2025-05-27T09:26:48.6876213Z [   +2 ms]   [   +2 ms] Found plugin path_provider_linux at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_linux-2.2.1\
+2025-05-27T09:26:48.6908917Z [   +3 ms]   [   +3 ms] Found plugin path_provider_windows at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_windows-2.3.0\
+2025-05-27T09:26:48.7042856Z [  +13 ms]   [  +12 ms] Found plugin shared_preferences at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences-2.5.3\
+2025-05-27T09:26:48.7055145Z [   +1 ms]   [   +1 ms] Found plugin shared_preferences_android at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_android-2.4.7\
+2025-05-27T09:26:48.7070779Z [   +1 ms]   [   +1 ms] Found plugin shared_preferences_foundation at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_foundation-2.5.4\
+2025-05-27T09:26:48.7087439Z [   +1 ms]   [   +1 ms] Found plugin shared_preferences_linux at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_linux-2.4.1\
+2025-05-27T09:26:48.7125656Z [   +3 ms]   [   +3 ms] Found plugin shared_preferences_web at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_web-2.4.3\
+2025-05-27T09:26:48.7184782Z [   +5 ms]   [   +5 ms] Found plugin shared_preferences_windows at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_windows-2.4.1\
+2025-05-27T09:26:48.7353053Z [  +16 ms]   [  +16 ms] Found plugin url_launcher at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher-6.3.1\
+2025-05-27T09:26:48.7365052Z [   +1 ms]   [   +1 ms] Found plugin url_launcher_android at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_android-6.3.14\
+2025-05-27T09:26:48.7392260Z [   +2 ms]   [   +2 ms] Found plugin url_launcher_ios at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_ios-6.3.3\
+2025-05-27T09:26:48.7408317Z [   +1 ms]   [   +1 ms] Found plugin url_launcher_linux at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_linux-3.2.1\
+2025-05-27T09:26:48.7427624Z [   +1 ms]   [   +1 ms] Found plugin url_launcher_macos at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_macos-3.2.2\
+2025-05-27T09:26:48.7454472Z [   +2 ms]   [   +2 ms] Found plugin url_launcher_web at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_web-2.3.3\
+2025-05-27T09:26:48.7469217Z [   +1 ms]   [   +1 ms] Found plugin url_launcher_windows at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_windows-3.1.4\
+2025-05-27T09:26:48.7894507Z [  +42 ms]   [  +41 ms] gen_dart_plugin_registrant: Complete
+2025-05-27T09:26:48.7907980Z [   +1 ms]   [   +2 ms] kernel_snapshot_program: Starting due to {}
+2025-05-27T09:26:48.8009130Z [   +9 ms]   [   +9 ms] C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64\bin\cache\dart-sdk\bin\dartaotruntime.exe --disable-dart-dev C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64\bin\cache\dart-sdk\bin\snapshots\frontend_server_aot.dart.snapshot --sdk-root C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64\bin\cache\artifacts\engine\common\flutter_patched_sdk_product/ --target=flutter --no-print-incremental-dependencies -Ddart.vm.profile=false -Ddart.vm.product=true --delete-tostring-package-uri=dart:ui --delete-tostring-package-uri=package:flutter --aot --tfa --target-os windows --packages D:\a\material-anticheat\material-anticheat\.dart_tool\package_config.json --output-dill D:\a\material-anticheat\material-anticheat\.dart_tool\flutter_build\3a2bcdce013086c5bb6308d62d3028ec\program.dill --depfile D:\a\material-anticheat\material-anticheat\.dart_tool\flutter_build\3a2bcdce013086c5bb6308d62d3028ec\kernel_snapshot_program.d --source file:///D:/a/material-anticheat/material-anticheat/.dart_tool/flutter_build/dart_plugin_registrant.dart --source package:flutter/src/dart_plugin_registrant.dart -Dflutter.dart_plugin_registrant=file:///D:/a/material-anticheat/material-anticheat/.dart_tool/flutter_build/dart_plugin_registrant.dart --verbosity=error package:material_anticheat/main.dart
+2025-05-27T09:26:51.6942444Z [+2892 ms] [+2807 ms] lib/main.dart(195,28): error GE5CFE876: The method 'withValues' isn't defined for the class 'Color'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:51.6946252Z [   +2 ms]   [   +1 ms]  - 'Color' is from 'dart:ui'.
+2025-05-27T09:26:51.6947643Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:51.6948332Z [        ]   [        ]               color: color.withValues(alpha: 0.3),
+2025-05-27T09:26:51.6949514Z [        ] [        ] lib/main.dart(208,36): error GE5CFE876: The method 'withValues' isn't defined for the class 'Color'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:51.6950622Z [        ]   [   +1 ms]                            ^^^^^^^^^^
+2025-05-27T09:26:51.6950999Z [        ]   [        ]  - 'Color' is from 'dart:ui'.
+2025-05-27T09:26:51.6951598Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:51.6952216Z [        ]   [        ]                       color: color.withValues(alpha: 0.1),
+2025-05-27T09:26:51.6953352Z [        ]   [        ]                                    ^^^^^^^^^^
+2025-05-27T09:26:51.6955680Z [        ] [   +1 ms] lib/screens/weighbridge_screen.dart(348,54): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:51.6957932Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:51.6959430Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:51.6960892Z [        ]   [        ]                 color: state.isRunning ? Colors.blue.withValues(alpha: 0.1) : Colors.grey.withValues(alpha: 0.1),
+2025-05-27T09:26:51.6962056Z [        ]   [        ]                                                      ^^^^^^^^^^
+2025-05-27T09:26:51.6964009Z [        ] [        ] lib/screens/weighbridge_screen.dart(348,91): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:51.6965915Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:51.6968238Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:51.6969369Z [        ]   [        ]                 color: state.isRunning ? Colors.blue.withValues(alpha: 0.1) : Colors.grey.withValues(alpha: 0.1),
+2025-05-27T09:26:51.6970490Z [        ]   [        ]                                                                                           ^^^^^^^^^^
+2025-05-27T09:26:51.6972379Z [        ] [        ] lib/screens/weighbridge_screen.dart(351,56): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:51.6974485Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:51.6975552Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:51.6976877Z [        ]   [        ]                   color: state.isRunning ? Colors.blue.withValues(alpha: 0.3) : Colors.grey.withValues(alpha: 0.3),
+2025-05-27T09:26:51.6977907Z [        ]   [        ]                                                        ^^^^^^^^^^
+2025-05-27T09:26:51.6979583Z [        ] [        ] lib/screens/weighbridge_screen.dart(351,93): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:51.6982179Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:51.6983176Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:51.6983860Z [        ]   [        ]                   color: state.isRunning ? Colors.blue.withValues(alpha: 0.3) : Colors.grey.withValues(alpha: 0.3),
+2025-05-27T09:26:51.6984792Z [        ]   [        ]                                                                                           ^^^^^^^^^^
+2025-05-27T09:26:52.3954425Z [ +694 ms] [ +775 ms] lib/widgets/progress_display_card.dart(42,55): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.3958444Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.3961434Z [        ] [        ] lib/widgets/progress_display_card.dart(42,92): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.3963983Z [        ] [        ] lib/widgets/progress_display_card.dart(45,57): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.3965767Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.3966845Z [        ]   [        ]                 color: state.isRunning ? Colors.green.withValues(alpha: 0.1) : Colors.grey.withValues(alpha: 0.1),
+2025-05-27T09:26:52.3967644Z [        ]   [        ]                                                       ^^^^^^^^^^
+2025-05-27T09:26:52.3968425Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.3969564Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.3970175Z [        ]   [        ]                 color: state.isRunning ? Colors.green.withValues(alpha: 0.1) : Colors.grey.withValues(alpha: 0.1),
+2025-05-27T09:26:52.3970609Z [        ]   [        ]                                                                                           ^^^^^^^^^^
+2025-05-27T09:26:52.3971284Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.3972082Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.3972777Z [        ]   [        ]                   color: state.isRunning ? Colors.green.withValues(alpha: 0.3) : Colors.grey.withValues(alpha: 0.3),
+2025-05-27T09:26:52.3973812Z [        ] [        ] lib/widgets/progress_display_card.dart(45,94): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.3974615Z [        ]   [        ]                                                         ^^^^^^^^^^
+2025-05-27T09:26:52.3975270Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.3976076Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.3976661Z [        ]   [        ]                   color: state.isRunning ? Colors.green.withValues(alpha: 0.3) : Colors.grey.withValues(alpha: 0.3),
+2025-05-27T09:26:52.3977103Z [        ]   [        ]                                                                                           ^^^^^^^^^^
+2025-05-27T09:26:52.4063496Z [   +1 ms] [   +3 ms] lib/screens/batch_download_screen.dart(201,52): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4082288Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4084859Z [   +2 ms] [        ] lib/screens/batch_download_screen.dart(275,54): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4086831Z [        ] [        ] lib/screens/batch_download_screen.dart(470,53): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4089264Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4100753Z [        ] [        ] lib/screens/batch_download_screen.dart(472,72): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4102084Z [        ]   [        ]                                 color: Colors.blue.withValues(alpha: 0.1),
+2025-05-27T09:26:52.4103765Z [        ] [        ] lib/screens/batch_download_screen.dart(502,51): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4105453Z [        ]   [        ]                                                    ^^^^^^^^^^
+2025-05-27T09:26:52.4107771Z [        ] [        ] lib/screens/batch_download_screen.dart(504,70): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4111041Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4113527Z [        ] [        ] lib/screens/batch_download_screen.dart(583,37): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4115259Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4117124Z [        ] [        ] lib/screens/image_gallery_screen.dart(175,62): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4121533Z [        ]   [        ]                                 color: Colors.orange.withValues(alpha: 0.1),
+2025-05-27T09:26:52.4123644Z [        ] [        ] lib/screens/image_gallery_screen.dart(196,58): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4124893Z [        ]   [        ]                                                      ^^^^^^^^^^
+2025-05-27T09:26:52.4126100Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4127430Z [   +1 ms]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4128163Z [        ]   [        ]                                 color: Colors.green.withValues(alpha: 0.1),
+2025-05-27T09:26:52.4128647Z [        ]   [        ]                                                     ^^^^^^^^^^
+2025-05-27T09:26:52.4129742Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4131161Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4132017Z [        ]   [        ]                                 border: Border.all(color: Colors.green.withValues(alpha: 0.3)),
+2025-05-27T09:26:52.4132636Z [        ]   [        ]                                                                        ^^^^^^^^^^
+2025-05-27T09:26:52.4133825Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4135203Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4135906Z [        ]   [        ]                                 color: Colors.red.withValues(alpha: 0.1),
+2025-05-27T09:26:52.4136353Z [        ]   [        ]                                                   ^^^^^^^^^^
+2025-05-27T09:26:52.4137432Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4138778Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4139739Z [        ]   [        ]                                 border: Border.all(color: Colors.red.withValues(alpha: 0.3)),
+2025-05-27T09:26:52.4140278Z [        ]   [        ]                                                                      ^^^^^^^^^^
+2025-05-27T09:26:52.4141467Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4142807Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4143496Z [        ]   [        ]                 color: Colors.amber.withValues(alpha: 0.1),
+2025-05-27T09:26:52.4144092Z [        ]   [        ]                                     ^^^^^^^^^^
+2025-05-27T09:26:52.4145186Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4146544Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4147316Z [        ]   [        ]                               selectedTileColor: Colors.blue.withValues(alpha: 0.1),
+2025-05-27T09:26:52.4147822Z [        ]   [        ]                                                              ^^^^^^^^^^
+2025-05-27T09:26:52.4149002Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4150091Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4150539Z [   +1 ms]   [        ]                                       color: Colors.blue.withValues(alpha: 0.1),
+2025-05-27T09:26:52.4150838Z [        ]   [        ]                                                          ^^^^^^^^^^
+2025-05-27T09:26:52.4187916Z [   +4 ms] [   +7 ms] lib/screens/image_gallery_screen.dart(368,32): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4242991Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4247793Z [        ] [        ] lib/screens/image_gallery_screen.dart(496,52): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4254693Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4257201Z [        ] [        ] lib/screens/image_gallery_screen.dart(498,71): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4258649Z [        ]   [        ]             color: Colors.blue.withValues(alpha: 0.1),
+2025-05-27T09:26:52.4260499Z [        ] [        ] lib/screens/image_gallery_screen.dart(535,53): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4276875Z [        ]   [        ]                                ^^^^^^^^^^
+2025-05-27T09:26:52.4279052Z [        ] [        ] lib/screens/image_gallery_screen.dart(537,72): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4280519Z [        ] [        ] lib/screens/image_gallery_screen.dart(601,57): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4281825Z [        ] [        ] lib/screens/image_gallery_screen.dart(659,60): error GE5CFE876: The method 'withValues' isn't defined for the class 'Color'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4283017Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4283991Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4284441Z [        ]   [        ]                                 color: Colors.blue.withValues(alpha: 0.1),
+2025-05-27T09:26:52.4284734Z [        ]   [        ]                                                    ^^^^^^^^^^
+2025-05-27T09:26:52.4285402Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4286231Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4286719Z [   +2 ms]   [        ]                                 border: Border.all(color: Colors.blue.withValues(alpha: 0.3)),
+2025-05-27T09:26:52.4287052Z [   +1 ms]   [        ]                                                                       ^^^^^^^^^^
+2025-05-27T09:26:52.4287734Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4288537Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4288961Z [        ]   [        ]                                   color: Colors.red.withValues(alpha: 0.1),
+2025-05-27T09:26:52.4289257Z [        ]   [        ]                                                     ^^^^^^^^^^
+2025-05-27T09:26:52.4289928Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4290747Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4291232Z [        ]   [        ]                                   border: Border.all(color: Colors.red.withValues(alpha: 0.3)),
+2025-05-27T09:26:52.4291555Z [        ]   [        ]                                                                        ^^^^^^^^^^
+2025-05-27T09:26:52.4292220Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4293023Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4293440Z [        ]   [        ]                                       color: Colors.red.withValues(alpha: 0.3),
+2025-05-27T09:26:52.4293722Z [        ]   [        ]                                                         ^^^^^^^^^^
+2025-05-27T09:26:52.4293986Z [        ]   [        ]  - 'Color' is from 'dart:ui'.
+2025-05-27T09:26:52.4294395Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4294922Z [        ]   [        ]                                               Colors.black.withValues(alpha: 0.7),
+2025-05-27T09:26:52.4295206Z [        ]   [        ]                                                            ^^^^^^^^^^
+2025-05-27T09:26:52.4340131Z [   +7 ms] [   +8 ms] lib/screens/suspicious_images_screen.dart(369,30): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4342543Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4345478Z [        ] [        ] lib/screens/suspicious_images_screen.dart(371,49): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4347488Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4348405Z [        ]   [        ]           color: Colors.blue.withValues(alpha: 0.1),
+2025-05-27T09:26:52.4349199Z [        ]   [        ]                              ^^^^^^^^^^
+2025-05-27T09:26:52.4350453Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4351299Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4351786Z [        ]   [        ]           border: Border.all(color: Colors.blue.withValues(alpha: 0.3)),
+2025-05-27T09:26:52.4352114Z [        ]   [        ]                                                 ^^^^^^^^^^
+2025-05-27T09:26:52.4460137Z [   +8 ms] [   +9 ms] lib/screens/weighbridge_batch_download_screen.dart(434,54): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4462360Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4464386Z [        ] [        ] lib/screens/weighbridge_batch_download_screen.dart(434,91): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4465514Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4466229Z [        ]   [        ]                 color: state.isRunning ? Colors.blue.withValues(alpha: 0.1) : Colors.grey.withValues(alpha: 0.1),
+2025-05-27T09:26:52.4466679Z [        ]   [        ]                                                      ^^^^^^^^^^
+2025-05-27T09:26:52.4467452Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4468342Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4470119Z [        ] [        ] lib/screens/weighbridge_batch_download_screen.dart(437,56): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4471586Z [        ]   [        ]                 color: state.isRunning ? Colors.blue.withValues(alpha: 0.1) : Colors.grey.withValues(alpha: 0.1),
+2025-05-27T09:26:52.4472041Z [        ]   [        ]                                                                                           ^^^^^^^^^^
+2025-05-27T09:26:52.4472728Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4473690Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4474279Z [        ]   [        ]                   color: state.isRunning ? Colors.blue.withValues(alpha: 0.3) : Colors.grey.withValues(alpha: 0.3),
+2025-05-27T09:26:52.4474772Z [        ]   [        ]                                                        ^^^^^^^^^^
+2025-05-27T09:26:52.4476982Z [        ] [        ] lib/screens/weighbridge_batch_download_screen.dart(437,93): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4478957Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4481023Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4482558Z [        ]   [        ]                   color: state.isRunning ? Colors.blue.withValues(alpha: 0.3) : Colors.grey.withValues(alpha: 0.3),
+2025-05-27T09:26:52.4503366Z [        ]   [        ]                                                                                           ^^^^^^^^^^
+2025-05-27T09:26:52.4505113Z [        ] [   +2 ms] lib/screens/weighbridge_image_gallery_screen.dart(195,64): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4507739Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4510433Z [        ] [        ] lib/screens/weighbridge_image_gallery_screen.dart(216,60): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4521149Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4522144Z [        ]   [        ]                               selectedTileColor: Colors.orange.withValues(alpha: 0.1),
+2025-05-27T09:26:52.4527429Z [        ]   [        ]                                                                ^^^^^^^^^^
+2025-05-27T09:26:52.4530961Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4532980Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4535280Z [        ]   [        ]                                       color: Colors.orange.withValues(alpha: 0.1),
+2025-05-27T09:26:52.4535869Z [        ]   [        ]                                                            ^^^^^^^^^^
+2025-05-27T09:26:52.4594521Z [   +1 ms] [   +1 ms] lib/screens/weighbridge_image_gallery_screen.dart(389,36): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4599815Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4604520Z [   +2 ms] [   +1 ms] lib/screens/weighbridge_image_gallery_screen.dart(570,44): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4608282Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4610749Z [   +2 ms] [        ] lib/screens/weighbridge_image_gallery_screen.dart(572,63): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4613843Z [        ]   [        ]               color: Colors.orange.withValues(alpha: 0.1),
+2025-05-27T09:26:52.4615944Z [        ] [        ] lib/screens/weighbridge_image_gallery_screen.dart(645,43): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4617408Z [        ] [        ] lib/screens/weighbridge_image_gallery_screen.dart(647,62): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4618839Z [        ] [        ] lib/screens/weighbridge_image_gallery_screen.dart(728,37): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4620242Z [        ] [        ] lib/screens/weighbridge_image_gallery_screen.dart(786,40): error GE5CFE876: The method 'withValues' isn't defined for the class 'Color'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4621039Z [        ]   [        ]                                    ^^^^^^^^^^
+2025-05-27T09:26:52.4621744Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4622558Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4622991Z [        ]   [        ]                       color: Colors.orange.withValues(alpha: 0.1),
+2025-05-27T09:26:52.4623272Z [        ]   [        ]                                            ^^^^^^^^^^
+2025-05-27T09:26:52.4623934Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4624737Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4625209Z [        ]   [        ]                       border: Border.all(color: Colors.orange.withValues(alpha: 0.3)),
+2025-05-27T09:26:52.4625551Z [        ]   [        ]                                                               ^^^^^^^^^^
+2025-05-27T09:26:52.4626201Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4626995Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4627427Z [        ]   [        ]                         color: Colors.red.withValues(alpha: 0.1),
+2025-05-27T09:26:52.4628224Z [        ]   [        ]                                           ^^^^^^^^^^
+2025-05-27T09:26:52.4628913Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4629725Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4630196Z [        ]   [        ]                         border: Border.all(color: Colors.red.withValues(alpha: 0.3)),
+2025-05-27T09:26:52.4630530Z [        ]   [        ]                                                              ^^^^^^^^^^
+2025-05-27T09:26:52.4631193Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4632097Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4632520Z [        ]   [        ]                   color: Colors.red.withValues(alpha: 0.3),
+2025-05-27T09:26:52.4632788Z [        ]   [        ]                                     ^^^^^^^^^^
+2025-05-27T09:26:52.4633035Z [        ]   [        ]  - 'Color' is from 'dart:ui'.
+2025-05-27T09:26:52.4633427Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4633854Z [        ]   [        ]                           Colors.black.withValues(alpha: 0.7),
+2025-05-27T09:26:52.4634123Z [        ]   [        ]                                        ^^^^^^^^^^
+2025-05-27T09:26:52.4672905Z [   +3 ms] [   +6 ms] lib/screens/weighbridge_duplicate_detection_screen.dart(494,42): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4686107Z [        ] [        ] lib/screens/weighbridge_duplicate_detection_screen.dart(533,67): error GE5CFE876: The method 'withValues' isn't defined for the class 'Color'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4762719Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4803647Z [        ] [        ] lib/screens/weighbridge_duplicate_detection_screen.dart(536,69): error GE5CFE876: The method 'withValues' isn't defined for the class 'Color'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4806459Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4809355Z [        ] [        ] lib/screens/weighbridge_suspicious_images_screen.dart(68,40): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4811039Z [        ]   [        ]                     color: Colors.orange.withValues(alpha: 0.1),
+2025-05-27T09:26:52.4813849Z [        ] [        ] lib/screens/weighbridge_suspicious_images_screen.dart(188,43): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4816647Z [   +2 ms] [        ] lib/screens/weighbridge_suspicious_images_screen.dart(188,81): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4819519Z [        ] [        ] lib/screens/weighbridge_suspicious_images_screen.dart(191,45): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4822121Z [        ] [        ] lib/screens/weighbridge_suspicious_images_screen.dart(191,83): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4824728Z [        ] [        ] lib/screens/weighbridge_suspicious_images_screen.dart(246,28): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4827529Z [        ] [        ] lib/screens/weighbridge_suspicious_images_screen.dart(249,30): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4830151Z [        ] [        ] lib/screens/weighbridge_suspicious_images_screen.dart(292,27): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4832673Z [        ] [        ] lib/screens/weighbridge_suspicious_images_screen.dart(295,29): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4835186Z [        ] [        ] lib/screens/weighbridge_suspicious_images_screen.dart(365,35): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4837843Z [        ] [        ] lib/screens/weighbridge_suspicious_images_screen.dart(368,37): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4839413Z [        ]   [        ]                                          ^^^^^^^^^^
+2025-05-27T09:26:52.4839860Z [        ]   [        ]  - 'Color' is from 'dart:ui'.
+2025-05-27T09:26:52.4840579Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4841493Z [        ]   [        ]                     color: _getSimilarityColor(result.similarity).withValues(alpha: 0.1),
+2025-05-27T09:26:52.4842125Z [        ]   [        ]                                                                   ^^^^^^^^^^
+2025-05-27T09:26:52.4842567Z [        ]   [        ]  - 'Color' is from 'dart:ui'.
+2025-05-27T09:26:52.4843261Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4844145Z [        ]   [        ]                       color: _getSimilarityColor(result.similarity).withValues(alpha: 0.3),
+2025-05-27T09:26:52.4844764Z [        ]   [        ]                                                                     ^^^^^^^^^^
+2025-05-27T09:26:52.4845967Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4847440Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4848199Z [        ]   [        ]                     color: Colors.grey.withValues(alpha: 0.1),
+2025-05-27T09:26:52.4848678Z [        ]   [        ]                                        ^^^^^^^^^^
+2025-05-27T09:26:52.4850056Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4851554Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4852492Z [        ]   [        ]         color: hasResults ? Colors.orange.withValues(alpha: 0.1) : Colors.green.withValues(alpha: 0.1),
+2025-05-27T09:26:52.4853873Z [        ]   [        ]                                           ^^^^^^^^^^
+2025-05-27T09:26:52.4855311Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4856660Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4857377Z [        ]   [        ]         color: hasResults ? Colors.orange.withValues(alpha: 0.1) : Colors.green.withValues(alpha: 0.1),
+2025-05-27T09:26:52.4858216Z [        ]   [        ]                                                                                 ^^^^^^^^^^
+2025-05-27T09:26:52.4859670Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4860726Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4861437Z [        ]   [        ]           color: hasResults ? Colors.orange.withValues(alpha: 0.3) : Colors.green.withValues(alpha: 0.3),
+2025-05-27T09:26:52.4861867Z [        ]   [        ]                                             ^^^^^^^^^^
+2025-05-27T09:26:52.4862659Z [   +1 ms]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4863977Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4864545Z [        ]   [        ]           color: hasResults ? Colors.orange.withValues(alpha: 0.3) : Colors.green.withValues(alpha: 0.3),
+2025-05-27T09:26:52.4864971Z [        ]   [        ]                                                                                   ^^^^^^^^^^
+2025-05-27T09:26:52.4865787Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4866719Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4867733Z [        ] [        ] lib/screens/weighbridge_suspicious_images_screen.dart(572,59): error GE5CFE876: The method 'withValues' isn't defined for the class 'Color'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4869414Z [        ]   [        ]         color: Colors.blue.withValues(alpha: 0.1),
+2025-05-27T09:26:52.4869708Z [        ]   [        ]                            ^^^^^^^^^^
+2025-05-27T09:26:52.4870374Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4871309Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4871742Z [        ]   [        ]           color: Colors.blue.withValues(alpha: 0.3),
+2025-05-27T09:26:52.4872254Z [        ]   [        ]                              ^^^^^^^^^^
+2025-05-27T09:26:52.4872938Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4873895Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4874329Z [        ]   [        ]         color: Colors.red.withValues(alpha: 0.1),
+2025-05-27T09:26:52.4874612Z [        ]   [        ]                           ^^^^^^^^^^
+2025-05-27T09:26:52.4875370Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4876408Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4876840Z [        ]   [        ]           color: Colors.red.withValues(alpha: 0.3),
+2025-05-27T09:26:52.4877210Z [        ]   [        ]                             ^^^^^^^^^^
+2025-05-27T09:26:52.4877890Z [        ]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4878811Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4879236Z [        ]   [        ]               color: Colors.green.withValues(alpha: 0.1),
+2025-05-27T09:26:52.4879504Z [        ]   [        ]                                   ^^^^^^^^^^
+2025-05-27T09:26:52.4880275Z [   +5 ms]   [        ]  - 'MaterialColor' is from 'package:flutter/src/material/colors.dart' ('/C:/hostedtoolcache/windows/flutter/stable-3.24.0-x64/packages/flutter/lib/src/material/colors.dart').
+2025-05-27T09:26:52.4881084Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4881624Z [        ]   [        ]                 color: Colors.green.withValues(alpha: 0.3),
+2025-05-27T09:26:52.4881904Z [        ]   [        ]                                     ^^^^^^^^^^
+2025-05-27T09:26:52.4882144Z [        ]   [        ]  - 'Color' is from 'dart:ui'.
+2025-05-27T09:26:52.4883606Z [        ] [        ] lib/screens/weighbridge_suspicious_images_screen.dart(588,69): error GE5CFE876: The method 'withValues' isn't defined for the class 'Color'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4885260Z [        ] [        ] lib/screens/weighbridge_suspicious_images_screen.dart(622,79): error GE5CFE876: The method 'withValues' isn't defined for the class 'Color'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4886262Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4886895Z [        ]   [        ]             color: _getSimilarityColor(result.similarity).withValues(alpha: 0.3),
+2025-05-27T09:26:52.4887244Z [        ]   [        ]                                                           ^^^^^^^^^^
+2025-05-27T09:26:52.4887517Z [        ]   [        ]  - 'Color' is from 'dart:ui'.
+2025-05-27T09:26:52.4887937Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4888516Z [        ]   [        ]                       color: _getSimilarityColor(result.similarity).withValues(alpha: 0.1),
+2025-05-27T09:26:52.4888876Z [        ]   [        ]                                                                     ^^^^^^^^^^
+2025-05-27T09:26:52.4889133Z [        ]   [        ]  - 'Color' is from 'dart:ui'.
+2025-05-27T09:26:52.4890247Z [        ] [        ] lib/screens/weighbridge_suspicious_images_screen.dart(625,81): error GE5CFE876: The method 'withValues' isn't defined for the class 'Color'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:52.4891240Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4891821Z [        ]   [        ]                                 color: _getSimilarityColor(result.similarity).withValues(alpha: 0.1),
+2025-05-27T09:26:52.4892733Z [        ]   [        ]                                                                               ^^^^^^^^^^
+2025-05-27T09:26:52.4893010Z [        ]   [        ]  - 'Color' is from 'dart:ui'.
+2025-05-27T09:26:52.4893701Z [        ]   [        ] Try correcting the name to the name of an existing method, or defining a method named 'withValues'.
+2025-05-27T09:26:52.4894206Z [        ]   [        ]                                   color: _getSimilarityColor(result.similarity).withValues(alpha: 0.3),
+2025-05-27T09:26:52.4894559Z [        ]   [        ]                                                                                 ^^^^^^^^^^
+2025-05-27T09:26:57.7792019Z [+5289 ms]   [+5298 ms] Persisting file store
+2025-05-27T09:26:57.7820290Z [   +2 ms]   [   +3 ms] Done persisting file store
+2025-05-27T09:26:57.7859350Z [   +2 ms]   [   +2 ms] Target kernel_snapshot_program failed: Exception
+2025-05-27T09:26:57.7860957Z [        ]              #0      KernelSnapshotProgram.build (package:flutter_tools/src/build_system/targets/common.dart:276:7)
+2025-05-27T09:26:57.7862538Z [        ]              <asynchronous suspension>
+2025-05-27T09:26:57.7863633Z [        ]              #1      _BuildInstance._invokeInternal (package:flutter_tools/src/build_system/build_system.dart:875:9)
+2025-05-27T09:26:57.7866762Z [        ]              <asynchronous suspension>
+2025-05-27T09:26:57.7867545Z [        ]              #2      Future.wait.<anonymous closure> (dart:async/future.dart:534:21)
+2025-05-27T09:26:57.7868338Z [        ]              <asynchronous suspension>
+2025-05-27T09:26:57.7869261Z [        ]              #3      _BuildInstance.invokeTarget (package:flutter_tools/src/build_system/build_system.dart:813:32)
+2025-05-27T09:26:57.7870239Z [        ]              <asynchronous suspension>
+2025-05-27T09:26:57.7871008Z [        ]              #4      Future.wait.<anonymous closure> (dart:async/future.dart:534:21)
+2025-05-27T09:26:57.7871732Z [        ]              <asynchronous suspension>
+2025-05-27T09:26:57.7872730Z [        ]              #5      _BuildInstance.invokeTarget (package:flutter_tools/src/build_system/build_system.dart:813:32)
+2025-05-27T09:26:57.7873522Z [        ]              <asynchronous suspension>
+2025-05-27T09:26:57.7874227Z [        ]              #6      Future.wait.<anonymous closure> (dart:async/future.dart:534:21)
+2025-05-27T09:26:57.7874964Z [        ]              <asynchronous suspension>
+2025-05-27T09:26:57.7876222Z [        ]              #7      _BuildInstance.invokeTarget (package:flutter_tools/src/build_system/build_system.dart:813:32)
+2025-05-27T09:26:57.7877066Z [        ]              <asynchronous suspension>
+2025-05-27T09:26:57.7878260Z [        ]              #8      Future.wait.<anonymous closure> (dart:async/future.dart:534:21)
+2025-05-27T09:26:57.7878894Z [        ]              <asynchronous suspension>
+2025-05-27T09:26:57.7879659Z [        ]              #9      _BuildInstance.invokeTarget (package:flutter_tools/src/build_system/build_system.dart:813:32)
+2025-05-27T09:26:57.7880439Z [        ]              <asynchronous suspension>
+2025-05-27T09:26:57.7881027Z [        ]              #10     Future.wait.<anonymous closure> (dart:async/future.dart:534:21)
+2025-05-27T09:26:57.7881614Z [        ]              <asynchronous suspension>
+2025-05-27T09:26:57.7882400Z [        ]              #11     _BuildInstance.invokeTarget (package:flutter_tools/src/build_system/build_system.dart:813:32)
+2025-05-27T09:26:57.7883530Z [        ]              <asynchronous suspension>
+2025-05-27T09:26:57.7884444Z [        ]              #12     Future.wait.<anonymous closure> (dart:async/future.dart:534:21)
+2025-05-27T09:26:57.7885226Z [        ]              <asynchronous suspension>
+2025-05-27T09:26:57.7886210Z [        ]              #13     _BuildInstance.invokeTarget (package:flutter_tools/src/build_system/build_system.dart:813:32)
+2025-05-27T09:26:57.7887168Z [        ]              <asynchronous suspension>
+2025-05-27T09:26:57.7887934Z [        ]              #14     FlutterBuildSystem.build (package:flutter_tools/src/build_system/build_system.dart:635:16)
+2025-05-27T09:26:57.7888682Z [        ]              <asynchronous suspension>
+2025-05-27T09:26:57.7889405Z [        ]              #15     AssembleCommand.runCommand (package:flutter_tools/src/commands/assemble.dart:328:32)
+2025-05-27T09:26:57.7890385Z [        ]              <asynchronous suspension>
+2025-05-27T09:26:57.7891195Z [        ]              #16     FlutterCommand.run.<anonymous closure> (package:flutter_tools/src/runner/flutter_command.dart:1408:27)
+2025-05-27T09:26:57.7891998Z [        ]              <asynchronous suspension>
+2025-05-27T09:26:57.7892700Z [        ]              #17     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:153:19)
+2025-05-27T09:26:57.7893421Z [        ]              <asynchronous suspension>
+2025-05-27T09:26:57.7894026Z [        ]              #18     CommandRunner.runCommand (package:args/command_runner.dart:212:13)
+2025-05-27T09:26:57.7894653Z [        ]              <asynchronous suspension>
+2025-05-27T09:26:57.7895599Z [        ]              #19     FlutterCommandRunner.runCommand.<anonymous closure> (package:flutter_tools/src/runner/flutter_command_runner.dart:420:9)
+2025-05-27T09:26:57.7896603Z [        ]              <asynchronous suspension>
+2025-05-27T09:26:57.7897342Z [        ]              #20     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:153:19)
+2025-05-27T09:26:57.7898064Z [        ]              <asynchronous suspension>
+2025-05-27T09:26:57.7898910Z [        ]              #21     FlutterCommandRunner.runCommand (package:flutter_tools/src/runner/flutter_command_runner.dart:364:5)
+2025-05-27T09:26:57.7899746Z [        ]              <asynchronous suspension>
+2025-05-27T09:26:57.7900439Z [        ]              #22     run.<anonymous closure>.<anonymous closure> (package:flutter_tools/runner.dart:130:9)
+2025-05-27T09:26:57.7901139Z [        ]              <asynchronous suspension>
+2025-05-27T09:26:57.7901846Z [        ]              #23     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:153:19)
+2025-05-27T09:26:57.7902573Z [        ]              <asynchronous suspension>
+2025-05-27T09:26:57.7903088Z [        ]              #24     main (package:flutter_tools/executable.dart:93:3)
+2025-05-27T09:26:57.7903612Z [        ]              <asynchronous suspension>
+2025-05-27T09:26:57.7949068Z [   +4 ms]   [  +10 ms] "flutter assemble" took 11,866ms.
+2025-05-27T09:26:57.7984021Z [   +3 ms]   [   +3 ms] 
+2025-05-27T09:26:57.7984904Z [        ]              #0      throwToolExit (package:flutter_tools/src/base/common.dart:10:3)
+2025-05-27T09:26:57.7988336Z [        ]              #1      AssembleCommand.runCommand (package:flutter_tools/src/commands/assemble.dart:345:7)
+2025-05-27T09:26:57.7990907Z [        ]              <asynchronous suspension>
+2025-05-27T09:26:57.7993766Z [        ]              #2      FlutterCommand.run.<anonymous closure> (package:flutter_tools/src/runner/flutter_command.dart:1408:27)
+2025-05-27T09:26:57.7996816Z [        ]              <asynchronous suspension>
+2025-05-27T09:26:57.7998021Z [        ]              #3      AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:153:19)
+2025-05-27T09:26:57.8004069Z [        ]              <asynchronous suspension>
+2025-05-27T09:26:57.8004983Z [        ]              #4      CommandRunner.runCommand (package:args/command_runner.dart:212:13)
+2025-05-27T09:26:57.8005606Z [        ]              <asynchronous suspension>
+2025-05-27T09:26:57.8006418Z [        ]              #5      FlutterCommandRunner.runCommand.<anonymous closure> (package:flutter_tools/src/runner/flutter_command_runner.dart:420:9)
+2025-05-27T09:26:57.8007324Z [        ]              <asynchronous suspension>
+2025-05-27T09:26:57.8007984Z [        ]              #6      AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:153:19)
+2025-05-27T09:26:57.8009146Z [        ]              <asynchronous suspension>
+2025-05-27T09:26:57.8010111Z [        ]              #7      FlutterCommandRunner.runCommand (package:flutter_tools/src/runner/flutter_command_runner.dart:364:5)
+2025-05-27T09:26:57.8011144Z [        ]              <asynchronous suspension>
+2025-05-27T09:26:57.8011749Z [        ]              #8      run.<anonymous closure>.<anonymous closure> (package:flutter_tools/runner.dart:130:9)
+2025-05-27T09:26:57.8012304Z [        ]              <asynchronous suspension>
+2025-05-27T09:26:57.8012906Z [        ]              #9      AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:153:19)
+2025-05-27T09:26:57.8013511Z [        ]              <asynchronous suspension>
+2025-05-27T09:26:57.8013934Z [        ]              #10     main (package:flutter_tools/executable.dart:93:3)
+2025-05-27T09:26:57.8014357Z [        ]              <asynchronous suspension>
+2025-05-27T09:26:57.8014750Z [        ]   [        ] ensureAnalyticsSent: 0ms
+2025-05-27T09:26:57.8015133Z [        ]   [        ] Running 1 shutdown hook
+2025-05-27T09:26:57.8015519Z [        ]   [        ] Shutdown hooks complete
+2025-05-27T09:26:57.8015895Z [        ]   [        ] exiting with code 1
+2025-05-27T09:26:57.8372664Z [  +35 ms] C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(254,5): error MSB8066: Custom build for 'D:\a\material-anticheat\material-anticheat\build\windows\x64\CMakeFiles\ade246b61e87ebac2e9509f81a237b53\flutter_windows.dll.rule;D:\a\material-anticheat\material-anticheat\build\windows\x64\CMakeFiles\5116d33fa54645aee4cc0dd2bf38f93d\flutter_assemble.rule;D:\a\material-anticheat\material-anticheat\windows\flutter\CMakeLists.txt' exited with code 1. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.8788018Z [  +41 ms] Done Building Project "D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj" (default targets) -- FAILED.
+2025-05-27T09:26:57.8795955Z [   +1 ms] Done Building Project "D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_wrapper_app.vcxproj" (default targets) -- FAILED.
+2025-05-27T09:26:57.9471954Z [  +67 ms] Done Building Project "D:\a\material-anticheat\material-anticheat\build\windows\x64\ALL_BUILD.vcxproj" (default targets) -- FAILED.
+2025-05-27T09:26:57.9478030Z [        ] Done Building Project "D:\a\material-anticheat\material-anticheat\build\windows\x64\INSTALL.vcxproj" (default targets) -- FAILED.
+2025-05-27T09:26:57.9507252Z [   +3 ms] Build FAILED.
+2025-05-27T09:26:57.9510293Z [        ] "D:\a\material-anticheat\material-anticheat\build\windows\x64\INSTALL.vcxproj" (default target) (1) ->
+2025-05-27T09:26:57.9511164Z [        ] "D:\a\material-anticheat\material-anticheat\build\windows\x64\ALL_BUILD.vcxproj" (default target) (3) ->
+2025-05-27T09:26:57.9512608Z [        ] "D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_wrapper_app.vcxproj" (default target) (4) ->
+2025-05-27T09:26:57.9513564Z [        ] "D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj" (default target) (5) ->
+2025-05-27T09:26:57.9514156Z [        ] (CustomBuild target) -> 
+2025-05-27T09:26:57.9516489Z [        ]   [+2807 ms] lib/main.dart(195,28): error GE5CFE876: The method 'withValues' isn't defined for the class 'Color'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9517992Z [        ]   [        ] lib/main.dart(208,36): error GE5CFE876: The method 'withValues' isn't defined for the class 'Color'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9519470Z [        ]   [   +1 ms] lib/screens/weighbridge_screen.dart(348,54): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9521050Z [        ]   [        ] lib/screens/weighbridge_screen.dart(348,91): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9522947Z [        ]   [        ] lib/screens/weighbridge_screen.dart(351,56): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9524536Z [        ]   [        ] lib/screens/weighbridge_screen.dart(351,93): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9526203Z [        ]   [ +775 ms] lib/widgets/progress_display_card.dart(42,55): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9527732Z [        ]   [        ] lib/widgets/progress_display_card.dart(42,92): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9529282Z [        ]   [        ] lib/widgets/progress_display_card.dart(45,57): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9530797Z [        ]   [        ] lib/widgets/progress_display_card.dart(45,94): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9532473Z [        ]   [   +3 ms] lib/screens/batch_download_screen.dart(201,52): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9534008Z [        ]   [        ] lib/screens/batch_download_screen.dart(275,54): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9535543Z [        ]   [        ] lib/screens/batch_download_screen.dart(470,53): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9537421Z [        ]   [        ] lib/screens/batch_download_screen.dart(472,72): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9539133Z [        ]   [        ] lib/screens/batch_download_screen.dart(502,51): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9541426Z [        ]   [        ] lib/screens/batch_download_screen.dart(504,70): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9543897Z [        ]   [        ] lib/screens/batch_download_screen.dart(583,37): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9545986Z [        ]   [        ] lib/screens/image_gallery_screen.dart(175,62): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9547592Z [        ]   [        ] lib/screens/image_gallery_screen.dart(196,58): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9549666Z [        ]   [   +7 ms] lib/screens/image_gallery_screen.dart(368,32): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9551204Z [        ]   [        ] lib/screens/image_gallery_screen.dart(496,52): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9552881Z [        ]   [        ] lib/screens/image_gallery_screen.dart(498,71): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9554488Z [        ]   [        ] lib/screens/image_gallery_screen.dart(535,53): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9556299Z [        ]   [        ] lib/screens/image_gallery_screen.dart(537,72): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9557819Z [        ]   [        ] lib/screens/image_gallery_screen.dart(601,57): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9559318Z [        ]   [        ] lib/screens/image_gallery_screen.dart(659,60): error GE5CFE876: The method 'withValues' isn't defined for the class 'Color'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9560878Z [        ]   [   +8 ms] lib/screens/suspicious_images_screen.dart(369,30): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9562695Z [        ]   [        ] lib/screens/suspicious_images_screen.dart(371,49): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9564455Z [        ]   [   +9 ms] lib/screens/weighbridge_batch_download_screen.dart(434,54): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9566287Z [        ]   [        ] lib/screens/weighbridge_batch_download_screen.dart(434,91): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9568019Z [        ]   [        ] lib/screens/weighbridge_batch_download_screen.dart(437,56): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9569819Z [        ]   [        ] lib/screens/weighbridge_batch_download_screen.dart(437,93): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9571366Z [        ]   [   +2 ms] lib/screens/weighbridge_image_gallery_screen.dart(195,64): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9573289Z [        ]   [        ] lib/screens/weighbridge_image_gallery_screen.dart(216,60): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9574913Z [        ]   [   +1 ms] lib/screens/weighbridge_image_gallery_screen.dart(389,36): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9576643Z [        ]   [   +1 ms] lib/screens/weighbridge_image_gallery_screen.dart(570,44): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9578266Z [        ]   [        ] lib/screens/weighbridge_image_gallery_screen.dart(572,63): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9579890Z [        ]   [        ] lib/screens/weighbridge_image_gallery_screen.dart(645,43): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9581774Z [        ]   [        ] lib/screens/weighbridge_image_gallery_screen.dart(647,62): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9583276Z [        ]   [        ] lib/screens/weighbridge_image_gallery_screen.dart(728,37): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9585065Z [        ]   [        ] lib/screens/weighbridge_image_gallery_screen.dart(786,40): error GE5CFE876: The method 'withValues' isn't defined for the class 'Color'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9586694Z [        ]   [   +6 ms] lib/screens/weighbridge_duplicate_detection_screen.dart(494,42): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9588471Z [        ]   [        ] lib/screens/weighbridge_duplicate_detection_screen.dart(533,67): error GE5CFE876: The method 'withValues' isn't defined for the class 'Color'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9590467Z [        ]   [        ] lib/screens/weighbridge_duplicate_detection_screen.dart(536,69): error GE5CFE876: The method 'withValues' isn't defined for the class 'Color'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9592676Z [        ]   [        ] lib/screens/weighbridge_suspicious_images_screen.dart(68,40): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9595243Z [        ]   [        ] lib/screens/weighbridge_suspicious_images_screen.dart(188,43): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9598101Z [        ]   [        ] lib/screens/weighbridge_suspicious_images_screen.dart(188,81): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9601023Z [        ]   [        ] lib/screens/weighbridge_suspicious_images_screen.dart(191,45): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9603587Z [        ]   [        ] lib/screens/weighbridge_suspicious_images_screen.dart(191,83): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9606997Z [        ]   [        ] lib/screens/weighbridge_suspicious_images_screen.dart(246,28): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9608569Z [        ]   [        ] lib/screens/weighbridge_suspicious_images_screen.dart(249,30): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9610049Z [        ]   [        ] lib/screens/weighbridge_suspicious_images_screen.dart(292,27): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9611491Z [        ]   [        ] lib/screens/weighbridge_suspicious_images_screen.dart(295,29): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9612912Z [        ]   [        ] lib/screens/weighbridge_suspicious_images_screen.dart(365,35): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9614337Z [        ]   [        ] lib/screens/weighbridge_suspicious_images_screen.dart(368,37): error GE5CFE876: The method 'withValues' isn't defined for the class 'MaterialColor'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9615744Z [        ]   [        ] lib/screens/weighbridge_suspicious_images_screen.dart(572,59): error GE5CFE876: The method 'withValues' isn't defined for the class 'Color'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9617109Z [        ]   [        ] lib/screens/weighbridge_suspicious_images_screen.dart(588,69): error GE5CFE876: The method 'withValues' isn't defined for the class 'Color'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9618622Z [        ]   [        ] lib/screens/weighbridge_suspicious_images_screen.dart(622,79): error GE5CFE876: The method 'withValues' isn't defined for the class 'Color'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9619988Z [        ]   [        ] lib/screens/weighbridge_suspicious_images_screen.dart(625,81): error GE5CFE876: The method 'withValues' isn't defined for the class 'Color'. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9622527Z [        ]   C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(254,5): error MSB8066: Custom build for 'D:\a\material-anticheat\material-anticheat\build\windows\x64\CMakeFiles\ade246b61e87ebac2e9509f81a237b53\flutter_windows.dll.rule;D:\a\material-anticheat\material-anticheat\build\windows\x64\CMakeFiles\5116d33fa54645aee4cc0dd2bf38f93d\flutter_assemble.rule;D:\a\material-anticheat\material-anticheat\windows\flutter\CMakeLists.txt' exited with code 1. [D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj]
+2025-05-27T09:26:57.9624550Z [        ]     0 Warning(s)
+2025-05-27T09:26:57.9624736Z [        ]     60 Error(s)
+2025-05-27T09:26:57.9624928Z [        ] Time Elapsed 00:00:13.60
+2025-05-27T09:26:57.9863669Z [  +25 ms] Building Windows application... (completed in 58.6s)
+2025-05-27T09:26:57.9871566Z [        ] "flutter windows" took 59,868ms.
+2025-05-27T09:26:57.9897669Z [   +2 ms] Build process failed.
+2025-05-27T09:26:57.9900940Z [        ] 
+2025-05-27T09:26:57.9901408Z            #0      throwToolExit (package:flutter_tools/src/base/common.dart:10:3)
+2025-05-27T09:26:57.9901940Z            #1      _runBuild (package:flutter_tools/src/windows/build_windows.dart:266:5)
+2025-05-27T09:26:57.9902375Z            <asynchronous suspension>
+2025-05-27T09:26:57.9902781Z            #2      buildWindows (package:flutter_tools/src/windows/build_windows.dart:111:5)
+2025-05-27T09:26:57.9903207Z            <asynchronous suspension>
+2025-05-27T09:26:57.9903702Z            #3      BuildWindowsCommand.runCommand (package:flutter_tools/src/commands/build_windows.dart:64:5)
+2025-05-27T09:26:57.9904211Z            <asynchronous suspension>
+2025-05-27T09:26:57.9904722Z            #4      FlutterCommand.run.<anonymous closure> (package:flutter_tools/src/runner/flutter_command.dart:1408:27)
+2025-05-27T09:26:57.9905252Z            <asynchronous suspension>
+2025-05-27T09:26:57.9905692Z            #5      AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:153:19)
+2025-05-27T09:26:57.9906317Z            <asynchronous suspension>
+2025-05-27T09:26:57.9906715Z            #6      CommandRunner.runCommand (package:args/command_runner.dart:212:13)
+2025-05-27T09:26:57.9907162Z            <asynchronous suspension>
+2025-05-27T09:26:57.9907878Z            #7      FlutterCommandRunner.runCommand.<anonymous closure> (package:flutter_tools/src/runner/flutter_command_runner.dart:420:9)
+2025-05-27T09:26:57.9908494Z            <asynchronous suspension>
+2025-05-27T09:26:57.9908924Z            #8      AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:153:19)
+2025-05-27T09:26:57.9909477Z            <asynchronous suspension>
+2025-05-27T09:26:57.9910053Z            #9      FlutterCommandRunner.runCommand (package:flutter_tools/src/runner/flutter_command_runner.dart:364:5)
+2025-05-27T09:26:57.9910592Z            <asynchronous suspension>
+2025-05-27T09:26:57.9911029Z            #10     run.<anonymous closure>.<anonymous closure> (package:flutter_tools/runner.dart:130:9)
+2025-05-27T09:26:57.9911473Z            <asynchronous suspension>
+2025-05-27T09:26:57.9911826Z            #11     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:153:19)
+2025-05-27T09:26:57.9912935Z            <asynchronous suspension>
+2025-05-27T09:26:57.9913453Z            #12     main (package:flutter_tools/executable.dart:93:3)
+2025-05-27T09:26:57.9914225Z            <asynchronous suspension>
+2025-05-27T09:26:57.9914484Z 
+2025-05-27T09:26:57.9914492Z 
+2025-05-27T09:26:57.9914635Z [        ] ensureAnalyticsSent: 0ms
+2025-05-27T09:26:57.9914970Z [        ] Running 1 shutdown hook
+2025-05-27T09:26:57.9915293Z [        ] Shutdown hooks complete
+2025-05-27T09:26:57.9915608Z [        ] exiting with code 1
+2025-05-27T09:26:58.0509540Z ##[error]Process completed with exit code 1.
+2025-05-27T09:26:58.0697606Z Post job cleanup.
+2025-05-27T09:26:58.0834257Z Post job cleanup.
+2025-05-27T09:26:58.3164094Z [command]"C:\Program Files\Git\bin\git.exe" version
+2025-05-27T09:26:58.3402845Z git version 2.49.0.windows.1
+2025-05-27T09:26:58.3482675Z Temporarily overriding HOME='D:\a\_temp\d575e698-a318-46ac-96f3-6b7a881f517e' before making global git config changes
+2025-05-27T09:26:58.3484160Z Adding repository directory to the temporary git global config as a safe directory
+2025-05-27T09:26:58.3495566Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\material-anticheat\material-anticheat
+2025-05-27T09:26:58.3764978Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2025-05-27T09:26:58.4028822Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2025-05-27T09:26:58.9210998Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-05-27T09:26:58.9425164Z http.https://github.com/.extraheader
+2025-05-27T09:26:58.9465093Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all http.https://github.com/.extraheader
+2025-05-27T09:26:58.9721553Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2025-05-27T09:26:59.4823619Z Cleaning up orphan processes
+2025-05-27T09:26:59.5138527Z Terminate orphan process: pid (4620) (vctip)

@@ -1,0 +1,77 @@
+﻿2025-05-27T08:58:20.3340692Z ##[group]Run python -m pip install --upgrade pip
+2025-05-27T08:58:20.3341239Z [36;1mpython -m pip install --upgrade pip[0m
+2025-05-27T08:58:20.3341635Z [36;1mpip install -r python_scripts/requirements.txt[0m
+2025-05-27T08:58:20.3585028Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2025-05-27T08:58:20.3585425Z env:
+2025-05-27T08:58:20.3585726Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:58:20.3586251Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T08:58:20.3586702Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:58:20.3587166Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:58:20.3587564Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:58:20.3587887Z ##[endgroup]
+2025-05-27T08:58:34.6164963Z Requirement already satisfied: pip in c:\hostedtoolcache\windows\python\3.11.9\x64\lib\site-packages (25.1.1)
+2025-05-27T08:58:36.5559164Z Collecting opencv-python==4.8.1.78 (from -r python_scripts/requirements.txt (line 1))
+2025-05-27T08:58:36.5887590Z   Downloading opencv_python-4.8.1.78-cp37-abi3-win_amd64.whl.metadata (20 kB)
+2025-05-27T08:58:36.8252654Z Collecting numpy==1.24.3 (from -r python_scripts/requirements.txt (line 2))
+2025-05-27T08:58:36.8325567Z   Downloading numpy-1.24.3-cp311-cp311-win_amd64.whl.metadata (5.6 kB)
+2025-05-27T08:58:37.0114525Z Collecting matplotlib==3.9.4 (from -r python_scripts/requirements.txt (line 3))
+2025-05-27T08:58:37.0181752Z   Downloading matplotlib-3.9.4-cp311-cp311-win_amd64.whl.metadata (11 kB)
+2025-05-27T08:58:37.1228722Z Collecting scikit-image==0.24.0 (from -r python_scripts/requirements.txt (line 4))
+2025-05-27T08:58:37.1292525Z   Downloading scikit_image-0.24.0-cp311-cp311-win_amd64.whl.metadata (14 kB)
+2025-05-27T08:58:37.3093224Z Collecting scipy==1.13.1 (from -r python_scripts/requirements.txt (line 5))
+2025-05-27T08:58:37.3156613Z   Downloading scipy-1.13.1-cp311-cp311-win_amd64.whl.metadata (60 kB)
+2025-05-27T08:58:37.3857864Z Collecting networkx==3.2.1 (from -r python_scripts/requirements.txt (line 6))
+2025-05-27T08:58:37.3910596Z   Downloading networkx-3.2.1-py3-none-any.whl.metadata (5.2 kB)
+2025-05-27T08:58:37.5822806Z Collecting pillow==11.2.1 (from -r python_scripts/requirements.txt (line 7))
+2025-05-27T08:58:37.5889000Z   Downloading pillow-11.2.1-cp311-cp311-win_amd64.whl.metadata (9.1 kB)
+2025-05-27T08:58:37.6526981Z Collecting tifffile==2024.8.30 (from -r python_scripts/requirements.txt (line 8))
+2025-05-27T08:58:37.6589064Z   Downloading tifffile-2024.8.30-py3-none-any.whl.metadata (31 kB)
+2025-05-27T08:58:37.7972276Z Collecting contourpy>=1.0.1 (from matplotlib==3.9.4->-r python_scripts/requirements.txt (line 3))
+2025-05-27T08:58:37.8034401Z   Downloading contourpy-1.3.2-cp311-cp311-win_amd64.whl.metadata (5.5 kB)
+2025-05-27T08:58:37.8464915Z Collecting cycler>=0.10 (from matplotlib==3.9.4->-r python_scripts/requirements.txt (line 3))
+2025-05-27T08:58:37.8519894Z   Downloading cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+2025-05-27T08:58:38.0097482Z Collecting fonttools>=4.22.0 (from matplotlib==3.9.4->-r python_scripts/requirements.txt (line 3))
+2025-05-27T08:58:38.0162881Z   Downloading fonttools-4.58.0-cp311-cp311-win_amd64.whl.metadata (106 kB)
+2025-05-27T08:58:38.1839790Z Collecting kiwisolver>=1.3.1 (from matplotlib==3.9.4->-r python_scripts/requirements.txt (line 3))
+2025-05-27T08:58:38.1900343Z   Downloading kiwisolver-1.4.8-cp311-cp311-win_amd64.whl.metadata (6.3 kB)
+2025-05-27T08:58:38.2487818Z Collecting packaging>=20.0 (from matplotlib==3.9.4->-r python_scripts/requirements.txt (line 3))
+2025-05-27T08:58:38.2540304Z   Downloading packaging-25.0-py3-none-any.whl.metadata (3.3 kB)
+2025-05-27T08:58:38.3145653Z Collecting pyparsing>=2.3.1 (from matplotlib==3.9.4->-r python_scripts/requirements.txt (line 3))
+2025-05-27T08:58:38.3201308Z   Downloading pyparsing-3.2.3-py3-none-any.whl.metadata (5.0 kB)
+2025-05-27T08:58:38.3647360Z Collecting python-dateutil>=2.7 (from matplotlib==3.9.4->-r python_scripts/requirements.txt (line 3))
+2025-05-27T08:58:38.3703227Z   Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+2025-05-27T08:58:38.4359923Z Collecting imageio>=2.33 (from scikit-image==0.24.0->-r python_scripts/requirements.txt (line 4))
+2025-05-27T08:58:38.4429423Z   Downloading imageio-2.37.0-py3-none-any.whl.metadata (5.2 kB)
+2025-05-27T08:58:38.5089527Z Collecting lazy-loader>=0.4 (from scikit-image==0.24.0->-r python_scripts/requirements.txt (line 4))
+2025-05-27T08:58:38.5143122Z   Downloading lazy_loader-0.4-py3-none-any.whl.metadata (7.6 kB)
+2025-05-27T08:58:38.5891355Z Collecting six>=1.5 (from python-dateutil>=2.7->matplotlib==3.9.4->-r python_scripts/requirements.txt (line 3))
+2025-05-27T08:58:38.5945671Z   Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+2025-05-27T08:58:38.6223533Z Downloading opencv_python-4.8.1.78-cp37-abi3-win_amd64.whl (38.1 MB)
+2025-05-27T08:58:39.0453095Z    ---------------------------------------- 38.1/38.1 MB 89.6 MB/s eta 0:00:00
+2025-05-27T08:58:39.0519856Z Downloading numpy-1.24.3-cp311-cp311-win_amd64.whl (14.8 MB)
+2025-05-27T08:58:40.7731771Z    ---------------------------------------- 14.8/14.8 MB 8.6 MB/s eta 0:00:00
+2025-05-27T08:58:40.7791601Z Downloading matplotlib-3.9.4-cp311-cp311-win_amd64.whl (7.8 MB)
+2025-05-27T08:58:40.8417434Z    ---------------------------------------- 7.8/7.8 MB 122.2 MB/s eta 0:00:00
+2025-05-27T08:58:40.8563995Z Downloading scikit_image-0.24.0-cp311-cp311-win_amd64.whl (12.8 MB)
+2025-05-27T08:58:41.0235766Z    ---------------------------------------- 12.8/12.8 MB 80.6 MB/s eta 0:00:00
+2025-05-27T08:58:41.0432775Z Downloading scipy-1.13.1-cp311-cp311-win_amd64.whl (46.2 MB)
+2025-05-27T08:58:41.4973217Z    ---------------------------------------- 46.2/46.2 MB 101.4 MB/s eta 0:00:00
+2025-05-27T08:58:41.5188901Z Downloading networkx-3.2.1-py3-none-any.whl (1.6 MB)
+2025-05-27T08:58:41.5634799Z    ---------------------------------------- 1.6/1.6 MB 29.5 MB/s eta 0:00:00
+2025-05-27T08:58:41.5814644Z Downloading pillow-11.2.1-cp311-cp311-win_amd64.whl (2.7 MB)
+2025-05-27T08:58:41.6226008Z    ---------------------------------------- 2.7/2.7 MB 51.4 MB/s eta 0:00:00
+2025-05-27T08:58:41.6287721Z Downloading tifffile-2024.8.30-py3-none-any.whl (227 kB)
+2025-05-27T08:58:41.6505752Z Downloading contourpy-1.3.2-cp311-cp311-win_amd64.whl (222 kB)
+2025-05-27T08:58:41.6799776Z Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)
+2025-05-27T08:58:41.7143425Z Downloading fonttools-4.58.0-cp311-cp311-win_amd64.whl (2.2 MB)
+2025-05-27T08:58:41.7440175Z    ---------------------------------------- 2.2/2.2 MB 123.3 MB/s eta 0:00:00
+2025-05-27T08:58:41.7487085Z Downloading imageio-2.37.0-py3-none-any.whl (315 kB)
+2025-05-27T08:58:41.9076429Z Downloading kiwisolver-1.4.8-cp311-cp311-win_amd64.whl (71 kB)
+2025-05-27T08:58:41.9301763Z Downloading lazy_loader-0.4-py3-none-any.whl (12 kB)
+2025-05-27T08:58:41.9510061Z Downloading packaging-25.0-py3-none-any.whl (66 kB)
+2025-05-27T08:58:41.9687870Z Downloading pyparsing-3.2.3-py3-none-any.whl (111 kB)
+2025-05-27T08:58:42.0075905Z Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+2025-05-27T08:58:42.0445997Z Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+2025-05-27T08:58:42.3493026Z Installing collected packages: six, pyparsing, pillow, packaging, numpy, networkx, kiwisolver, fonttools, cycler, tifffile, scipy, python-dateutil, opencv-python, lazy-loader, imageio, contourpy, scikit-image, matplotlib
+2025-05-27T08:59:12.4581618Z 
+2025-05-27T08:59:12.4602775Z Successfully installed contourpy-1.3.2 cycler-0.12.1 fonttools-4.58.0 imageio-2.37.0 kiwisolver-1.4.8 lazy-loader-0.4 matplotlib-3.9.4 networkx-3.2.1 numpy-1.24.3 opencv-python-4.8.1.78 packaging-25.0 pillow-11.2.1 pyparsing-3.2.3 python-dateutil-2.9.0.post0 scikit-image-0.24.0 scipy-1.13.1 six-1.17.0 tifffile-2024.8.30

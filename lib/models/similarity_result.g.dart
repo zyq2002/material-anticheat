@@ -49,7 +49,7 @@ Map<String, dynamic> _$$SimilarityGroupImplToJson(
     <String, dynamic>{
       'date': instance.date,
       'imageType': instance.imageType,
-      'results': instance.results,
+      'results': instance.results.map((e) => e.toJson()).toList(),
       'maxSimilarity': instance.maxSimilarity,
       'duplicateCount': instance.duplicateCount,
     }; 

@@ -6,20 +6,19 @@ part of 'weighbridge_crawler_service.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$weighbridgeCrawlerServiceHash() =>
-    r'f8b8c8e8d8a8b8c8d8e8f8a8b8c8d8e8f8a8b8c8';
+String _$weighbridgeCrawlerServiceHash() => r'b8d4f1e9a3c7b5f2e8a1d4c7b0e3f6a9';
 
 /// See also [WeighbridgeCrawlerService].
 @ProviderFor(WeighbridgeCrawlerService)
-final weighbridgeCrawlerServiceProvider = AutoDisposeNotifierProvider<
-    WeighbridgeCrawlerService, WeighbridgeCrawlerState>.internal(
+final weighbridgeCrawlerServiceProvider =
+    AutoDisposeNotifierProvider<WeighbridgeCrawlerService, WeighbridgeCrawlerState>.internal(
   WeighbridgeCrawlerService.new,
   name: r'weighbridgeCrawlerServiceProvider',
-  debugGetCreateSourceHash: _$weighbridgeCrawlerServiceHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$weighbridgeCrawlerServiceHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$WeighbridgeCrawlerService = AutoDisposeNotifier<WeighbridgeCrawlerState>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member 
+typedef _$WeighbridgeCrawlerService = AutoDisposeNotifier<WeighbridgeCrawlerState>; 

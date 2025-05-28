@@ -1,5 +1,7 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
 import 'package:path/path.dart' as path;
@@ -94,6 +96,11 @@ class WeighbridgeImageSimilarityService {
             try {
               final similarity = await _compareImages(image1.filePath, image2.filePath);
               
+              // 为每次比对添加详细的相似率日志输出
+              final image1Name = path.basename(image1.filePath);
+              final image2Name = path.basename(image2.filePath);
+              _logger.d('图片对比: $image1Name vs $image2Name, 相似度: ${(similarity * 100).toStringAsFixed(2)}%');
+              
               if (similarity >= threshold / 100.0) {
                 // 添加两个可疑结果
                 suspiciousResults.add(WeighbridgeSuspiciousImageResult(
@@ -116,10 +123,12 @@ class WeighbridgeImageSimilarityService {
                   detectionTime: DateTime.now(),
                 ));
 
-                _logger.w('发现可疑过磅图片: ${image1.recordName} vs ${image2.recordName}, 相似度: ${(similarity * 100).toStringAsFixed(1)}%');
+                _logger.w('⚠️ 发现可疑过磅图片: ${image1.recordName} vs ${image2.recordName}, 相似度: ${(similarity * 100).toStringAsFixed(1)}%');
+              } else {
+                _logger.i('✓ 图片对比正常: ${image1.recordName} vs ${image2.recordName}, 相似度: ${(similarity * 100).toStringAsFixed(1)}%');
               }
             } catch (e) {
-              _logger.e('对比过磅图片时出错: ${image1.filePath} vs ${image2.filePath}, 错误: $e');
+              _logger.e('❌ 对比过磅图片时出错: ${image1.filePath} vs ${image2.filePath}, 错误: $e');
             }
           }
         }
@@ -192,7 +201,16 @@ class WeighbridgeImageSimilarityService {
       return path.join(customPath, 'weighbridge');
     } else {
       final currentDir = Directory.current.path;
-      return path.join(currentDir, 'pic', 'weighbridge');
+      
+      // 确保路径是绝对路径，不是根目录
+      if (currentDir == '/' || currentDir.isEmpty) {
+        // 如果当前目录是根目录，使用用户文档目录
+        final safePath = path.join(Platform.environment['HOME'] ?? '/tmp', 'Downloads', 'material_anticheat', 'pic', 'weighbridge');
+        return safePath;
+      } else {
+        // 使用相对于当前工作目录的路径
+        return path.join(currentDir, 'pic', 'weighbridge');
+      }
     }
   }
 
@@ -209,16 +227,69 @@ class WeighbridgeImageSimilarityService {
   /// 对比两张图片的相似度
   Future<double> _compareImages(String imagePath1, String imagePath2) async {
     try {
-      // 使用Python脚本进行图片相似度对比
-      final result = await Process.run(
-        'python3',
-        [
-          path.join(Directory.current.path, 'python_scripts', 'weighbridge_image_similarity.py'),
-          imagePath1,
-          imagePath2,
-        ],
-        workingDirectory: Directory.current.path,
-      );
+      // 优先使用打包的可执行文件，如果不存在则使用Python脚本
+      String? executablePath;
+      
+      // 检查多个可能的路径
+      final possiblePaths = [
+        // 开发环境路径
+        path.join(Directory.current.path, 'bundled_python', 'weighbridge_image_similarity'),
+        // macOS应用包内路径
+        path.join(Directory.current.path, '..', 'Resources', 'bundled_python', 'weighbridge_image_similarity'),
+        // 备用路径
+        path.join(path.dirname(Platform.resolvedExecutable), '..', 'Resources', 'bundled_python', 'weighbridge_image_similarity'),
+      ];
+      
+      File? executableFile;
+      for (final testPath in possiblePaths) {
+        final file = File(testPath);
+        if (await file.exists()) {
+          executablePath = testPath;
+          executableFile = file;
+          break;
+        }
+      }
+      
+      ProcessResult result;
+      
+      if (executableFile != null) {
+        // 使用打包的可执行文件（推荐，无需Python环境）
+        final process = await Process.start(
+          executablePath!,
+          [imagePath1, imagePath2],
+          workingDirectory: Directory.current.path,
+          environment: {
+            'PATH': '/usr/local/bin:/usr/bin:/bin',
+          },
+        );
+        
+        final stdout = await process.stdout.transform(const SystemEncoding().decoder).join();
+        final stderr = await process.stderr.transform(const SystemEncoding().decoder).join();
+        final exitCode = await process.exitCode;
+        
+        result = ProcessResult(process.pid, exitCode, stdout, stderr);
+      } else {
+        // 回退到系统Python（需要用户安装Python和依赖）
+        final process = await Process.start(
+          '/usr/bin/python3',
+          [
+            path.join(Directory.current.path, 'python_scripts', 'weighbridge_image_similarity.py'),
+            imagePath1,
+            imagePath2,
+          ],
+          workingDirectory: Directory.current.path,
+          environment: {
+            'PATH': '/usr/local/bin:/usr/bin:/bin',
+            'PYTHONPATH': path.join(Directory.current.path, '.venv', 'lib', 'python3.9', 'site-packages'),
+          },
+        );
+        
+        final stdout = await process.stdout.transform(const SystemEncoding().decoder).join();
+        final stderr = await process.stderr.transform(const SystemEncoding().decoder).join();
+        final exitCode = await process.exitCode;
+        
+        result = ProcessResult(process.pid, exitCode, stdout, stderr);
+      }
 
       if (result.exitCode == 0) {
         final output = result.stdout.toString().trim();

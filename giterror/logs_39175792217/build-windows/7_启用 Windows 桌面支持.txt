@@ -1,0 +1,45 @@
+﻿2025-05-27T09:45:44.5102457Z ##[group]Run flutter config --enable-windows-desktop
+2025-05-27T09:45:44.5102984Z [36;1mflutter config --enable-windows-desktop[0m
+2025-05-27T09:45:44.5137351Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2025-05-27T09:45:44.5137708Z env:
+2025-05-27T09:45:44.5137981Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:45:44.5138471Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T09:45:44.5138926Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:45:44.5139319Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:45:44.5139727Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:45:44.5140146Z   FLUTTER_ROOT: C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64
+2025-05-27T09:45:44.5140535Z   PUB_CACHE: C:\Users\runneradmin\AppData\Local\Pub\Cache
+2025-05-27T09:45:44.5140831Z ##[endgroup]
+2025-05-27T09:45:45.1008260Z 
+2025-05-27T09:45:45.1039920Z   ╔════════════════════════════════════════════════════════════════════════════╗
+2025-05-27T09:45:45.1041019Z   ║                 Welcome to Flutter! - https://flutter.dev                  ║
+2025-05-27T09:45:45.1041762Z   ║                                                                            ║
+2025-05-27T09:45:45.1042590Z   ║ The Flutter tool uses Google Analytics to anonymously report feature usage ║
+2025-05-27T09:45:45.1043500Z   ║ statistics and basic crash reports. This data is used to help improve      ║
+2025-05-27T09:45:45.1044163Z   ║ Flutter tools over time.                                                   ║
+2025-05-27T09:45:45.1044595Z   ║                                                                            ║
+2025-05-27T09:45:45.1045047Z   ║ Flutter tool analytics are not sent on the very first run. To disable      ║
+2025-05-27T09:45:45.1045623Z   ║ reporting, type 'flutter config --no-analytics'. To display the current    ║
+2025-05-27T09:45:45.1046202Z   ║ setting, type 'flutter config'. If you opt out of analytics, an opt-out    ║
+2025-05-27T09:45:45.1046784Z   ║ event will be sent, and then no further information will be sent by the    ║
+2025-05-27T09:45:45.1047259Z   ║ Flutter tool.                                                              ║
+2025-05-27T09:45:45.1047638Z   ║                                                                            ║
+2025-05-27T09:45:45.1048088Z   ║ By downloading the Flutter SDK, you agree to the Google Terms of Service.  ║
+2025-05-27T09:45:45.1048648Z   ║ The Google Privacy Policy describes how data is handled in this service.   ║
+2025-05-27T09:45:45.1049100Z   ║                                                                            ║
+2025-05-27T09:45:45.1049553Z   ║ Moreover, Flutter includes the Dart SDK, which may send usage metrics and  ║
+2025-05-27T09:45:45.1050065Z   ║ crash reports to Google.                                                   ║
+2025-05-27T09:45:45.1050462Z   ║                                                                            ║
+2025-05-27T09:45:45.1050888Z   ║ Read about data we send with crash reports:                                ║
+2025-05-27T09:45:45.1051477Z   ║ https://flutter.dev/to/crash-reporting                                     ║
+2025-05-27T09:45:45.1051916Z   ║                                                                            ║
+2025-05-27T09:45:45.1053789Z   ║ See Google's privacy policy:                                               ║
+2025-05-27T09:45:45.1054333Z   ║ https://policies.google.com/privacy                                        ║
+2025-05-27T09:45:45.1054770Z   ║                                                                            ║
+2025-05-27T09:45:45.1055193Z   ║ To disable animations in this tool, use                                    ║
+2025-05-27T09:45:45.1055713Z   ║ 'flutter config --no-cli-animations'.                                      ║
+2025-05-27T09:45:45.1056184Z   ╚════════════════════════════════════════════════════════════════════════════╝
+2025-05-27T09:45:45.1058708Z 
+2025-05-27T09:45:45.1506889Z Setting "enable-windows-desktop" value to "true".
+2025-05-27T09:45:45.1509419Z 
+2025-05-27T09:45:45.1510203Z You may need to restart any open editors for them to read new settings.

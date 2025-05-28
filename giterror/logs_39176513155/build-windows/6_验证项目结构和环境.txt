@@ -1,0 +1,46 @@
+﻿2025-05-27T09:59:05.3092897Z ##[group]Run echo "=== 当前工作目录 ==="
+2025-05-27T09:59:05.3093376Z [36;1mecho "=== 当前工作目录 ==="[0m
+2025-05-27T09:59:05.3093659Z [36;1mpwd[0m
+2025-05-27T09:59:05.3093871Z [36;1mecho ""[0m
+2025-05-27T09:59:05.3094108Z [36;1mecho "=== 目录内容 ==="[0m
+2025-05-27T09:59:05.3094490Z [36;1mGet-ChildItem | Format-Table Name, Length, LastWriteTime[0m
+2025-05-27T09:59:05.3094893Z [36;1mecho ""[0m
+2025-05-27T09:59:05.3095119Z [36;1mecho "=== 检查关键文件 ==="[0m
+2025-05-27T09:59:05.3095434Z [36;1mif (Test-Path "pubspec.yaml") { [0m
+2025-05-27T09:59:05.3095766Z [36;1m  echo "✅ pubspec.yaml 存在" [0m
+2025-05-27T09:59:05.3096093Z [36;1m} else { [0m
+2025-05-27T09:59:05.3096377Z [36;1m  echo "❌ pubspec.yaml 不存在" [0m
+2025-05-27T09:59:05.3096685Z [36;1m  exit 1[0m
+2025-05-27T09:59:05.3096867Z [36;1m}[0m
+2025-05-27T09:59:05.3097034Z [36;1mecho ""[0m
+2025-05-27T09:59:05.3097234Z [36;1mecho "=== Flutter 版本信息 ==="[0m
+2025-05-27T09:59:05.3097482Z [36;1mflutter --version[0m
+2025-05-27T09:59:05.3127648Z shell: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE -command ". '{0}'"
+2025-05-27T09:59:05.3128025Z env:
+2025-05-27T09:59:05.3128261Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:59:05.3128671Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T09:59:05.3129069Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:59:05.3129442Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:59:05.3129804Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:59:05.3130161Z   FLUTTER_ROOT: C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64
+2025-05-27T09:59:05.3130521Z   PUB_CACHE: C:\Users\runneradmin\AppData\Local\Pub\Cache
+2025-05-27T09:59:05.3130777Z ##[endgroup]
+2025-05-27T09:59:05.5334990Z === å½
+2025-05-27T09:59:05.5335559Z å‰å·¥ä½œç›®å½•
+2025-05-27T09:59:05.5336079Z ===
+2025-05-27T09:59:05.5336623Z pwd
+2025-05-27T09:59:05.5336859Z echo "
+2025-05-27T09:59:05.5337122Z echo ===
+2025-05-27T09:59:05.5337546Z ç›®å½•å†…å®¹
+2025-05-27T09:59:05.5337816Z ===
+2025-05-27T09:59:05.5338198Z Get-ChildItem | Format-Table Name, Length, LastWriteTime
+2025-05-27T09:59:05.5338654Z echo "
+2025-05-27T09:59:05.5339103Z echo ===
+2025-05-27T09:59:05.5339539Z æ£€æŸ¥å…³é®æ–‡ä»¶ ===
+2025-05-27T09:59:05.5786365Z âœ… pubspec.yaml å­˜åœ¨
+2025-05-27T09:59:05.5787611Z 
+2025-05-27T09:59:05.5790444Z === Flutter ç‰ˆæœ¬ä¿¡æ¯ ===
+2025-05-27T09:59:06.0183572Z Flutter 3.24.0 • channel stable • https://github.com/flutter/flutter.git
+2025-05-27T09:59:06.0184206Z Framework • revision 80c2e84975 (10 months ago) • 2024-07-30 23:06:49 +0700
+2025-05-27T09:59:06.0184625Z Engine • revision b8800d88be
+2025-05-27T09:59:06.0184923Z Tools • Dart 3.5.0 • DevTools 2.37.2

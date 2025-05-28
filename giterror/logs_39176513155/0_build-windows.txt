@@ -1,0 +1,1152 @@
+﻿2025-05-27T09:56:33.1372166Z Current runner version: '2.324.0'
+2025-05-27T09:56:33.1393689Z ##[group]Operating System
+2025-05-27T09:56:33.1394414Z Microsoft Windows Server 2022
+2025-05-27T09:56:33.1394996Z 10.0.20348
+2025-05-27T09:56:33.1395421Z Datacenter
+2025-05-27T09:56:33.1395914Z ##[endgroup]
+2025-05-27T09:56:33.1396335Z ##[group]Runner Image
+2025-05-27T09:56:33.1396853Z Image: windows-2022
+2025-05-27T09:56:33.1397284Z Version: 20250511.1.0
+2025-05-27T09:56:33.1398269Z Included Software: https://github.com/actions/runner-images/blob/win22/20250511.1/images/windows/Windows2022-Readme.md
+2025-05-27T09:56:33.1399540Z Image Release: https://github.com/actions/runner-images/releases/tag/win22%2F20250511.1
+2025-05-27T09:56:33.1400310Z ##[endgroup]
+2025-05-27T09:56:33.1400809Z ##[group]Runner Image Provisioner
+2025-05-27T09:56:33.1401297Z 2.0.437.1
+2025-05-27T09:56:33.1401686Z ##[endgroup]
+2025-05-27T09:56:33.1402679Z ##[group]GITHUB_TOKEN Permissions
+2025-05-27T09:56:33.1404661Z Contents: read
+2025-05-27T09:56:33.1405190Z Metadata: read
+2025-05-27T09:56:33.1405618Z Packages: read
+2025-05-27T09:56:33.1406058Z ##[endgroup]
+2025-05-27T09:56:33.1407818Z Secret source: Actions
+2025-05-27T09:56:33.1408401Z Prepare workflow directory
+2025-05-27T09:56:33.1722253Z Prepare all required actions
+2025-05-27T09:56:33.1756939Z Getting action download info
+2025-05-27T09:56:33.4263722Z ##[group]Download immutable action package 'actions/checkout@v4'
+2025-05-27T09:56:33.4264975Z Version: 4.2.2
+2025-05-27T09:56:33.4266041Z Digest: sha256:ccb2698953eaebd21c7bf6268a94f9c26518a7e38e27e0b83c1fe1ad049819b1
+2025-05-27T09:56:33.4267461Z Source commit SHA: 11bd71901bbe5b1630ceea73d27597364c9af683
+2025-05-27T09:56:33.4268323Z ##[endgroup]
+2025-05-27T09:56:33.6178688Z ##[group]Download immutable action package 'actions/setup-python@v4'
+2025-05-27T09:56:33.6179482Z Version: 4.9.1
+2025-05-27T09:56:33.6180287Z Digest: sha256:f03e505388af670b5a108629e0ba26befc08d5c62b41f46146a45fe29ae509a5
+2025-05-27T09:56:33.6181249Z Source commit SHA: 7f4fc3e22c37d6ff65e88745f38bd3157c663f7c
+2025-05-27T09:56:33.6181938Z ##[endgroup]
+2025-05-27T09:56:33.8666585Z Download action repository 'subosito/flutter-action@v2' (SHA:e938fdf56512cc96ef2f93601a5a40bde3801046)
+2025-05-27T09:56:33.9982568Z ##[group]Download immutable action package 'actions/upload-artifact@v4'
+2025-05-27T09:56:33.9983386Z Version: 4.6.2
+2025-05-27T09:56:33.9984076Z Digest: sha256:290722aa3281d5caf23d0acdc3dbeb3424786a1a01a9cc97e72f147225e37c38
+2025-05-27T09:56:33.9985080Z Source commit SHA: ea165f8d65b6e75b540449e92b4886f43607fa02
+2025-05-27T09:56:33.9985772Z ##[endgroup]
+2025-05-27T09:56:34.4422548Z Getting action download info
+2025-05-27T09:56:34.5337208Z ##[group]Download immutable action package 'actions/cache@v4'
+2025-05-27T09:56:34.5337874Z Version: 4.2.3
+2025-05-27T09:56:34.5338516Z Digest: sha256:c8a3bb963e1f1826d8fcc8d1354f0dd29d8ac1db1d4f6f20247055ae11b81ed9
+2025-05-27T09:56:34.5339416Z Source commit SHA: 5a3ec84eff668545956fd18022155c47e93e2684
+2025-05-27T09:56:34.5340033Z ##[endgroup]
+2025-05-27T09:56:34.7686050Z Complete job name: build-windows
+2025-05-27T09:56:34.8809001Z ##[group]Run actions/checkout@v4
+2025-05-27T09:56:34.8810804Z with:
+2025-05-27T09:56:34.8811657Z   repository: zyq2002/material-anticheat
+2025-05-27T09:56:34.8812891Z   token: ***
+2025-05-27T09:56:34.8813590Z   ssh-strict: true
+2025-05-27T09:56:34.8814374Z   ssh-user: git
+2025-05-27T09:56:34.8815130Z   persist-credentials: true
+2025-05-27T09:56:34.8815999Z   clean: true
+2025-05-27T09:56:34.8816773Z   sparse-checkout-cone-mode: true
+2025-05-27T09:56:34.8817705Z   fetch-depth: 1
+2025-05-27T09:56:34.8818433Z   fetch-tags: false
+2025-05-27T09:56:34.8819238Z   show-progress: true
+2025-05-27T09:56:34.8820027Z   lfs: false
+2025-05-27T09:56:34.8820726Z   submodules: false
+2025-05-27T09:56:34.8821555Z   set-safe-directory: true
+2025-05-27T09:56:34.8822591Z ##[endgroup]
+2025-05-27T09:56:35.6717005Z Syncing repository: zyq2002/material-anticheat
+2025-05-27T09:56:35.6875085Z ##[group]Getting Git version info
+2025-05-27T09:56:35.6878998Z Working directory is 'D:\a\material-anticheat\material-anticheat'
+2025-05-27T09:56:35.9645853Z [command]"C:\Program Files\Git\bin\git.exe" version
+2025-05-27T09:56:36.0859631Z git version 2.49.0.windows.1
+2025-05-27T09:56:36.0874612Z ##[endgroup]
+2025-05-27T09:56:36.0909540Z Temporarily overriding HOME='D:\a\_temp\79d1127d-65d8-45ed-a579-92cd0d01e0e9' before making global git config changes
+2025-05-27T09:56:36.0911770Z Adding repository directory to the temporary git global config as a safe directory
+2025-05-27T09:56:36.0920690Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\material-anticheat\material-anticheat
+2025-05-27T09:56:36.1604786Z Deleting the contents of 'D:\a\material-anticheat\material-anticheat'
+2025-05-27T09:56:36.1610267Z ##[group]Initializing the repository
+2025-05-27T09:56:36.1619568Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\material-anticheat\material-anticheat
+2025-05-27T09:56:36.2425251Z Initialized empty Git repository in D:/a/material-anticheat/material-anticheat/.git/
+2025-05-27T09:56:36.2457228Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/zyq2002/material-anticheat
+2025-05-27T09:56:36.3140563Z ##[endgroup]
+2025-05-27T09:56:36.3142664Z ##[group]Disabling automatic garbage collection
+2025-05-27T09:56:36.3148770Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2025-05-27T09:56:36.3371590Z ##[endgroup]
+2025-05-27T09:56:36.3373522Z ##[group]Setting up auth
+2025-05-27T09:56:36.3384869Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2025-05-27T09:56:36.3671843Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2025-05-27T09:56:38.2472913Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-05-27T09:56:38.2684087Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2025-05-27T09:56:38.6797987Z [command]"C:\Program Files\Git\bin\git.exe" config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2025-05-27T09:56:38.7015156Z ##[endgroup]
+2025-05-27T09:56:38.7016057Z ##[group]Fetching the repository
+2025-05-27T09:56:38.7028910Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +42ce3f93ea8b8ca835ca61bb17c1a9ce19f9112b:refs/remotes/origin/main
+2025-05-27T09:56:40.0072258Z From https://github.com/zyq2002/material-anticheat
+2025-05-27T09:56:40.0073277Z  * [new ref]         42ce3f93ea8b8ca835ca61bb17c1a9ce19f9112b -> origin/main
+2025-05-27T09:56:40.0291814Z ##[endgroup]
+2025-05-27T09:56:40.0294470Z ##[group]Determining the checkout info
+2025-05-27T09:56:40.0295509Z ##[endgroup]
+2025-05-27T09:56:40.0305499Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+2025-05-27T09:56:40.0964403Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+2025-05-27T09:56:40.1170184Z ##[group]Checking out the ref
+2025-05-27T09:56:40.1178305Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force -B main refs/remotes/origin/main
+2025-05-27T09:56:40.1998486Z branch 'main' set up to track 'origin/main'.
+2025-05-27T09:56:40.2001136Z Switched to a new branch 'main'
+2025-05-27T09:56:40.2029358Z ##[endgroup]
+2025-05-27T09:56:40.2358318Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+2025-05-27T09:56:40.2548319Z 42ce3f93ea8b8ca835ca61bb17c1a9ce19f9112b
+2025-05-27T09:56:40.2965097Z ##[group]Run actions/setup-python@v4
+2025-05-27T09:56:40.2965423Z with:
+2025-05-27T09:56:40.2966258Z   python-version: 3.11
+2025-05-27T09:56:40.2966485Z   check-latest: false
+2025-05-27T09:56:40.2966790Z   token: ***
+2025-05-27T09:56:40.2966970Z   update-environment: true
+2025-05-27T09:56:40.2967181Z   allow-prereleases: false
+2025-05-27T09:56:40.2967370Z ##[endgroup]
+2025-05-27T09:56:40.5511488Z ##[group]Installed versions
+2025-05-27T09:56:40.5723156Z Successfully set up CPython (3.11.9)
+2025-05-27T09:56:40.5724828Z ##[endgroup]
+2025-05-27T09:56:40.5958648Z ##[group]Run python -m pip install --upgrade pip
+2025-05-27T09:56:40.5959104Z [36;1mpython -m pip install --upgrade pip[0m
+2025-05-27T09:56:40.5959465Z [36;1mif (Test-Path "python_scripts/requirements.txt") {[0m
+2025-05-27T09:56:40.5959836Z [36;1m  pip install -r python_scripts/requirements.txt[0m
+2025-05-27T09:56:40.5960108Z [36;1m} else {[0m
+2025-05-27T09:56:40.5960413Z [36;1m  echo "警告: python_scripts/requirements.txt 不存在，跳过Python依赖安装"[0m
+2025-05-27T09:56:40.5960746Z [36;1m}[0m
+2025-05-27T09:56:40.6075244Z shell: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE -command ". '{0}'"
+2025-05-27T09:56:40.6075661Z env:
+2025-05-27T09:56:40.6075896Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:56:40.6076319Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T09:56:40.6076719Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:56:40.6077116Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:56:40.6077463Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:56:40.6077741Z ##[endgroup]
+2025-05-27T09:56:47.4780354Z Requirement already satisfied: pip in c:\hostedtoolcache\windows\python\3.11.9\x64\lib\site-packages (25.1.1)
+2025-05-27T09:56:49.1889783Z Collecting opencv-python==4.8.1.78 (from -r python_scripts/requirements.txt (line 1))
+2025-05-27T09:56:49.2267668Z   Downloading opencv_python-4.8.1.78-cp37-abi3-win_amd64.whl.metadata (20 kB)
+2025-05-27T09:56:49.4048107Z Collecting numpy==1.24.3 (from -r python_scripts/requirements.txt (line 2))
+2025-05-27T09:56:49.4110254Z   Downloading numpy-1.24.3-cp311-cp311-win_amd64.whl.metadata (5.6 kB)
+2025-05-27T09:56:49.5459687Z Collecting matplotlib==3.9.4 (from -r python_scripts/requirements.txt (line 3))
+2025-05-27T09:56:49.5518089Z   Downloading matplotlib-3.9.4-cp311-cp311-win_amd64.whl.metadata (11 kB)
+2025-05-27T09:56:49.6310075Z Collecting scikit-image==0.24.0 (from -r python_scripts/requirements.txt (line 4))
+2025-05-27T09:56:49.6371304Z   Downloading scikit_image-0.24.0-cp311-cp311-win_amd64.whl.metadata (14 kB)
+2025-05-27T09:56:49.7742381Z Collecting scipy==1.13.1 (from -r python_scripts/requirements.txt (line 5))
+2025-05-27T09:56:49.7807421Z   Downloading scipy-1.13.1-cp311-cp311-win_amd64.whl.metadata (60 kB)
+2025-05-27T09:56:49.8334773Z Collecting networkx==3.2.1 (from -r python_scripts/requirements.txt (line 6))
+2025-05-27T09:56:49.8379545Z   Downloading networkx-3.2.1-py3-none-any.whl.metadata (5.2 kB)
+2025-05-27T09:56:50.0018120Z Collecting pillow==11.2.1 (from -r python_scripts/requirements.txt (line 7))
+2025-05-27T09:56:50.0063872Z   Downloading pillow-11.2.1-cp311-cp311-win_amd64.whl.metadata (9.1 kB)
+2025-05-27T09:56:50.0562832Z Collecting tifffile==2024.8.30 (from -r python_scripts/requirements.txt (line 8))
+2025-05-27T09:56:50.0612081Z   Downloading tifffile-2024.8.30-py3-none-any.whl.metadata (31 kB)
+2025-05-27T09:56:50.1668724Z Collecting contourpy>=1.0.1 (from matplotlib==3.9.4->-r python_scripts/requirements.txt (line 3))
+2025-05-27T09:56:50.1718162Z   Downloading contourpy-1.3.2-cp311-cp311-win_amd64.whl.metadata (5.5 kB)
+2025-05-27T09:56:50.2002459Z Collecting cycler>=0.10 (from matplotlib==3.9.4->-r python_scripts/requirements.txt (line 3))
+2025-05-27T09:56:50.2053898Z   Downloading cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+2025-05-27T09:56:50.3428388Z Collecting fonttools>=4.22.0 (from matplotlib==3.9.4->-r python_scripts/requirements.txt (line 3))
+2025-05-27T09:56:50.3475829Z   Downloading fonttools-4.58.0-cp311-cp311-win_amd64.whl.metadata (106 kB)
+2025-05-27T09:56:50.4450541Z Collecting kiwisolver>=1.3.1 (from matplotlib==3.9.4->-r python_scripts/requirements.txt (line 3))
+2025-05-27T09:56:50.4500175Z   Downloading kiwisolver-1.4.8-cp311-cp311-win_amd64.whl.metadata (6.3 kB)
+2025-05-27T09:56:50.4929043Z Collecting packaging>=20.0 (from matplotlib==3.9.4->-r python_scripts/requirements.txt (line 3))
+2025-05-27T09:56:50.4972618Z   Downloading packaging-25.0-py3-none-any.whl.metadata (3.3 kB)
+2025-05-27T09:56:50.5412081Z Collecting pyparsing>=2.3.1 (from matplotlib==3.9.4->-r python_scripts/requirements.txt (line 3))
+2025-05-27T09:56:50.5459692Z   Downloading pyparsing-3.2.3-py3-none-any.whl.metadata (5.0 kB)
+2025-05-27T09:56:50.5760655Z Collecting python-dateutil>=2.7 (from matplotlib==3.9.4->-r python_scripts/requirements.txt (line 3))
+2025-05-27T09:56:50.5809403Z   Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+2025-05-27T09:56:50.6333340Z Collecting imageio>=2.33 (from scikit-image==0.24.0->-r python_scripts/requirements.txt (line 4))
+2025-05-27T09:56:50.6382558Z   Downloading imageio-2.37.0-py3-none-any.whl.metadata (5.2 kB)
+2025-05-27T09:56:50.6861427Z Collecting lazy-loader>=0.4 (from scikit-image==0.24.0->-r python_scripts/requirements.txt (line 4))
+2025-05-27T09:56:50.6905995Z   Downloading lazy_loader-0.4-py3-none-any.whl.metadata (7.6 kB)
+2025-05-27T09:56:50.7444857Z Collecting six>=1.5 (from python-dateutil>=2.7->matplotlib==3.9.4->-r python_scripts/requirements.txt (line 3))
+2025-05-27T09:56:50.7497352Z   Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+2025-05-27T09:56:50.7694062Z Downloading opencv_python-4.8.1.78-cp37-abi3-win_amd64.whl (38.1 MB)
+2025-05-27T09:56:51.1090534Z    ---------------------------------------- 38.1/38.1 MB 114.9 MB/s eta 0:00:00
+2025-05-27T09:56:51.1145113Z Downloading numpy-1.24.3-cp311-cp311-win_amd64.whl (14.8 MB)
+2025-05-27T09:56:51.2079523Z    ---------------------------------------- 14.8/14.8 MB 155.0 MB/s eta 0:00:00
+2025-05-27T09:56:51.2154108Z Downloading matplotlib-3.9.4-cp311-cp311-win_amd64.whl (7.8 MB)
+2025-05-27T09:56:51.2722049Z    ---------------------------------------- 7.8/7.8 MB 122.2 MB/s eta 0:00:00
+2025-05-27T09:56:51.2779062Z Downloading scikit_image-0.24.0-cp311-cp311-win_amd64.whl (12.8 MB)
+2025-05-27T09:56:51.3816279Z    ---------------------------------------- 12.8/12.8 MB 114.4 MB/s eta 0:00:00
+2025-05-27T09:56:51.3908232Z Downloading scipy-1.13.1-cp311-cp311-win_amd64.whl (46.2 MB)
+2025-05-27T09:56:51.8142603Z    ---------------------------------------- 46.2/46.2 MB 112.9 MB/s eta 0:00:00
+2025-05-27T09:56:51.8190082Z Downloading networkx-3.2.1-py3-none-any.whl (1.6 MB)
+2025-05-27T09:56:51.8391326Z    ---------------------------------------- 1.6/1.6 MB 86.6 MB/s eta 0:00:00
+2025-05-27T09:56:51.8470220Z Downloading pillow-11.2.1-cp311-cp311-win_amd64.whl (2.7 MB)
+2025-05-27T09:56:51.8738870Z    ---------------------------------------- 2.7/2.7 MB 160.9 MB/s eta 0:00:00
+2025-05-27T09:56:51.8793160Z Downloading tifffile-2024.8.30-py3-none-any.whl (227 kB)
+2025-05-27T09:56:51.8958405Z Downloading contourpy-1.3.2-cp311-cp311-win_amd64.whl (222 kB)
+2025-05-27T09:56:51.9117464Z Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)
+2025-05-27T09:56:51.9347393Z Downloading fonttools-4.58.0-cp311-cp311-win_amd64.whl (2.2 MB)
+2025-05-27T09:56:51.9570636Z    ---------------------------------------- 2.2/2.2 MB 63.6 MB/s eta 0:00:00
+2025-05-27T09:56:51.9619876Z Downloading imageio-2.37.0-py3-none-any.whl (315 kB)
+2025-05-27T09:56:51.9785073Z Downloading kiwisolver-1.4.8-cp311-cp311-win_amd64.whl (71 kB)
+2025-05-27T09:56:51.9951946Z Downloading lazy_loader-0.4-py3-none-any.whl (12 kB)
+2025-05-27T09:56:52.0082387Z Downloading packaging-25.0-py3-none-any.whl (66 kB)
+2025-05-27T09:56:52.0228758Z Downloading pyparsing-3.2.3-py3-none-any.whl (111 kB)
+2025-05-27T09:56:52.0388827Z Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+2025-05-27T09:56:52.0548454Z Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+2025-05-27T09:56:52.3233328Z Installing collected packages: six, pyparsing, pillow, packaging, numpy, networkx, kiwisolver, fonttools, cycler, tifffile, scipy, python-dateutil, opencv-python, lazy-loader, imageio, contourpy, scikit-image, matplotlib
+2025-05-27T09:57:18.9771117Z 
+2025-05-27T09:57:18.9790472Z Successfully installed contourpy-1.3.2 cycler-0.12.1 fonttools-4.58.0 imageio-2.37.0 kiwisolver-1.4.8 lazy-loader-0.4 matplotlib-3.9.4 networkx-3.2.1 numpy-1.24.3 opencv-python-4.8.1.78 packaging-25.0 pillow-11.2.1 pyparsing-3.2.3 python-dateutil-2.9.0.post0 scikit-image-0.24.0 scipy-1.13.1 six-1.17.0 tifffile-2024.8.30
+2025-05-27T09:57:19.1712834Z ##[group]Run subosito/flutter-action@v2
+2025-05-27T09:57:19.1713147Z with:
+2025-05-27T09:57:19.1713309Z   flutter-version: 3.24.0
+2025-05-27T09:57:19.1713506Z   channel: stable
+2025-05-27T09:57:19.1713671Z   architecture: X64
+2025-05-27T09:57:19.1713835Z   cache: false
+2025-05-27T09:57:19.1714019Z   pub-cache-path: default
+2025-05-27T09:57:19.1714202Z   dry-run: false
+2025-05-27T09:57:19.1714417Z   git-source: https://github.com/flutter/flutter.git
+2025-05-27T09:57:19.1714676Z env:
+2025-05-27T09:57:19.1714899Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:57:19.1715345Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T09:57:19.1715759Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:57:19.1716121Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:57:19.1716482Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:57:19.1716787Z ##[endgroup]
+2025-05-27T09:57:19.1860301Z ##[group]Run choco install yq
+2025-05-27T09:57:19.1860518Z [36;1mchoco install yq[0m
+2025-05-27T09:57:19.1872059Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+2025-05-27T09:57:19.1872403Z env:
+2025-05-27T09:57:19.1872639Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:57:19.1873055Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T09:57:19.1873450Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:57:19.1873805Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:57:19.1874160Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:57:19.1874434Z ##[endgroup]
+2025-05-27T09:57:21.6832463Z Chocolatey v2.4.3
+2025-05-27T09:57:21.9516685Z Installing the following packages:
+2025-05-27T09:57:21.9522660Z yq
+2025-05-27T09:57:21.9527455Z By installing, you accept licenses for the packages.
+2025-05-27T09:57:30.3447489Z Downloading package from source 'https://community.chocolatey.org/api/v2/'
+2025-05-27T09:57:30.4620652Z 
+2025-05-27T09:57:30.4621975Z Progress: Downloading yq 4.45.4... 28%
+2025-05-27T09:57:30.4622445Z Progress: Downloading yq 4.45.4... 83%
+2025-05-27T09:57:30.4622901Z Progress: Downloading yq 4.45.4... 100%
+2025-05-27T09:57:30.6631173Z 
+2025-05-27T09:57:30.6631610Z yq v4.45.4 [Approved]
+2025-05-27T09:57:30.6815354Z yq package files install completed. Performing other installation steps.
+2025-05-27T09:57:32.0989508Z Downloading yq 64 bit
+2025-05-27T09:57:32.0990246Z   from 'https://github.com/mikefarah/yq/releases/download/v4.45.4/yq_windows_amd64.exe'
+2025-05-27T09:57:32.2193269Z 
+2025-05-27T09:57:32.2208246Z Progress: 0% - Saving 13.46 KB of 11.18 MB
+2025-05-27T09:57:32.2223203Z Progress: 0% - Saving 26.91 KB of 11.18 MB
+2025-05-27T09:57:32.2244350Z Progress: 1% - Saving 124.19 KB of 11.18 MB
+2025-05-27T09:57:32.2264120Z Progress: 2% - Saving 284.19 KB of 11.18 MB
+2025-05-27T09:57:32.2285539Z Progress: 3% - Saving 444.19 KB of 11.18 MB
+2025-05-27T09:57:32.2306970Z Progress: 5% - Saving 594.31 KB of 11.18 MB
+2025-05-27T09:57:32.2370517Z Progress: 6% - Saving 742 KB of 11.18 MB
+2025-05-27T09:57:32.2371119Z Progress: 7% - Saving 895.81 KB of 11.18 MB
+2025-05-27T09:57:32.2554908Z Progress: 9% - Saving 1.03 MB of 11.18 MB
+2025-05-27T09:57:32.2571653Z Progress: 10% - Saving 1.19 MB of 11.18 MB
+2025-05-27T09:57:32.2589005Z Progress: 12% - Saving 1.34 MB of 11.18 MB
+2025-05-27T09:57:32.2608233Z Progress: 13% - Saving 1.49 MB of 11.18 MB
+2025-05-27T09:57:32.2623543Z Progress: 14% - Saving 1.65 MB of 11.18 MB
+2025-05-27T09:57:32.2640628Z Progress: 16% - Saving 1.81 MB of 11.18 MB
+2025-05-27T09:57:32.2660128Z Progress: 17% - Saving 1.96 MB of 11.18 MB
+2025-05-27T09:57:32.2675405Z Progress: 18% - Saving 2.12 MB of 11.18 MB
+2025-05-27T09:57:32.2685933Z Progress: 20% - Saving 2.27 MB of 11.18 MB
+2025-05-27T09:57:32.2701670Z Progress: 21% - Saving 2.43 MB of 11.18 MB
+2025-05-27T09:57:32.2712239Z Progress: 23% - Saving 2.58 MB of 11.18 MB
+2025-05-27T09:57:32.2722484Z Progress: 24% - Saving 2.74 MB of 11.18 MB
+2025-05-27T09:57:32.2733629Z Progress: 25% - Saving 2.9 MB of 11.18 MB
+2025-05-27T09:57:32.2745431Z Progress: 27% - Saving 3.05 MB of 11.18 MB
+2025-05-27T09:57:32.2756201Z Progress: 28% - Saving 3.2 MB of 11.18 MB
+2025-05-27T09:57:32.2768121Z Progress: 29% - Saving 3.35 MB of 11.18 MB
+2025-05-27T09:57:32.2781153Z Progress: 31% - Saving 3.51 MB of 11.18 MB
+2025-05-27T09:57:32.2791916Z Progress: 32% - Saving 3.67 MB of 11.18 MB
+2025-05-27T09:57:32.2803838Z Progress: 34% - Saving 3.82 MB of 11.18 MB
+2025-05-27T09:57:32.2815885Z Progress: 35% - Saving 3.97 MB of 11.18 MB
+2025-05-27T09:57:32.2825299Z Progress: 36% - Saving 4.13 MB of 11.18 MB
+2025-05-27T09:57:32.2842275Z Progress: 38% - Saving 4.29 MB of 11.18 MB
+2025-05-27T09:57:32.2854880Z Progress: 39% - Saving 4.44 MB of 11.18 MB
+2025-05-27T09:57:32.2865089Z Progress: 41% - Saving 4.59 MB of 11.18 MB
+2025-05-27T09:57:32.2875698Z Progress: 42% - Saving 4.75 MB of 11.18 MB
+2025-05-27T09:57:32.2887495Z Progress: 43% - Saving 4.91 MB of 11.18 MB
+2025-05-27T09:57:32.2897640Z Progress: 45% - Saving 5.06 MB of 11.18 MB
+2025-05-27T09:57:32.2908192Z Progress: 46% - Saving 5.22 MB of 11.18 MB
+2025-05-27T09:57:32.2923004Z Progress: 48% - Saving 5.37 MB of 11.18 MB
+2025-05-27T09:57:32.2933891Z Progress: 49% - Saving 5.53 MB of 11.18 MB
+2025-05-27T09:57:32.2944519Z Progress: 50% - Saving 5.68 MB of 11.18 MB
+2025-05-27T09:57:32.2954633Z Progress: 52% - Saving 5.83 MB of 11.18 MB
+2025-05-27T09:57:32.2965659Z Progress: 53% - Saving 5.98 MB of 11.18 MB
+2025-05-27T09:57:32.2978504Z Progress: 54% - Saving 6.14 MB of 11.18 MB
+2025-05-27T09:57:32.2989122Z Progress: 56% - Saving 6.3 MB of 11.18 MB
+2025-05-27T09:57:32.2998579Z Progress: 57% - Saving 6.45 MB of 11.18 MB
+2025-05-27T09:57:32.3010852Z Progress: 59% - Saving 6.6 MB of 11.18 MB
+2025-05-27T09:57:32.3022333Z Progress: 60% - Saving 6.75 MB of 11.18 MB
+2025-05-27T09:57:32.3033195Z Progress: 61% - Saving 6.91 MB of 11.18 MB
+2025-05-27T09:57:32.3044000Z Progress: 63% - Saving 7.06 MB of 11.18 MB
+2025-05-27T09:57:32.3054409Z Progress: 64% - Saving 7.22 MB of 11.18 MB
+2025-05-27T09:57:32.3068028Z Progress: 65% - Saving 7.37 MB of 11.18 MB
+2025-05-27T09:57:32.3079994Z Progress: 67% - Saving 7.53 MB of 11.18 MB
+2025-05-27T09:57:32.3090590Z Progress: 68% - Saving 7.68 MB of 11.18 MB
+2025-05-27T09:57:32.3101537Z Progress: 70% - Saving 7.84 MB of 11.18 MB
+2025-05-27T09:57:32.3112561Z Progress: 71% - Saving 7.99 MB of 11.18 MB
+2025-05-27T09:57:32.3123443Z Progress: 72% - Saving 8.15 MB of 11.18 MB
+2025-05-27T09:57:32.3134702Z Progress: 74% - Saving 8.31 MB of 11.18 MB
+2025-05-27T09:57:32.3145187Z Progress: 75% - Saving 8.46 MB of 11.18 MB
+2025-05-27T09:57:32.3156073Z Progress: 77% - Saving 8.61 MB of 11.18 MB
+2025-05-27T09:57:32.3167545Z Progress: 78% - Saving 8.77 MB of 11.18 MB
+2025-05-27T09:57:32.3178693Z Progress: 79% - Saving 8.92 MB of 11.18 MB
+2025-05-27T09:57:32.3189089Z Progress: 81% - Saving 9.08 MB of 11.18 MB
+2025-05-27T09:57:32.3244284Z Progress: 82% - Saving 9.23 MB of 11.18 MB
+2025-05-27T09:57:32.3256705Z Progress: 83% - Saving 9.39 MB of 11.18 MB
+2025-05-27T09:57:32.3267598Z Progress: 85% - Saving 9.54 MB of 11.18 MB
+2025-05-27T09:57:32.3278508Z Progress: 86% - Saving 9.7 MB of 11.18 MB
+2025-05-27T09:57:32.3288786Z Progress: 88% - Saving 9.85 MB of 11.18 MB
+2025-05-27T09:57:32.3300119Z Progress: 89% - Saving 10 MB of 11.18 MB
+2025-05-27T09:57:32.3312481Z Progress: 90% - Saving 10.15 MB of 11.18 MB
+2025-05-27T09:57:32.3323412Z Progress: 92% - Saving 10.31 MB of 11.18 MB
+2025-05-27T09:57:32.3334064Z Progress: 93% - Saving 10.47 MB of 11.18 MB
+2025-05-27T09:57:32.3344905Z Progress: 95% - Saving 10.62 MB of 11.18 MB
+2025-05-27T09:57:32.3355411Z Progress: 96% - Saving 10.78 MB of 11.18 MB
+2025-05-27T09:57:32.3367463Z Progress: 97% - Saving 10.94 MB of 11.18 MB
+2025-05-27T09:57:32.3382733Z Progress: 99% - Saving 11.09 MB of 11.18 MB
+2025-05-27T09:57:32.3386597Z Progress: 100% - Completed download of C:\ProgramData\chocolatey\lib\yq\tools\yq.exe (11.18 MB).
+2025-05-27T09:57:32.3405689Z Download of yq.exe (11.18 MB) completed.
+2025-05-27T09:57:38.4181509Z Hashes match.
+2025-05-27T09:57:38.4803360Z C:\ProgramData\chocolatey\lib\yq\tools\yq.exe
+2025-05-27T09:57:40.4730666Z  ShimGen has successfully created a shim for yq.exe
+2025-05-27T09:57:40.4948475Z  The install of yq was successful.
+2025-05-27T09:57:40.4953245Z   Software install location not explicitly set, it could be in package or
+2025-05-27T09:57:40.4953629Z   default install location of installer.
+2025-05-27T09:57:40.5205088Z 
+2025-05-27T09:57:40.5205312Z Chocolatey installed 1/1 packages. 
+2025-05-27T09:57:40.5205709Z  See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+2025-05-27T09:57:40.5216544Z 
+2025-05-27T09:57:40.5216848Z Did you know the proceeds of Pro (and some proceeds from other
+2025-05-27T09:57:40.5217371Z  licensed editions) go into bettering the community infrastructure?
+2025-05-27T09:57:40.5217846Z  Your support ensures an active community, keeps Chocolatey tip-top,
+2025-05-27T09:57:40.5218223Z  plus it nets you some awesome features!
+2025-05-27T09:57:40.5218521Z  https://chocolatey.org/compare
+2025-05-27T09:57:40.5605837Z ##[group]Run chmod +x "$GITHUB_ACTION_PATH/setup.sh"
+2025-05-27T09:57:40.5606157Z [36;1mchmod +x "$GITHUB_ACTION_PATH/setup.sh"[0m
+2025-05-27T09:57:40.5617476Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+2025-05-27T09:57:40.5617829Z env:
+2025-05-27T09:57:40.5618068Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:57:40.5618472Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T09:57:40.5618865Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:57:40.5619227Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:57:40.5619600Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:57:40.5619881Z ##[endgroup]
+2025-05-27T09:57:40.6267533Z ##[group]Run $GITHUB_ACTION_PATH/setup.sh -p \
+2025-05-27T09:57:40.6267847Z [36;1m$GITHUB_ACTION_PATH/setup.sh -p \[0m
+2025-05-27T09:57:40.6268096Z [36;1m  -n '3.24.0' \[0m
+2025-05-27T09:57:40.6268301Z [36;1m  -f '' \[0m
+2025-05-27T09:57:40.6268476Z [36;1m  -a 'X64' \[0m
+2025-05-27T09:57:40.6268650Z [36;1m  -k '' \[0m
+2025-05-27T09:57:40.6268810Z [36;1m  -c '' \[0m
+2025-05-27T09:57:40.6268978Z [36;1m  -l '' \[0m
+2025-05-27T09:57:40.6269139Z [36;1m  -d 'default' \[0m
+2025-05-27T09:57:40.6269408Z [36;1m  -g 'https://github.com/flutter/flutter.git' \[0m
+2025-05-27T09:57:40.6269686Z [36;1m  stable[0m
+2025-05-27T09:57:40.6281391Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+2025-05-27T09:57:40.6281749Z env:
+2025-05-27T09:57:40.6281996Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:57:40.6282404Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T09:57:40.6282823Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:57:40.6283184Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:57:40.6283544Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:57:40.6283975Z ##[endgroup]
+2025-05-27T09:57:42.7561386Z ##[group]Run $GITHUB_ACTION_PATH/setup.sh \
+2025-05-27T09:57:42.7561686Z [36;1m$GITHUB_ACTION_PATH/setup.sh \[0m
+2025-05-27T09:57:42.7561920Z [36;1m  -n '3.24.0' \[0m
+2025-05-27T09:57:42.7562113Z [36;1m  -a 'x64' \[0m
+2025-05-27T09:57:42.7562369Z [36;1m  -c 'C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64' \[0m
+2025-05-27T09:57:42.7562758Z [36;1m  -d 'C:\Users\runneradmin\AppData\Local\Pub\Cache' \[0m
+2025-05-27T09:57:42.7563032Z [36;1m  stable[0m
+2025-05-27T09:57:42.7574454Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+2025-05-27T09:57:42.7574822Z env:
+2025-05-27T09:57:42.7575067Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:57:42.7575490Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T09:57:42.7575898Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:57:42.7576273Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:57:42.7576647Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:57:42.7576928Z ##[endgroup]
+2025-05-27T09:57:44.2396788Z   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+2025-05-27T09:57:44.2397504Z                                  Dload  Upload   Total   Spent    Left  Speed
+2025-05-27T09:57:44.2397886Z 
+2025-05-27T09:57:44.5740759Z   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+2025-05-27T09:57:45.5736232Z  10  964M   10  100M    0     0   299M      0  0:00:03 --:--:--  0:00:03  299M
+2025-05-27T09:57:46.5739515Z  50  964M   50  483M    0     0   362M      0  0:00:02  0:00:01  0:00:01  362M
+2025-05-27T09:57:46.8490543Z  88  964M   88  853M    0     0   365M      0  0:00:02  0:00:02 --:--:--  365M
+2025-05-27T09:57:46.8498677Z 100  964M  100  964M    0     0   369M      0  0:00:02  0:00:02 --:--:--  369M
+2025-05-27T09:59:05.3092927Z ##[group]Run echo "=== 当前工作目录 ==="
+2025-05-27T09:59:05.3093381Z [36;1mecho "=== 当前工作目录 ==="[0m
+2025-05-27T09:59:05.3093662Z [36;1mpwd[0m
+2025-05-27T09:59:05.3093874Z [36;1mecho ""[0m
+2025-05-27T09:59:05.3094111Z [36;1mecho "=== 目录内容 ==="[0m
+2025-05-27T09:59:05.3094494Z [36;1mGet-ChildItem | Format-Table Name, Length, LastWriteTime[0m
+2025-05-27T09:59:05.3094896Z [36;1mecho ""[0m
+2025-05-27T09:59:05.3095123Z [36;1mecho "=== 检查关键文件 ==="[0m
+2025-05-27T09:59:05.3095438Z [36;1mif (Test-Path "pubspec.yaml") { [0m
+2025-05-27T09:59:05.3095770Z [36;1m  echo "✅ pubspec.yaml 存在" [0m
+2025-05-27T09:59:05.3096097Z [36;1m} else { [0m
+2025-05-27T09:59:05.3096381Z [36;1m  echo "❌ pubspec.yaml 不存在" [0m
+2025-05-27T09:59:05.3096687Z [36;1m  exit 1[0m
+2025-05-27T09:59:05.3096868Z [36;1m}[0m
+2025-05-27T09:59:05.3097036Z [36;1mecho ""[0m
+2025-05-27T09:59:05.3097236Z [36;1mecho "=== Flutter 版本信息 ==="[0m
+2025-05-27T09:59:05.3097528Z [36;1mflutter --version[0m
+2025-05-27T09:59:05.3127656Z shell: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE -command ". '{0}'"
+2025-05-27T09:59:05.3128028Z env:
+2025-05-27T09:59:05.3128264Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:59:05.3128674Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T09:59:05.3129070Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:59:05.3129444Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:59:05.3129806Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:59:05.3130163Z   FLUTTER_ROOT: C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64
+2025-05-27T09:59:05.3130523Z   PUB_CACHE: C:\Users\runneradmin\AppData\Local\Pub\Cache
+2025-05-27T09:59:05.3130780Z ##[endgroup]
+2025-05-27T09:59:05.5335036Z === å½
+2025-05-27T09:59:05.5335566Z å‰å·¥ä½œç›®å½•
+2025-05-27T09:59:05.5336085Z ===
+2025-05-27T09:59:05.5336629Z pwd
+2025-05-27T09:59:05.5336884Z echo "
+2025-05-27T09:59:05.5337127Z echo ===
+2025-05-27T09:59:05.5337552Z ç›®å½•å†…å®¹
+2025-05-27T09:59:05.5337820Z ===
+2025-05-27T09:59:05.5338204Z Get-ChildItem | Format-Table Name, Length, LastWriteTime
+2025-05-27T09:59:05.5338659Z echo "
+2025-05-27T09:59:05.5339113Z echo ===
+2025-05-27T09:59:05.5339545Z æ£€æŸ¥å…³é®æ–‡ä»¶ ===
+2025-05-27T09:59:05.5786382Z âœ… pubspec.yaml å­˜åœ¨
+2025-05-27T09:59:05.5787626Z 
+2025-05-27T09:59:05.5790458Z === Flutter ç‰ˆæœ¬ä¿¡æ¯ ===
+2025-05-27T09:59:06.0183610Z Flutter 3.24.0 • channel stable • https://github.com/flutter/flutter.git
+2025-05-27T09:59:06.0184209Z Framework • revision 80c2e84975 (10 months ago) • 2024-07-30 23:06:49 +0700
+2025-05-27T09:59:06.0184628Z Engine • revision b8800d88be
+2025-05-27T09:59:06.0184926Z Tools • Dart 3.5.0 • DevTools 2.37.2
+2025-05-27T09:59:06.0514477Z ##[group]Run flutter config --enable-windows-desktop
+2025-05-27T09:59:06.0514927Z [36;1mflutter config --enable-windows-desktop[0m
+2025-05-27T09:59:06.0546665Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2025-05-27T09:59:06.0546966Z env:
+2025-05-27T09:59:06.0547213Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:59:06.0547638Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T09:59:06.0548041Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:59:06.0548418Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:59:06.0548778Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:59:06.0549146Z   FLUTTER_ROOT: C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64
+2025-05-27T09:59:06.0549498Z   PUB_CACHE: C:\Users\runneradmin\AppData\Local\Pub\Cache
+2025-05-27T09:59:06.0549766Z ##[endgroup]
+2025-05-27T09:59:06.5997530Z 
+2025-05-27T09:59:06.6023877Z   ╔════════════════════════════════════════════════════════════════════════════╗
+2025-05-27T09:59:06.6024775Z   ║                 Welcome to Flutter! - https://flutter.dev                  ║
+2025-05-27T09:59:06.6025535Z   ║                                                                            ║
+2025-05-27T09:59:06.6026323Z   ║ The Flutter tool uses Google Analytics to anonymously report feature usage ║
+2025-05-27T09:59:06.6027303Z   ║ statistics and basic crash reports. This data is used to help improve      ║
+2025-05-27T09:59:06.6028201Z   ║ Flutter tools over time.                                                   ║
+2025-05-27T09:59:06.6028871Z   ║                                                                            ║
+2025-05-27T09:59:06.6029565Z   ║ Flutter tool analytics are not sent on the very first run. To disable      ║
+2025-05-27T09:59:06.6030523Z   ║ reporting, type 'flutter config --no-analytics'. To display the current    ║
+2025-05-27T09:59:06.6031485Z   ║ setting, type 'flutter config'. If you opt out of analytics, an opt-out    ║
+2025-05-27T09:59:06.6032402Z   ║ event will be sent, and then no further information will be sent by the    ║
+2025-05-27T09:59:06.6033225Z   ║ Flutter tool.                                                              ║
+2025-05-27T09:59:06.6033867Z   ║                                                                            ║
+2025-05-27T09:59:06.6034624Z   ║ By downloading the Flutter SDK, you agree to the Google Terms of Service.  ║
+2025-05-27T09:59:06.6035561Z   ║ The Google Privacy Policy describes how data is handled in this service.   ║
+2025-05-27T09:59:06.6036325Z   ║                                                                            ║
+2025-05-27T09:59:06.6037076Z   ║ Moreover, Flutter includes the Dart SDK, which may send usage metrics and  ║
+2025-05-27T09:59:06.6037937Z   ║ crash reports to Google.                                                   ║
+2025-05-27T09:59:06.6038636Z   ║                                                                            ║
+2025-05-27T09:59:06.6039334Z   ║ Read about data we send with crash reports:                                ║
+2025-05-27T09:59:06.6041438Z   ║ https://flutter.dev/to/crash-reporting                                     ║
+2025-05-27T09:59:06.6042226Z   ║                                                                            ║
+2025-05-27T09:59:06.6042925Z   ║ See Google's privacy policy:                                               ║
+2025-05-27T09:59:06.6043812Z   ║ https://policies.google.com/privacy                                        ║
+2025-05-27T09:59:06.6044655Z   ║                                                                            ║
+2025-05-27T09:59:06.6045418Z   ║ To disable animations in this tool, use                                    ║
+2025-05-27T09:59:06.6046348Z   ║ 'flutter config --no-cli-animations'.                                      ║
+2025-05-27T09:59:06.6049167Z   ╚════════════════════════════════════════════════════════════════════════════╝
+2025-05-27T09:59:06.6049625Z 
+2025-05-27T09:59:06.6431415Z Setting "enable-windows-desktop" value to "true".
+2025-05-27T09:59:06.6433030Z 
+2025-05-27T09:59:06.6433317Z You may need to restart any open editors for them to read new settings.
+2025-05-27T09:59:06.9501842Z ##[group]Run echo "=== 清理项目 ==="
+2025-05-27T09:59:06.9502224Z [36;1mecho "=== 清理项目 ==="[0m
+2025-05-27T09:59:06.9502492Z [36;1mflutter clean[0m
+2025-05-27T09:59:06.9502706Z [36;1mecho ""[0m
+2025-05-27T09:59:06.9502920Z [36;1mecho "=== 获取依赖 ==="[0m
+2025-05-27T09:59:06.9503152Z [36;1mflutter pub get[0m
+2025-05-27T09:59:06.9535566Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2025-05-27T09:59:06.9535931Z env:
+2025-05-27T09:59:06.9536205Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:59:06.9536673Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T09:59:06.9537103Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:59:06.9537531Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:59:06.9537948Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:59:06.9538434Z   FLUTTER_ROOT: C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64
+2025-05-27T09:59:06.9538814Z   PUB_CACHE: C:\Users\runneradmin\AppData\Local\Pub\Cache
+2025-05-27T09:59:06.9539126Z ##[endgroup]
+2025-05-27T09:59:07.2543196Z === 清理项目 ===
+2025-05-27T09:59:19.7369355Z 
+2025-05-27T09:59:19.7372280Z === 获取依赖 ===
+2025-05-27T09:59:20.1693345Z Resolving dependencies...
+2025-05-27T09:59:21.6074403Z Downloading packages...
+2025-05-27T09:59:29.7072309Z < _fe_analyzer_shared 72.0.0 (was 76.0.0) (82.0.0 available)
+2025-05-27T09:59:29.7072990Z < _macros 0.3.2 from sdk dart (was 0.3.3 from sdk dart)
+2025-05-27T09:59:29.7073653Z ! analyzer 6.7.0 (overridden) (7.4.5 available)
+2025-05-27T09:59:29.7074261Z < async 2.11.0 (was 2.13.0) (2.13.0 available)
+2025-05-27T09:59:29.7074862Z < boolean_selector 2.1.1 (was 2.1.2) (2.1.2 available)
+2025-05-27T09:59:29.7075444Z < build 2.4.1 (was 2.4.2) (2.4.2 available)
+2025-05-27T09:59:29.7075981Z < build_config 1.1.1 (was 1.1.2) (1.1.2 available)
+2025-05-27T09:59:29.7076604Z < build_daemon 4.0.2 (was 4.0.4) (4.0.4 available)
+2025-05-27T09:59:29.7077202Z < build_resolvers 2.4.2 (was 2.4.4) (2.4.4 available)
+2025-05-27T09:59:29.7077827Z < build_runner 2.4.13 (was 2.4.15) (2.4.15 available)
+2025-05-27T09:59:29.7078530Z < build_runner_core 7.3.2 (was 8.0.0) (8.0.0 available)
+2025-05-27T09:59:29.7079223Z   built_value 8.9.5 (8.10.0 available)
+2025-05-27T09:59:29.7079748Z < characters 1.3.0 (was 1.4.0) (1.4.0 available)
+2025-05-27T09:59:29.7080340Z < clock 1.1.1 (was 1.1.2) (1.1.2 available)
+2025-05-27T09:59:29.7080898Z < collection 1.18.0 (was 1.19.1) (1.19.1 available)
+2025-05-27T09:59:29.7081570Z < dart_style 2.3.8 (was 3.1.0) (3.1.0 available)
+2025-05-27T09:59:29.7082189Z < fake_async 1.3.1 (was 1.3.3) (1.3.3 available)
+2025-05-27T09:59:29.7082748Z < ffi 2.1.3 (was 2.1.4) (2.1.4 available)
+2025-05-27T09:59:29.7083274Z   file_picker 6.2.1 (10.1.9 available)
+2025-05-27T09:59:29.7083980Z   flutter_hooks 0.20.5 (0.21.2 available)
+2025-05-27T09:59:29.7084435Z   flutter_lints 3.0.2 (5.0.0 available)
+2025-05-27T09:59:29.7084939Z < flutter_plugin_android_lifecycle 2.0.26 (was 2.0.28) (2.0.28 available)
+2025-05-27T09:59:29.7085539Z < freezed 2.5.7 (was 2.5.8) (3.0.6 available)
+2025-05-27T09:59:29.7085981Z   freezed_annotation 2.4.4 (3.0.0 available)
+2025-05-27T09:59:29.7086477Z < http_parser 4.0.2 (was 4.1.2) (4.1.2 available)
+2025-05-27T09:59:29.7086789Z   intl 0.19.0 (0.20.2 available)
+2025-05-27T09:59:29.7087031Z < js 0.7.1 (was 0.7.2) (0.7.2 available)
+2025-05-27T09:59:29.7087359Z < json_serializable 6.9.0 (was 6.9.5) (6.9.5 available)
+2025-05-27T09:59:29.7087680Z < leak_tracker 10.0.5 (was 10.0.9) (11.0.1 available)
+2025-05-27T09:59:29.7088051Z < leak_tracker_flutter_testing 3.0.5 (was 3.0.9) (3.0.10 available)
+2025-05-27T09:59:29.7088399Z   leak_tracker_testing 3.0.1 (3.0.2 available)
+2025-05-27T09:59:29.7088697Z   lints 3.0.0 (6.0.0 available)
+2025-05-27T09:59:29.7089015Z < macros 0.1.2-main.4 (was 0.1.3-main.0) (0.1.3-main.0 available)
+2025-05-27T09:59:29.7091306Z < matcher 0.12.16+1 (was 0.12.17) (0.12.17 available)
+2025-05-27T09:59:29.7091777Z   material_color_utilities 0.11.1 (0.12.0 available)
+2025-05-27T09:59:29.7092074Z < meta 1.15.0 (was 1.16.0) (1.17.0 available)
+2025-05-27T09:59:29.7092352Z < path 1.9.0 (was 1.9.1) (1.9.1 available)
+2025-05-27T09:59:29.7092680Z < path_provider_android 2.2.15 (was 2.2.17) (2.2.17 available)
+2025-05-27T09:59:29.7093043Z < pubspec_parse 1.4.0 (was 1.5.0) (1.5.0 available)
+2025-05-27T09:59:29.7093388Z < riverpod_analyzer_utils 0.5.8 (was 0.5.9) (0.5.10 available)
+2025-05-27T09:59:29.7093714Z < riverpod_generator 2.6.3 (was 2.6.4) (2.6.5 available)
+2025-05-27T09:59:29.7094088Z < shared_preferences_android 2.4.7 (was 2.4.10) (2.4.10 available)
+2025-05-27T09:59:29.7094426Z < shelf 1.4.1 (was 1.4.2) (1.4.2 available)
+2025-05-27T09:59:29.7094745Z < shelf_web_socket 2.0.1 (was 3.0.0) (3.0.0 available)
+2025-05-27T09:59:29.7095100Z > sky_engine 0.0.99 from sdk flutter (was 0.0.0 from sdk flutter)
+2025-05-27T09:59:29.7095464Z < source_gen 1.5.0 (was 2.0.0) (2.0.0 available)
+2025-05-27T09:59:29.7095784Z < source_span 1.10.0 (was 1.10.1) (1.10.1 available)
+2025-05-27T09:59:29.7096091Z < stack_trace 1.11.1 (was 1.12.1) (1.12.1 available)
+2025-05-27T09:59:29.7096417Z < stream_channel 2.1.2 (was 2.1.4) (2.1.4 available)
+2025-05-27T09:59:29.7096702Z < string_scanner 1.2.0 (was 1.4.1) (1.4.1 available)
+2025-05-27T09:59:29.7097016Z < term_glyph 1.2.1 (was 1.2.2) (1.2.2 available)
+2025-05-27T09:59:29.7097307Z < test_api 0.7.2 (was 0.7.4) (0.7.6 available)
+2025-05-27T09:59:29.7097651Z < url_launcher_android 6.3.14 (was 6.3.16) (6.3.16 available)
+2025-05-27T09:59:29.7098016Z < url_launcher_web 2.3.3 (was 2.4.1) (2.4.1 available)
+2025-05-27T09:59:29.7098366Z   vector_math 2.1.4 (2.2.0 available)
+2025-05-27T09:59:29.7098790Z < vm_service 14.2.4 (was 15.0.0) (15.0.1 available)
+2025-05-27T09:59:29.7099109Z < win32 5.10.1 (was 5.13.0) (5.13.0 available)
+2025-05-27T09:59:29.7099442Z These packages are no longer being depended on:
+2025-05-27T09:59:29.7099764Z - http 1.4.0
+2025-05-27T09:59:29.7099978Z Changed 47 dependencies!
+2025-05-27T09:59:29.7115633Z 55 packages have newer versions incompatible with dependency constraints.
+2025-05-27T09:59:29.7116211Z Try `flutter pub outdated` for more information.
+2025-05-27T09:59:30.3749715Z ##[group]Run flutter analyze
+2025-05-27T09:59:30.3750135Z [36;1mflutter analyze[0m
+2025-05-27T09:59:30.3783170Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2025-05-27T09:59:30.3783475Z env:
+2025-05-27T09:59:30.3783731Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:59:30.3784172Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T09:59:30.3784623Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:59:30.3784987Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:59:30.3785522Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:59:30.3785909Z   FLUTTER_ROOT: C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64
+2025-05-27T09:59:30.3786257Z   PUB_CACHE: C:\Users\runneradmin\AppData\Local\Pub\Cache
+2025-05-27T09:59:30.3786521Z ##[endgroup]
+2025-05-27T09:59:43.1547858Z Analyzing material-anticheat...                                 
+2025-05-27T09:59:43.1555596Z 
+2025-05-27T09:59:43.1580060Z warning - The method doesn't override an inherited method - lib\models\similarity_result.freezed.dart:271:24 - override_on_non_overriding_member
+2025-05-27T09:59:43.1581847Z warning - The method doesn't override an inherited method - lib\models\similarity_result.freezed.dart:527:24 - override_on_non_overriding_member
+2025-05-27T09:59:43.1584694Z warning - Unused import: 'package:shared_preferences/shared_preferences.dart' - lib\screens\weighbridge_duplicate_detection_screen.dart:6:8 - unused_import
+2025-05-27T09:59:43.1586788Z    info - Use 'const' with the constructor to improve performance - lib\screens\weighbridge_duplicate_detection_screen.dart:16:29 - prefer_const_constructors
+2025-05-27T09:59:43.1589914Z    info - Don't invoke 'print' in production code - lib\screens\weighbridge_image_gallery_screen.dart:921:9 - avoid_print
+2025-05-27T09:59:43.1592313Z    info - Don't use 'BuildContext's across async gaps - lib\screens\weighbridge_image_gallery_screen.dart:1117:24 - use_build_context_synchronously
+2025-05-27T09:59:43.1594737Z    info - Don't use 'BuildContext's across async gaps - lib\screens\weighbridge_image_gallery_screen.dart:1120:30 - use_build_context_synchronously
+2025-05-27T09:59:43.1597387Z    info - Don't use 'BuildContext's across async gaps - lib\screens\weighbridge_image_gallery_screen.dart:1131:28 - use_build_context_synchronously
+2025-05-27T09:59:43.1599086Z warning - The member 'Provider<ApiService>.internal' can only be used within its package - lib\services\api_service.g.dart:13:28 - invalid_use_of_internal_member
+2025-05-27T09:59:43.1600832Z    info - 'ProviderRef' is deprecated and shouldn't be used. will be removed in 3.0.0. Use Ref instead - lib\services\api_service.g.dart:22:25 - deprecated_member_use
+2025-05-27T09:59:43.1602829Z warning - The member 'AutoDisposeNotifierProvider<CrawlerService, CrawlerState>.internal' can only be used within its package - lib\services\crawler_service.g.dart:14:5 - invalid_use_of_internal_member
+2025-05-27T09:59:43.1604916Z    info - Use 'const' with the constructor to improve performance - lib\services\weighbridge_duplicate_detection_service.dart:134:13 - prefer_const_constructors
+2025-05-27T09:59:43.1606703Z    info - Use 'const' with the constructor to improve performance - lib\services\weighbridge_duplicate_detection_service.dart:146:15 - prefer_const_constructors
+2025-05-27T09:59:43.1608484Z    info - Use 'const' with the constructor to improve performance - lib\services\weighbridge_duplicate_detection_service.dart:158:13 - prefer_const_constructors
+2025-05-27T09:59:43.1610234Z   error - Undefined name 'ProviderFor' used as an annotation - lib\services\weighbridge_duplicate_detection_service.g.dart:13:1 - undefined_annotation
+2025-05-27T09:59:43.1611907Z   error - Undefined name 'WeighbridgeDuplicateDetectionService' - lib\services\weighbridge_duplicate_detection_service.g.dart:13:14 - undefined_identifier
+2025-05-27T09:59:43.1615858Z   error - The name 'AutoDisposeAsyncNotifierProvider' isn't a class - lib\services\weighbridge_duplicate_detection_service.g.dart:14:54 - creation_with_non_type
+2025-05-27T09:59:43.1618025Z   error - The name 'WeighbridgeDuplicateDetectionService' isn't a type, so it can't be used as a type argument - lib\services\weighbridge_duplicate_detection_service.g.dart:15:5 - non_type_as_type_argument
+2025-05-27T09:59:43.1620308Z   error - The name 'WeighbridgeDuplicateDetectionResult' isn't a type, so it can't be used as a type argument - lib\services\weighbridge_duplicate_detection_service.g.dart:15:48 - non_type_as_type_argument
+2025-05-27T09:59:43.1622642Z   error - Undefined name 'WeighbridgeDuplicateDetectionService' - lib\services\weighbridge_duplicate_detection_service.g.dart:16:3 - undefined_identifier
+2025-05-27T09:59:43.1624390Z   error - The getter 'new' isn't defined for the type 'InvalidType' - lib\services\weighbridge_duplicate_detection_service.g.dart:16:40 - undefined_getter
+2025-05-27T09:59:43.1626229Z    info - The declaration '_$WeighbridgeDuplicateDetectionService' isn't referenced - lib\services\weighbridge_duplicate_detection_service.g.dart:25:9 - unused_element
+2025-05-27T09:59:43.1628039Z   error - Undefined class 'AutoDisposeAsyncNotifier' - lib\services\weighbridge_duplicate_detection_service.g.dart:26:7 - undefined_class
+2025-05-27T09:59:43.1629986Z   error - The name 'WeighbridgeDuplicateDetectionResult' isn't a type, so it can't be used as a type argument - lib\services\weighbridge_duplicate_detection_service.g.dart:26:37 - non_type_as_type_argument
+2025-05-27T09:59:43.1631418Z warning - The value of the field '_logService' isn't used - lib\services\weighbridge_image_similarity_service.dart:45:15 - unused_field
+2025-05-27T09:59:43.1632417Z   error - Undefined name 'ProviderFor' used as an annotation - lib\services\weighbridge_image_similarity_service.g.dart:13:1 - undefined_annotation
+2025-05-27T09:59:43.1633549Z   error - Undefined name 'WeighbridgeImageSimilarityService' - lib\services\weighbridge_image_similarity_service.g.dart:13:14 - undefined_identifier
+2025-05-27T09:59:43.1634596Z   error - The name 'AutoDisposeAsyncNotifierProvider' isn't a class - lib\services\weighbridge_image_similarity_service.g.dart:14:51 - creation_with_non_type
+2025-05-27T09:59:43.1635917Z   error - The name 'WeighbridgeImageSimilarityService' isn't a type, so it can't be used as a type argument - lib\services\weighbridge_image_similarity_service.g.dart:15:5 - non_type_as_type_argument
+2025-05-27T09:59:43.1637380Z   error - The name 'WeighbridgeImageSimilarityResult' isn't a type, so it can't be used as a type argument - lib\services\weighbridge_image_similarity_service.g.dart:15:45 - non_type_as_type_argument
+2025-05-27T09:59:43.1638693Z   error - Undefined name 'WeighbridgeImageSimilarityService' - lib\services\weighbridge_image_similarity_service.g.dart:16:3 - undefined_identifier
+2025-05-27T09:59:43.1639853Z   error - The getter 'new' isn't defined for the type 'InvalidType' - lib\services\weighbridge_image_similarity_service.g.dart:16:37 - undefined_getter
+2025-05-27T09:59:43.1641109Z    info - The declaration '_$WeighbridgeImageSimilarityService' isn't referenced - lib\services\weighbridge_image_similarity_service.g.dart:25:9 - unused_element
+2025-05-27T09:59:43.1642341Z   error - Undefined class 'AutoDisposeAsyncNotifier' - lib\services\weighbridge_image_similarity_service.g.dart:26:7 - undefined_class
+2025-05-27T09:59:43.1643488Z   error - The name 'WeighbridgeImageSimilarityResult' isn't a type, so it can't be used as a type argument - lib\services\weighbridge_image_similarity_service.g.dart:26:37 - non_type_as_type_argument
+2025-05-27T09:59:43.1644668Z   error - Undefined name 'ProviderFor' used as an annotation - lib\services\weighbridge_image_similarity_service.g.dart:32:1 - undefined_annotation
+2025-05-27T09:59:43.1645914Z   error - Undefined name 'weighbridgeSuspiciousImages' - lib\services\weighbridge_image_similarity_service.g.dart:32:14 - undefined_identifier
+2025-05-27T09:59:43.1647734Z   error - The name 'AutoDisposeProvider' isn't a class - lib\services\weighbridge_image_similarity_service.g.dart:33:45 - creation_with_non_type
+2025-05-27T09:59:43.1648885Z   error - The name 'AsyncValue' isn't a type, so it can't be used as a type argument - lib\services\weighbridge_image_similarity_service.g.dart:33:65 - non_type_as_type_argument
+2025-05-27T09:59:43.1650251Z   error - The name 'WeighbridgeImageSimilarityResult' isn't a type, so it can't be used as a type argument - lib\services\weighbridge_image_similarity_service.g.dart:33:81 - non_type_as_type_argument
+2025-05-27T09:59:43.1651537Z   error - Undefined name 'weighbridgeSuspiciousImages' - lib\services\weighbridge_image_similarity_service.g.dart:34:3 - undefined_identifier
+2025-05-27T09:59:43.1652782Z   error - Undefined class 'AutoDisposeProviderRef' - lib\services\weighbridge_image_similarity_service.g.dart:43:42 - undefined_class
+2025-05-27T09:59:43.1653657Z   error - The name 'AsyncValue' isn't a type, so it can't be used as a type argument - lib\services\weighbridge_image_similarity_service.g.dart:43:65 - non_type_as_type_argument
+2025-05-27T09:59:43.1654670Z   error - The name 'WeighbridgeImageSimilarityResult' isn't a type, so it can't be used as a type argument - lib\services\weighbridge_image_similarity_service.g.dart:43:81 - non_type_as_type_argument
+2025-05-27T09:59:43.1661899Z 
+2025-05-27T09:59:43.1807129Z 44 issues found. (ran in 11.4s)
+2025-05-27T09:59:43.2721986Z ##[error]Process completed with exit code 1.
+2025-05-27T09:59:43.2916810Z ##[group]Run echo "=== 开始构建 Windows 应用 ==="
+2025-05-27T09:59:43.2917339Z [36;1mecho "=== 开始构建 Windows 应用 ==="[0m
+2025-05-27T09:59:43.2917702Z [36;1mflutter build windows --release --verbose[0m
+2025-05-27T09:59:43.2949615Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2025-05-27T09:59:43.2949932Z env:
+2025-05-27T09:59:43.2950179Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:59:43.2950586Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T09:59:43.2950997Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:59:43.2951352Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:59:43.2951712Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:59:43.2952082Z   FLUTTER_ROOT: C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64
+2025-05-27T09:59:43.2952473Z   PUB_CACHE: C:\Users\runneradmin\AppData\Local\Pub\Cache
+2025-05-27T09:59:43.2952735Z ##[endgroup]
+2025-05-27T09:59:43.5526718Z === 开始构建 Windows 应用 ===
+2025-05-27T09:59:43.7191741Z [  +46 ms] Artifact Instance of 'AndroidGenSnapshotArtifacts' is not required, skipping update.
+2025-05-27T09:59:43.7193903Z [   +4 ms] Artifact Instance of 'AndroidInternalBuildArtifacts' is not required, skipping update.
+2025-05-27T09:59:43.7195507Z [        ] Artifact Instance of 'IOSEngineArtifacts' is not required, skipping update.
+2025-05-27T09:59:43.7197027Z [        ] Artifact Instance of 'FlutterWebSdk' is not required, skipping update.
+2025-05-27T09:59:43.7198702Z [        ] Artifact Instance of 'LegacyCanvasKitRemover' is not required, skipping update.
+2025-05-27T09:59:43.7222676Z [   +2 ms] Artifact Instance of 'WindowsEngineArtifacts' is not required, skipping update.
+2025-05-27T09:59:43.7224492Z [        ] Artifact Instance of 'MacOSEngineArtifacts' is not required, skipping update.
+2025-05-27T09:59:43.7226679Z [        ] Artifact Instance of 'LinuxEngineArtifacts' is not required, skipping update.
+2025-05-27T09:59:43.7228882Z [        ] Artifact Instance of 'LinuxFuchsiaSDKArtifacts' is not required, skipping update.
+2025-05-27T09:59:43.7231043Z [        ] Artifact Instance of 'MacOSFuchsiaSDKArtifacts' is not required, skipping update.
+2025-05-27T09:59:43.7233589Z [        ] Artifact Instance of 'FlutterRunnerSDKArtifacts' is not required, skipping update.
+2025-05-27T09:59:43.7235156Z [        ] Artifact Instance of 'FlutterRunnerDebugSymbols' is not required, skipping update.
+2025-05-27T09:59:43.7667135Z [  +43 ms] Artifact Instance of 'MaterialFonts' is not required, skipping update.
+2025-05-27T09:59:43.7668548Z [        ] Artifact Instance of 'GradleWrapper' is not required, skipping update.
+2025-05-27T09:59:43.7670887Z [        ] Artifact Instance of 'AndroidGenSnapshotArtifacts' is not required, skipping update.
+2025-05-27T09:59:43.7672744Z [        ] Artifact Instance of 'AndroidInternalBuildArtifacts' is not required, skipping update.
+2025-05-27T09:59:43.7674524Z [        ] Artifact Instance of 'IOSEngineArtifacts' is not required, skipping update.
+2025-05-27T09:59:43.7676236Z [        ] Artifact Instance of 'FlutterWebSdk' is not required, skipping update.
+2025-05-27T09:59:43.7678120Z [        ] Artifact Instance of 'LegacyCanvasKitRemover' is not required, skipping update.
+2025-05-27T09:59:43.7679850Z [        ] Artifact Instance of 'FlutterSdk' is not required, skipping update.
+2025-05-27T09:59:43.7704329Z [   +2 ms] Artifact Instance of 'MacOSEngineArtifacts' is not required, skipping update.
+2025-05-27T09:59:43.7705220Z [        ] Artifact Instance of 'LinuxEngineArtifacts' is not required, skipping update.
+2025-05-27T09:59:43.7706154Z [        ] Artifact Instance of 'LinuxFuchsiaSDKArtifacts' is not required, skipping update.
+2025-05-27T09:59:43.7707605Z [        ] Artifact Instance of 'MacOSFuchsiaSDKArtifacts' is not required, skipping update.
+2025-05-27T09:59:43.7711303Z [        ] Artifact Instance of 'FlutterRunnerSDKArtifacts' is not required, skipping update.
+2025-05-27T09:59:43.7712399Z [        ] Artifact Instance of 'FlutterRunnerDebugSymbols' is not required, skipping update.
+2025-05-27T09:59:43.7713320Z [        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+2025-05-27T09:59:43.7714145Z [        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+2025-05-27T09:59:43.7714957Z [        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+2025-05-27T09:59:43.7715751Z [        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+2025-05-27T09:59:43.7716549Z [        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+2025-05-27T09:59:43.7717390Z [        ] Artifact Instance of 'FontSubsetArtifacts' is not required, skipping update.
+2025-05-27T09:59:43.7718285Z [        ] Artifact Instance of 'PubDependencies' is not required, skipping update.
+2025-05-27T09:59:43.8214190Z [  +49 ms] Skipping pub get: version match.
+2025-05-27T09:59:43.8933943Z [  +71 ms] Found plugin file_picker at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\file_picker-6.2.1\
+2025-05-27T09:59:43.9015740Z [   +8 ms] Found plugin flutter_plugin_android_lifecycle at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_plugin_android_lifecycle-2.0.26\
+2025-05-27T09:59:43.9369135Z [  +35 ms] Found plugin path_provider at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider-2.1.5\
+2025-05-27T09:59:43.9385646Z [   +1 ms] Found plugin path_provider_android at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_android-2.2.15\
+2025-05-27T09:59:43.9403567Z [   +1 ms] Found plugin path_provider_foundation at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_foundation-2.4.1\
+2025-05-27T09:59:43.9423279Z [   +1 ms] Found plugin path_provider_linux at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_linux-2.2.1\
+2025-05-27T09:59:43.9452583Z [   +2 ms] Found plugin path_provider_windows at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_windows-2.3.0\
+2025-05-27T09:59:43.9579410Z [  +12 ms] Found plugin shared_preferences at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences-2.5.3\
+2025-05-27T09:59:43.9595142Z [   +1 ms] Found plugin shared_preferences_android at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_android-2.4.7\
+2025-05-27T09:59:43.9610465Z [   +1 ms] Found plugin shared_preferences_foundation at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_foundation-2.5.4\
+2025-05-27T09:59:43.9624879Z [   +1 ms] Found plugin shared_preferences_linux at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_linux-2.4.1\
+2025-05-27T09:59:43.9660185Z [   +3 ms] Found plugin shared_preferences_web at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_web-2.4.3\
+2025-05-27T09:59:43.9674868Z [   +1 ms] Found plugin shared_preferences_windows at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_windows-2.4.1\
+2025-05-27T09:59:43.9832855Z [  +15 ms] Found plugin url_launcher at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher-6.3.1\
+2025-05-27T09:59:43.9847780Z [   +1 ms] Found plugin url_launcher_android at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_android-6.3.14\
+2025-05-27T09:59:43.9862187Z [   +1 ms] Found plugin url_launcher_ios at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_ios-6.3.3\
+2025-05-27T09:59:43.9888855Z [   +2 ms] Found plugin url_launcher_linux at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_linux-3.2.1\
+2025-05-27T09:59:43.9905103Z [   +1 ms] Found plugin url_launcher_macos at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_macos-3.2.2\
+2025-05-27T09:59:43.9931181Z [   +2 ms] Found plugin url_launcher_web at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_web-2.3.3\
+2025-05-27T09:59:43.9943166Z [   +1 ms] Found plugin url_launcher_windows at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_windows-3.1.4\
+2025-05-27T09:59:44.0564950Z [  +62 ms] Found plugin file_picker at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\file_picker-6.2.1\
+2025-05-27T09:59:44.0600452Z [   +3 ms] Found plugin flutter_plugin_android_lifecycle at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_plugin_android_lifecycle-2.0.26\
+2025-05-27T09:59:44.0821154Z [  +22 ms] Found plugin path_provider at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider-2.1.5\
+2025-05-27T09:59:44.0831374Z [   +1 ms] Found plugin path_provider_android at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_android-2.2.15\
+2025-05-27T09:59:44.0841280Z [        ] Found plugin path_provider_foundation at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_foundation-2.4.1\
+2025-05-27T09:59:44.0853178Z [   +1 ms] Found plugin path_provider_linux at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_linux-2.2.1\
+2025-05-27T09:59:44.0873696Z [   +2 ms] Found plugin path_provider_windows at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_windows-2.3.0\
+2025-05-27T09:59:44.0973627Z [  +10 ms] Found plugin shared_preferences at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences-2.5.3\
+2025-05-27T09:59:44.0983584Z [        ] Found plugin shared_preferences_android at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_android-2.4.7\
+2025-05-27T09:59:44.0994454Z [   +1 ms] Found plugin shared_preferences_foundation at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_foundation-2.5.4\
+2025-05-27T09:59:44.1005426Z [   +1 ms] Found plugin shared_preferences_linux at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_linux-2.4.1\
+2025-05-27T09:59:44.1024626Z [   +1 ms] Found plugin shared_preferences_web at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_web-2.4.3\
+2025-05-27T09:59:44.1035460Z [   +1 ms] Found plugin shared_preferences_windows at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_windows-2.4.1\
+2025-05-27T09:59:44.1156550Z [  +12 ms] Found plugin url_launcher at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher-6.3.1\
+2025-05-27T09:59:44.1166687Z [   +1 ms] Found plugin url_launcher_android at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_android-6.3.14\
+2025-05-27T09:59:44.1176120Z [        ] Found plugin url_launcher_ios at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_ios-6.3.3\
+2025-05-27T09:59:44.1186260Z [        ] Found plugin url_launcher_linux at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_linux-3.2.1\
+2025-05-27T09:59:44.1197262Z [   +1 ms] Found plugin url_launcher_macos at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_macos-3.2.2\
+2025-05-27T09:59:44.1216325Z [   +1 ms] Found plugin url_launcher_web at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_web-2.3.3\
+2025-05-27T09:59:44.1226146Z [        ] Found plugin url_launcher_windows at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_windows-3.1.4\
+2025-05-27T09:59:44.1810325Z [  +58 ms] Found plugin file_picker at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\file_picker-6.2.1\
+2025-05-27T09:59:44.1845689Z [   +3 ms] Found plugin flutter_plugin_android_lifecycle at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_plugin_android_lifecycle-2.0.26\
+2025-05-27T09:59:44.2071788Z [  +22 ms] Found plugin path_provider at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider-2.1.5\
+2025-05-27T09:59:44.2084413Z [   +1 ms] Found plugin path_provider_android at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_android-2.2.15\
+2025-05-27T09:59:44.2096623Z [   +1 ms] Found plugin path_provider_foundation at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_foundation-2.4.1\
+2025-05-27T09:59:44.2109522Z [   +1 ms] Found plugin path_provider_linux at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_linux-2.2.1\
+2025-05-27T09:59:44.2126385Z [   +1 ms] Found plugin path_provider_windows at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_windows-2.3.0\
+2025-05-27T09:59:44.2205809Z [   +7 ms] Found plugin shared_preferences at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences-2.5.3\
+2025-05-27T09:59:44.2217496Z [   +1 ms] Found plugin shared_preferences_android at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_android-2.4.7\
+2025-05-27T09:59:44.2228616Z [   +1 ms] Found plugin shared_preferences_foundation at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_foundation-2.5.4\
+2025-05-27T09:59:44.2239464Z [   +1 ms] Found plugin shared_preferences_linux at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_linux-2.4.1\
+2025-05-27T09:59:44.2258291Z [   +1 ms] Found plugin shared_preferences_web at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_web-2.4.3\
+2025-05-27T09:59:44.2269195Z [   +1 ms] Found plugin shared_preferences_windows at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_windows-2.4.1\
+2025-05-27T09:59:44.2410025Z [  +14 ms] Found plugin url_launcher at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher-6.3.1\
+2025-05-27T09:59:44.2421019Z [   +1 ms] Found plugin url_launcher_android at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_android-6.3.14\
+2025-05-27T09:59:44.2429971Z [        ] Found plugin url_launcher_ios at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_ios-6.3.3\
+2025-05-27T09:59:44.2441389Z [   +1 ms] Found plugin url_launcher_linux at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_linux-3.2.1\
+2025-05-27T09:59:44.2452090Z [   +1 ms] Found plugin url_launcher_macos at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_macos-3.2.2\
+2025-05-27T09:59:44.2471559Z [   +1 ms] Found plugin url_launcher_web at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_web-2.3.3\
+2025-05-27T09:59:44.2481657Z [   +1 ms] Found plugin url_launcher_windows at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_windows-3.1.4\
+2025-05-27T09:59:44.3063084Z [  +57 ms] executing: C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe -format json -products * -utf8 -latest -version 16 -requires Microsoft.VisualStudio.Workload.NativeDesktop Microsoft.VisualStudio.Component.VC.Tools.x86.x64 Microsoft.VisualStudio.Component.VC.CMake.Project
+2025-05-27T09:59:44.7703133Z [ +463 ms] Exit code 0 from: C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe -format json -products * -utf8 -latest -version 16 -requires Microsoft.VisualStudio.Workload.NativeDesktop Microsoft.VisualStudio.Component.VC.Tools.x86.x64 Microsoft.VisualStudio.Component.VC.CMake.Project
+2025-05-27T09:59:44.7705136Z [        ] [
+2025-05-27T09:59:44.7705296Z              {
+2025-05-27T09:59:44.7705589Z                "instanceId": "91fe6584",
+2025-05-27T09:59:44.7705951Z                "installDate": "2025-05-11T21:44:15Z",
+2025-05-27T09:59:44.7706605Z                "installationName": "VisualStudio/17.13.2+35825.156",
+2025-05-27T09:59:44.7707011Z                "installationPath": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise",
+2025-05-27T09:59:44.7707387Z                "installationVersion": "17.13.35825.156",
+2025-05-27T09:59:44.7707856Z                "productId": "Microsoft.VisualStudio.Product.Enterprise",
+2025-05-27T09:59:44.7708336Z                "productPath": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\Common7\\IDE\\devenv.exe",
+2025-05-27T09:59:44.7708751Z                "state": 4294967295,
+2025-05-27T09:59:44.7708968Z                "isComplete": true,
+2025-05-27T09:59:44.7709174Z                "isLaunchable": true,
+2025-05-27T09:59:44.7709391Z                "isPrerelease": false,
+2025-05-27T09:59:44.7709613Z                "isRebootRequired": false,
+2025-05-27T09:59:44.7709876Z                "displayName": "Visual Studio Enterprise 2022",
+2025-05-27T09:59:44.7710227Z                "description": "Scalable, end-to-end solution for teams of any size",
+2025-05-27T09:59:44.7710570Z                "channelId": "VisualStudio.17.Release",
+2025-05-27T09:59:44.7710872Z                "channelUri": "https://aka.ms/vs/17/release/channel",
+2025-05-27T09:59:44.7711478Z                "enginePath": "C:\\Program Files (x86)\\Microsoft Visual Studio\\Installer\\resources\\app\\ServiceHub\\Services\\Microsoft.VisualStudio.Setup.Service",
+2025-05-27T09:59:44.7712156Z                "installChannelUri": "https://aka.ms/vs/17/release/658092423_1519083591/channel",
+2025-05-27T09:59:44.7712539Z                "installedChannelId": "VisualStudio.17.Release",
+2025-05-27T09:59:44.7712888Z                "installedChannelUri": "https://aka.ms/vs/17/release/channel",
+2025-05-27T09:59:44.7713430Z                "releaseNotes": "https://docs.microsoft.com/en-us/visualstudio/releases/2022/release-notes-v17.13#17.13.2",
+2025-05-27T09:59:44.7714026Z                "resolvedInstallationPath": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise",
+2025-05-27T09:59:44.7714512Z                "thirdPartyNotices": "https://go.microsoft.com/fwlink/?LinkId=661288",
+2025-05-27T09:59:44.7714859Z                "updateDate": "2025-05-11T21:44:15.4258402Z",
+2025-05-27T09:59:44.7715097Z                "catalog": {
+2025-05-27T09:59:44.7715296Z                  "buildBranch": "d17.13",
+2025-05-27T09:59:44.7715526Z                  "buildVersion": "17.13.35825.156",
+2025-05-27T09:59:44.7715772Z                  "id": "VisualStudio/17.13.2+35825.156",
+2025-05-27T09:59:44.7716008Z                  "localBuild": "build-lab",
+2025-05-27T09:59:44.7716245Z                  "manifestName": "VisualStudio",
+2025-05-27T09:59:44.7716485Z                  "manifestType": "installer",
+2025-05-27T09:59:44.7716734Z                  "productDisplayVersion": "17.13.2",
+2025-05-27T09:59:44.7716971Z                  "productLine": "Dev17",
+2025-05-27T09:59:44.7717204Z                  "productLineVersion": "2022",
+2025-05-27T09:59:44.7717433Z                  "productMilestone": "RTW",
+2025-05-27T09:59:44.7717689Z                  "productMilestoneIsPreRelease": "False",
+2025-05-27T09:59:44.7717950Z                  "productName": "Visual Studio",
+2025-05-27T09:59:44.7718188Z                  "productPatchVersion": "2",
+2025-05-27T09:59:44.7718457Z                  "productPreReleaseMilestoneSuffix": "1.0",
+2025-05-27T09:59:44.7718742Z                  "productSemanticVersion": "17.13.2+35825.156",
+2025-05-27T09:59:44.7719097Z                  "requiredEngineVersion": "3.13.2069.59209"
+2025-05-27T09:59:44.7719322Z                },
+2025-05-27T09:59:44.7719492Z                "properties": {
+2025-05-27T09:59:44.7719692Z                  "campaignId": "",
+2025-05-27T09:59:44.7719973Z                  "channelManifestId": "VisualStudio.17.Release/17.13.2+35825.156",
+2025-05-27T09:59:44.7720288Z                  "includeRecommended": "1",
+2025-05-27T09:59:44.7720504Z                  "nickname": "",
+2025-05-27T09:59:44.7720865Z                  "setupEngineFilePath": "C:\\Program Files (x86)\\Microsoft Visual Studio\\Installer\\setup.exe"
+2025-05-27T09:59:44.7721232Z                }
+2025-05-27T09:59:44.7721378Z              }
+2025-05-27T09:59:44.7721516Z            ]
+2025-05-27T09:59:44.7891695Z [  +18 ms] Building Windows application...
+2025-05-27T09:59:44.7918808Z [   +2 ms] executing: C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -S D:\a\material-anticheat\material-anticheat\windows -B D:\a\material-anticheat\material-anticheat\build\windows\x64 -G Visual Studio 17 2022 -A x64 -DFLUTTER_TARGET_PLATFORM=windows-x64
+2025-05-27T10:00:04.1183227Z [+19326 ms] -- The CXX compiler identification is MSVC 19.43.34808.0
+2025-05-27T10:00:04.3113111Z [ +193 ms] -- Detecting CXX compiler ABI info
+2025-05-27T10:00:06.2646672Z [+1953 ms] -- Detecting CXX compiler ABI info - done
+2025-05-27T10:00:06.3022302Z [  +37 ms] -- Check for working CXX compiler: C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/MSVC/14.43.34808/bin/Hostx64/x64/cl.exe - skipped
+2025-05-27T10:00:06.3030222Z [        ] -- Detecting CXX compile features
+2025-05-27T10:00:06.3042232Z [   +1 ms] -- Detecting CXX compile features - done
+2025-05-27T10:00:06.3275060Z [  +23 ms] -- Configuring done (20.5s)
+2025-05-27T10:00:06.3872422Z [  +59 ms] -- Generating done (0.1s)
+2025-05-27T10:00:06.3879580Z [        ] -- Build files have been written to: D:/a/material-anticheat/material-anticheat/build/windows/x64
+2025-05-27T10:00:06.4088189Z [  +20 ms] executing: C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe --build D:\a\material-anticheat\material-anticheat\build\windows\x64 --config Release --target INSTALL --verbose
+2025-05-27T10:00:06.4570218Z [  +48 ms] Change Dir: 'D:/a/material-anticheat/material-anticheat/build/windows/x64'
+2025-05-27T10:00:06.4573307Z [        ] Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Enterprise/MSBuild/Current/Bin/amd64/MSBuild.exe" INSTALL.vcxproj /p:Configuration=Release /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+2025-05-27T10:00:06.5114141Z [  +54 ms] MSBuild version 17.13.15+18b3035f6 for .NET Framework
+2025-05-27T10:00:06.5378020Z [  +26 ms] Build started 5/27/2025 10:00:06 AM.
+2025-05-27T10:00:06.7199030Z [ +181 ms] Project "D:\a\material-anticheat\material-anticheat\build\windows\x64\INSTALL.vcxproj" on node 1 (default targets).
+2025-05-27T10:00:06.7201094Z [        ] Project "D:\a\material-anticheat\material-anticheat\build\windows\x64\INSTALL.vcxproj" (1) is building "D:\a\material-anticheat\material-anticheat\build\windows\x64\ZERO_CHECK.vcxproj" (2) on node 1 (default targets).
+2025-05-27T10:00:06.7202608Z [        ] PrepareForBuild:
+2025-05-27T10:00:06.7202893Z [        ]   Creating directory "x64\Release\ZERO_CHECK\".
+2025-05-27T10:00:06.7251634Z [   +4 ms]   Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+2025-05-27T10:00:06.7253070Z [        ]   Creating directory "x64\Release\ZERO_CHECK\ZERO_CHECK.tlog\".
+2025-05-27T10:00:06.7274977Z [   +2 ms] InitializeBuildStatus:
+2025-05-27T10:00:06.7277093Z [        ]   Creating "x64\Release\ZERO_CHECK\ZERO_CHECK.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+2025-05-27T10:00:06.7278132Z [        ]   Touching "x64\Release\ZERO_CHECK\ZERO_CHECK.tlog\unsuccessfulbuild".
+2025-05-27T10:00:06.9397024Z [ +211 ms] CustomBuild:
+2025-05-27T10:00:06.9399029Z [        ]   1>Checking Build System
+2025-05-27T10:00:06.9996846Z [  +59 ms] FinalizeBuildStatus:
+2025-05-27T10:00:06.9999145Z [        ]   Deleting file "x64\Release\ZERO_CHECK\ZERO_CHECK.tlog\unsuccessfulbuild".
+2025-05-27T10:00:07.0001261Z [        ]   Touching "x64\Release\ZERO_CHECK\ZERO_CHECK.tlog\ZERO_CHECK.lastbuildstate".
+2025-05-27T10:00:07.0014249Z [   +1 ms] Done Building Project "D:\a\material-anticheat\material-anticheat\build\windows\x64\ZERO_CHECK.vcxproj" (default targets).
+2025-05-27T10:00:07.0896994Z [  +87 ms] Project "D:\a\material-anticheat\material-anticheat\build\windows\x64\INSTALL.vcxproj" (1) is building "D:\a\material-anticheat\material-anticheat\build\windows\x64\ALL_BUILD.vcxproj" (3) on node 1 (default targets).
+2025-05-27T10:00:07.0900446Z [        ] Project "D:\a\material-anticheat\material-anticheat\build\windows\x64\ALL_BUILD.vcxproj" (3) is building "D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_wrapper_app.vcxproj" (4) on node 1 (default targets).
+2025-05-27T10:00:07.0902714Z [        ] Project "D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_wrapper_app.vcxproj" (4) is building "D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj" (5) on node 1 (default targets).
+2025-05-27T10:00:07.0903762Z [        ] PrepareForBuild:
+2025-05-27T10:00:07.0904025Z [        ]   Creating directory "x64\Release\flutter_assemble\".
+2025-05-27T10:00:07.0911759Z [        ]   Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+2025-05-27T10:00:07.0912968Z [        ]   Creating directory "x64\Release\flutter_assemble\flutter_assemble.tlog\".
+2025-05-27T10:00:07.0924310Z [   +1 ms] InitializeBuildStatus:
+2025-05-27T10:00:07.0926501Z [        ]   Creating "x64\Release\flutter_assemble\flutter_assemble.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+2025-05-27T10:00:07.0927636Z [        ]   Touching "x64\Release\flutter_assemble\flutter_assemble.tlog\unsuccessfulbuild".
+2025-05-27T10:00:07.0934432Z [        ] ComputeCustomBuildOutput:
+2025-05-27T10:00:07.0936617Z [        ]   Creating directory "D:\a\material-anticheat\material-anticheat\windows\flutter\ephemeral\cpp_client_wrapper\".
+2025-05-27T10:00:07.0945903Z [        ] CustomBuild:
+2025-05-27T10:00:07.0949216Z [        ]   "The build of 'D:\a\material-anticheat\material-anticheat\build\windows\x64\CMakeFiles\5116d33fa54645aee4cc0dd2bf38f93d\flutter_assemble.rule' depends on 'D:\A\MATERIAL-ANTICHEAT\MATERIAL-ANTICHEAT\WINDOWS\FLUTTER\EPHEMERAL\FLUTTER_WINDOWS.DLL' which is produced by the build of 'D:\a\material-anticheat\material-anticheat\build\windows\x64\CMakeFiles\ade246b61e87ebac2e9509f81a237b53\flutter_windows.dll.rule'. The items cannot be built in parallel."
+2025-05-27T10:00:07.1501103Z [  +54 ms]   Generating D:/a/material-anticheat/material-anticheat/windows/flutter/ephemeral/flutter_windows.dll, D:/a/material-anticheat/material-anticheat/windows/flutter/ephemeral/flutter_export.h, D:/a/material-anticheat/material-anticheat/windows/flutter/ephemeral/flutter_windows.h, D:/a/material-anticheat/material-anticheat/windows/flutter/ephemeral/flutter_messenger.h, D:/a/material-anticheat/material-anticheat/windows/flutter/ephemeral/flutter_plugin_registrar.h, D:/a/material-anticheat/material-anticheat/windows/flutter/ephemeral/flutter_texture_registrar.h, D:/a/material-anticheat/material-anticheat/windows/flutter/ephemeral/cpp_client_wrapper/core_implementations.cc, D:/a/material-anticheat/material-anticheat/windows/flutter/ephemeral/cpp_client_wrapper/standard_codec.cc, D:/a/material-anticheat/material-anticheat/windows/flutter/ephemeral/cpp_client_wrapper/plugin_registrar.cc, D:/a/material-anticheat/material-anticheat/windows/flutter/ephemeral/cpp_client_wrapper/flutter_engine.cc, D:/a/material-anticheat/material-anticheat/windows/flutter/ephemeral/cpp_client_wrapper/flutter_view_controller.cc, _phony_
+2025-05-27T10:00:07.6910224Z [ +540 ms]   [  +46 ms] Artifact Instance of 'AndroidGenSnapshotArtifacts' is not required, skipping update.
+2025-05-27T10:00:07.6911671Z [        ]   [   +4 ms] Artifact Instance of 'AndroidInternalBuildArtifacts' is not required, skipping update.
+2025-05-27T10:00:07.6912499Z [        ]   [        ] Artifact Instance of 'IOSEngineArtifacts' is not required, skipping update.
+2025-05-27T10:00:07.6913243Z [        ]   [        ] Artifact Instance of 'FlutterWebSdk' is not required, skipping update.
+2025-05-27T10:00:07.6913907Z [        ]   [        ] Artifact Instance of 'LegacyCanvasKitRemover' is not required, skipping update.
+2025-05-27T10:00:07.6914673Z [        ]   [   +2 ms] Artifact Instance of 'WindowsEngineArtifacts' is not required, skipping update.
+2025-05-27T10:00:07.6915509Z [        ]   [        ] Artifact Instance of 'MacOSEngineArtifacts' is not required, skipping update.
+2025-05-27T10:00:07.6917196Z [        ]   [        ] Artifact Instance of 'LinuxEngineArtifacts' is not required, skipping update.
+2025-05-27T10:00:07.6918610Z [        ]   [        ] Artifact Instance of 'LinuxFuchsiaSDKArtifacts' is not required, skipping update.
+2025-05-27T10:00:07.6920057Z [        ]   [        ] Artifact Instance of 'MacOSFuchsiaSDKArtifacts' is not required, skipping update.
+2025-05-27T10:00:07.6921452Z [        ]   [        ] Artifact Instance of 'FlutterRunnerSDKArtifacts' is not required, skipping update.
+2025-05-27T10:00:07.6922775Z [        ]   [        ] Artifact Instance of 'FlutterRunnerDebugSymbols' is not required, skipping update.
+2025-05-27T10:00:07.7661092Z [  +73 ms]   [  +84 ms] Artifact Instance of 'MaterialFonts' is not required, skipping update.
+2025-05-27T10:00:07.7664073Z [        ]   [        ] Artifact Instance of 'GradleWrapper' is not required, skipping update.
+2025-05-27T10:00:07.7688339Z [   +1 ms]   [        ] Artifact Instance of 'AndroidGenSnapshotArtifacts' is not required, skipping update.
+2025-05-27T10:00:07.7689486Z [        ]   [        ] Artifact Instance of 'AndroidInternalBuildArtifacts' is not required, skipping update.
+2025-05-27T10:00:07.7690431Z [        ]   [        ] Artifact Instance of 'IOSEngineArtifacts' is not required, skipping update.
+2025-05-27T10:00:07.7691256Z [        ]   [        ] Artifact Instance of 'FlutterWebSdk' is not required, skipping update.
+2025-05-27T10:00:07.7692117Z [        ]   [        ] Artifact Instance of 'LegacyCanvasKitRemover' is not required, skipping update.
+2025-05-27T10:00:07.7692969Z [        ]   [        ] Artifact Instance of 'FlutterSdk' is not required, skipping update.
+2025-05-27T10:00:07.7709257Z [   +2 ms]   [   +2 ms] Artifact Instance of 'MacOSEngineArtifacts' is not required, skipping update.
+2025-05-27T10:00:07.7711938Z [        ]   [        ] Artifact Instance of 'LinuxEngineArtifacts' is not required, skipping update.
+2025-05-27T10:00:07.7714171Z [        ]   [        ] Artifact Instance of 'LinuxFuchsiaSDKArtifacts' is not required, skipping update.
+2025-05-27T10:00:07.7716839Z [        ]   [        ] Artifact Instance of 'MacOSFuchsiaSDKArtifacts' is not required, skipping update.
+2025-05-27T10:00:07.7719740Z [        ]   [        ] Artifact Instance of 'FlutterRunnerSDKArtifacts' is not required, skipping update.
+2025-05-27T10:00:07.7726344Z [        ]   [        ] Artifact Instance of 'FlutterRunnerDebugSymbols' is not required, skipping update.
+2025-05-27T10:00:07.7728166Z [        ]   [        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+2025-05-27T10:00:07.7728931Z [        ]   [        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+2025-05-27T10:00:07.7729417Z [        ]   [        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+2025-05-27T10:00:07.7730017Z [        ]   [        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+2025-05-27T10:00:07.7730895Z [        ]   [        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+2025-05-27T10:00:07.7731346Z [        ]   [        ] Artifact Instance of 'FontSubsetArtifacts' is not required, skipping update.
+2025-05-27T10:00:07.7732035Z [        ]   [        ] Artifact Instance of 'PubDependencies' is not required, skipping update.
+2025-05-27T10:00:07.7887651Z [  +15 ms]   [  +15 ms] Initializing file store
+2025-05-27T10:00:07.8085821Z [  +19 ms]   [  +19 ms] Skipping target: gen_localizations
+2025-05-27T10:00:07.8181653Z [   +9 ms]   [   +9 ms] gen_dart_plugin_registrant: Starting due to {InvalidatedReasonKind.inputChanged: The following inputs have updated contents: D:\a\material-anticheat\material-anticheat\.dart_tool\package_config_subset}
+2025-05-27T10:00:07.8215291Z [   +3 ms]   [   +3 ms] unpack_windows: Starting due to {}
+2025-05-27T10:00:07.9523790Z [ +130 ms]   [ +129 ms] unpack_windows: Complete
+2025-05-27T10:00:10.3132157Z [+2360 ms]   [+2361 ms] Found plugin file_picker at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\file_picker-6.2.1\
+2025-05-27T10:00:10.3206544Z [   +7 ms]   [   +7 ms] Found plugin flutter_plugin_android_lifecycle at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_plugin_android_lifecycle-2.0.26\
+2025-05-27T10:00:10.3510880Z [  +30 ms]   [  +30 ms] Found plugin path_provider at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider-2.1.5\
+2025-05-27T10:00:10.3525748Z [   +1 ms]   [   +1 ms] Found plugin path_provider_android at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_android-2.2.15\
+2025-05-27T10:00:10.3541223Z [   +1 ms]   [   +1 ms] Found plugin path_provider_foundation at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_foundation-2.4.1\
+2025-05-27T10:00:10.3560562Z [   +1 ms]   [   +1 ms] Found plugin path_provider_linux at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_linux-2.2.1\
+2025-05-27T10:00:10.3588336Z [   +2 ms]   [   +2 ms] Found plugin path_provider_windows at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_windows-2.3.0\
+2025-05-27T10:00:10.3713686Z [  +12 ms]   [  +12 ms] Found plugin shared_preferences at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences-2.5.3\
+2025-05-27T10:00:10.3728161Z [   +1 ms]   [   +1 ms] Found plugin shared_preferences_android at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_android-2.4.7\
+2025-05-27T10:00:10.3743300Z [   +1 ms]   [   +1 ms] Found plugin shared_preferences_foundation at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_foundation-2.5.4\
+2025-05-27T10:00:10.3759239Z [   +1 ms]   [   +1 ms] Found plugin shared_preferences_linux at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_linux-2.4.1\
+2025-05-27T10:00:10.3795571Z [   +3 ms]   [   +3 ms] Found plugin shared_preferences_web at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_web-2.4.3\
+2025-05-27T10:00:10.3845683Z [   +5 ms]   [   +5 ms] Found plugin shared_preferences_windows at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_windows-2.4.1\
+2025-05-27T10:00:10.4005260Z [  +15 ms]   [  +15 ms] Found plugin url_launcher at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher-6.3.1\
+2025-05-27T10:00:10.4031522Z [   +2 ms]   [   +2 ms] Found plugin url_launcher_android at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_android-6.3.14\
+2025-05-27T10:00:10.4047992Z [   +1 ms]   [   +1 ms] Found plugin url_launcher_ios at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_ios-6.3.3\
+2025-05-27T10:00:10.4064837Z [   +1 ms]   [   +1 ms] Found plugin url_launcher_linux at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_linux-3.2.1\
+2025-05-27T10:00:10.4078935Z [   +1 ms]   [   +1 ms] Found plugin url_launcher_macos at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_macos-3.2.2\
+2025-05-27T10:00:10.4103264Z [   +2 ms]   [   +2 ms] Found plugin url_launcher_web at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_web-2.3.3\
+2025-05-27T10:00:10.4117509Z [   +1 ms]   [   +1 ms] Found plugin url_launcher_windows at C:\Users\runneradmin\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_windows-3.1.4\
+2025-05-27T10:00:10.4535267Z [  +41 ms]   [  +41 ms] gen_dart_plugin_registrant: Complete
+2025-05-27T10:00:10.4554305Z [   +1 ms]   [   +2 ms] kernel_snapshot_program: Starting due to {}
+2025-05-27T10:00:10.4647729Z [   +8 ms]   [   +8 ms] C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64\bin\cache\dart-sdk\bin\dartaotruntime.exe --disable-dart-dev C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64\bin\cache\dart-sdk\bin\snapshots\frontend_server_aot.dart.snapshot --sdk-root C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64\bin\cache\artifacts\engine\common\flutter_patched_sdk_product/ --target=flutter --no-print-incremental-dependencies -Ddart.vm.profile=false -Ddart.vm.product=true --delete-tostring-package-uri=dart:ui --delete-tostring-package-uri=package:flutter --aot --tfa --target-os windows --packages D:\a\material-anticheat\material-anticheat\.dart_tool\package_config.json --output-dill D:\a\material-anticheat\material-anticheat\.dart_tool\flutter_build\3a2bcdce013086c5bb6308d62d3028ec\program.dill --depfile D:\a\material-anticheat\material-anticheat\.dart_tool\flutter_build\3a2bcdce013086c5bb6308d62d3028ec\kernel_snapshot_program.d --source file:///D:/a/material-anticheat/material-anticheat/.dart_tool/flutter_build/dart_plugin_registrant.dart --source package:flutter/src/dart_plugin_registrant.dart -Dflutter.dart_plugin_registrant=file:///D:/a/material-anticheat/material-anticheat/.dart_tool/flutter_build/dart_plugin_registrant.dart --verbosity=error package:material_anticheat/main.dart
+2025-05-27T10:00:24.8156533Z [+14351 ms]   [+14351 ms] kernel_snapshot_program: Complete
+2025-05-27T10:00:25.4168634Z [ +601 ms]   [ +601 ms] native_assets: Starting due to {}
+2025-05-27T10:00:25.4593332Z [  +42 ms]   [  +42 ms] No packages with native assets. Skipping native assets compilation.
+2025-05-27T10:00:25.4595788Z [        ]   [        ] Writing native_assets.yaml.
+2025-05-27T10:00:25.4707070Z [  +11 ms]   [  +11 ms] Writing D:\a\material-anticheat\material-anticheat\.dart_tool\flutter_build\3a2bcdce013086c5bb6308d62d3028ec\native_assets.yaml done.
+2025-05-27T10:00:25.4718974Z [   +1 ms]   [   +1 ms] native_assets: Complete
+2025-05-27T10:00:25.4745239Z [   +2 ms]   [   +2 ms] kernel_snapshot_native_assets: Starting due to {InvalidatedReasonKind.inputChanged: The following inputs have updated contents: D:\a\material-anticheat\material-anticheat\.dart_tool\flutter_build\3a2bcdce013086c5bb6308d62d3028ec\native_assets.yaml,D:\a\material-anticheat\material-anticheat\.dart_tool\package_config_subset,C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64\packages\flutter_tools\lib\src\build_system\targets\common.dart,C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64\bin\internal\engine.version,C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64\bin\internal\engine.version,C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64\bin\internal\engine.version,C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64\bin\internal\engine.version}
+2025-05-27T10:00:25.4761820Z [   +1 ms]   [   +2 ms] kernel_snapshot_native_assets: Complete
+2025-05-27T10:00:25.4776370Z [   +1 ms]   [   +1 ms] kernel_snapshot: Starting due to {InvalidatedReasonKind.inputChanged: The following inputs have updated contents: D:\a\material-anticheat\material-anticheat\.dart_tool\flutter_build\3a2bcdce013086c5bb6308d62d3028ec\program.dill,D:\a\material-anticheat\material-anticheat\.dart_tool\flutter_build\3a2bcdce013086c5bb6308d62d3028ec\native_assets.dill}
+2025-05-27T10:00:25.4914839Z [  +14 ms]   [  +14 ms] kernel_snapshot: Complete
+2025-05-27T10:00:25.6499611Z [ +158 ms]   [ +157 ms] aot_elf_release: Starting due to {InvalidatedReasonKind.inputChanged: The following inputs have updated contents: C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64\packages\flutter_tools\lib\src\build_system\targets\common.dart,C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64\bin\internal\engine.version,C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64\bin\internal\engine.version,C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64\bin\internal\engine.version,D:\a\material-anticheat\material-anticheat\.dart_tool\flutter_build\3a2bcdce013086c5bb6308d62d3028ec\app.dill}
+2025-05-27T10:00:25.6524989Z [   +2 ms]   [   +3 ms] targetingApplePlatform = false
+2025-05-27T10:00:25.6526708Z [        ]   [        ] extractAppleDebugSymbols = true
+2025-05-27T10:00:25.6528547Z [        ]   [        ] Will strip AOT snapshot during build.
+2025-05-27T10:00:25.6547215Z [   +1 ms]   [   +1 ms] executing: C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64\bin\cache\artifacts\engine\windows-x64-release\gen_snapshot --deterministic --snapshot_kind=app-aot-elf --elf=D:\a\material-anticheat\material-anticheat\.dart_tool\flutter_build\3a2bcdce013086c5bb6308d62d3028ec\app.so --strip D:\a\material-anticheat\material-anticheat\.dart_tool\flutter_build\3a2bcdce013086c5bb6308d62d3028ec\app.dill
+2025-05-27T10:00:38.2096025Z [+12554 ms]   [+12554 ms] aot_elf_release: Complete
+2025-05-27T10:00:38.2434080Z [  +33 ms]   [  +34 ms] windows_aot_bundle: Starting due to {InvalidatedReasonKind.inputChanged: The following inputs have updated contents: D:\a\material-anticheat\material-anticheat\.dart_tool\flutter_build\3a2bcdce013086c5bb6308d62d3028ec\app.so}
+2025-05-27T10:00:38.2466332Z [   +3 ms]   [   +3 ms] windows_aot_bundle: Complete
+2025-05-27T10:00:38.2796255Z [  +32 ms]   [  +32 ms] release_bundle_windows-x64_assets: Starting due to {}
+2025-05-27T10:00:38.4084528Z [ +128 ms]   [ +127 ms] shaderc command: [C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64\bin\cache\artifacts\engine\windows-x64\impellerc.exe, --sksl, --runtime-stage-gles, --runtime-stage-vulkan, --iplr, --sl=D:\a\material-anticheat\material-anticheat\build\flutter_assets\shaders/ink_sparkle.frag, --spirv=D:\a\material-anticheat\material-anticheat\build\flutter_assets\shaders/ink_sparkle.frag.spirv, --input=C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64\packages\flutter\lib\src\material\shaders\ink_sparkle.frag, --input-type=frag, --include=C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64\packages\flutter\lib\src\material\shaders, --include=C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64\bin\cache\artifacts\engine\windows-x64\shader_lib]
+2025-05-27T10:00:38.9557656Z [ +547 ms]   [ +547 ms] release_bundle_windows-x64_assets: Complete
+2025-05-27T10:00:38.9965222Z [  +40 ms]   [  +41 ms] Persisting file store
+2025-05-27T10:00:39.0078989Z [  +11 ms]   [  +11 ms] Done persisting file store
+2025-05-27T10:00:39.0153505Z [   +7 ms]   [   +7 ms] build succeeded.
+2025-05-27T10:00:39.0245502Z [   +9 ms]   [   +9 ms] "flutter assemble" took 31,343ms.
+2025-05-27T10:00:39.0267568Z [   +2 ms]   [   +2 ms] ensureAnalyticsSent: 0ms
+2025-05-27T10:00:39.0268431Z [        ]   [        ] Running 1 shutdown hook
+2025-05-27T10:00:39.0271363Z [        ]   [        ] Shutdown hooks complete
+2025-05-27T10:00:39.0272085Z [        ]   [        ] exiting with code 0
+2025-05-27T10:00:39.0659000Z [  +38 ms]   Building Custom Rule D:/a/material-anticheat/material-anticheat/windows/flutter/CMakeLists.txt
+2025-05-27T10:00:39.1133691Z [  +47 ms] FinalizeBuildStatus:
+2025-05-27T10:00:39.1135723Z [        ]   Deleting file "x64\Release\flutter_assemble\flutter_assemble.tlog\unsuccessfulbuild".
+2025-05-27T10:00:39.1137328Z [        ]   Touching "x64\Release\flutter_assemble\flutter_assemble.tlog\flutter_assemble.lastbuildstate".
+2025-05-27T10:00:39.1148020Z [   +1 ms] Done Building Project "D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_assemble.vcxproj" (default targets).
+2025-05-27T10:00:39.1184573Z [   +3 ms] PrepareForBuild:
+2025-05-27T10:00:39.1186750Z [        ]   Creating directory "flutter_wrapper_app.dir\Release\".
+2025-05-27T10:00:39.1201708Z [   +1 ms]   Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+2025-05-27T10:00:39.1203751Z [        ]   Creating directory "D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\Release\".
+2025-05-27T10:00:39.1205414Z [        ]   Creating directory "flutter_wrapper_app.dir\Release\flutter_.EB7F3120.tlog\".
+2025-05-27T10:00:39.1216115Z [   +1 ms] InitializeBuildStatus:
+2025-05-27T10:00:39.1218339Z [        ]   Creating "flutter_wrapper_app.dir\Release\flutter_.EB7F3120.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+2025-05-27T10:00:39.1220181Z [        ]   Touching "flutter_wrapper_app.dir\Release\flutter_.EB7F3120.tlog\unsuccessfulbuild".
+2025-05-27T10:00:39.1470490Z [  +25 ms] CustomBuild:
+2025-05-27T10:00:39.1472558Z [        ]   Building Custom Rule D:/a/material-anticheat/material-anticheat/windows/flutter/CMakeLists.txt
+2025-05-27T10:00:39.2240798Z [  +76 ms] ClCompile:
+2025-05-27T10:00:39.2247393Z [        ]   C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.43.34808\bin\HostX64\x64\CL.exe /c /I"D:\a\material-anticheat\material-anticheat\windows\flutter\ephemeral\cpp_client_wrapper\include" /I"D:\a\material-anticheat\material-anticheat\windows\flutter\ephemeral" /nologo /W4 /WX /diagnostics:column /O2 /Ob2 /D _UNICODE /D UNICODE /D WIN32 /D _WINDOWS /D NDEBUG /D _HAS_EXCEPTIONS=0 /D UNICODE /D _UNICODE /D "CMAKE_INTDIR=\"Release\"" /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /std:c++17 /Fo"flutter_wrapper_app.dir\Release\\" /Fd"D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\Release\flutter_wrapper_app.pdb" /external:W4 /Gd /TP /wd4100 /errorReport:queue "D:\a\material-anticheat\material-anticheat\windows\flutter\ephemeral\cpp_client_wrapper\core_implementations.cc" "D:\a\material-anticheat\material-anticheat\windows\flutter\ephemeral\cpp_client_wrapper\standard_codec.cc" "D:\a\material-anticheat\material-anticheat\windows\flutter\ephemeral\cpp_client_wrapper\flutter_engine.cc" "D:\a\material-anticheat\material-anticheat\windows\flutter\ephemeral\cpp_client_wrapper\flutter_view_controller.cc"
+2025-05-27T10:00:39.2649315Z [  +40 ms]   core_implementations.cc
+2025-05-27T10:00:42.0044918Z [+2739 ms]   standard_codec.cc
+2025-05-27T10:00:42.9558341Z [ +951 ms]   flutter_engine.cc
+2025-05-27T10:00:46.7160341Z [+3760 ms]   flutter_view_controller.cc
+2025-05-27T10:00:47.4995625Z [ +783 ms]   Generating Code...
+2025-05-27T10:00:49.4748625Z [+1975 ms] Lib:
+2025-05-27T10:00:49.4751583Z [        ]   C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.43.34808\bin\HostX64\x64\Lib.exe /OUT:"D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\Release\flutter_wrapper_app.lib" /NOLOGO /MACHINE:X64  /machine:x64 flutter_wrapper_app.dir\Release\core_implementations.obj
+2025-05-27T10:00:49.4753019Z [        ]   flutter_wrapper_app.dir\Release\standard_codec.obj
+2025-05-27T10:00:49.4753375Z [        ]   flutter_wrapper_app.dir\Release\flutter_engine.obj
+2025-05-27T10:00:49.4754009Z [        ]   flutter_wrapper_app.dir\Release\flutter_view_controller.obj
+2025-05-27T10:00:49.5495372Z [  +73 ms]   flutter_wrapper_app.vcxproj -> D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\Release\flutter_wrapper_app.lib
+2025-05-27T10:00:49.5625824Z [  +13 ms] FinalizeBuildStatus:
+2025-05-27T10:00:49.5629874Z [        ]   Deleting file "flutter_wrapper_app.dir\Release\flutter_.EB7F3120.tlog\unsuccessfulbuild".
+2025-05-27T10:00:49.5631090Z [        ]   Touching "flutter_wrapper_app.dir\Release\flutter_.EB7F3120.tlog\flutter_wrapper_app.lastbuildstate".
+2025-05-27T10:00:49.5638739Z [        ] Done Building Project "D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_wrapper_app.vcxproj" (default targets).
+2025-05-27T10:00:49.5923765Z [  +28 ms] Project "D:\a\material-anticheat\material-anticheat\build\windows\x64\ALL_BUILD.vcxproj" (3) is building "D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_wrapper_plugin.vcxproj" (6) on node 1 (default targets).
+2025-05-27T10:00:49.5925683Z [        ] PrepareForBuild:
+2025-05-27T10:00:49.5926076Z [        ]   Creating directory "flutter_wrapper_plugin.dir\Release\".
+2025-05-27T10:00:49.5938518Z [   +1 ms]   Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+2025-05-27T10:00:49.5939776Z [        ]   Creating directory "flutter_wrapper_plugin.dir\Release\flutter_.5F69FD8F.tlog\".
+2025-05-27T10:00:49.5951262Z [   +1 ms] InitializeBuildStatus:
+2025-05-27T10:00:49.5953739Z [        ]   Creating "flutter_wrapper_plugin.dir\Release\flutter_.5F69FD8F.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+2025-05-27T10:00:49.5954850Z [        ]   Touching "flutter_wrapper_plugin.dir\Release\flutter_.5F69FD8F.tlog\unsuccessfulbuild".
+2025-05-27T10:00:49.6207083Z [  +25 ms] CustomBuild:
+2025-05-27T10:00:49.6208930Z [        ]   Building Custom Rule D:/a/material-anticheat/material-anticheat/windows/flutter/CMakeLists.txt
+2025-05-27T10:00:49.6488190Z [  +27 ms] ClCompile:
+2025-05-27T10:00:49.6493502Z [        ]   C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.43.34808\bin\HostX64\x64\CL.exe /c /I"D:\a\material-anticheat\material-anticheat\windows\flutter\ephemeral\cpp_client_wrapper\include" /I"D:\a\material-anticheat\material-anticheat\windows\flutter\ephemeral" /nologo /W4 /WX /diagnostics:column /O2 /Ob2 /D _UNICODE /D UNICODE /D WIN32 /D _WINDOWS /D NDEBUG /D _HAS_EXCEPTIONS=0 /D UNICODE /D _UNICODE /D "CMAKE_INTDIR=\"Release\"" /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /std:c++17 /Fo"flutter_wrapper_plugin.dir\Release\\" /Fd"D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\Release\flutter_wrapper_plugin.pdb" /external:W4 /Gd /TP /wd4100 /errorReport:queue "D:\a\material-anticheat\material-anticheat\windows\flutter\ephemeral\cpp_client_wrapper\core_implementations.cc" "D:\a\material-anticheat\material-anticheat\windows\flutter\ephemeral\cpp_client_wrapper\standard_codec.cc" "D:\a\material-anticheat\material-anticheat\windows\flutter\ephemeral\cpp_client_wrapper\plugin_registrar.cc"
+2025-05-27T10:00:49.6800784Z [  +30 ms]   core_implementations.cc
+2025-05-27T10:00:50.4898565Z [ +809 ms]   standard_codec.cc
+2025-05-27T10:00:51.4355410Z [ +945 ms]   plugin_registrar.cc
+2025-05-27T10:00:51.9234308Z [ +487 ms]   Generating Code...
+2025-05-27T10:00:53.5553902Z [+1631 ms] Lib:
+2025-05-27T10:00:53.5556730Z [        ]   C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.43.34808\bin\HostX64\x64\Lib.exe /OUT:"D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\Release\flutter_wrapper_plugin.lib" /NOLOGO /MACHINE:X64  /machine:x64 flutter_wrapper_plugin.dir\Release\core_implementations.obj
+2025-05-27T10:00:53.5558304Z [        ]   flutter_wrapper_plugin.dir\Release\standard_codec.obj
+2025-05-27T10:00:53.5558681Z [        ]   flutter_wrapper_plugin.dir\Release\plugin_registrar.obj
+2025-05-27T10:00:53.6014446Z [  +45 ms]   flutter_wrapper_plugin.vcxproj -> D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\Release\flutter_wrapper_plugin.lib
+2025-05-27T10:00:53.6094885Z [   +8 ms] FinalizeBuildStatus:
+2025-05-27T10:00:53.6097030Z [        ]   Deleting file "flutter_wrapper_plugin.dir\Release\flutter_.5F69FD8F.tlog\unsuccessfulbuild".
+2025-05-27T10:00:53.6100535Z [        ]   Touching "flutter_wrapper_plugin.dir\Release\flutter_.5F69FD8F.tlog\flutter_wrapper_plugin.lastbuildstate".
+2025-05-27T10:00:53.6102379Z [        ] Done Building Project "D:\a\material-anticheat\material-anticheat\build\windows\x64\flutter\flutter_wrapper_plugin.vcxproj" (default targets).
+2025-05-27T10:00:53.6569532Z [  +46 ms] Project "D:\a\material-anticheat\material-anticheat\build\windows\x64\ALL_BUILD.vcxproj" (3) is building "D:\a\material-anticheat\material-anticheat\build\windows\x64\runner\material_anticheat.vcxproj" (7) on node 1 (default targets).
+2025-05-27T10:00:53.6573425Z [        ] Project "D:\a\material-anticheat\material-anticheat\build\windows\x64\runner\material_anticheat.vcxproj" (7) is building "D:\a\material-anticheat\material-anticheat\build\windows\x64\plugins\url_launcher_windows\url_launcher_windows_plugin.vcxproj" (8) on node 1 (default targets).
+2025-05-27T10:00:53.6574721Z [        ] PrepareForBuild:
+2025-05-27T10:00:53.6575084Z [        ]   Creating directory "url_launcher_windows_plugin.dir\Release\".
+2025-05-27T10:00:53.6586682Z [   +1 ms]   Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+2025-05-27T10:00:53.6588462Z [        ]   Creating directory "D:\a\material-anticheat\material-anticheat\build\windows\x64\plugins\url_launcher_windows\Release\".
+2025-05-27T10:00:53.6589673Z [        ]   Creating directory "url_launcher_windows_plugin.dir\Release\url_laun.4DA82FAA.tlog\".
+2025-05-27T10:00:53.6600506Z [   +1 ms] InitializeBuildStatus:
+2025-05-27T10:00:53.6602703Z [        ]   Creating "url_launcher_windows_plugin.dir\Release\url_laun.4DA82FAA.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+2025-05-27T10:00:53.6604164Z [        ]   Touching "url_launcher_windows_plugin.dir\Release\url_laun.4DA82FAA.tlog\unsuccessfulbuild".
+2025-05-27T10:00:53.6856599Z [  +25 ms] CustomBuild:
+2025-05-27T10:00:53.6858657Z [        ]   Building Custom Rule D:/a/material-anticheat/material-anticheat/windows/flutter/ephemeral/.plugin_symlinks/url_launcher_windows/windows/CMakeLists.txt
+2025-05-27T10:00:53.7151970Z [  +29 ms] ClCompile:
+2025-05-27T10:00:53.7161724Z [        ]   C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.43.34808\bin\HostX64\x64\CL.exe /c /I"D:\a\material-anticheat\material-anticheat\windows\flutter\ephemeral" /I"D:\a\material-anticheat\material-anticheat\windows\flutter\ephemeral\cpp_client_wrapper\include" /nologo /W4 /WX /diagnostics:column /O2 /Ob2 /D _WINDLL /D _UNICODE /D UNICODE /D WIN32 /D _WINDOWS /D NDEBUG /D _HAS_EXCEPTIONS=0 /D FLUTTER_PLUGIN_IMPL /D UNICODE /D _UNICODE /D "CMAKE_INTDIR=\"Release\"" /D url_launcher_windows_plugin_EXPORTS /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /std:c++17 /Fo"url_launcher_windows_plugin.dir\Release\\" /Fd"url_launcher_windows_plugin.dir\Release\vc143.pdb" /external:W4 /Gd /TP /wd4100 /errorReport:queue "D:\a\material-anticheat\material-anticheat\windows\flutter\ephemeral\.plugin_symlinks\url_launcher_windows\windows\url_launcher_windows.cpp" "D:\a\material-anticheat\material-anticheat\windows\flutter\ephemeral\.plugin_symlinks\url_launcher_windows\windows\messages.g.cpp" "D:\a\material-anticheat\material-anticheat\windows\flutter\ephemeral\.plugin_symlinks\url_launcher_windows\windows\system_apis.cpp" "D:\a\material-anticheat\material-anticheat\windows\flutter\ephemeral\.plugin_symlinks\url_launcher_windows\windows\url_launcher_plugin.cpp"
+2025-05-27T10:00:53.7474998Z [  +32 ms]   url_launcher_windows.cpp
+2025-05-27T10:00:54.8246818Z [+1076 ms]   messages.g.cpp
+2025-05-27T10:00:55.6802752Z [ +855 ms]   system_apis.cpp
+2025-05-27T10:00:55.9645676Z [ +284 ms]   url_launcher_plugin.cpp
+2025-05-27T10:00:57.0808707Z [+1116 ms]   Generating Code...
+2025-05-27T10:00:58.5760823Z [+1495 ms] Link:
+2025-05-27T10:00:58.5769969Z [        ]   C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.43.34808\bin\HostX64\x64\link.exe /ERRORREPORT:QUEUE /OUT:"D:\a\material-anticheat\material-anticheat\build\windows\x64\plugins\url_launcher_windows\Release\url_launcher_windows_plugin.dll" /INCREMENTAL:NO /NOLOGO ..\..\flutter\Release\flutter_wrapper_plugin.lib shlwapi.lib "D:\a\material-anticheat\material-anticheat\windows\flutter\ephemeral\flutter_windows.dll.lib" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:"D:/a/material-anticheat/material-anticheat/build/windows/x64/plugins/url_launcher_windows/Release/url_launcher_windows_plugin.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/a/material-anticheat/material-anticheat/build/windows/x64/plugins/url_launcher_windows/Release/url_launcher_windows_plugin.lib" /MACHINE:X64  /machine:x64 /DLL url_launcher_windows_plugin.dir\Release\url_launcher_windows.obj
+2025-05-27T10:00:58.5777138Z [        ]   url_launcher_windows_plugin.dir\Release\messages.g.obj
+2025-05-27T10:00:58.5777769Z [        ]   url_launcher_windows_plugin.dir\Release\system_apis.obj
+2025-05-27T10:00:58.5778632Z [        ]   url_launcher_windows_plugin.dir\Release\url_launcher_plugin.obj
+2025-05-27T10:00:59.3268450Z [ +749 ms]      Creating library D:/a/material-anticheat/material-anticheat/build/windows/x64/plugins/url_launcher_windows/Release/url_launcher_windows_plugin.lib and object D:/a/material-anticheat/material-anticheat/build/windows/x64/plugins/url_launcher_windows/Release/url_launcher_windows_plugin.exp
+2025-05-27T10:00:59.4059425Z [  +79 ms]   url_launcher_windows_plugin.vcxproj -> D:\a\material-anticheat\material-anticheat\build\windows\x64\plugins\url_launcher_windows\Release\url_launcher_windows_plugin.dll
+2025-05-27T10:00:59.4137837Z [   +8 ms] FinalizeBuildStatus:
+2025-05-27T10:00:59.4140069Z [        ]   Deleting file "url_launcher_windows_plugin.dir\Release\url_laun.4DA82FAA.tlog\unsuccessfulbuild".
+2025-05-27T10:00:59.4141775Z [        ]   Touching "url_launcher_windows_plugin.dir\Release\url_laun.4DA82FAA.tlog\url_launcher_windows_plugin.lastbuildstate".
+2025-05-27T10:00:59.4143846Z [        ] Done Building Project "D:\a\material-anticheat\material-anticheat\build\windows\x64\plugins\url_launcher_windows\url_launcher_windows_plugin.vcxproj" (default targets).
+2025-05-27T10:00:59.4220532Z [   +7 ms] PrepareForBuild:
+2025-05-27T10:00:59.4222008Z [        ]   Creating directory "material_anticheat.dir\Release\".
+2025-05-27T10:00:59.4238638Z [   +1 ms]   Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+2025-05-27T10:00:59.4240423Z [        ]   Creating directory "D:\a\material-anticheat\material-anticheat\build\windows\x64\runner\Release\".
+2025-05-27T10:00:59.4241266Z [        ]   Creating directory "material_anticheat.dir\Release\material.02F5619F.tlog\".
+2025-05-27T10:00:59.4252567Z [   +1 ms] InitializeBuildStatus:
+2025-05-27T10:00:59.4254610Z [        ]   Creating "material_anticheat.dir\Release\material.02F5619F.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+2025-05-27T10:00:59.4255841Z [        ]   Touching "material_anticheat.dir\Release\material.02F5619F.tlog\unsuccessfulbuild".
+2025-05-27T10:00:59.4499397Z [  +24 ms] CustomBuild:
+2025-05-27T10:00:59.4501724Z [        ]   Building Custom Rule D:/a/material-anticheat/material-anticheat/windows/runner/CMakeLists.txt
+2025-05-27T10:00:59.4811283Z [  +30 ms] ClCompile:
+2025-05-27T10:00:59.4820394Z [        ]   C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.43.34808\bin\HostX64\x64\CL.exe /c /I"D:\a\material-anticheat\material-anticheat\windows" /I"D:\a\material-anticheat\material-anticheat\windows\flutter\ephemeral" /I"D:\a\material-anticheat\material-anticheat\windows\flutter\ephemeral\cpp_client_wrapper\include" /I"D:\a\material-anticheat\material-anticheat\windows\flutter\ephemeral\.plugin_symlinks\url_launcher_windows\windows\include" /nologo /W4 /WX /diagnostics:column /O2 /Ob2 /D _UNICODE /D UNICODE /D WIN32 /D _WINDOWS /D NDEBUG /D _HAS_EXCEPTIONS=0 /D "FLUTTER_VERSION=\"1.0.0+1\"" /D FLUTTER_VERSION_MAJOR=1 /D FLUTTER_VERSION_MINOR=0 /D FLUTTER_VERSION_PATCH=0 /D FLUTTER_VERSION_BUILD=1 /D NOMINMAX /D UNICODE /D _UNICODE /D "CMAKE_INTDIR=\"Release\"" /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /std:c++17 /Fo"material_anticheat.dir\Release\\" /Fd"material_anticheat.dir\Release\vc143.pdb" /external:W4 /Gd /TP /wd4100 /errorReport:queue "D:\a\material-anticheat\material-anticheat\windows\runner\flutter_window.cpp" "D:\a\material-anticheat\material-anticheat\windows\runner\main.cpp" "D:\a\material-anticheat\material-anticheat\windows\runner\utils.cpp" "D:\a\material-anticheat\material-anticheat\windows\runner\win32_window.cpp" "D:\a\material-anticheat\material-anticheat\windows\flutter\generated_plugin_registrant.cc"
+2025-05-27T10:00:59.5123909Z [  +31 ms]   flutter_window.cpp
+2025-05-27T10:01:00.2051319Z [ +692 ms]   main.cpp
+2025-05-27T10:01:00.8615980Z [ +656 ms]   utils.cpp
+2025-05-27T10:01:01.5199693Z [ +658 ms]   win32_window.cpp
+2025-05-27T10:01:02.1683413Z [ +648 ms]   generated_plugin_registrant.cc
+2025-05-27T10:01:02.3629963Z [ +194 ms]   Generating Code...
+2025-05-27T10:01:02.6951934Z [ +332 ms] ResourceCompile:
+2025-05-27T10:01:02.6957197Z [        ]   C:\Program Files (x86)\Windows Kits\10\bin\10.0.20348.0\x64\rc.exe /D _UNICODE /D UNICODE /D WIN32 /D _WINDOWS /D NDEBUG /D _HAS_EXCEPTIONS=0 /D "FLUTTER_VERSION=\\\"1.0.0+1\\\"" /D FLUTTER_VERSION_MAJOR=1 /D FLUTTER_VERSION_MINOR=0 /D FLUTTER_VERSION_PATCH=0 /D FLUTTER_VERSION_BUILD=1 /D NOMINMAX /D UNICODE /D _UNICODE /D "CMAKE_INTDIR=\\\"Release\\\"" /l"0x0409" /I"D:\a\material-anticheat\material-anticheat\windows" /I"D:\a\material-anticheat\material-anticheat\windows\flutter\ephemeral" /I"D:\a\material-anticheat\material-anticheat\windows\flutter\ephemeral\cpp_client_wrapper\include" /I"D:\a\material-anticheat\material-anticheat\windows\flutter\ephemeral\.plugin_symlinks\url_launcher_windows\windows\include" /nologo /fo"material_anticheat.dir\Release\Runner.res" "D:\a\material-anticheat\material-anticheat\windows\runner\Runner.rc" 
+2025-05-27T10:01:02.8379271Z [ +142 ms] Link:
+2025-05-27T10:01:02.8388836Z [        ]   C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.43.34808\bin\HostX64\x64\link.exe /ERRORREPORT:QUEUE /OUT:"D:\a\material-anticheat\material-anticheat\build\windows\x64\runner\Release\material_anticheat.exe" /INCREMENTAL:NO /NOLOGO ..\flutter\Release\flutter_wrapper_app.lib dwmapi.lib ..\plugins\url_launcher_windows\Release\url_launcher_windows_plugin.lib "D:\a\material-anticheat\material-anticheat\windows\flutter\ephemeral\flutter_windows.dll.lib" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:"D:\a\material-anticheat\material-anticheat\windows\runner\runner.exe.manifest" /PDB:"D:/a/material-anticheat/material-anticheat/build/windows/x64/runner/Release/material_anticheat.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/a/material-anticheat/material-anticheat/build/windows/x64/runner/Release/material_anticheat.lib" /MACHINE:X64  /machine:x64 material_anticheat.dir\Release\Runner.res
+2025-05-27T10:01:02.8392890Z [        ]   material_anticheat.dir\Release\flutter_window.obj
+2025-05-27T10:01:02.8393223Z [        ]   material_anticheat.dir\Release\main.obj
+2025-05-27T10:01:02.8393500Z [        ]   material_anticheat.dir\Release\utils.obj
+2025-05-27T10:01:02.8393800Z [        ]   material_anticheat.dir\Release\win32_window.obj
+2025-05-27T10:01:02.8394156Z [        ]   material_anticheat.dir\Release\generated_plugin_registrant.obj
+2025-05-27T10:01:03.4391638Z [ +600 ms]   material_anticheat.vcxproj -> D:\a\material-anticheat\material-anticheat\build\windows\x64\runner\Release\material_anticheat.exe
+2025-05-27T10:01:03.4482733Z [   +9 ms] FinalizeBuildStatus:
+2025-05-27T10:01:03.4484461Z [        ]   Deleting file "material_anticheat.dir\Release\material.02F5619F.tlog\unsuccessfulbuild".
+2025-05-27T10:01:03.4487263Z [        ]   Touching "material_anticheat.dir\Release\material.02F5619F.tlog\material_anticheat.lastbuildstate".
+2025-05-27T10:01:03.4488781Z [        ] Done Building Project "D:\a\material-anticheat\material-anticheat\build\windows\x64\runner\material_anticheat.vcxproj" (default targets).
+2025-05-27T10:01:03.4532433Z [   +4 ms] PrepareForBuild:
+2025-05-27T10:01:03.4534017Z [        ]   Creating directory "x64\Release\ALL_BUILD\".
+2025-05-27T10:01:03.4548570Z [   +1 ms]   Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+2025-05-27T10:01:03.4550642Z [        ]   Creating directory "x64\Release\ALL_BUILD\ALL_BUILD.tlog\".
+2025-05-27T10:01:03.4561309Z [   +1 ms] InitializeBuildStatus:
+2025-05-27T10:01:03.4563263Z [        ]   Creating "x64\Release\ALL_BUILD\ALL_BUILD.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+2025-05-27T10:01:03.4564474Z [        ]   Touching "x64\Release\ALL_BUILD\ALL_BUILD.tlog\unsuccessfulbuild".
+2025-05-27T10:01:03.4810963Z [  +24 ms] CustomBuild:
+2025-05-27T10:01:03.4812698Z [        ]   Building Custom Rule D:/a/material-anticheat/material-anticheat/windows/CMakeLists.txt
+2025-05-27T10:01:03.5166272Z [  +35 ms] FinalizeBuildStatus:
+2025-05-27T10:01:03.5168125Z [        ]   Deleting file "x64\Release\ALL_BUILD\ALL_BUILD.tlog\unsuccessfulbuild".
+2025-05-27T10:01:03.5169459Z [        ]   Touching "x64\Release\ALL_BUILD\ALL_BUILD.tlog\ALL_BUILD.lastbuildstate".
+2025-05-27T10:01:03.5181178Z [   +1 ms] Done Building Project "D:\a\material-anticheat\material-anticheat\build\windows\x64\ALL_BUILD.vcxproj" (default targets).
+2025-05-27T10:01:03.5217478Z [   +3 ms] PrepareForBuild:
+2025-05-27T10:01:03.5219461Z [        ]   Creating directory "x64\Release\INSTALL\".
+2025-05-27T10:01:03.5233790Z [   +1 ms]   Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+2025-05-27T10:01:03.5235778Z [        ]   Creating directory "x64\Release\INSTALL\INSTALL.tlog\".
+2025-05-27T10:01:03.5246801Z [   +1 ms] InitializeBuildStatus:
+2025-05-27T10:01:03.5248673Z [        ]   Creating "x64\Release\INSTALL\INSTALL.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+2025-05-27T10:01:03.5250346Z [        ]   Touching "x64\Release\INSTALL\INSTALL.tlog\unsuccessfulbuild".
+2025-05-27T10:01:03.5523350Z [  +27 ms] CustomBuild:
+2025-05-27T10:01:03.5525213Z [        ]   1>
+2025-05-27T10:01:03.5648188Z [  +12 ms] PostBuildEvent:
+2025-05-27T10:01:03.5649576Z [        ]   setlocal
+2025-05-27T10:01:03.5651311Z [        ]   "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -DBUILD_TYPE=Release -P cmake_install.cmake
+2025-05-27T10:01:03.5652539Z [        ]   if %errorlevel% neq 0 goto :cmEnd
+2025-05-27T10:01:03.5653592Z [        ]   :cmEnd
+2025-05-27T10:01:03.5658375Z [        ]   endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+2025-05-27T10:01:03.5659120Z [        ]   :cmErrorLevel
+2025-05-27T10:01:03.5659515Z [        ]   exit /b %1
+2025-05-27T10:01:03.5662115Z [        ]   :cmDone
+2025-05-27T10:01:03.5662470Z [        ]   if %errorlevel% neq 0 goto :VCEnd
+2025-05-27T10:01:03.5669156Z [        ]   :VCEnd
+2025-05-27T10:01:03.6051655Z [  +39 ms]   -- Install configuration: "Release"
+2025-05-27T10:01:03.6066183Z [   +1 ms]   -- Installing: D:/a/material-anticheat/material-anticheat/build/windows/x64/runner/Release/data/icudtl.dat
+2025-05-27T10:01:03.6087897Z [   +2 ms]   -- Installing: D:/a/material-anticheat/material-anticheat/build/windows/x64/runner/Release/flutter_windows.dll
+2025-05-27T10:01:03.6338710Z [  +25 ms]   -- Installing: D:/a/material-anticheat/material-anticheat/build/windows/x64/runner/Release/url_launcher_windows_plugin.dll
+2025-05-27T10:01:03.6346436Z [        ]   -- Up-to-date: D:/a/material-anticheat/material-anticheat/build/windows/x64/runner/Release
+2025-05-27T10:01:03.6351083Z [        ]   -- Installing: D:/a/material-anticheat/material-anticheat/build/windows/x64/runner/Release/data/flutter_assets
+2025-05-27T10:01:03.6355582Z [        ]   -- Installing: D:/a/material-anticheat/material-anticheat/build/windows/x64/runner/Release/data/flutter_assets/AssetManifest.bin
+2025-05-27T10:01:03.6360534Z [        ]   -- Installing: D:/a/material-anticheat/material-anticheat/build/windows/x64/runner/Release/data/flutter_assets/AssetManifest.json
+2025-05-27T10:01:03.6365195Z [        ]   -- Installing: D:/a/material-anticheat/material-anticheat/build/windows/x64/runner/Release/data/flutter_assets/FontManifest.json
+2025-05-27T10:01:03.6369722Z [        ]   -- Installing: D:/a/material-anticheat/material-anticheat/build/windows/x64/runner/Release/data/flutter_assets/fonts
+2025-05-27T10:01:03.6374077Z [        ]   -- Installing: D:/a/material-anticheat/material-anticheat/build/windows/x64/runner/Release/data/flutter_assets/fonts/MaterialIcons-Regular.otf
+2025-05-27T10:01:03.6404267Z [   +2 ms]   -- Installing: D:/a/material-anticheat/material-anticheat/build/windows/x64/runner/Release/data/flutter_assets/NOTICES.Z
+2025-05-27T10:01:03.6412754Z [        ]   -- Installing: D:/a/material-anticheat/material-anticheat/build/windows/x64/runner/Release/data/flutter_assets/shaders
+2025-05-27T10:01:03.6414384Z [        ]   -- Installing: D:/a/material-anticheat/material-anticheat/build/windows/x64/runner/Release/data/flutter_assets/shaders/ink_sparkle.frag
+2025-05-27T10:01:03.6421506Z [        ]   -- Installing: D:/a/material-anticheat/material-anticheat/build/windows/x64/runner/Release/data/app.so
+2025-05-27T10:01:03.6608121Z [  +18 ms] FinalizeBuildStatus:
+2025-05-27T10:01:03.6610123Z [        ]   Deleting file "x64\Release\INSTALL\INSTALL.tlog\unsuccessfulbuild".
+2025-05-27T10:01:03.6611116Z [        ]   Touching "x64\Release\INSTALL\INSTALL.tlog\INSTALL.lastbuildstate".
+2025-05-27T10:01:03.6624732Z [   +1 ms] Done Building Project "D:\a\material-anticheat\material-anticheat\build\windows\x64\INSTALL.vcxproj" (default targets).
+2025-05-27T10:01:03.6653404Z [   +2 ms] Build succeeded.
+2025-05-27T10:01:03.6653920Z [        ]     0 Warning(s)
+2025-05-27T10:01:03.6654690Z [        ]     0 Error(s)
+2025-05-27T10:01:03.6656503Z [        ] Time Elapsed 00:00:57.12
+2025-05-27T10:01:03.6885070Z [  +22 ms] Building Windows application... (completed in 78.9s)
+2025-05-27T10:01:03.6910100Z [   +2 ms] √ Built build\windows\x64\runner\Release\material_anticheat.exe
+2025-05-27T10:01:03.6918628Z [        ] "flutter windows" took 79,997ms.
+2025-05-27T10:01:03.6937228Z [   +1 ms] ensureAnalyticsSent: 0ms
+2025-05-27T10:01:03.6938300Z [        ] Running 1 shutdown hook
+2025-05-27T10:01:03.6940059Z [        ] Shutdown hooks complete
+2025-05-27T10:01:03.6942347Z [        ] exiting with code 0
+2025-05-27T10:01:03.7602977Z ##[group]Run echo "=== 检查构建目录 ==="
+2025-05-27T10:01:03.7603302Z [36;1mecho "=== 检查构建目录 ==="[0m
+2025-05-27T10:01:03.7603571Z [36;1m$buildPath = "build/windows/x64/runner/Release"[0m
+2025-05-27T10:01:03.7603866Z [36;1mif (Test-Path $buildPath) {[0m
+2025-05-27T10:01:03.7604118Z [36;1m  echo "✅ 构建目录存在: $buildPath"[0m
+2025-05-27T10:01:03.7604353Z [36;1m  echo ""[0m
+2025-05-27T10:01:03.7604520Z [36;1m  echo "=== 构建产物列表 ==="[0m
+2025-05-27T10:01:03.7604872Z [36;1m  Get-ChildItem $buildPath -Recurse | Format-Table Name, Length, LastWriteTime[0m
+2025-05-27T10:01:03.7605229Z [36;1m  echo ""[0m
+2025-05-27T10:01:03.7605397Z [36;1m  echo "=== 可执行文件检查 ==="[0m
+2025-05-27T10:01:03.7605690Z [36;1m  $exeFiles = Get-ChildItem $buildPath -Filter "*.exe" -Recurse[0m
+2025-05-27T10:01:03.7606004Z [36;1m  if ($exeFiles.Count -gt 0) {[0m
+2025-05-27T10:01:03.7606231Z [36;1m    echo "✅ 找到可执行文件:"[0m
+2025-05-27T10:01:03.7606477Z [36;1m    foreach ($file in $exeFiles) {[0m
+2025-05-27T10:01:03.7606715Z [36;1m      echo "  - $($file.FullName)"[0m
+2025-05-27T10:01:03.7606936Z [36;1m    }[0m
+2025-05-27T10:01:03.7607095Z [36;1m  } else {[0m
+2025-05-27T10:01:03.7607269Z [36;1m    echo "❌ 未找到可执行文件"[0m
+2025-05-27T10:01:03.7607462Z [36;1m  }[0m
+2025-05-27T10:01:03.7607607Z [36;1m} else {[0m
+2025-05-27T10:01:03.7607784Z [36;1m  echo "❌ 构建目录不存在: $buildPath"[0m
+2025-05-27T10:01:03.7608169Z [36;1m  exit 1[0m
+2025-05-27T10:01:03.7608324Z [36;1m}[0m
+2025-05-27T10:01:03.7638031Z shell: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE -command ". '{0}'"
+2025-05-27T10:01:03.7638399Z env:
+2025-05-27T10:01:03.7638641Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T10:01:03.7639053Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T10:01:03.7639455Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T10:01:03.7639829Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T10:01:03.7640178Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T10:01:03.7640548Z   FLUTTER_ROOT: C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64
+2025-05-27T10:01:03.7640890Z   PUB_CACHE: C:\Users\runneradmin\AppData\Local\Pub\Cache
+2025-05-27T10:01:03.7641156Z ##[endgroup]
+2025-05-27T10:01:03.9923551Z At D:\a\_temp\4615bd63-7fd6-42f5-bc6d-81402200f791.ps1:23 char:1
+2025-05-27T10:01:03.9924533Z + }
+2025-05-27T10:01:03.9925804Z + ~
+2025-05-27T10:01:03.9926159Z Unexpected token '}' in expression or statement.
+2025-05-27T10:01:03.9926771Z     + CategoryInfo          : ParserError: (:) [], ParseException
+2025-05-27T10:01:03.9927339Z     + FullyQualifiedErrorId : UnexpectedToken
+2025-05-27T10:01:03.9927643Z  
+2025-05-27T10:01:04.0034970Z ##[error]Process completed with exit code 1.
+2025-05-27T10:01:04.0215455Z Post job cleanup.
+2025-05-27T10:01:04.0336186Z Post job cleanup.
+2025-05-27T10:01:04.2522853Z [command]"C:\Program Files\Git\bin\git.exe" version
+2025-05-27T10:01:04.2734631Z git version 2.49.0.windows.1
+2025-05-27T10:01:04.2796054Z Temporarily overriding HOME='D:\a\_temp\08ea92a1-0b1a-42c2-b22b-da51fc67ea43' before making global git config changes
+2025-05-27T10:01:04.2796701Z Adding repository directory to the temporary git global config as a safe directory
+2025-05-27T10:01:04.2806921Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\material-anticheat\material-anticheat
+2025-05-27T10:01:04.3024174Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2025-05-27T10:01:04.3254602Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2025-05-27T10:01:04.7749603Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-05-27T10:01:04.7934804Z http.https://github.com/.extraheader
+2025-05-27T10:01:04.7967481Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all http.https://github.com/.extraheader
+2025-05-27T10:01:04.8178506Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2025-05-27T10:01:05.2415228Z Cleaning up orphan processes
+2025-05-27T10:01:05.2939646Z Terminate orphan process: pid (4776) (vctip)

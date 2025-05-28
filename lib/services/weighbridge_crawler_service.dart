@@ -550,8 +550,27 @@ class WeighbridgeCrawlerService extends _$WeighbridgeCrawlerService {
     String? savedPath = prefs.getString('weighbridge_save_path');
     
     if (savedPath == null || savedPath.isEmpty) {
-      // 如果没有保存的路径，使用默认路径
-      savedPath = path.join(Directory.current.path, 'pic');
+      // 如果没有保存的路径，使用更安全的默认路径
+      final currentDir = Directory.current.path;
+      
+      // 确保路径是绝对路径，不是根目录
+      if (currentDir == '/' || currentDir.isEmpty) {
+        // 如果当前目录是根目录，使用用户文档目录
+        savedPath = path.join(Platform.environment['HOME'] ?? '/tmp', 'Downloads', 'material_anticheat', 'pic');
+      } else {
+        // 使用相对于当前工作目录的路径
+        savedPath = path.join(currentDir, 'pic');
+      }
+      
+      // 确保目录存在
+      final saveDir = Directory(savedPath);
+      if (!await saveDir.exists()) {
+        await saveDir.create(recursive: true);
+      }
+      
+      // 保存到SharedPreferences中
+      await prefs.setString('weighbridge_save_path', savedPath);
+      _logger.i('设置默认保存路径: $savedPath');
     }
     
     return savedPath;
@@ -560,7 +579,24 @@ class WeighbridgeCrawlerService extends _$WeighbridgeCrawlerService {
   /// 选择保存路径
   Future<String?> selectSavePath() async {
     // 暂时使用默认路径，因为file_picker在当前实现中有问题
-    final defaultPath = path.join(Directory.current.path, 'pic');
+    final currentDir = Directory.current.path;
+    String defaultPath;
+    
+    // 确保路径是绝对路径，不是根目录
+    if (currentDir == '/' || currentDir.isEmpty) {
+      // 如果当前目录是根目录，使用用户文档目录
+      defaultPath = path.join(Platform.environment['HOME'] ?? '/tmp', 'Downloads', 'material_anticheat', 'pic');
+    } else {
+      // 使用相对于当前工作目录的路径
+      defaultPath = path.join(currentDir, 'pic');
+    }
+    
+    // 确保目录存在
+    final saveDir = Directory(defaultPath);
+    if (!await saveDir.exists()) {
+      await saveDir.create(recursive: true);
+    }
+    
     await saveSettings({'save_path': defaultPath});
     _logger.i('过磅保存路径已更新: $defaultPath');
     _logService?.info('过磅保存路径已更新: $defaultPath');

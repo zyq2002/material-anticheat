@@ -1,0 +1,57 @@
+﻿2025-05-27T09:22:03.6879854Z ##[group]Run actions/checkout@v4
+2025-05-27T09:22:03.6881047Z with:
+2025-05-27T09:22:03.6881610Z   repository: zyq2002/material-anticheat
+2025-05-27T09:22:03.6882471Z   token: ***
+2025-05-27T09:22:03.6882938Z   ssh-strict: true
+2025-05-27T09:22:03.6883420Z   ssh-user: git
+2025-05-27T09:22:03.6883915Z   persist-credentials: true
+2025-05-27T09:22:03.6884446Z   clean: true
+2025-05-27T09:22:03.6884945Z   sparse-checkout-cone-mode: true
+2025-05-27T09:22:03.6885494Z   fetch-depth: 1
+2025-05-27T09:22:03.6885966Z   fetch-tags: false
+2025-05-27T09:22:03.6886461Z   show-progress: true
+2025-05-27T09:22:03.6886920Z   lfs: false
+2025-05-27T09:22:03.6887379Z   submodules: false
+2025-05-27T09:22:03.6887841Z   set-safe-directory: true
+2025-05-27T09:22:03.6888598Z ##[endgroup]
+2025-05-27T09:22:04.4836299Z Syncing repository: zyq2002/material-anticheat
+2025-05-27T09:22:04.5207575Z ##[group]Getting Git version info
+2025-05-27T09:22:04.5211689Z Working directory is 'D:\a\material-anticheat\material-anticheat'
+2025-05-27T09:22:04.8353023Z [command]"C:\Program Files\Git\bin\git.exe" version
+2025-05-27T09:22:04.9668177Z git version 2.49.0.windows.1
+2025-05-27T09:22:04.9683602Z ##[endgroup]
+2025-05-27T09:22:04.9784332Z Temporarily overriding HOME='D:\a\_temp\13386700-057c-4eac-b9b9-b08fe76846f8' before making global git config changes
+2025-05-27T09:22:04.9786521Z Adding repository directory to the temporary git global config as a safe directory
+2025-05-27T09:22:04.9796535Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\material-anticheat\material-anticheat
+2025-05-27T09:22:05.0537721Z Deleting the contents of 'D:\a\material-anticheat\material-anticheat'
+2025-05-27T09:22:05.0543991Z ##[group]Initializing the repository
+2025-05-27T09:22:05.0553917Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\material-anticheat\material-anticheat
+2025-05-27T09:22:05.2597717Z Initialized empty Git repository in D:/a/material-anticheat/material-anticheat/.git/
+2025-05-27T09:22:05.2641646Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/zyq2002/material-anticheat
+2025-05-27T09:22:05.3344768Z ##[endgroup]
+2025-05-27T09:22:05.3346231Z ##[group]Disabling automatic garbage collection
+2025-05-27T09:22:05.3354218Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2025-05-27T09:22:05.3599398Z ##[endgroup]
+2025-05-27T09:22:05.3600758Z ##[group]Setting up auth
+2025-05-27T09:22:05.3613414Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2025-05-27T09:22:05.3862689Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2025-05-27T09:22:07.2906534Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-05-27T09:22:07.3153106Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2025-05-27T09:22:07.8084477Z [command]"C:\Program Files\Git\bin\git.exe" config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2025-05-27T09:22:07.8332255Z ##[endgroup]
+2025-05-27T09:22:07.8333256Z ##[group]Fetching the repository
+2025-05-27T09:22:07.8353438Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +e25d63c772d5361a64ba2f79e0881bc9a9f367eb:refs/remotes/origin/main
+2025-05-27T09:22:09.1635593Z From https://github.com/zyq2002/material-anticheat
+2025-05-27T09:22:09.1636517Z  * [new ref]         e25d63c772d5361a64ba2f79e0881bc9a9f367eb -> origin/main
+2025-05-27T09:22:09.1873425Z ##[endgroup]
+2025-05-27T09:22:09.1874309Z ##[group]Determining the checkout info
+2025-05-27T09:22:09.1879105Z ##[endgroup]
+2025-05-27T09:22:09.1890250Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+2025-05-27T09:22:09.2510520Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+2025-05-27T09:22:09.2732463Z ##[group]Checking out the ref
+2025-05-27T09:22:09.2741398Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force -B main refs/remotes/origin/main
+2025-05-27T09:22:09.3633401Z branch 'main' set up to track 'origin/main'.
+2025-05-27T09:22:09.3639094Z Switched to a new branch 'main'
+2025-05-27T09:22:09.3670014Z ##[endgroup]
+2025-05-27T09:22:09.4057942Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+2025-05-27T09:22:09.4275472Z e25d63c772d5361a64ba2f79e0881bc9a9f367eb

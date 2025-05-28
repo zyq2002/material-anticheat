@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:path/path.dart' as path;
-import 'package:shared_preferences/shared_preferences.dart';
+
 
 import '../services/weighbridge_duplicate_detection_service.dart';
 import '../services/log_service.dart';
+import '../services/background_task_service.dart';
+import '../screens/background_tasks_screen.dart';
 
 class WeighbridgeDuplicateDetectionScreen extends HookConsumerWidget {
   const WeighbridgeDuplicateDetectionScreen({super.key});
@@ -18,6 +20,7 @@ class WeighbridgeDuplicateDetectionScreen extends HookConsumerWidget {
     final isRunning = useState(false);
     final currentTask = useState('准备就绪');
     final progress = useState(0.0);
+    final runInBackground = useState(false);
 
     final logService = ref.read(logServiceProvider.notifier);
 
@@ -26,6 +29,56 @@ class WeighbridgeDuplicateDetectionScreen extends HookConsumerWidget {
         title: const Text('过磅重复检测'),
         backgroundColor: Colors.orange.shade700,
         foregroundColor: Colors.white,
+        actions: [
+          // 后台任务管理按钮
+          Consumer(
+            builder: (context, ref, child) {
+              final backgroundTasks = ref.watch(backgroundTasksProvider);
+              final runningTaskCount = backgroundTasks.where((task) => task.isRunning).length;
+              
+              return Stack(
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.cloud_queue),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const BackgroundTasksScreen(),
+                        ),
+                      );
+                    },
+                    tooltip: '后台任务管理',
+                  ),
+                  if (runningTaskCount > 0)
+                    Positioned(
+                      right: 8,
+                      top: 8,
+                      child: Container(
+                        padding: const EdgeInsets.all(2),
+                        decoration: BoxDecoration(
+                          color: Colors.red,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        constraints: const BoxConstraints(
+                          minWidth: 16,
+                          minHeight: 16,
+                        ),
+                        child: Text(
+                          '$runningTaskCount',
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 12,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                ],
+              );
+            },
+          ),
+        ],
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -229,6 +282,19 @@ class WeighbridgeDuplicateDetectionScreen extends HookConsumerWidget {
                           padding: const EdgeInsets.all(16),
                           child: Column(
                             children: [
+                              // 后台运行选项
+                              CheckboxListTile(
+                                title: const Text('后台运行'),
+                                subtitle: const Text('在后台执行检测，不阻塞界面操作'),
+                                value: runInBackground.value,
+                                onChanged: isRunning.value ? null : (value) {
+                                  runInBackground.value = value ?? false;
+                                },
+                                activeColor: Colors.orange,
+                              ),
+                              
+                              const SizedBox(height: 8),
+                              
                               SizedBox(
                                 width: double.infinity,
                                 height: 50,
@@ -240,6 +306,13 @@ class WeighbridgeDuplicateDetectionScreen extends HookConsumerWidget {
                                       return;
                                     }
                                     
+                                    // 如果选择后台运行
+                                    if (runInBackground.value) {
+                                      await _startBackgroundDetection(context, ref, config.value, logService);
+                                      return;
+                                    }
+                                    
+                                    // 前台运行
                                     isRunning.value = true;
                                     currentTask.value = '正在初始化检测...';
                                     progress.value = 0.0;
@@ -252,11 +325,16 @@ class WeighbridgeDuplicateDetectionScreen extends HookConsumerWidget {
                                       
                                       // 使用Stream监听进度
                                       await for (final update in detectionService.detectDuplicates(config.value, ref)) {
-                                        currentTask.value = update.currentTask;
-                                        progress.value = update.progress;
+                                        // 检查ValueNotifier是否还有效，防止dispose后访问
+                                        if (context.mounted) {
+                                          currentTask.value = update.currentTask;
+                                          progress.value = update.progress;
+                                        }
                                         
                                         if (update.isCompleted) {
-                                          results.value = update.results;
+                                          if (context.mounted) {
+                                            results.value = update.results;
+                                          }
                                           logService.success('过磅重复检测完成，发现 ${update.results.length} 组重复图片');
                                           break;
                                         }
@@ -264,13 +342,17 @@ class WeighbridgeDuplicateDetectionScreen extends HookConsumerWidget {
                                       
                                     } catch (e) {
                                       logService.error('过磅重复检测失败: $e');
-                                      currentTask.value = '检测失败: $e';
+                                      if (context.mounted) {
+                                        currentTask.value = '检测失败: $e';
+                                      }
                                     } finally {
-                                      isRunning.value = false;
+                                      if (context.mounted) {
+                                        isRunning.value = false;
+                                      }
                                     }
                                   },
-                                  icon: Icon(isRunning.value ? Icons.hourglass_empty : Icons.search),
-                                  label: Text(isRunning.value ? '检测中...' : '开始检测'),
+                                  icon: Icon(isRunning.value ? Icons.hourglass_empty : (runInBackground.value ? Icons.cloud_queue : Icons.search)),
+                                  label: Text(isRunning.value ? '检测中...' : (runInBackground.value ? '后台检测' : '开始检测')),
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: isRunning.value ? Colors.grey : Colors.orange.shade600,
                                     foregroundColor: Colors.white,
@@ -286,8 +368,10 @@ class WeighbridgeDuplicateDetectionScreen extends HookConsumerWidget {
                                   child: OutlinedButton.icon(
                                     onPressed: () {
                                       // 停止检测
-                                      isRunning.value = false;
-                                      currentTask.value = '检测已停止';
+                                      if (context.mounted) {
+                                        isRunning.value = false;
+                                        currentTask.value = '检测已停止';
+                                      }
                                       logService.info('用户停止过磅重复检测');
                                     },
                                     icon: const Icon(Icons.stop),
@@ -446,6 +530,73 @@ class WeighbridgeDuplicateDetectionScreen extends HookConsumerWidget {
         ),
       ),
     );
+  }
+
+  // 启动后台检测
+  Future<void> _startBackgroundDetection(
+    BuildContext context,
+    WidgetRef ref,
+    WeighbridgeDuplicateConfig config,
+    dynamic logService,
+  ) async {
+    try {
+      final backgroundService = ref.read(backgroundTaskServiceProvider);
+      
+      // 创建后台任务
+      final taskId = await backgroundService.startDuplicateDetectionTask(
+        name: '过磅重复检测 - ${DateTime.now().toString().substring(0, 16)}',
+        folderPath: '/pic/weighbridge', // 这里应该从配置中获取
+        detectionType: 'duplicate',
+        config: {
+          'similarityThreshold': config.similarityThreshold,
+          'compareDays': config.compareDays,
+          'compareCarFrontImages': config.compareCarFrontImages,
+          'compareCarLeftImages': config.compareCarLeftImages,
+          'compareCarRightImages': config.compareCarRightImages,
+          'compareCarPlateImages': config.compareCarPlateImages,
+        },
+      );
+
+      logService.info('已启动后台检测任务: $taskId');
+
+      // 显示确认消息
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Row(
+              children: [
+                const Icon(Icons.cloud_queue, color: Colors.white),
+                const SizedBox(width: 8),
+                const Expanded(
+                  child: Text('检测任务已在后台启动，您可以继续使用其他功能'),
+                ),
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const BackgroundTasksScreen(),
+                      ),
+                    );
+                  },
+                  child: const Text(
+                    '查看',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ],
+            ),
+            backgroundColor: Colors.orange.shade600,
+            duration: const Duration(seconds: 4),
+          ),
+        );
+      }
+    } catch (e) {
+      logService.error('启动后台检测失败: $e');
+      if (context.mounted) {
+        _showErrorDialog(context, '启动后台检测失败: $e');
+      }
+    }
   }
 
   void _showErrorDialog(BuildContext context, String message) {
@@ -692,4 +843,5 @@ class WeighbridgeDuplicateResultCard extends StatelessWidget {
     if (similarity >= 0.5) return '中';
     return '低';
   }
+
 } 

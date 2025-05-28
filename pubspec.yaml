@@ -44,6 +44,9 @@ dependencies:
   
   # URL启动
   url_launcher: ^6.2.2
+  
+  # UUID生成
+  uuid: ^4.2.2
 
 dev_dependencies:
   flutter_test:

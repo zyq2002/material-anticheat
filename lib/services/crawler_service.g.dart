@@ -6,7 +6,7 @@ part of 'crawler_service.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$crawlerServiceHash() => r'6aa8e3f57c76aa5d4b7b8b2893a8d1b2b4b8b4b8';
+String _$crawlerServiceHash() => r'f3e7a9b5c1d8e2f6a9b2c5d8e1f4a7b0';
 
 /// See also [CrawlerService].
 @ProviderFor(CrawlerService)

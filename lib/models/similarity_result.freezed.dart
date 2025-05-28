@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_annotation_target, unnecessary_question_mark
 
 part of 'similarity_result.dart';
 
@@ -29,17 +29,16 @@ mixin _$SimilarityResult {
   String? get image2RecordId => throw _privateConstructorUsedError;
   String? get imageType => throw _privateConstructorUsedError;
 
-  /// Create a copy of SimilarityResult
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
   $SimilarityResultCopyWith<SimilarityResult> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $SimilarityResultCopyWith<$Res> {
-  factory $SimilarityResultCopyWith(SimilarityResult value,
-          $Res Function(SimilarityResult) then) =
+  factory $SimilarityResultCopyWith(
+          SimilarityResult value, $Res Function(SimilarityResult) then) =
       _$SimilarityResultCopyWithImpl<$Res, SimilarityResult>;
   @useResult
   $Res call(
@@ -58,13 +57,9 @@ class _$SimilarityResultCopyWithImpl<$Res, $Val extends SimilarityResult>
     implements $SimilarityResultCopyWith<$Res> {
   _$SimilarityResultCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
   final $Val _value;
-  // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of SimilarityResult
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -78,38 +73,14 @@ class _$SimilarityResultCopyWithImpl<$Res, $Val extends SimilarityResult>
     Object? imageType = freezed,
   }) {
     return _then(_value.copyWith(
-      image1Path: null == image1Path
-          ? _value.image1Path
-          : image1Path // ignore: cast_nullable_to_non_nullable
-              as String,
-      image2Path: null == image2Path
-          ? _value.image2Path
-          : image2Path // ignore: cast_nullable_to_non_nullable
-              as String,
-      similarity: null == similarity
-          ? _value.similarity
-          : similarity // ignore: cast_nullable_to_non_nullable
-              as double,
-      isDuplicate: null == isDuplicate
-          ? _value.isDuplicate
-          : isDuplicate // ignore: cast_nullable_to_non_nullable
-              as bool,
-      detectionTime: null == detectionTime
-          ? _value.detectionTime
-          : detectionTime // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      image1RecordId: freezed == image1RecordId
-          ? _value.image1RecordId
-          : image1RecordId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      image2RecordId: freezed == image2RecordId
-          ? _value.image2RecordId
-          : image2RecordId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      imageType: freezed == imageType
-          ? _value.imageType
-          : imageType // ignore: cast_nullable_to_non_nullable
-              as String?,
+      image1Path: null == image1Path ? _value.image1Path : image1Path as String,
+      image2Path: null == image2Path ? _value.image2Path : image2Path as String,
+      similarity: null == similarity ? _value.similarity : similarity as double,
+      isDuplicate: null == isDuplicate ? _value.isDuplicate : isDuplicate as bool,
+      detectionTime: null == detectionTime ? _value.detectionTime : detectionTime as DateTime,
+      image1RecordId: freezed == image1RecordId ? _value.image1RecordId : image1RecordId as String?,
+      image2RecordId: freezed == image2RecordId ? _value.image2RecordId : image2RecordId as String?,
+      imageType: freezed == imageType ? _value.imageType : imageType as String?,
     ) as $Val);
   }
 }
@@ -141,8 +112,6 @@ class __$$SimilarityResultImplCopyWithImpl<$Res>
       $Res Function(_$SimilarityResultImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of SimilarityResult
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -156,44 +125,20 @@ class __$$SimilarityResultImplCopyWithImpl<$Res>
     Object? imageType = freezed,
   }) {
     return _then(_$SimilarityResultImpl(
-      image1Path: null == image1Path
-          ? _value.image1Path
-          : image1Path // ignore: cast_nullable_to_non_nullable
-              as String,
-      image2Path: null == image2Path
-          ? _value.image2Path
-          : image2Path // ignore: cast_nullable_to_non_nullable
-              as String,
-      similarity: null == similarity
-          ? _value.similarity
-          : similarity // ignore: cast_nullable_to_non_nullable
-              as double,
-      isDuplicate: null == isDuplicate
-          ? _value.isDuplicate
-          : isDuplicate // ignore: cast_nullable_to_non_nullable
-              as bool,
-      detectionTime: null == detectionTime
-          ? _value.detectionTime
-          : detectionTime // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      image1RecordId: freezed == image1RecordId
-          ? _value.image1RecordId
-          : image1RecordId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      image2RecordId: freezed == image2RecordId
-          ? _value.image2RecordId
-          : image2RecordId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      imageType: freezed == imageType
-          ? _value.imageType
-          : imageType // ignore: cast_nullable_to_non_nullable
-              as String?,
+      image1Path: null == image1Path ? _value.image1Path : image1Path as String,
+      image2Path: null == image2Path ? _value.image2Path : image2Path as String,
+      similarity: null == similarity ? _value.similarity : similarity as double,
+      isDuplicate: null == isDuplicate ? _value.isDuplicate : isDuplicate as bool,
+      detectionTime: null == detectionTime ? _value.detectionTime : detectionTime as DateTime,
+      image1RecordId: freezed == image1RecordId ? _value.image1RecordId : image1RecordId as String?,
+      image2RecordId: freezed == image2RecordId ? _value.image2RecordId : image2RecordId as String?,
+      imageType: freezed == imageType ? _value.imageType : imageType as String?,
     ));
   }
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$SimilarityResultImpl implements _SimilarityResult {
   const _$SimilarityResultImpl(
       {required this.image1Path,
@@ -253,14 +198,12 @@ class _$SimilarityResultImpl implements _SimilarityResult {
                 other.imageType == imageType));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, image1Path, image2Path,
       similarity, isDuplicate, detectionTime, image1RecordId, image2RecordId, imageType);
 
-  /// Create a copy of SimilarityResult
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$SimilarityResultImplCopyWith<_$SimilarityResultImpl> get copyWith =>
@@ -269,9 +212,7 @@ class _$SimilarityResultImpl implements _SimilarityResult {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SimilarityResultImplToJson(
-      this,
-    );
+    return _$$SimilarityResultImplToJson(this);
   }
 }
 
@@ -305,11 +246,8 @@ abstract class _SimilarityResult implements SimilarityResult {
   String? get image2RecordId;
   @override
   String? get imageType;
-
-  /// Create a copy of SimilarityResult
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$SimilarityResultImplCopyWith<_$SimilarityResultImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -326,17 +264,16 @@ mixin _$SimilarityGroup {
   double get maxSimilarity => throw _privateConstructorUsedError;
   int get duplicateCount => throw _privateConstructorUsedError;
 
-  /// Create a copy of SimilarityGroup
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
   $SimilarityGroupCopyWith<SimilarityGroup> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $SimilarityGroupCopyWith<$Res> {
-  factory $SimilarityGroupCopyWith(SimilarityGroup value,
-          $Res Function(SimilarityGroup) then) =
+  factory $SimilarityGroupCopyWith(
+          SimilarityGroup value, $Res Function(SimilarityGroup) then) =
       _$SimilarityGroupCopyWithImpl<$Res, SimilarityGroup>;
   @useResult
   $Res call(
@@ -352,13 +289,9 @@ class _$SimilarityGroupCopyWithImpl<$Res, $Val extends SimilarityGroup>
     implements $SimilarityGroupCopyWith<$Res> {
   _$SimilarityGroupCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
   final $Val _value;
-  // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of SimilarityGroup
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -369,26 +302,11 @@ class _$SimilarityGroupCopyWithImpl<$Res, $Val extends SimilarityGroup>
     Object? duplicateCount = null,
   }) {
     return _then(_value.copyWith(
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as String,
-      imageType: null == imageType
-          ? _value.imageType
-          : imageType // ignore: cast_nullable_to_non_nullable
-              as String,
-      results: null == results
-          ? _value.results
-          : results // ignore: cast_nullable_to_non_nullable
-              as List<SimilarityResult>,
-      maxSimilarity: null == maxSimilarity
-          ? _value.maxSimilarity
-          : maxSimilarity // ignore: cast_nullable_to_non_nullable
-              as double,
-      duplicateCount: null == duplicateCount
-          ? _value.duplicateCount
-          : duplicateCount // ignore: cast_nullable_to_non_nullable
-              as int,
+      date: null == date ? _value.date : date as String,
+      imageType: null == imageType ? _value.imageType : imageType as String,
+      results: null == results ? _value.results : results as List<SimilarityResult>,
+      maxSimilarity: null == maxSimilarity ? _value.maxSimilarity : maxSimilarity as double,
+      duplicateCount: null == duplicateCount ? _value.duplicateCount : duplicateCount as int,
     ) as $Val);
   }
 }
@@ -413,12 +331,10 @@ abstract class _$$SimilarityGroupImplCopyWith<$Res>
 class __$$SimilarityGroupImplCopyWithImpl<$Res>
     extends _$SimilarityGroupCopyWithImpl<$Res, _$SimilarityGroupImpl>
     implements _$$SimilarityGroupImplCopyWith<$Res> {
-  __$$SimilarityGroupImplCopyWithImpl(
-      _$SimilarityGroupImpl _value, $Res Function(_$SimilarityGroupImpl) _then)
+  __$$SimilarityGroupImplCopyWithImpl(_$SimilarityGroupImpl _value,
+      $Res Function(_$SimilarityGroupImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of SimilarityGroup
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -429,32 +345,17 @@ class __$$SimilarityGroupImplCopyWithImpl<$Res>
     Object? duplicateCount = null,
   }) {
     return _then(_$SimilarityGroupImpl(
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as String,
-      imageType: null == imageType
-          ? _value.imageType
-          : imageType // ignore: cast_nullable_to_non_nullable
-              as String,
-      results: null == results
-          ? _value._results
-          : results // ignore: cast_nullable_to_non_nullable
-              as List<SimilarityResult>,
-      maxSimilarity: null == maxSimilarity
-          ? _value.maxSimilarity
-          : maxSimilarity // ignore: cast_nullable_to_non_nullable
-              as double,
-      duplicateCount: null == duplicateCount
-          ? _value.duplicateCount
-          : duplicateCount // ignore: cast_nullable_to_non_nullable
-              as int,
+      date: null == date ? _value.date : date as String,
+      imageType: null == imageType ? _value.imageType : imageType as String,
+      results: null == results ? _value._results : results as List<SimilarityResult>,
+      maxSimilarity: null == maxSimilarity ? _value.maxSimilarity : maxSimilarity as double,
+      duplicateCount: null == duplicateCount ? _value.duplicateCount : duplicateCount as int,
     ));
   }
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$SimilarityGroupImpl implements _SimilarityGroup {
   const _$SimilarityGroupImpl(
       {required this.date,
@@ -475,7 +376,6 @@ class _$SimilarityGroupImpl implements _SimilarityGroup {
   @override
   List<SimilarityResult> get results {
     if (_results is EqualUnmodifiableListView) return _results;
-    // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_results);
   }
 
@@ -504,19 +404,12 @@ class _$SimilarityGroupImpl implements _SimilarityGroup {
                 other.duplicateCount == duplicateCount));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      date,
-      imageType,
-      const DeepCollectionEquality().hash(_results),
-      maxSimilarity,
-      duplicateCount);
+  int get hashCode => Object.hash(runtimeType, date, imageType,
+      const DeepCollectionEquality().hash(_results), maxSimilarity, duplicateCount);
 
-  /// Create a copy of SimilarityGroup
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$SimilarityGroupImplCopyWith<_$SimilarityGroupImpl> get copyWith =>
@@ -525,9 +418,7 @@ class _$SimilarityGroupImpl implements _SimilarityGroup {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SimilarityGroupImplToJson(
-      this,
-    );
+    return _$$SimilarityGroupImplToJson(this);
   }
 }
 
@@ -552,11 +443,8 @@ abstract class _SimilarityGroup implements SimilarityGroup {
   double get maxSimilarity;
   @override
   int get duplicateCount;
-
-  /// Create a copy of SimilarityGroup
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$SimilarityGroupImplCopyWith<_$SimilarityGroupImpl> get copyWith =>
       throw _privateConstructorUsedError;
 } 

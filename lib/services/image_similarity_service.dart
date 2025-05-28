@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -248,6 +249,11 @@ class ImageSimilarityService {
       for (final img2 in images2) {
         final similarity = await _calculateSimilarity(img1, img2);
         
+        // 为每次比对添加详细的相似率日志输出
+        final img1Name = path.basename(img1.path);
+        final img2Name = path.basename(img2.path);
+        debugPrint('图片对比: $img1Name vs $img2Name, 相似度: ${similarity.toStringAsFixed(2)}%');
+        
         if (similarity >= threshold) {
           results.add(SimilarityResult(
             image1Path: img1.path,
@@ -259,6 +265,9 @@ class ImageSimilarityService {
             image2RecordId: recordId2,
             imageType: imageType,
           ));
+          debugPrint('⚠️ 发现重复图片: $recordId1 vs $recordId2, 相似度: ${similarity.toStringAsFixed(1)}%');
+        } else {
+          debugPrint('✓ 图片对比正常: $recordId1 vs $recordId2, 相似度: ${similarity.toStringAsFixed(1)}%');
         }
       }
     }
@@ -269,48 +278,69 @@ class ImageSimilarityService {
   /// 使用 SIFT 算法计算两张图片的相似度
   Future<double> _calculateSimilarity(File image1, File image2) async {
     try {
-      // 尝试多个Python解释器路径
-      final pythonPaths = [
-        'python3',           // 系统Python
-        '/usr/bin/python3',  // 系统Python完整路径
-        _venvPythonPath,     // 虚拟环境Python
+      // 优先使用打包的可执行文件，如果不存在则使用Python脚本
+      String? executablePath;
+      
+      // 检查多个可能的路径
+      final possiblePaths = [
+        // 开发环境路径
+        path.join(Directory.current.path, 'bundled_python', 'sift_similarity'),
+        // macOS应用包内路径
+        path.join(Directory.current.path, '..', 'Resources', 'bundled_python', 'sift_similarity'),
+        // 备用路径
+        path.join(path.dirname(Platform.resolvedExecutable), '..', 'Resources', 'bundled_python', 'sift_similarity'),
       ];
       
-      String? workingPython;
-      
-      // 找到可用的Python解释器
-      for (final pythonPath in pythonPaths) {
-        try {
-          final testResult = await Process.run(
-            pythonPath,
-            ['--version'],
-            runInShell: true,
-          );
-          
-          if (testResult.exitCode == 0) {
-            workingPython = pythonPath;
-            break;
-          }
-        } catch (e) {
-          // 继续尝试下一个路径
-          continue;
+      File? executableFile;
+      for (final testPath in possiblePaths) {
+        final file = File(testPath);
+        if (await file.exists()) {
+          executablePath = testPath;
+          executableFile = file;
+          break;
         }
       }
       
-      if (workingPython == null) {
-        debugPrint('未找到可用的Python解释器');
-        return 0.0;
-      }
+      ProcessResult result;
       
-      final result = await Process.run(
-        workingPython,
-        [
-          _pythonScriptPath,
-          image1.path,
-          image2.path,
-        ],
-        runInShell: true,
-      );
+      if (executableFile != null) {
+        // 使用打包的可执行文件（推荐，无需Python环境）
+        final process = await Process.start(
+          executablePath!,
+          [image1.path, image2.path],
+          workingDirectory: Directory.current.path,
+          environment: {
+            'PATH': '/usr/local/bin:/usr/bin:/bin',
+          },
+        );
+        
+        final stdout = await process.stdout.transform(const SystemEncoding().decoder).join();
+        final stderr = await process.stderr.transform(const SystemEncoding().decoder).join();
+        final exitCode = await process.exitCode;
+        
+        result = ProcessResult(process.pid, exitCode, stdout, stderr);
+      } else {
+        // 回退到系统Python（需要用户安装Python和依赖）
+        final process = await Process.start(
+          '/usr/bin/python3',
+          [
+            _pythonScriptPath,
+            image1.path,
+            image2.path,
+          ],
+          workingDirectory: Directory.current.path,
+          environment: {
+            'PATH': '/usr/local/bin:/usr/bin:/bin',
+            'PYTHONPATH': path.join(Directory.current.path, '.venv', 'lib', 'python3.9', 'site-packages'),
+          },
+        );
+        
+        final stdout = await process.stdout.transform(const SystemEncoding().decoder).join();
+        final stderr = await process.stderr.transform(const SystemEncoding().decoder).join();
+        final exitCode = await process.exitCode;
+        
+        result = ProcessResult(process.pid, exitCode, stdout, stderr);
+      }
       
       if (result.exitCode == 0) {
         final output = result.stdout.toString().trim();

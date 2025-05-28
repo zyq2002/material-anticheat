@@ -1,0 +1,184 @@
+﻿2025-05-27T08:59:13.1542100Z ##[group]Run subosito/flutter-action@v2
+2025-05-27T08:59:13.1542441Z with:
+2025-05-27T08:59:13.1542604Z   flutter-version: 3.24.0
+2025-05-27T08:59:13.1542799Z   channel: stable
+2025-05-27T08:59:13.1542956Z   architecture: X64
+2025-05-27T08:59:13.1543116Z   cache: false
+2025-05-27T08:59:13.1543279Z   pub-cache-path: default
+2025-05-27T08:59:13.1543467Z   dry-run: false
+2025-05-27T08:59:13.1543681Z   git-source: https://github.com/flutter/flutter.git
+2025-05-27T08:59:13.1543969Z env:
+2025-05-27T08:59:13.1544193Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:59:13.1544594Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T08:59:13.1544980Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:59:13.1545323Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:59:13.1545677Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:59:13.1545939Z ##[endgroup]
+2025-05-27T08:59:13.1703404Z ##[group]Run choco install yq
+2025-05-27T08:59:13.1703674Z [36;1mchoco install yq[0m
+2025-05-27T08:59:13.1717909Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+2025-05-27T08:59:13.1718275Z env:
+2025-05-27T08:59:13.1718509Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:59:13.1718924Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T08:59:13.1719326Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:59:13.1719683Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:59:13.1720035Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:59:13.1720315Z ##[endgroup]
+2025-05-27T08:59:15.8614589Z Chocolatey v2.4.3
+2025-05-27T08:59:16.1851832Z Installing the following packages:
+2025-05-27T08:59:16.1860300Z yq
+2025-05-27T08:59:16.1865967Z By installing, you accept licenses for the packages.
+2025-05-27T08:59:26.7188861Z Downloading package from source 'https://community.chocolatey.org/api/v2/'
+2025-05-27T08:59:26.8483895Z 
+2025-05-27T08:59:26.8485838Z Progress: Downloading yq 4.45.4... 28%
+2025-05-27T08:59:26.8486965Z Progress: Downloading yq 4.45.4... 83%
+2025-05-27T08:59:26.8487412Z Progress: Downloading yq 4.45.4... 100%
+2025-05-27T08:59:27.0337511Z 
+2025-05-27T08:59:27.0337961Z yq v4.45.4 [Approved]
+2025-05-27T08:59:27.0526144Z yq package files install completed. Performing other installation steps.
+2025-05-27T08:59:28.6375158Z Downloading yq 64 bit
+2025-05-27T08:59:28.6375943Z   from 'https://github.com/mikefarah/yq/releases/download/v4.45.4/yq_windows_amd64.exe'
+2025-05-27T08:59:28.7674517Z 
+2025-05-27T08:59:28.7689685Z Progress: 0% - Saving 13.39 KB of 11.18 MB
+2025-05-27T08:59:28.7704301Z Progress: 0% - Saving 26.78 KB of 11.18 MB
+2025-05-27T08:59:28.7723258Z Progress: 0% - Saving 40.17 KB of 11.18 MB
+2025-05-27T08:59:28.7745173Z Progress: 0% - Saving 53.55 KB of 11.18 MB
+2025-05-27T08:59:28.7766643Z Progress: 1% - Saving 140.19 KB of 11.18 MB
+2025-05-27T08:59:28.7789628Z Progress: 2% - Saving 300.19 KB of 11.18 MB
+2025-05-27T08:59:28.7861290Z Progress: 4% - Saving 460.19 KB of 11.18 MB
+2025-05-27T08:59:28.7919335Z Progress: 5% - Saving 610.31 KB of 11.18 MB
+2025-05-27T08:59:28.7946112Z Progress: 6% - Saving 770.31 KB of 11.18 MB
+2025-05-27T08:59:28.8087573Z Progress: 8% - Saving 930.31 KB of 11.18 MB
+2025-05-27T08:59:28.8102071Z Progress: 9% - Saving 1.06 MB of 11.18 MB
+2025-05-27T08:59:28.8121041Z Progress: 10% - Saving 1.22 MB of 11.18 MB
+2025-05-27T08:59:28.8132708Z Progress: 12% - Saving 1.37 MB of 11.18 MB
+2025-05-27T08:59:28.8145138Z Progress: 13% - Saving 1.53 MB of 11.18 MB
+2025-05-27T08:59:28.8157024Z Progress: 15% - Saving 1.68 MB of 11.18 MB
+2025-05-27T08:59:28.8171684Z Progress: 16% - Saving 1.84 MB of 11.18 MB
+2025-05-27T08:59:28.8184779Z Progress: 17% - Saving 1.99 MB of 11.18 MB
+2025-05-27T08:59:28.8197381Z Progress: 19% - Saving 2.15 MB of 11.18 MB
+2025-05-27T08:59:28.8210643Z Progress: 20% - Saving 2.3 MB of 11.18 MB
+2025-05-27T08:59:28.8222501Z Progress: 21% - Saving 2.46 MB of 11.18 MB
+2025-05-27T08:59:28.8237657Z Progress: 23% - Saving 2.62 MB of 11.18 MB
+2025-05-27T08:59:28.8251496Z Progress: 24% - Saving 2.77 MB of 11.18 MB
+2025-05-27T08:59:28.8263516Z Progress: 26% - Saving 2.92 MB of 11.18 MB
+2025-05-27T08:59:28.8274972Z Progress: 27% - Saving 3.08 MB of 11.18 MB
+2025-05-27T08:59:28.8288420Z Progress: 28% - Saving 3.24 MB of 11.18 MB
+2025-05-27T08:59:28.8301838Z Progress: 30% - Saving 3.39 MB of 11.18 MB
+2025-05-27T08:59:28.8313427Z Progress: 31% - Saving 3.55 MB of 11.18 MB
+2025-05-27T08:59:28.8324534Z Progress: 33% - Saving 3.7 MB of 11.18 MB
+2025-05-27T08:59:28.8335621Z Progress: 34% - Saving 3.86 MB of 11.18 MB
+2025-05-27T08:59:28.8354391Z Progress: 35% - Saving 4.01 MB of 11.18 MB
+2025-05-27T08:59:28.8367796Z Progress: 37% - Saving 4.15 MB of 11.18 MB
+2025-05-27T08:59:28.8383273Z Progress: 38% - Saving 4.31 MB of 11.18 MB
+2025-05-27T08:59:28.8395160Z Progress: 39% - Saving 4.46 MB of 11.18 MB
+2025-05-27T08:59:28.8408644Z Progress: 41% - Saving 4.61 MB of 11.18 MB
+2025-05-27T08:59:28.8420512Z Progress: 42% - Saving 4.77 MB of 11.18 MB
+2025-05-27T08:59:28.8432449Z Progress: 44% - Saving 4.92 MB of 11.18 MB
+2025-05-27T08:59:28.8444502Z Progress: 45% - Saving 5.08 MB of 11.18 MB
+2025-05-27T08:59:28.8456440Z Progress: 46% - Saving 5.23 MB of 11.18 MB
+2025-05-27T08:59:28.8469183Z Progress: 48% - Saving 5.39 MB of 11.18 MB
+2025-05-27T08:59:28.8480518Z Progress: 49% - Saving 5.54 MB of 11.18 MB
+2025-05-27T08:59:28.8492386Z Progress: 50% - Saving 5.7 MB of 11.18 MB
+2025-05-27T08:59:28.8504540Z Progress: 52% - Saving 5.85 MB of 11.18 MB
+2025-05-27T08:59:28.8515612Z Progress: 53% - Saving 6.01 MB of 11.18 MB
+2025-05-27T08:59:28.8537011Z Progress: 55% - Saving 6.17 MB of 11.18 MB
+2025-05-27T08:59:28.8551379Z Progress: 56% - Saving 6.32 MB of 11.18 MB
+2025-05-27T08:59:28.8563080Z Progress: 57% - Saving 6.47 MB of 11.18 MB
+2025-05-27T08:59:28.8574755Z Progress: 59% - Saving 6.63 MB of 11.18 MB
+2025-05-27T08:59:28.8586241Z Progress: 60% - Saving 6.78 MB of 11.18 MB
+2025-05-27T08:59:28.8597421Z Progress: 62% - Saving 6.94 MB of 11.18 MB
+2025-05-27T08:59:28.8609006Z Progress: 63% - Saving 7.09 MB of 11.18 MB
+2025-05-27T08:59:28.8620417Z Progress: 64% - Saving 7.25 MB of 11.18 MB
+2025-05-27T08:59:28.8631263Z Progress: 66% - Saving 7.4 MB of 11.18 MB
+2025-05-27T08:59:28.8643437Z Progress: 67% - Saving 7.56 MB of 11.18 MB
+2025-05-27T08:59:28.8653989Z Progress: 69% - Saving 7.71 MB of 11.18 MB
+2025-05-27T08:59:28.8665132Z Progress: 70% - Saving 7.87 MB of 11.18 MB
+2025-05-27T08:59:28.8676045Z Progress: 71% - Saving 8.02 MB of 11.18 MB
+2025-05-27T08:59:28.8687337Z Progress: 73% - Saving 8.17 MB of 11.18 MB
+2025-05-27T08:59:28.8700733Z Progress: 74% - Saving 8.32 MB of 11.18 MB
+2025-05-27T08:59:28.8711329Z Progress: 75% - Saving 8.47 MB of 11.18 MB
+2025-05-27T08:59:28.8722341Z Progress: 77% - Saving 8.62 MB of 11.18 MB
+2025-05-27T08:59:28.8732987Z Progress: 78% - Saving 8.78 MB of 11.18 MB
+2025-05-27T08:59:28.8793916Z Progress: 79% - Saving 8.93 MB of 11.18 MB
+2025-05-27T08:59:28.8804982Z Progress: 81% - Saving 9.08 MB of 11.18 MB
+2025-05-27T08:59:28.8817689Z Progress: 82% - Saving 9.24 MB of 11.18 MB
+2025-05-27T08:59:28.8828390Z Progress: 83% - Saving 9.39 MB of 11.18 MB
+2025-05-27T08:59:28.8840125Z Progress: 85% - Saving 9.54 MB of 11.18 MB
+2025-05-27T08:59:28.8851315Z Progress: 86% - Saving 9.69 MB of 11.18 MB
+2025-05-27T08:59:28.8866660Z Progress: 88% - Saving 9.84 MB of 11.18 MB
+2025-05-27T08:59:28.8883873Z Progress: 89% - Saving 10 MB of 11.18 MB
+2025-05-27T08:59:28.8896397Z Progress: 90% - Saving 10.14 MB of 11.18 MB
+2025-05-27T08:59:28.8907806Z Progress: 92% - Saving 10.29 MB of 11.18 MB
+2025-05-27T08:59:28.8918569Z Progress: 93% - Saving 10.45 MB of 11.18 MB
+2025-05-27T08:59:28.8929776Z Progress: 94% - Saving 10.61 MB of 11.18 MB
+2025-05-27T08:59:28.8941135Z Progress: 96% - Saving 10.76 MB of 11.18 MB
+2025-05-27T08:59:28.8952657Z Progress: 97% - Saving 10.92 MB of 11.18 MB
+2025-05-27T08:59:28.8978742Z Progress: 99% - Saving 11.08 MB of 11.18 MB
+2025-05-27T08:59:28.8979473Z Progress: 100% - Completed download of C:\ProgramData\chocolatey\lib\yq\tools\yq.exe (11.18 MB).
+2025-05-27T08:59:28.8995536Z Download of yq.exe (11.18 MB) completed.
+2025-05-27T08:59:35.2559926Z Hashes match.
+2025-05-27T08:59:35.3345220Z C:\ProgramData\chocolatey\lib\yq\tools\yq.exe
+2025-05-27T08:59:37.4751362Z  ShimGen has successfully created a shim for yq.exe
+2025-05-27T08:59:37.5026808Z  The install of yq was successful.
+2025-05-27T08:59:37.5032331Z   Software install location not explicitly set, it could be in package or
+2025-05-27T08:59:37.5033323Z   default install location of installer.
+2025-05-27T08:59:37.5317644Z 
+2025-05-27T08:59:37.5318315Z Chocolatey installed 1/1 packages. 
+2025-05-27T08:59:37.5319006Z  See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+2025-05-27T08:59:37.5908020Z ##[group]Run chmod +x "$GITHUB_ACTION_PATH/setup.sh"
+2025-05-27T08:59:37.5908518Z [36;1mchmod +x "$GITHUB_ACTION_PATH/setup.sh"[0m
+2025-05-27T08:59:37.5921849Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+2025-05-27T08:59:37.5922362Z env:
+2025-05-27T08:59:37.5922682Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:59:37.5923268Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T08:59:37.5923850Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:59:37.5924353Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:59:37.5924866Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:59:37.5925256Z ##[endgroup]
+2025-05-27T08:59:37.6697466Z ##[group]Run $GITHUB_ACTION_PATH/setup.sh -p \
+2025-05-27T08:59:37.6697939Z [36;1m$GITHUB_ACTION_PATH/setup.sh -p \[0m
+2025-05-27T08:59:37.6698282Z [36;1m  -n '3.24.0' \[0m
+2025-05-27T08:59:37.6698550Z [36;1m  -f '' \[0m
+2025-05-27T08:59:37.6698769Z [36;1m  -a 'X64' \[0m
+2025-05-27T08:59:37.6699008Z [36;1m  -k '' \[0m
+2025-05-27T08:59:37.6699229Z [36;1m  -c '' \[0m
+2025-05-27T08:59:37.6699446Z [36;1m  -l '' \[0m
+2025-05-27T08:59:37.6699666Z [36;1m  -d 'default' \[0m
+2025-05-27T08:59:37.6700024Z [36;1m  -g 'https://github.com/flutter/flutter.git' \[0m
+2025-05-27T08:59:37.6700389Z [36;1m  stable[0m
+2025-05-27T08:59:37.6713127Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+2025-05-27T08:59:37.6713590Z env:
+2025-05-27T08:59:37.6713890Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:59:37.6714437Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T08:59:37.6714969Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:59:37.6715444Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:59:37.6715917Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:59:37.6716298Z ##[endgroup]
+2025-05-27T08:59:41.3131835Z ##[group]Run $GITHUB_ACTION_PATH/setup.sh \
+2025-05-27T08:59:41.3132248Z [36;1m$GITHUB_ACTION_PATH/setup.sh \[0m
+2025-05-27T08:59:41.3132540Z [36;1m  -n '3.24.0' \[0m
+2025-05-27T08:59:41.3132768Z [36;1m  -a 'x64' \[0m
+2025-05-27T08:59:41.3133092Z [36;1m  -c 'C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64' \[0m
+2025-05-27T08:59:41.3133708Z [36;1m  -d 'C:\Users\runneradmin\AppData\Local\Pub\Cache' \[0m
+2025-05-27T08:59:41.3134044Z [36;1m  stable[0m
+2025-05-27T08:59:41.3146288Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+2025-05-27T08:59:41.3146655Z env:
+2025-05-27T08:59:41.3146894Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:59:41.3147309Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T08:59:41.3147721Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:59:41.3148242Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:59:41.3148592Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:59:41.3148862Z ##[endgroup]
+2025-05-27T08:59:42.8897744Z   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+2025-05-27T08:59:42.8898487Z                                  Dload  Upload   Total   Spent    Left  Speed
+2025-05-27T08:59:42.8898850Z 
+2025-05-27T08:59:43.2885489Z   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+2025-05-27T08:59:44.2589126Z   2  964M    2 22.0M    0     0  55.0M      0  0:00:17 --:--:--  0:00:17 55.1M
+2025-05-27T08:59:45.2589432Z  16  964M   16  159M    0     0   116M      0  0:00:08  0:00:01  0:00:07  116M
+2025-05-27T08:59:46.3631463Z  32  964M   32  315M    0     0   133M      0  0:00:07  0:00:02  0:00:05  132M
+2025-05-27T08:59:47.2984702Z  46  964M   46  444M    0     0   127M      0  0:00:07  0:00:03  0:00:04  127M
+2025-05-27T08:59:48.2586310Z  58  964M   58  562M    0     0   127M      0  0:00:07  0:00:04  0:00:03  127M
+2025-05-27T08:59:49.2587323Z  70  964M   70  681M    0     0   126M      0  0:00:07  0:00:05  0:00:02  132M
+2025-05-27T08:59:50.1544778Z  85  964M   85  823M    0     0   129M      0  0:00:07  0:00:06  0:00:01  132M
+2025-05-27T08:59:50.1553958Z 100  964M  100  964M    0     0   132M      0  0:00:07  0:00:07 --:--:--  132M

@@ -1,0 +1,120 @@
+﻿2025-05-27T09:25:43.2854118Z ##[group]Run flutter analyze
+2025-05-27T09:25:43.2854463Z [36;1mflutter analyze[0m
+2025-05-27T09:25:43.2888055Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2025-05-27T09:25:43.2888377Z env:
+2025-05-27T09:25:43.2888621Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:25:43.2889032Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T09:25:43.2889422Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:25:43.2890750Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:25:43.2891135Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:25:43.2891508Z   FLUTTER_ROOT: C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64
+2025-05-27T09:25:43.2891863Z   PUB_CACHE: C:\Users\runneradmin\AppData\Local\Pub\Cache
+2025-05-27T09:25:43.2892131Z ##[endgroup]
+2025-05-27T09:25:57.5460154Z Analyzing material-anticheat...                                 
+2025-05-27T09:25:57.5467823Z 
+2025-05-27T09:25:57.5483882Z   error - The method 'withValues' isn't defined for the type 'Color' - lib\main.dart:195:28 - undefined_method
+2025-05-27T09:25:57.5485659Z   error - The method 'withValues' isn't defined for the type 'Color' - lib\main.dart:208:36 - undefined_method
+2025-05-27T09:25:57.5487761Z warning - The method doesn't override an inherited method - lib\models\similarity_result.freezed.dart:271:24 - override_on_non_overriding_member
+2025-05-27T09:25:57.5489408Z warning - The method doesn't override an inherited method - lib\models\similarity_result.freezed.dart:527:24 - override_on_non_overriding_member
+2025-05-27T09:25:57.5491630Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\batch_download_screen.dart:201:52 - undefined_method
+2025-05-27T09:25:57.5494119Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\batch_download_screen.dart:275:54 - undefined_method
+2025-05-27T09:25:57.5496523Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\batch_download_screen.dart:470:53 - undefined_method
+2025-05-27T09:25:57.5499806Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\batch_download_screen.dart:472:72 - undefined_method
+2025-05-27T09:25:57.5501426Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\batch_download_screen.dart:502:51 - undefined_method
+2025-05-27T09:25:57.5502730Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\batch_download_screen.dart:504:70 - undefined_method
+2025-05-27T09:25:57.5503789Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\batch_download_screen.dart:583:37 - undefined_method
+2025-05-27T09:25:57.5505169Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\image_gallery_screen.dart:175:62 - undefined_method
+2025-05-27T09:25:57.5507368Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\image_gallery_screen.dart:196:58 - undefined_method
+2025-05-27T09:25:57.5509585Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\image_gallery_screen.dart:368:32 - undefined_method
+2025-05-27T09:25:57.5511605Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\image_gallery_screen.dart:496:52 - undefined_method
+2025-05-27T09:25:57.5514126Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\image_gallery_screen.dart:498:71 - undefined_method
+2025-05-27T09:25:57.5516103Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\image_gallery_screen.dart:535:53 - undefined_method
+2025-05-27T09:25:57.5517571Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\image_gallery_screen.dart:537:72 - undefined_method
+2025-05-27T09:25:57.5521697Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\image_gallery_screen.dart:601:57 - undefined_method
+2025-05-27T09:25:57.5523143Z   error - The method 'withValues' isn't defined for the type 'Color' - lib\screens\image_gallery_screen.dart:659:60 - undefined_method
+2025-05-27T09:25:57.5524058Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\suspicious_images_screen.dart:369:30 - undefined_method
+2025-05-27T09:25:57.5525528Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\suspicious_images_screen.dart:371:49 - undefined_method
+2025-05-27T09:25:57.5526395Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_batch_download_screen.dart:434:54 - undefined_method
+2025-05-27T09:25:57.5527731Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_batch_download_screen.dart:434:91 - undefined_method
+2025-05-27T09:25:57.5528746Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_batch_download_screen.dart:437:56 - undefined_method
+2025-05-27T09:25:57.5529920Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_batch_download_screen.dart:437:93 - undefined_method
+2025-05-27T09:25:57.5531179Z warning - Unused import: 'package:shared_preferences/shared_preferences.dart' - lib\screens\weighbridge_duplicate_detection_screen.dart:6:8 - unused_import
+2025-05-27T09:25:57.5532517Z    info - Use 'const' with the constructor to improve performance - lib\screens\weighbridge_duplicate_detection_screen.dart:16:29 - prefer_const_constructors
+2025-05-27T09:25:57.5534343Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_duplicate_detection_screen.dart:494:42 - undefined_method
+2025-05-27T09:25:57.5536604Z   error - The method 'withValues' isn't defined for the type 'Color' - lib\screens\weighbridge_duplicate_detection_screen.dart:533:67 - undefined_method
+2025-05-27T09:25:57.5540179Z   error - The method 'withValues' isn't defined for the type 'Color' - lib\screens\weighbridge_duplicate_detection_screen.dart:536:69 - undefined_method
+2025-05-27T09:25:57.5542618Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_image_gallery_screen.dart:195:64 - undefined_method
+2025-05-27T09:25:57.5546334Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_image_gallery_screen.dart:216:60 - undefined_method
+2025-05-27T09:25:57.5548906Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_image_gallery_screen.dart:389:36 - undefined_method
+2025-05-27T09:25:57.5552167Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_image_gallery_screen.dart:570:44 - undefined_method
+2025-05-27T09:25:57.5555176Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_image_gallery_screen.dart:572:63 - undefined_method
+2025-05-27T09:25:57.5558233Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_image_gallery_screen.dart:645:43 - undefined_method
+2025-05-27T09:25:57.5564687Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_image_gallery_screen.dart:647:62 - undefined_method
+2025-05-27T09:25:57.5568382Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_image_gallery_screen.dart:728:37 - undefined_method
+2025-05-27T09:25:57.5570288Z   error - The method 'withValues' isn't defined for the type 'Color' - lib\screens\weighbridge_image_gallery_screen.dart:786:40 - undefined_method
+2025-05-27T09:25:57.5571060Z    info - Don't invoke 'print' in production code - lib\screens\weighbridge_image_gallery_screen.dart:921:9 - avoid_print
+2025-05-27T09:25:57.5600011Z    info - Don't use 'BuildContext's across async gaps - lib\screens\weighbridge_image_gallery_screen.dart:1117:24 - use_build_context_synchronously
+2025-05-27T09:25:57.5600890Z    info - Don't use 'BuildContext's across async gaps - lib\screens\weighbridge_image_gallery_screen.dart:1120:30 - use_build_context_synchronously
+2025-05-27T09:25:57.5601703Z    info - Don't use 'BuildContext's across async gaps - lib\screens\weighbridge_image_gallery_screen.dart:1131:28 - use_build_context_synchronously
+2025-05-27T09:25:57.5602920Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_screen.dart:348:54 - undefined_method
+2025-05-27T09:25:57.5603998Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_screen.dart:348:91 - undefined_method
+2025-05-27T09:25:57.5604758Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_screen.dart:351:56 - undefined_method
+2025-05-27T09:25:57.5605510Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_screen.dart:351:93 - undefined_method
+2025-05-27T09:25:57.5606318Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_suspicious_images_screen.dart:68:40 - undefined_method
+2025-05-27T09:25:57.5607183Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_suspicious_images_screen.dart:188:43 - undefined_method
+2025-05-27T09:25:57.5608043Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_suspicious_images_screen.dart:188:81 - undefined_method
+2025-05-27T09:25:57.5608902Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_suspicious_images_screen.dart:191:45 - undefined_method
+2025-05-27T09:25:57.5609760Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_suspicious_images_screen.dart:191:83 - undefined_method
+2025-05-27T09:25:57.5610608Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_suspicious_images_screen.dart:246:28 - undefined_method
+2025-05-27T09:25:57.5611470Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_suspicious_images_screen.dart:249:30 - undefined_method
+2025-05-27T09:25:57.5612330Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_suspicious_images_screen.dart:292:27 - undefined_method
+2025-05-27T09:25:57.5613186Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_suspicious_images_screen.dart:295:29 - undefined_method
+2025-05-27T09:25:57.5614038Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_suspicious_images_screen.dart:365:35 - undefined_method
+2025-05-27T09:25:57.5614890Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\screens\weighbridge_suspicious_images_screen.dart:368:37 - undefined_method
+2025-05-27T09:25:57.5615723Z   error - The method 'withValues' isn't defined for the type 'Color' - lib\screens\weighbridge_suspicious_images_screen.dart:572:59 - undefined_method
+2025-05-27T09:25:57.5616528Z   error - The method 'withValues' isn't defined for the type 'Color' - lib\screens\weighbridge_suspicious_images_screen.dart:588:69 - undefined_method
+2025-05-27T09:25:57.5617315Z   error - The method 'withValues' isn't defined for the type 'Color' - lib\screens\weighbridge_suspicious_images_screen.dart:622:79 - undefined_method
+2025-05-27T09:25:57.5618110Z   error - The method 'withValues' isn't defined for the type 'Color' - lib\screens\weighbridge_suspicious_images_screen.dart:625:81 - undefined_method
+2025-05-27T09:25:57.5619125Z warning - The member 'Provider<ApiService>.internal' can only be used within its package - lib\services\api_service.g.dart:13:28 - invalid_use_of_internal_member
+2025-05-27T09:25:57.5620118Z    info - 'ProviderRef' is deprecated and shouldn't be used. will be removed in 3.0.0. Use Ref instead - lib\services\api_service.g.dart:22:25 - deprecated_member_use
+2025-05-27T09:25:57.5621177Z warning - The member 'AutoDisposeNotifierProvider<CrawlerService, CrawlerState>.internal' can only be used within its package - lib\services\crawler_service.g.dart:14:5 - invalid_use_of_internal_member
+2025-05-27T09:25:57.5622404Z    info - Use 'const' with the constructor to improve performance - lib\services\weighbridge_duplicate_detection_service.dart:134:13 - prefer_const_constructors
+2025-05-27T09:25:57.5624317Z    info - Use 'const' with the constructor to improve performance - lib\services\weighbridge_duplicate_detection_service.dart:146:15 - prefer_const_constructors
+2025-05-27T09:25:57.5625864Z    info - Use 'const' with the constructor to improve performance - lib\services\weighbridge_duplicate_detection_service.dart:158:13 - prefer_const_constructors
+2025-05-27T09:25:57.5626794Z   error - Undefined name 'ProviderFor' used as an annotation - lib\services\weighbridge_duplicate_detection_service.g.dart:13:1 - undefined_annotation
+2025-05-27T09:25:57.5627879Z   error - Undefined name 'WeighbridgeDuplicateDetectionService' - lib\services\weighbridge_duplicate_detection_service.g.dart:13:14 - undefined_identifier
+2025-05-27T09:25:57.5628973Z   error - The name 'AutoDisposeAsyncNotifierProvider' isn't a class - lib\services\weighbridge_duplicate_detection_service.g.dart:14:54 - creation_with_non_type
+2025-05-27T09:25:57.5630257Z   error - The name 'WeighbridgeDuplicateDetectionService' isn't a type, so it can't be used as a type argument - lib\services\weighbridge_duplicate_detection_service.g.dart:15:5 - non_type_as_type_argument
+2025-05-27T09:25:57.5631579Z   error - The name 'WeighbridgeDuplicateDetectionResult' isn't a type, so it can't be used as a type argument - lib\services\weighbridge_duplicate_detection_service.g.dart:15:48 - non_type_as_type_argument
+2025-05-27T09:25:57.5632790Z   error - Undefined name 'WeighbridgeDuplicateDetectionService' - lib\services\weighbridge_duplicate_detection_service.g.dart:16:3 - undefined_identifier
+2025-05-27T09:25:57.5633817Z   error - The getter 'new' isn't defined for the type 'InvalidType' - lib\services\weighbridge_duplicate_detection_service.g.dart:16:40 - undefined_getter
+2025-05-27T09:25:57.5635295Z    info - The declaration '_$WeighbridgeDuplicateDetectionService' isn't referenced - lib\services\weighbridge_duplicate_detection_service.g.dart:25:9 - unused_element
+2025-05-27T09:25:57.5636269Z   error - Undefined class 'AutoDisposeAsyncNotifier' - lib\services\weighbridge_duplicate_detection_service.g.dart:26:7 - undefined_class
+2025-05-27T09:25:57.5637260Z   error - The name 'WeighbridgeDuplicateDetectionResult' isn't a type, so it can't be used as a type argument - lib\services\weighbridge_duplicate_detection_service.g.dart:26:37 - non_type_as_type_argument
+2025-05-27T09:25:57.5638213Z warning - The value of the field '_logService' isn't used - lib\services\weighbridge_image_similarity_service.dart:45:15 - unused_field
+2025-05-27T09:25:57.5639003Z   error - Undefined name 'ProviderFor' used as an annotation - lib\services\weighbridge_image_similarity_service.g.dart:13:1 - undefined_annotation
+2025-05-27T09:25:57.5639905Z   error - Undefined name 'WeighbridgeImageSimilarityService' - lib\services\weighbridge_image_similarity_service.g.dart:13:14 - undefined_identifier
+2025-05-27T09:25:57.5640819Z   error - The name 'AutoDisposeAsyncNotifierProvider' isn't a class - lib\services\weighbridge_image_similarity_service.g.dart:14:51 - creation_with_non_type
+2025-05-27T09:25:57.5641823Z   error - The name 'WeighbridgeImageSimilarityService' isn't a type, so it can't be used as a type argument - lib\services\weighbridge_image_similarity_service.g.dart:15:5 - non_type_as_type_argument
+2025-05-27T09:25:57.5643097Z   error - The name 'WeighbridgeImageSimilarityResult' isn't a type, so it can't be used as a type argument - lib\services\weighbridge_image_similarity_service.g.dart:15:45 - non_type_as_type_argument
+2025-05-27T09:25:57.5644610Z   error - Undefined name 'WeighbridgeImageSimilarityService' - lib\services\weighbridge_image_similarity_service.g.dart:16:3 - undefined_identifier
+2025-05-27T09:25:57.5646618Z   error - The getter 'new' isn't defined for the type 'InvalidType' - lib\services\weighbridge_image_similarity_service.g.dart:16:37 - undefined_getter
+2025-05-27T09:25:57.5648516Z    info - The declaration '_$WeighbridgeImageSimilarityService' isn't referenced - lib\services\weighbridge_image_similarity_service.g.dart:25:9 - unused_element
+2025-05-27T09:25:57.5650175Z   error - Undefined class 'AutoDisposeAsyncNotifier' - lib\services\weighbridge_image_similarity_service.g.dart:26:7 - undefined_class
+2025-05-27T09:25:57.5651998Z   error - The name 'WeighbridgeImageSimilarityResult' isn't a type, so it can't be used as a type argument - lib\services\weighbridge_image_similarity_service.g.dart:26:37 - non_type_as_type_argument
+2025-05-27T09:25:57.5653812Z   error - Undefined name 'ProviderFor' used as an annotation - lib\services\weighbridge_image_similarity_service.g.dart:32:1 - undefined_annotation
+2025-05-27T09:25:57.5655438Z   error - Undefined name 'weighbridgeSuspiciousImages' - lib\services\weighbridge_image_similarity_service.g.dart:32:14 - undefined_identifier
+2025-05-27T09:25:57.5657025Z   error - The name 'AutoDisposeProvider' isn't a class - lib\services\weighbridge_image_similarity_service.g.dart:33:45 - creation_with_non_type
+2025-05-27T09:25:57.5658640Z   error - The name 'AsyncValue' isn't a type, so it can't be used as a type argument - lib\services\weighbridge_image_similarity_service.g.dart:33:65 - non_type_as_type_argument
+2025-05-27T09:25:57.5660545Z   error - The name 'WeighbridgeImageSimilarityResult' isn't a type, so it can't be used as a type argument - lib\services\weighbridge_image_similarity_service.g.dart:33:81 - non_type_as_type_argument
+2025-05-27T09:25:57.5662348Z   error - Undefined name 'weighbridgeSuspiciousImages' - lib\services\weighbridge_image_similarity_service.g.dart:34:3 - undefined_identifier
+2025-05-27T09:25:57.5664344Z   error - Undefined class 'AutoDisposeProviderRef' - lib\services\weighbridge_image_similarity_service.g.dart:43:42 - undefined_class
+2025-05-27T09:25:57.5666734Z   error - The name 'AsyncValue' isn't a type, so it can't be used as a type argument - lib\services\weighbridge_image_similarity_service.g.dart:43:65 - non_type_as_type_argument
+2025-05-27T09:25:57.5668171Z   error - The name 'WeighbridgeImageSimilarityResult' isn't a type, so it can't be used as a type argument - lib\services\weighbridge_image_similarity_service.g.dart:43:81 - non_type_as_type_argument
+2025-05-27T09:25:57.5669404Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\widgets\progress_display_card.dart:42:55 - undefined_method
+2025-05-27T09:25:57.5670202Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\widgets\progress_display_card.dart:42:92 - undefined_method
+2025-05-27T09:25:57.5671512Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\widgets\progress_display_card.dart:45:57 - undefined_method
+2025-05-27T09:25:57.5672978Z   error - The method 'withValues' isn't defined for the type 'MaterialColor' - lib\widgets\progress_display_card.dart:45:94 - undefined_method
+2025-05-27T09:25:57.5673715Z 
+2025-05-27T09:25:57.5803216Z 103 issues found. (ran in 12.9s)
+2025-05-27T09:25:57.6779427Z ##[error]Process completed with exit code 1.

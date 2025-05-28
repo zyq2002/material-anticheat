@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:logger/logger.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/material_check_detail.dart';
 import '../models/weighbridge_info.dart';
@@ -8,7 +9,7 @@ import '../models/weighbridge_info.dart';
 part 'api_service.g.dart';
 
 @Riverpod(keepAlive: true)
-ApiService apiService(ApiServiceRef ref) {
+ApiService apiService(Ref ref) {
   return ApiService();
 }
 

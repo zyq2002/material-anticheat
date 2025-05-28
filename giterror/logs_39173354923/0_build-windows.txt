@@ -1,0 +1,487 @@
+﻿2025-05-27T08:58:11.6875324Z Current runner version: '2.324.0'
+2025-05-27T08:58:11.6903110Z ##[group]Operating System
+2025-05-27T08:58:11.6903943Z Microsoft Windows Server 2022
+2025-05-27T08:58:11.6904511Z 10.0.20348
+2025-05-27T08:58:11.6904932Z Datacenter
+2025-05-27T08:58:11.6905400Z ##[endgroup]
+2025-05-27T08:58:11.6905883Z ##[group]Runner Image
+2025-05-27T08:58:11.6906392Z Image: windows-2022
+2025-05-27T08:58:11.6906895Z Version: 20250511.1.0
+2025-05-27T08:58:11.6909368Z Included Software: https://github.com/actions/runner-images/blob/win22/20250511.1/images/windows/Windows2022-Readme.md
+2025-05-27T08:58:11.6911771Z Image Release: https://github.com/actions/runner-images/releases/tag/win22%2F20250511.1
+2025-05-27T08:58:11.6912746Z ##[endgroup]
+2025-05-27T08:58:11.6913216Z ##[group]Runner Image Provisioner
+2025-05-27T08:58:11.6913786Z 2.0.437.1
+2025-05-27T08:58:11.6914190Z ##[endgroup]
+2025-05-27T08:58:11.6915307Z ##[group]GITHUB_TOKEN Permissions
+2025-05-27T08:58:11.6917616Z Contents: read
+2025-05-27T08:58:11.6918184Z Metadata: read
+2025-05-27T08:58:11.6918646Z Packages: read
+2025-05-27T08:58:11.6919088Z ##[endgroup]
+2025-05-27T08:58:11.6921191Z Secret source: Actions
+2025-05-27T08:58:11.6921818Z Prepare workflow directory
+2025-05-27T08:58:11.7325757Z Prepare all required actions
+2025-05-27T08:58:11.7368661Z Getting action download info
+2025-05-27T08:58:12.1611584Z ##[group]Download immutable action package 'actions/checkout@v4'
+2025-05-27T08:58:12.1612780Z Version: 4.2.2
+2025-05-27T08:58:12.1613905Z Digest: sha256:ccb2698953eaebd21c7bf6268a94f9c26518a7e38e27e0b83c1fe1ad049819b1
+2025-05-27T08:58:12.1615402Z Source commit SHA: 11bd71901bbe5b1630ceea73d27597364c9af683
+2025-05-27T08:58:12.1616251Z ##[endgroup]
+2025-05-27T08:58:12.4136347Z ##[group]Download immutable action package 'actions/setup-python@v4'
+2025-05-27T08:58:12.4137336Z Version: 4.9.1
+2025-05-27T08:58:12.4138144Z Digest: sha256:f03e505388af670b5a108629e0ba26befc08d5c62b41f46146a45fe29ae509a5
+2025-05-27T08:58:12.4139351Z Source commit SHA: 7f4fc3e22c37d6ff65e88745f38bd3157c663f7c
+2025-05-27T08:58:12.4140136Z ##[endgroup]
+2025-05-27T08:58:12.6754077Z Download action repository 'subosito/flutter-action@v2' (SHA:e938fdf56512cc96ef2f93601a5a40bde3801046)
+2025-05-27T08:58:12.8779879Z ##[group]Download immutable action package 'actions/upload-artifact@v4'
+2025-05-27T08:58:12.8781352Z Version: 4.6.2
+2025-05-27T08:58:12.8782676Z Digest: sha256:290722aa3281d5caf23d0acdc3dbeb3424786a1a01a9cc97e72f147225e37c38
+2025-05-27T08:58:12.8784381Z Source commit SHA: ea165f8d65b6e75b540449e92b4886f43607fa02
+2025-05-27T08:58:12.8785656Z ##[endgroup]
+2025-05-27T08:58:13.1174186Z Download action repository 'softprops/action-gh-release@v1' (SHA:de2c0eb89ae2a093876385947365aca7b0e5f844)
+2025-05-27T08:58:13.6357083Z Getting action download info
+2025-05-27T08:58:13.7454610Z ##[group]Download immutable action package 'actions/cache@v4'
+2025-05-27T08:58:13.7456358Z Version: 4.2.3
+2025-05-27T08:58:13.7458122Z Digest: sha256:c8a3bb963e1f1826d8fcc8d1354f0dd29d8ac1db1d4f6f20247055ae11b81ed9
+2025-05-27T08:58:13.7460481Z Source commit SHA: 5a3ec84eff668545956fd18022155c47e93e2684
+2025-05-27T08:58:13.7462087Z ##[endgroup]
+2025-05-27T08:58:14.0543428Z Complete job name: build-windows
+2025-05-27T08:58:14.1746886Z ##[group]Run actions/checkout@v4
+2025-05-27T08:58:14.1748297Z with:
+2025-05-27T08:58:14.1749122Z   repository: zyq2002/material-anticheat-
+2025-05-27T08:58:14.1750360Z   token: ***
+2025-05-27T08:58:14.1751060Z   ssh-strict: true
+2025-05-27T08:58:14.1751907Z   ssh-user: git
+2025-05-27T08:58:14.1752699Z   persist-credentials: true
+2025-05-27T08:58:14.1753514Z   clean: true
+2025-05-27T08:58:14.1754306Z   sparse-checkout-cone-mode: true
+2025-05-27T08:58:14.1755181Z   fetch-depth: 1
+2025-05-27T08:58:14.1755964Z   fetch-tags: false
+2025-05-27T08:58:14.1756693Z   show-progress: true
+2025-05-27T08:58:14.1757476Z   lfs: false
+2025-05-27T08:58:14.1758157Z   submodules: false
+2025-05-27T08:58:14.1758937Z   set-safe-directory: true
+2025-05-27T08:58:14.1759990Z ##[endgroup]
+2025-05-27T08:58:14.9387225Z Syncing repository: zyq2002/material-anticheat-
+2025-05-27T08:58:14.9485839Z ##[group]Getting Git version info
+2025-05-27T08:58:14.9487084Z Working directory is 'D:\a\material-anticheat-\material-anticheat-'
+2025-05-27T08:58:15.3063957Z [command]"C:\Program Files\Git\bin\git.exe" version
+2025-05-27T08:58:15.4314734Z git version 2.49.0.windows.1
+2025-05-27T08:58:15.4328195Z ##[endgroup]
+2025-05-27T08:58:15.4459555Z Temporarily overriding HOME='D:\a\_temp\678da9ba-1f1a-4b74-a47e-fddca625397b' before making global git config changes
+2025-05-27T08:58:15.4461176Z Adding repository directory to the temporary git global config as a safe directory
+2025-05-27T08:58:15.4474903Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\material-anticheat-\material-anticheat-
+2025-05-27T08:58:15.5223776Z Deleting the contents of 'D:\a\material-anticheat-\material-anticheat-'
+2025-05-27T08:58:15.5229484Z ##[group]Initializing the repository
+2025-05-27T08:58:15.5240687Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\material-anticheat-\material-anticheat-
+2025-05-27T08:58:15.6243539Z Initialized empty Git repository in D:/a/material-anticheat-/material-anticheat-/.git/
+2025-05-27T08:58:15.6299532Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/zyq2002/material-anticheat-
+2025-05-27T08:58:15.7069093Z ##[endgroup]
+2025-05-27T08:58:15.7070201Z ##[group]Disabling automatic garbage collection
+2025-05-27T08:58:15.7083534Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2025-05-27T08:58:15.7406744Z ##[endgroup]
+2025-05-27T08:58:15.7407306Z ##[group]Setting up auth
+2025-05-27T08:58:15.7432065Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2025-05-27T08:58:15.7771924Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2025-05-27T08:58:17.8629143Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-05-27T08:58:17.8895769Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2025-05-27T08:58:18.3726985Z [command]"C:\Program Files\Git\bin\git.exe" config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2025-05-27T08:58:18.3983824Z ##[endgroup]
+2025-05-27T08:58:18.3984413Z ##[group]Fetching the repository
+2025-05-27T08:58:18.4006752Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +8eec9b4509592848118567c5d4c2dd7fc29a8910:refs/remotes/origin/main
+2025-05-27T08:58:19.6865393Z From https://github.com/zyq2002/material-anticheat-
+2025-05-27T08:58:19.6866117Z  * [new ref]         8eec9b4509592848118567c5d4c2dd7fc29a8910 -> origin/main
+2025-05-27T08:58:19.7390837Z ##[endgroup]
+2025-05-27T08:58:19.7396681Z ##[group]Determining the checkout info
+2025-05-27T08:58:19.7397484Z ##[endgroup]
+2025-05-27T08:58:19.7406778Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+2025-05-27T08:58:19.8072764Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+2025-05-27T08:58:19.8315392Z ##[group]Checking out the ref
+2025-05-27T08:58:19.8326000Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force -B main refs/remotes/origin/main
+2025-05-27T08:58:19.8908534Z branch 'main' set up to track 'origin/main'.
+2025-05-27T08:58:19.8913316Z Switched to a new branch 'main'
+2025-05-27T08:58:19.8945964Z ##[endgroup]
+2025-05-27T08:58:19.9321707Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+2025-05-27T08:58:19.9550178Z 8eec9b4509592848118567c5d4c2dd7fc29a8910
+2025-05-27T08:58:20.0063670Z ##[group]Run actions/setup-python@v4
+2025-05-27T08:58:20.0064028Z with:
+2025-05-27T08:58:20.0064210Z   python-version: 3.11
+2025-05-27T08:58:20.0064439Z   check-latest: false
+2025-05-27T08:58:20.0064863Z   token: ***
+2025-05-27T08:58:20.0065070Z   update-environment: true
+2025-05-27T08:58:20.0065308Z   allow-prereleases: false
+2025-05-27T08:58:20.0065508Z ##[endgroup]
+2025-05-27T08:58:20.2856133Z ##[group]Installed versions
+2025-05-27T08:58:20.3080167Z Successfully set up CPython (3.11.9)
+2025-05-27T08:58:20.3081165Z ##[endgroup]
+2025-05-27T08:58:20.3340715Z ##[group]Run python -m pip install --upgrade pip
+2025-05-27T08:58:20.3341242Z [36;1mpython -m pip install --upgrade pip[0m
+2025-05-27T08:58:20.3341638Z [36;1mpip install -r python_scripts/requirements.txt[0m
+2025-05-27T08:58:20.3585040Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2025-05-27T08:58:20.3585428Z env:
+2025-05-27T08:58:20.3585729Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:58:20.3586255Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T08:58:20.3586704Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:58:20.3587169Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:58:20.3587567Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:58:20.3587889Z ##[endgroup]
+2025-05-27T08:58:34.6165099Z Requirement already satisfied: pip in c:\hostedtoolcache\windows\python\3.11.9\x64\lib\site-packages (25.1.1)
+2025-05-27T08:58:36.5559223Z Collecting opencv-python==4.8.1.78 (from -r python_scripts/requirements.txt (line 1))
+2025-05-27T08:58:36.5887652Z   Downloading opencv_python-4.8.1.78-cp37-abi3-win_amd64.whl.metadata (20 kB)
+2025-05-27T08:58:36.8252707Z Collecting numpy==1.24.3 (from -r python_scripts/requirements.txt (line 2))
+2025-05-27T08:58:36.8325620Z   Downloading numpy-1.24.3-cp311-cp311-win_amd64.whl.metadata (5.6 kB)
+2025-05-27T08:58:37.0114595Z Collecting matplotlib==3.9.4 (from -r python_scripts/requirements.txt (line 3))
+2025-05-27T08:58:37.0181793Z   Downloading matplotlib-3.9.4-cp311-cp311-win_amd64.whl.metadata (11 kB)
+2025-05-27T08:58:37.1228782Z Collecting scikit-image==0.24.0 (from -r python_scripts/requirements.txt (line 4))
+2025-05-27T08:58:37.1292569Z   Downloading scikit_image-0.24.0-cp311-cp311-win_amd64.whl.metadata (14 kB)
+2025-05-27T08:58:37.3093273Z Collecting scipy==1.13.1 (from -r python_scripts/requirements.txt (line 5))
+2025-05-27T08:58:37.3156687Z   Downloading scipy-1.13.1-cp311-cp311-win_amd64.whl.metadata (60 kB)
+2025-05-27T08:58:37.3857918Z Collecting networkx==3.2.1 (from -r python_scripts/requirements.txt (line 6))
+2025-05-27T08:58:37.3910626Z   Downloading networkx-3.2.1-py3-none-any.whl.metadata (5.2 kB)
+2025-05-27T08:58:37.5822855Z Collecting pillow==11.2.1 (from -r python_scripts/requirements.txt (line 7))
+2025-05-27T08:58:37.5889038Z   Downloading pillow-11.2.1-cp311-cp311-win_amd64.whl.metadata (9.1 kB)
+2025-05-27T08:58:37.6527034Z Collecting tifffile==2024.8.30 (from -r python_scripts/requirements.txt (line 8))
+2025-05-27T08:58:37.6589096Z   Downloading tifffile-2024.8.30-py3-none-any.whl.metadata (31 kB)
+2025-05-27T08:58:37.7972336Z Collecting contourpy>=1.0.1 (from matplotlib==3.9.4->-r python_scripts/requirements.txt (line 3))
+2025-05-27T08:58:37.8034440Z   Downloading contourpy-1.3.2-cp311-cp311-win_amd64.whl.metadata (5.5 kB)
+2025-05-27T08:58:37.8465011Z Collecting cycler>=0.10 (from matplotlib==3.9.4->-r python_scripts/requirements.txt (line 3))
+2025-05-27T08:58:37.8519926Z   Downloading cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+2025-05-27T08:58:38.0097527Z Collecting fonttools>=4.22.0 (from matplotlib==3.9.4->-r python_scripts/requirements.txt (line 3))
+2025-05-27T08:58:38.0162923Z   Downloading fonttools-4.58.0-cp311-cp311-win_amd64.whl.metadata (106 kB)
+2025-05-27T08:58:38.1839843Z Collecting kiwisolver>=1.3.1 (from matplotlib==3.9.4->-r python_scripts/requirements.txt (line 3))
+2025-05-27T08:58:38.1900381Z   Downloading kiwisolver-1.4.8-cp311-cp311-win_amd64.whl.metadata (6.3 kB)
+2025-05-27T08:58:38.2487874Z Collecting packaging>=20.0 (from matplotlib==3.9.4->-r python_scripts/requirements.txt (line 3))
+2025-05-27T08:58:38.2540345Z   Downloading packaging-25.0-py3-none-any.whl.metadata (3.3 kB)
+2025-05-27T08:58:38.3145695Z Collecting pyparsing>=2.3.1 (from matplotlib==3.9.4->-r python_scripts/requirements.txt (line 3))
+2025-05-27T08:58:38.3201329Z   Downloading pyparsing-3.2.3-py3-none-any.whl.metadata (5.0 kB)
+2025-05-27T08:58:38.3651026Z Collecting python-dateutil>=2.7 (from matplotlib==3.9.4->-r python_scripts/requirements.txt (line 3))
+2025-05-27T08:58:38.3703263Z   Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+2025-05-27T08:58:38.4359971Z Collecting imageio>=2.33 (from scikit-image==0.24.0->-r python_scripts/requirements.txt (line 4))
+2025-05-27T08:58:38.4429499Z   Downloading imageio-2.37.0-py3-none-any.whl.metadata (5.2 kB)
+2025-05-27T08:58:38.5089577Z Collecting lazy-loader>=0.4 (from scikit-image==0.24.0->-r python_scripts/requirements.txt (line 4))
+2025-05-27T08:58:38.5143141Z   Downloading lazy_loader-0.4-py3-none-any.whl.metadata (7.6 kB)
+2025-05-27T08:58:38.5891413Z Collecting six>=1.5 (from python-dateutil>=2.7->matplotlib==3.9.4->-r python_scripts/requirements.txt (line 3))
+2025-05-27T08:58:38.5945691Z   Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+2025-05-27T08:58:38.6223580Z Downloading opencv_python-4.8.1.78-cp37-abi3-win_amd64.whl (38.1 MB)
+2025-05-27T08:58:39.0453214Z    ---------------------------------------- 38.1/38.1 MB 89.6 MB/s eta 0:00:00
+2025-05-27T08:58:39.0519906Z Downloading numpy-1.24.3-cp311-cp311-win_amd64.whl (14.8 MB)
+2025-05-27T08:58:40.7731827Z    ---------------------------------------- 14.8/14.8 MB 8.6 MB/s eta 0:00:00
+2025-05-27T08:58:40.7791625Z Downloading matplotlib-3.9.4-cp311-cp311-win_amd64.whl (7.8 MB)
+2025-05-27T08:58:40.8417477Z    ---------------------------------------- 7.8/7.8 MB 122.2 MB/s eta 0:00:00
+2025-05-27T08:58:40.8564023Z Downloading scikit_image-0.24.0-cp311-cp311-win_amd64.whl (12.8 MB)
+2025-05-27T08:58:41.0235805Z    ---------------------------------------- 12.8/12.8 MB 80.6 MB/s eta 0:00:00
+2025-05-27T08:58:41.0432803Z Downloading scipy-1.13.1-cp311-cp311-win_amd64.whl (46.2 MB)
+2025-05-27T08:58:41.4973276Z    ---------------------------------------- 46.2/46.2 MB 101.4 MB/s eta 0:00:00
+2025-05-27T08:58:41.5188933Z Downloading networkx-3.2.1-py3-none-any.whl (1.6 MB)
+2025-05-27T08:58:41.5634865Z    ---------------------------------------- 1.6/1.6 MB 29.5 MB/s eta 0:00:00
+2025-05-27T08:58:41.5814679Z Downloading pillow-11.2.1-cp311-cp311-win_amd64.whl (2.7 MB)
+2025-05-27T08:58:41.6226047Z    ---------------------------------------- 2.7/2.7 MB 51.4 MB/s eta 0:00:00
+2025-05-27T08:58:41.6287747Z Downloading tifffile-2024.8.30-py3-none-any.whl (227 kB)
+2025-05-27T08:58:41.6505769Z Downloading contourpy-1.3.2-cp311-cp311-win_amd64.whl (222 kB)
+2025-05-27T08:58:41.6799796Z Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)
+2025-05-27T08:58:41.7143459Z Downloading fonttools-4.58.0-cp311-cp311-win_amd64.whl (2.2 MB)
+2025-05-27T08:58:41.7440198Z    ---------------------------------------- 2.2/2.2 MB 123.3 MB/s eta 0:00:00
+2025-05-27T08:58:41.7487098Z Downloading imageio-2.37.0-py3-none-any.whl (315 kB)
+2025-05-27T08:58:41.9076481Z Downloading kiwisolver-1.4.8-cp311-cp311-win_amd64.whl (71 kB)
+2025-05-27T08:58:41.9301797Z Downloading lazy_loader-0.4-py3-none-any.whl (12 kB)
+2025-05-27T08:58:41.9510142Z Downloading packaging-25.0-py3-none-any.whl (66 kB)
+2025-05-27T08:58:41.9687900Z Downloading pyparsing-3.2.3-py3-none-any.whl (111 kB)
+2025-05-27T08:58:42.0076048Z Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+2025-05-27T08:58:42.0446023Z Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+2025-05-27T08:58:42.3493074Z Installing collected packages: six, pyparsing, pillow, packaging, numpy, networkx, kiwisolver, fonttools, cycler, tifffile, scipy, python-dateutil, opencv-python, lazy-loader, imageio, contourpy, scikit-image, matplotlib
+2025-05-27T08:59:12.4581855Z 
+2025-05-27T08:59:12.4602790Z Successfully installed contourpy-1.3.2 cycler-0.12.1 fonttools-4.58.0 imageio-2.37.0 kiwisolver-1.4.8 lazy-loader-0.4 matplotlib-3.9.4 networkx-3.2.1 numpy-1.24.3 opencv-python-4.8.1.78 packaging-25.0 pillow-11.2.1 pyparsing-3.2.3 python-dateutil-2.9.0.post0 scikit-image-0.24.0 scipy-1.13.1 six-1.17.0 tifffile-2024.8.30
+2025-05-27T08:59:13.1542124Z ##[group]Run subosito/flutter-action@v2
+2025-05-27T08:59:13.1542444Z with:
+2025-05-27T08:59:13.1542607Z   flutter-version: 3.24.0
+2025-05-27T08:59:13.1542802Z   channel: stable
+2025-05-27T08:59:13.1542957Z   architecture: X64
+2025-05-27T08:59:13.1543118Z   cache: false
+2025-05-27T08:59:13.1543281Z   pub-cache-path: default
+2025-05-27T08:59:13.1543469Z   dry-run: false
+2025-05-27T08:59:13.1543684Z   git-source: https://github.com/flutter/flutter.git
+2025-05-27T08:59:13.1543971Z env:
+2025-05-27T08:59:13.1544205Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:59:13.1544596Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T08:59:13.1544982Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:59:13.1545325Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:59:13.1545679Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:59:13.1545981Z ##[endgroup]
+2025-05-27T08:59:13.1703420Z ##[group]Run choco install yq
+2025-05-27T08:59:13.1703676Z [36;1mchoco install yq[0m
+2025-05-27T08:59:13.1717918Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+2025-05-27T08:59:13.1718278Z env:
+2025-05-27T08:59:13.1718511Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:59:13.1718926Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T08:59:13.1719329Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:59:13.1719686Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:59:13.1720045Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:59:13.1720318Z ##[endgroup]
+2025-05-27T08:59:15.8614649Z Chocolatey v2.4.3
+2025-05-27T08:59:16.1851876Z Installing the following packages:
+2025-05-27T08:59:16.1860316Z yq
+2025-05-27T08:59:16.1866011Z By installing, you accept licenses for the packages.
+2025-05-27T08:59:26.7188907Z Downloading package from source 'https://community.chocolatey.org/api/v2/'
+2025-05-27T08:59:26.8483952Z 
+2025-05-27T08:59:26.8485860Z Progress: Downloading yq 4.45.4... 28%
+2025-05-27T08:59:26.8486982Z Progress: Downloading yq 4.45.4... 83%
+2025-05-27T08:59:26.8487417Z Progress: Downloading yq 4.45.4... 100%
+2025-05-27T08:59:27.0337562Z 
+2025-05-27T08:59:27.0337965Z yq v4.45.4 [Approved]
+2025-05-27T08:59:27.0526181Z yq package files install completed. Performing other installation steps.
+2025-05-27T08:59:28.6375210Z Downloading yq 64 bit
+2025-05-27T08:59:28.6375949Z   from 'https://github.com/mikefarah/yq/releases/download/v4.45.4/yq_windows_amd64.exe'
+2025-05-27T08:59:28.7674577Z 
+2025-05-27T08:59:28.7689721Z Progress: 0% - Saving 13.39 KB of 11.18 MB
+2025-05-27T08:59:28.7704333Z Progress: 0% - Saving 26.78 KB of 11.18 MB
+2025-05-27T08:59:28.7723281Z Progress: 0% - Saving 40.17 KB of 11.18 MB
+2025-05-27T08:59:28.7745231Z Progress: 0% - Saving 53.55 KB of 11.18 MB
+2025-05-27T08:59:28.7766664Z Progress: 1% - Saving 140.19 KB of 11.18 MB
+2025-05-27T08:59:28.7789645Z Progress: 2% - Saving 300.19 KB of 11.18 MB
+2025-05-27T08:59:28.7861309Z Progress: 4% - Saving 460.19 KB of 11.18 MB
+2025-05-27T08:59:28.7919355Z Progress: 5% - Saving 610.31 KB of 11.18 MB
+2025-05-27T08:59:28.7946130Z Progress: 6% - Saving 770.31 KB of 11.18 MB
+2025-05-27T08:59:28.8087612Z Progress: 8% - Saving 930.31 KB of 11.18 MB
+2025-05-27T08:59:28.8102095Z Progress: 9% - Saving 1.06 MB of 11.18 MB
+2025-05-27T08:59:28.8121061Z Progress: 10% - Saving 1.22 MB of 11.18 MB
+2025-05-27T08:59:28.8132719Z Progress: 12% - Saving 1.37 MB of 11.18 MB
+2025-05-27T08:59:28.8145152Z Progress: 13% - Saving 1.53 MB of 11.18 MB
+2025-05-27T08:59:28.8157037Z Progress: 15% - Saving 1.68 MB of 11.18 MB
+2025-05-27T08:59:28.8171695Z Progress: 16% - Saving 1.84 MB of 11.18 MB
+2025-05-27T08:59:28.8184791Z Progress: 17% - Saving 1.99 MB of 11.18 MB
+2025-05-27T08:59:28.8199655Z Progress: 19% - Saving 2.15 MB of 11.18 MB
+2025-05-27T08:59:28.8210654Z Progress: 20% - Saving 2.3 MB of 11.18 MB
+2025-05-27T08:59:28.8222511Z Progress: 21% - Saving 2.46 MB of 11.18 MB
+2025-05-27T08:59:28.8237673Z Progress: 23% - Saving 2.62 MB of 11.18 MB
+2025-05-27T08:59:28.8251519Z Progress: 24% - Saving 2.77 MB of 11.18 MB
+2025-05-27T08:59:28.8263525Z Progress: 26% - Saving 2.92 MB of 11.18 MB
+2025-05-27T08:59:28.8274983Z Progress: 27% - Saving 3.08 MB of 11.18 MB
+2025-05-27T08:59:28.8288430Z Progress: 28% - Saving 3.24 MB of 11.18 MB
+2025-05-27T08:59:28.8301848Z Progress: 30% - Saving 3.39 MB of 11.18 MB
+2025-05-27T08:59:28.8313449Z Progress: 31% - Saving 3.55 MB of 11.18 MB
+2025-05-27T08:59:28.8324542Z Progress: 33% - Saving 3.7 MB of 11.18 MB
+2025-05-27T08:59:28.8335629Z Progress: 34% - Saving 3.86 MB of 11.18 MB
+2025-05-27T08:59:28.8354402Z Progress: 35% - Saving 4.01 MB of 11.18 MB
+2025-05-27T08:59:28.8367803Z Progress: 37% - Saving 4.15 MB of 11.18 MB
+2025-05-27T08:59:28.8383308Z Progress: 38% - Saving 4.31 MB of 11.18 MB
+2025-05-27T08:59:28.8395174Z Progress: 39% - Saving 4.46 MB of 11.18 MB
+2025-05-27T08:59:28.8408654Z Progress: 41% - Saving 4.61 MB of 11.18 MB
+2025-05-27T08:59:28.8420523Z Progress: 42% - Saving 4.77 MB of 11.18 MB
+2025-05-27T08:59:28.8432459Z Progress: 44% - Saving 4.92 MB of 11.18 MB
+2025-05-27T08:59:28.8444512Z Progress: 45% - Saving 5.08 MB of 11.18 MB
+2025-05-27T08:59:28.8456450Z Progress: 46% - Saving 5.23 MB of 11.18 MB
+2025-05-27T08:59:28.8469192Z Progress: 48% - Saving 5.39 MB of 11.18 MB
+2025-05-27T08:59:28.8480527Z Progress: 49% - Saving 5.54 MB of 11.18 MB
+2025-05-27T08:59:28.8492400Z Progress: 50% - Saving 5.7 MB of 11.18 MB
+2025-05-27T08:59:28.8504552Z Progress: 52% - Saving 5.85 MB of 11.18 MB
+2025-05-27T08:59:28.8515618Z Progress: 53% - Saving 6.01 MB of 11.18 MB
+2025-05-27T08:59:28.8537025Z Progress: 55% - Saving 6.17 MB of 11.18 MB
+2025-05-27T08:59:28.8551392Z Progress: 56% - Saving 6.32 MB of 11.18 MB
+2025-05-27T08:59:28.8563108Z Progress: 57% - Saving 6.47 MB of 11.18 MB
+2025-05-27T08:59:28.8574770Z Progress: 59% - Saving 6.63 MB of 11.18 MB
+2025-05-27T08:59:28.8586248Z Progress: 60% - Saving 6.78 MB of 11.18 MB
+2025-05-27T08:59:28.8597428Z Progress: 62% - Saving 6.94 MB of 11.18 MB
+2025-05-27T08:59:28.8609015Z Progress: 63% - Saving 7.09 MB of 11.18 MB
+2025-05-27T08:59:28.8620424Z Progress: 64% - Saving 7.25 MB of 11.18 MB
+2025-05-27T08:59:28.8631275Z Progress: 66% - Saving 7.4 MB of 11.18 MB
+2025-05-27T08:59:28.8643445Z Progress: 67% - Saving 7.56 MB of 11.18 MB
+2025-05-27T08:59:28.8653997Z Progress: 69% - Saving 7.71 MB of 11.18 MB
+2025-05-27T08:59:28.8665139Z Progress: 70% - Saving 7.87 MB of 11.18 MB
+2025-05-27T08:59:28.8676052Z Progress: 71% - Saving 8.02 MB of 11.18 MB
+2025-05-27T08:59:28.8687344Z Progress: 73% - Saving 8.17 MB of 11.18 MB
+2025-05-27T08:59:28.8700743Z Progress: 74% - Saving 8.32 MB of 11.18 MB
+2025-05-27T08:59:28.8711337Z Progress: 75% - Saving 8.47 MB of 11.18 MB
+2025-05-27T08:59:28.8722369Z Progress: 77% - Saving 8.62 MB of 11.18 MB
+2025-05-27T08:59:28.8732995Z Progress: 78% - Saving 8.78 MB of 11.18 MB
+2025-05-27T08:59:28.8793926Z Progress: 79% - Saving 8.93 MB of 11.18 MB
+2025-05-27T08:59:28.8804989Z Progress: 81% - Saving 9.08 MB of 11.18 MB
+2025-05-27T08:59:28.8817697Z Progress: 82% - Saving 9.24 MB of 11.18 MB
+2025-05-27T08:59:28.8828397Z Progress: 83% - Saving 9.39 MB of 11.18 MB
+2025-05-27T08:59:28.8840132Z Progress: 85% - Saving 9.54 MB of 11.18 MB
+2025-05-27T08:59:28.8851324Z Progress: 86% - Saving 9.69 MB of 11.18 MB
+2025-05-27T08:59:28.8866672Z Progress: 88% - Saving 9.84 MB of 11.18 MB
+2025-05-27T08:59:28.8883889Z Progress: 89% - Saving 10 MB of 11.18 MB
+2025-05-27T08:59:28.8896408Z Progress: 90% - Saving 10.14 MB of 11.18 MB
+2025-05-27T08:59:28.8907813Z Progress: 92% - Saving 10.29 MB of 11.18 MB
+2025-05-27T08:59:28.8918577Z Progress: 93% - Saving 10.45 MB of 11.18 MB
+2025-05-27T08:59:28.8929783Z Progress: 94% - Saving 10.61 MB of 11.18 MB
+2025-05-27T08:59:28.8941910Z Progress: 96% - Saving 10.76 MB of 11.18 MB
+2025-05-27T08:59:28.8952666Z Progress: 97% - Saving 10.92 MB of 11.18 MB
+2025-05-27T08:59:28.8978755Z Progress: 99% - Saving 11.08 MB of 11.18 MB
+2025-05-27T08:59:28.8979479Z Progress: 100% - Completed download of C:\ProgramData\chocolatey\lib\yq\tools\yq.exe (11.18 MB).
+2025-05-27T08:59:28.8995565Z Download of yq.exe (11.18 MB) completed.
+2025-05-27T08:59:35.2559969Z Hashes match.
+2025-05-27T08:59:35.3345266Z C:\ProgramData\chocolatey\lib\yq\tools\yq.exe
+2025-05-27T08:59:37.4751429Z  ShimGen has successfully created a shim for yq.exe
+2025-05-27T08:59:37.5026861Z  The install of yq was successful.
+2025-05-27T08:59:37.5032360Z   Software install location not explicitly set, it could be in package or
+2025-05-27T08:59:37.5033336Z   default install location of installer.
+2025-05-27T08:59:37.5317706Z 
+2025-05-27T08:59:37.5318325Z Chocolatey installed 1/1 packages. 
+2025-05-27T08:59:37.5319012Z  See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+2025-05-27T08:59:37.5908068Z ##[group]Run chmod +x "$GITHUB_ACTION_PATH/setup.sh"
+2025-05-27T08:59:37.5908520Z [36;1mchmod +x "$GITHUB_ACTION_PATH/setup.sh"[0m
+2025-05-27T08:59:37.5921865Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+2025-05-27T08:59:37.5922365Z env:
+2025-05-27T08:59:37.5922685Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:59:37.5923270Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T08:59:37.5923852Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:59:37.5924355Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:59:37.5924868Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:59:37.5925259Z ##[endgroup]
+2025-05-27T08:59:37.6697488Z ##[group]Run $GITHUB_ACTION_PATH/setup.sh -p \
+2025-05-27T08:59:37.6697942Z [36;1m$GITHUB_ACTION_PATH/setup.sh -p \[0m
+2025-05-27T08:59:37.6698299Z [36;1m  -n '3.24.0' \[0m
+2025-05-27T08:59:37.6698552Z [36;1m  -f '' \[0m
+2025-05-27T08:59:37.6698771Z [36;1m  -a 'X64' \[0m
+2025-05-27T08:59:37.6699010Z [36;1m  -k '' \[0m
+2025-05-27T08:59:37.6699231Z [36;1m  -c '' \[0m
+2025-05-27T08:59:37.6699448Z [36;1m  -l '' \[0m
+2025-05-27T08:59:37.6699668Z [36;1m  -d 'default' \[0m
+2025-05-27T08:59:37.6700027Z [36;1m  -g 'https://github.com/flutter/flutter.git' \[0m
+2025-05-27T08:59:37.6700391Z [36;1m  stable[0m
+2025-05-27T08:59:37.6713138Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+2025-05-27T08:59:37.6713592Z env:
+2025-05-27T08:59:37.6713904Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:59:37.6714440Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T08:59:37.6714971Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:59:37.6715447Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:59:37.6715933Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:59:37.6716301Z ##[endgroup]
+2025-05-27T08:59:41.3131855Z ##[group]Run $GITHUB_ACTION_PATH/setup.sh \
+2025-05-27T08:59:41.3132251Z [36;1m$GITHUB_ACTION_PATH/setup.sh \[0m
+2025-05-27T08:59:41.3132542Z [36;1m  -n '3.24.0' \[0m
+2025-05-27T08:59:41.3132770Z [36;1m  -a 'x64' \[0m
+2025-05-27T08:59:41.3133094Z [36;1m  -c 'C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64' \[0m
+2025-05-27T08:59:41.3133711Z [36;1m  -d 'C:\Users\runneradmin\AppData\Local\Pub\Cache' \[0m
+2025-05-27T08:59:41.3134047Z [36;1m  stable[0m
+2025-05-27T08:59:41.3146301Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+2025-05-27T08:59:41.3146658Z env:
+2025-05-27T08:59:41.3146897Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:59:41.3147311Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T08:59:41.3147885Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:59:41.3148244Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:59:41.3148594Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T08:59:41.3148864Z ##[endgroup]
+2025-05-27T08:59:42.8897790Z   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+2025-05-27T08:59:42.8898498Z                                  Dload  Upload   Total   Spent    Left  Speed
+2025-05-27T08:59:42.8898857Z 
+2025-05-27T08:59:43.2885538Z   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+2025-05-27T08:59:44.2589169Z   2  964M    2 22.0M    0     0  55.0M      0  0:00:17 --:--:--  0:00:17 55.1M
+2025-05-27T08:59:45.2589470Z  16  964M   16  159M    0     0   116M      0  0:00:08  0:00:01  0:00:07  116M
+2025-05-27T08:59:46.3631509Z  32  964M   32  315M    0     0   133M      0  0:00:07  0:00:02  0:00:05  132M
+2025-05-27T08:59:47.2984778Z  46  964M   46  444M    0     0   127M      0  0:00:07  0:00:03  0:00:04  127M
+2025-05-27T08:59:48.2586352Z  58  964M   58  562M    0     0   127M      0  0:00:07  0:00:04  0:00:03  127M
+2025-05-27T08:59:49.2587363Z  70  964M   70  681M    0     0   126M      0  0:00:07  0:00:05  0:00:02  132M
+2025-05-27T08:59:50.1544822Z  85  964M   85  823M    0     0   129M      0  0:00:07  0:00:06  0:00:01  132M
+2025-05-27T08:59:50.1553978Z 100  964M  100  964M    0     0   132M      0  0:00:07  0:00:07 --:--:--  132M
+2025-05-27T09:01:11.4662325Z ##[group]Run flutter doctor -v
+2025-05-27T09:01:11.4662663Z [36;1mflutter doctor -v[0m
+2025-05-27T09:01:11.4695732Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2025-05-27T09:01:11.4696071Z env:
+2025-05-27T09:01:11.4696330Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:01:11.4696744Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T09:01:11.4697175Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:01:11.4697542Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:01:11.4697907Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:01:11.4698288Z   FLUTTER_ROOT: C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64
+2025-05-27T09:01:11.4698650Z   PUB_CACHE: C:\Users\runneradmin\AppData\Local\Pub\Cache
+2025-05-27T09:01:11.4698919Z ##[endgroup]
+2025-05-27T09:01:12.7306818Z 
+2025-05-27T09:01:12.7333268Z   ╔════════════════════════════════════════════════════════════════════════════╗
+2025-05-27T09:01:12.7334145Z   ║                 Welcome to Flutter! - https://flutter.dev                  ║
+2025-05-27T09:01:12.7334784Z   ║                                                                            ║
+2025-05-27T09:01:12.7335493Z   ║ The Flutter tool uses Google Analytics to anonymously report feature usage ║
+2025-05-27T09:01:12.7336388Z   ║ statistics and basic crash reports. This data is used to help improve      ║
+2025-05-27T09:01:12.7337208Z   ║ Flutter tools over time.                                                   ║
+2025-05-27T09:01:12.7337826Z   ║                                                                            ║
+2025-05-27T09:01:12.7338506Z   ║ Flutter tool analytics are not sent on the very first run. To disable      ║
+2025-05-27T09:01:12.7339408Z   ║ reporting, type 'flutter config --no-analytics'. To display the current    ║
+2025-05-27T09:01:12.7340381Z   ║ setting, type 'flutter config'. If you opt out of analytics, an opt-out    ║
+2025-05-27T09:01:12.7341662Z   ║ event will be sent, and then no further information will be sent by the    ║
+2025-05-27T09:01:12.7342438Z   ║ Flutter tool.                                                              ║
+2025-05-27T09:01:12.7343048Z   ║                                                                            ║
+2025-05-27T09:01:12.7343768Z   ║ By downloading the Flutter SDK, you agree to the Google Terms of Service.  ║
+2025-05-27T09:01:12.7344737Z   ║ The Google Privacy Policy describes how data is handled in this service.   ║
+2025-05-27T09:01:12.7345518Z   ║                                                                            ║
+2025-05-27T09:01:12.7346283Z   ║ Moreover, Flutter includes the Dart SDK, which may send usage metrics and  ║
+2025-05-27T09:01:12.7347185Z   ║ crash reports to Google.                                                   ║
+2025-05-27T09:01:12.7347900Z   ║                                                                            ║
+2025-05-27T09:01:12.7348654Z   ║ Read about data we send with crash reports:                                ║
+2025-05-27T09:01:12.7349561Z   ║ https://flutter.dev/to/crash-reporting                                     ║
+2025-05-27T09:01:12.7350320Z   ║                                                                            ║
+2025-05-27T09:01:12.7351025Z   ║ See Google's privacy policy:                                               ║
+2025-05-27T09:01:12.7351896Z   ║ https://policies.google.com/privacy                                        ║
+2025-05-27T09:01:12.7352649Z   ║                                                                            ║
+2025-05-27T09:01:12.7353272Z   ║ To disable animations in this tool, use                                    ║
+2025-05-27T09:01:12.7353772Z   ║ 'flutter config --no-cli-animations'.                                      ║
+2025-05-27T09:01:12.7356372Z   ╚════════════════════════════════════════════════════════════════════════════╝
+2025-05-27T09:01:12.7356709Z 
+2025-05-27T09:01:32.1645572Z [√] Flutter (Channel stable, 3.24.0, on Microsoft Windows [Version 10.0.20348.3561], locale en-US)
+2025-05-27T09:01:32.1649731Z     • Flutter version 3.24.0 on channel stable at C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64
+2025-05-27T09:01:32.1651601Z     • Upstream repository https://github.com/flutter/flutter.git
+2025-05-27T09:01:32.1652956Z     • Framework revision 80c2e84975 (10 months ago), 2024-07-30 23:06:49 +0700
+2025-05-27T09:01:32.1654095Z     • Engine revision b8800d88be
+2025-05-27T09:01:32.1655601Z     • Dart version 3.5.0
+2025-05-27T09:01:32.1657254Z     • DevTools version 2.37.2
+2025-05-27T09:01:32.1658236Z 
+2025-05-27T09:01:33.1282020Z [√] Windows Version (Installed version of Windows is version 10 or higher)
+2025-05-27T09:01:33.1282438Z 
+2025-05-27T09:02:08.0362944Z [!] Android toolchain - develop for Android devices (Android SDK version 36.0.0)
+2025-05-27T09:02:08.0364006Z     • Android SDK at C:\Android\android-sdk
+2025-05-27T09:02:08.0365150Z     • Platform android-36, build-tools 36.0.0
+2025-05-27T09:02:08.0366234Z     • ANDROID_HOME = C:\Android\android-sdk
+2025-05-27T09:02:08.0367295Z     • ANDROID_SDK_ROOT = C:\Android\android-sdk
+2025-05-27T09:02:08.0368733Z     • Java binary at: C:\hostedtoolcache\windows\Java_Temurin-Hotspot_jdk\8.0.452-9\x64\bin\java
+2025-05-27T09:02:08.0369802Z     X Could not determine java version
+2025-05-27T09:02:08.0371996Z     • All Android licenses accepted.
+2025-05-27T09:02:08.0372905Z 
+2025-05-27T09:02:08.0375226Z [√] Chrome - develop for the web
+2025-05-27T09:02:08.0377248Z     • Chrome at C:\Program Files\Google\Chrome\Application\chrome.exe
+2025-05-27T09:02:08.0377905Z 
+2025-05-27T09:02:08.0381090Z [√] Visual Studio - develop Windows apps (Visual Studio Enterprise 2022 17.13.2)
+2025-05-27T09:02:08.0382268Z     • Visual Studio at C:\Program Files\Microsoft Visual Studio\2022\Enterprise
+2025-05-27T09:02:08.0383646Z     • Visual Studio Enterprise 2022 version 17.13.35825.156
+2025-05-27T09:02:08.0385909Z     • Windows 10 SDK version 10.0.26100.0
+2025-05-27T09:02:08.0386092Z 
+2025-05-27T09:02:08.0387914Z [!] Android Studio (not installed)
+2025-05-27T09:02:08.0389755Z     • Android Studio not found; download from https://developer.android.com/studio/index.html
+2025-05-27T09:02:08.0391150Z       (or visit https://flutter.dev/to/windows-android-setup for detailed instructions).
+2025-05-27T09:02:08.0391904Z 
+2025-05-27T09:02:08.0393782Z [√] Connected device (2 available)
+2025-05-27T09:02:08.0396881Z     • Windows (desktop) • windows • windows-x64    • Microsoft Windows [Version 10.0.20348.3561]
+2025-05-27T09:02:08.0398667Z     • Chrome (web)      • chrome  • web-javascript • unknown
+2025-05-27T09:02:08.0398923Z 
+2025-05-27T09:02:08.0400373Z [√] Network resources
+2025-05-27T09:02:08.0401520Z     • All expected network resources are available.
+2025-05-27T09:02:08.0401932Z 
+2025-05-27T09:02:08.0403161Z ! Doctor found issues in 2 categories.
+2025-05-27T09:02:08.1890658Z ##[group]Run flutter pub get
+2025-05-27T09:02:08.1891196Z [36;1mflutter pub get[0m
+2025-05-27T09:02:08.1947057Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2025-05-27T09:02:08.1947632Z env:
+2025-05-27T09:02:08.1948104Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:02:08.1948894Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2025-05-27T09:02:08.1949703Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:02:08.1950396Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:02:08.1951153Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2025-05-27T09:02:08.1951924Z   FLUTTER_ROOT: C:\hostedtoolcache\windows\flutter\stable-3.24.0-x64
+2025-05-27T09:02:08.1952620Z   PUB_CACHE: C:\Users\runneradmin\AppData\Local\Pub\Cache
+2025-05-27T09:02:08.1953172Z ##[endgroup]
+2025-05-27T09:02:08.6548559Z Expected to find project root in current working directory.
+2025-05-27T09:02:08.7768099Z ##[error]Process completed with exit code 1.
+2025-05-27T09:02:08.8003666Z Post job cleanup.
+2025-05-27T09:02:08.8143596Z Post job cleanup.
+2025-05-27T09:02:09.0455725Z [command]"C:\Program Files\Git\bin\git.exe" version
+2025-05-27T09:02:09.0746309Z git version 2.49.0.windows.1
+2025-05-27T09:02:09.0830755Z Temporarily overriding HOME='D:\a\_temp\4eef0a12-dda3-466b-a7a6-c569ce9c1069' before making global git config changes
+2025-05-27T09:02:09.0832238Z Adding repository directory to the temporary git global config as a safe directory
+2025-05-27T09:02:09.0843787Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\material-anticheat-\material-anticheat-
+2025-05-27T09:02:09.1114454Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2025-05-27T09:02:09.1355204Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2025-05-27T09:02:09.5748709Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-05-27T09:02:09.5946095Z http.https://github.com/.extraheader
+2025-05-27T09:02:09.5992460Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all http.https://github.com/.extraheader
+2025-05-27T09:02:09.6262211Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2025-05-27T09:02:10.0728407Z Cleaning up orphan processes
+2025-05-27T09:02:10.0910804Z Terminate orphan process: pid (2444) (adb)
