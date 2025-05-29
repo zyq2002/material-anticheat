@@ -4,6 +4,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:path/path.dart' as path;
 
+import '../models/weighbridge_suspicious_image_result.dart';
 import '../services/weighbridge_image_similarity_service.dart';
 import '../services/log_service.dart';
 

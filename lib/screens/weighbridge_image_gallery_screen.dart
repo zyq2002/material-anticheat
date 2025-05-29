@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -969,6 +970,44 @@ class WeighbridgeRecordImagesCard extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // 添加时间显示的状态
+    final recordTime = useState<DateTime?>(null);
+    final createTime = useState<String?>(null);
+    
+    // 异步获取记录时间
+    useEffect(() {
+      Future.microtask(() async {
+        if (images.isNotEmpty) {
+          try {
+            // 尝试从record_info.json读取创建时间
+            final recordDir = Directory(path.dirname(images.first.path));
+            final recordInfoFile = File(path.join(recordDir.path, 'record_info.json'));
+            
+            if (await recordInfoFile.exists()) {
+              final jsonContent = await recordInfoFile.readAsString();
+              final recordData = json.decode(jsonContent) as Map<String, dynamic>;
+              final createTimeStr = recordData['createTime'] as String?;
+              
+              if (createTimeStr != null && createTimeStr.isNotEmpty) {
+                createTime.value = createTimeStr;
+                recordTime.value = DateTime.parse(createTimeStr.replaceAll(' ', 'T'));
+              } else {
+                // 如果没有创建时间，使用文件时间作为备选
+                final stat = await images.first.stat();
+                recordTime.value = stat.modified;
+              }
+            } else {
+              // 如果没有record_info.json，使用文件时间作为备选
+              final stat = await images.first.stat();
+              recordTime.value = stat.modified;
+            }
+          } catch (e) {
+            debugPrint('获取图片时间失败: $e');
+          }
+        }
+      });
+      return null;
+    }, [images]);
 
     // 解析过磅记录名称
     final parts = recordName.split('_');
@@ -1088,6 +1127,41 @@ class WeighbridgeRecordImagesCard extends HookConsumerWidget {
                       ),
                     ],
                   ),
+                  
+                  // 创建时间
+                  if (createTime.value != null) ...[
+                    const SizedBox(height: 8),
+                    Row(
+                      children: [
+                        const Icon(Icons.access_time, size: 16, color: Colors.grey),
+                        const SizedBox(width: 8),
+                        Expanded(
+                          child: Text(
+                            '创建时间: $createTime.value',
+                            style: TextStyle(
+                              fontSize: 13,
+                              color: Colors.grey.shade600,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ] else if (recordTime.value != null) ...[
+                    const SizedBox(height: 8),
+                    Row(
+                      children: [
+                        const Icon(Icons.access_time, size: 16, color: Colors.grey),
+                        const SizedBox(width: 8),
+                        Text(
+                          '创建时间: ${_formatTime(recordTime.value!)}',
+                          style: TextStyle(
+                            fontSize: 13,
+                            color: Colors.grey.shade600,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                   
                   // 可疑图片警告
                   if (suspiciousCount > 0) ...[
@@ -1465,18 +1539,131 @@ Future<Map<String, List<File>>> _loadWeighbridgeImageGroups(String date) async {
         }
 
         if (images.isNotEmpty) {
-          // 按文件名排序
-          images.sort((a, b) => path.basename(a.path).compareTo(path.basename(b.path)));
+          // 按时间排序（优先使用文件修改时间，如果相同则按文件名排序）
+          await _sortImagesByTime(images);
           imageGroups[recordName] = images;
         }
       }
     }
 
-    return imageGroups;
+    // 按接口返回的创建时间排序过磅记录
+    final sortedGroups = await _sortRecordsByApiCreateTime(imageGroups, dateDir);
+    return sortedGroups;
   } catch (e) {
     debugPrint('加载过磅图片分组失败: $e');
     return {};
   }
+}
+
+/// 按时间排序图片
+Future<void> _sortImagesByTime(List<File> images) async {
+  // 创建图片信息列表，包含时间戳
+  final imageInfoList = <Map<String, dynamic>>[];
+  
+  for (final image in images) {
+    try {
+      final stat = await image.stat();
+      imageInfoList.add({
+        'file': image,
+        'modified': stat.modified,
+        'fileName': path.basename(image.path),
+      });
+    } catch (e) {
+      // 如果获取时间失败，使用文件名作为备选排序
+      imageInfoList.add({
+        'file': image,
+        'modified': DateTime.fromMillisecondsSinceEpoch(0),
+        'fileName': path.basename(image.path),
+      });
+    }
+  }
+  
+  // 按修改时间排序，如果时间相同则按文件名排序
+  imageInfoList.sort((a, b) {
+    final timeCompare = (a['modified'] as DateTime).compareTo(b['modified'] as DateTime);
+    if (timeCompare != 0) {
+      return timeCompare;
+    }
+    return (a['fileName'] as String).compareTo(b['fileName'] as String);
+  });
+  
+  // 更新原列表顺序
+  images.clear();
+  images.addAll(imageInfoList.map((info) => info['file'] as File));
+}
+
+/// 按接口返回的创建时间排序过磅记录
+Future<Map<String, List<File>>> _sortRecordsByApiCreateTime(
+  Map<String, List<File>> imageGroups,
+  Directory dateDir,
+) async {
+  final recordInfoList = <Map<String, dynamic>>[];
+  
+  for (final entry in imageGroups.entries) {
+    final recordName = entry.key;
+    final images = entry.value;
+    
+    try {
+      // 尝试从record_info.json读取过磅记录信息
+      final recordDir = Directory(path.join(dateDir.path, recordName));
+      final recordInfoFile = File(path.join(recordDir.path, 'record_info.json'));
+      
+      DateTime recordTime;
+      
+      if (await recordInfoFile.exists()) {
+        // 读取JSON文件获取创建时间
+        final jsonContent = await recordInfoFile.readAsString();
+        final recordData = json.decode(jsonContent) as Map<String, dynamic>;
+        final createTimeStr = recordData['createTime'] as String?;
+        
+        if (createTimeStr != null && createTimeStr.isNotEmpty) {
+          // 解析createTime字符串，格式如: "2025-05-26 18:08:06"
+          recordTime = DateTime.parse(createTimeStr.replaceAll(' ', 'T'));
+        } else {
+          // 如果没有createTime，使用第一张图片的时间作为备选
+          recordTime = images.isNotEmpty 
+              ? (await images.first.stat()).modified
+              : DateTime.fromMillisecondsSinceEpoch(0);
+        }
+      } else {
+        // 如果没有record_info.json，使用第一张图片的时间作为备选
+        recordTime = images.isNotEmpty 
+            ? (await images.first.stat()).modified
+            : DateTime.fromMillisecondsSinceEpoch(0);
+      }
+      
+      recordInfoList.add({
+        'recordName': recordName,
+        'images': images,
+        'time': recordTime,
+      });
+    } catch (e) {
+      debugPrint('读取过磅记录 $recordName 的时间信息失败: $e');
+      // 如果获取时间失败，使用记录名作为备选排序
+      recordInfoList.add({
+        'recordName': recordName,
+        'images': images,
+        'time': DateTime.fromMillisecondsSinceEpoch(0),
+      });
+    }
+  }
+  
+  // 按时间排序（最新的在前）
+  recordInfoList.sort((a, b) {
+    final timeCompare = (b['time'] as DateTime).compareTo(a['time'] as DateTime);
+    if (timeCompare != 0) {
+      return timeCompare;
+    }
+    return (a['recordName'] as String).compareTo(b['recordName'] as String);
+  });
+  
+  // 构建排序后的Map（使用LinkedHashMap保持顺序）
+  final sortedGroups = <String, List<File>>{};
+  for (final info in recordInfoList) {
+    sortedGroups[info['recordName'] as String] = info['images'] as List<File>;
+  }
+  
+  return sortedGroups;
 }
 
 /// 显示图片预览对话框
@@ -1769,4 +1956,8 @@ class WeighbridgeImagePreviewDialog extends HookWidget {
       );
     }
   }
+}
+
+String _formatTime(DateTime time) {
+  return '${time.hour.toString().padLeft(2, '0')}:${time.minute.toString().padLeft(2, '0')}:${time.second.toString().padLeft(2, '0')}';
 } 

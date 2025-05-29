@@ -3,9 +3,24 @@ name: Build Windows App
 on:
   push:
     branches: [ main, master ]
+    tags: 
+      - 'v*'
   pull_request:
     branches: [ main, master ]
   workflow_dispatch:
+    inputs:
+      create_release:
+        description: '是否创建 Release'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+        - 'true'
+        - 'false'
+
+env:
+  FLUTTER_VERSION: '3.24.0'
+  PYTHON_VERSION: '3.11'
 
 jobs:
   build-windows:
@@ -14,51 +29,198 @@ jobs:
     steps:
     - name: 检出代码
       uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        
+    - name: 设置 Python 环境
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+        
+    - name: 安装 Python 依赖
+      run: |
+        python -m pip install --upgrade pip
+        if exist requirements.txt pip install -r requirements.txt
+      shell: cmd
       
     - name: 设置 Flutter
       uses: subosito/flutter-action@v2
       with:
-        flutter-version: '3.24.0'
+        flutter-version: ${{ env.FLUTTER_VERSION }}
         channel: 'stable'
+        cache: true
+        cache-key: flutter-${{ env.FLUTTER_VERSION }}
+        
+    - name: Flutter 缓存
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.pub-cache
+          ${{ runner.tool_cache }}/flutter
+        key: ${{ runner.os }}-flutter-${{ env.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-flutter-${{ env.FLUTTER_VERSION }}-
+          ${{ runner.os }}-flutter-
         
     - name: 启用 Windows 桌面支持
       run: flutter config --enable-windows-desktop
       
+    - name: 检查 Flutter 状态
+      run: flutter doctor -v
+      
     - name: 获取依赖
       run: flutter pub get
       
+    - name: 代码生成
+      run: flutter packages pub run build_runner build --delete-conflicting-outputs
+      
+    - name: 分析代码
+      run: flutter analyze
+      continue-on-error: true
+      
+    - name: 运行测试
+      run: flutter test
+      continue-on-error: true
+      
     - name: 构建 Windows 应用
-      run: flutter build windows --release
+      run: flutter build windows --release --verbose
       
     - name: 验证构建结果
       run: |
         if exist "build\windows\x64\runner\Release\material_anticheat.exe" (
           echo ✅ Windows应用构建成功
-          dir "build\windows\x64\runner\Release\material_anticheat.exe"
+          dir "build\windows\x64\runner\Release\"
+          echo.
+          echo 📁 构建产物详情:
+          for /r "build\windows\x64\runner\Release\" %%i in (*) do echo %%i
         ) else (
           echo ❌ 构建失败 - 可执行文件不存在
+          echo 📂 当前构建目录内容:
+          if exist "build\windows" (
+            dir "build\windows" /s
+          ) else (
+            echo build\windows 目录不存在
+          )
           exit 1
         )
       shell: cmd
       
     - name: 创建应用包
       run: |
+        echo 📦 创建应用包...
         if exist "windows-package" rmdir /s /q "windows-package"
         mkdir windows-package
+        
+        echo 📁 复制主程序文件...
         xcopy "build\windows\x64\runner\Release\*" "windows-package\" /s /e /y /i
+        
+        echo 📄 复制 README 和说明文件...
+        if exist "README_WINDOWS.md" copy "README_WINDOWS.md" "windows-package\README.md"
+        if exist "物资anticheat-发布说明.md" copy "物资anticheat-发布说明.md" "windows-package\"
+        
+        echo 📁 复制 Python 脚本 (如果存在)...
+        if exist "python_scripts" (
+          mkdir "windows-package\python_scripts"
+          xcopy "python_scripts\*" "windows-package\python_scripts\" /s /e /y /i
+        )
+        
         echo ✅ 应用包创建完成
+        dir "windows-package" /s
       shell: cmd
         
-    - name: 压缩应用
+    - name: 创建版本信息
       run: |
+        echo 📝 创建版本信息文件...
+        echo 物资anticheat Windows版本 > windows-package\VERSION.txt
+        echo 构建时间: %date% %time% >> windows-package\VERSION.txt
+        echo 构建分支: ${{ github.ref_name }} >> windows-package\VERSION.txt
+        echo 提交哈希: ${{ github.sha }} >> windows-package\VERSION.txt
+        echo Flutter版本: ${{ env.FLUTTER_VERSION }} >> windows-package\VERSION.txt
+        echo. >> windows-package\VERSION.txt
+        echo 运行说明: >> windows-package\VERSION.txt
+        echo 1. 双击 material_anticheat.exe 启动应用 >> windows-package\VERSION.txt
+        echo 2. 首次运行需要配置接口地址和认证信息 >> windows-package\VERSION.txt
+        echo 3. 如有问题请查看日志文件 >> windows-package\VERSION.txt
+      shell: cmd
+        
+    - name: 压缩应用包
+      run: |
+        echo 🗜️ 创建压缩包...
         if exist "material-anticheat-windows.zip" del "material-anticheat-windows.zip"
-        powershell Compress-Archive -Path "windows-package\*" -DestinationPath "material-anticheat-windows.zip"
+        powershell Compress-Archive -Path "windows-package\*" -DestinationPath "material-anticheat-windows.zip" -CompressionLevel Optimal
+        
         echo ✅ 压缩包创建完成
+        dir material-anticheat-windows.zip
+        powershell Get-ItemProperty material-anticheat-windows.zip | Select-Object Name,Length,LastWriteTime
+      shell: cmd
+      
+    - name: 创建便携版
+      run: |
+        echo 💼 创建便携版...
+        if exist "material-anticheat-portable" rmdir /s /q "material-anticheat-portable"
+        mkdir material-anticheat-portable
+        xcopy "windows-package\*" "material-anticheat-portable\" /s /e /y /i
+        
+        echo @echo off > material-anticheat-portable\启动应用.bat
+        echo cd /d "%%~dp0" >> material-anticheat-portable\启动应用.bat
+        echo material_anticheat.exe >> material-anticheat-portable\启动应用.bat
+        echo pause >> material-anticheat-portable\启动应用.bat
+        
+        powershell Compress-Archive -Path "material-anticheat-portable\*" -DestinationPath "material-anticheat-portable.zip" -CompressionLevel Optimal
+        echo ✅ 便携版创建完成
       shell: cmd
         
     - name: 上传构建产物
       uses: actions/upload-artifact@v4
       with:
-        name: windows-app
-        path: material-anticheat-windows.zip
+        name: windows-app-${{ github.run_number }}
+        path: |
+          material-anticheat-windows.zip
+          material-anticheat-portable.zip
+        retention-days: 90
+        
+    - name: 上传调试信息
+      if: failure()
+      uses: actions/upload-artifact@v4
+      with:
+        name: debug-info-${{ github.run_number }}
+        path: |
+          build/windows/**/*.log
+          flutter_analyze.log
         retention-days: 30
+        
+    - name: 创建 Release (如果是标签推送或手动触发)
+      if: (startsWith(github.ref, 'refs/tags/v') || (github.event_name == 'workflow_dispatch' && github.event.inputs.create_release == 'true'))
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          material-anticheat-windows.zip
+          material-anticheat-portable.zip
+        name: 物资anticheat Windows版 ${{ github.ref_name }}
+        body: |
+          🎉 物资anticheat Windows版本发布
+          
+          📦 **包含内容:**
+          - `material-anticheat-windows.zip` - 标准安装包
+          - `material-anticheat-portable.zip` - 便携版 (包含启动脚本)
+          
+          🚀 **运行要求:**
+          - Windows 10 或更高版本
+          - x64 架构
+          
+          📋 **使用说明:**
+          1. 下载并解压对应的zip文件
+          2. 双击 `material_anticheat.exe` 或运行 `启动应用.bat`
+          3. 首次使用需要配置接口信息
+          
+          🔧 **构建信息:**
+          - 构建时间: ${{ github.event.head_commit.timestamp }}
+          - 提交: ${{ github.sha }}
+          - Flutter: ${{ env.FLUTTER_VERSION }}
+          
+          📝 **更新内容:**
+          ${{ github.event.head_commit.message }}
+        draft: false
+        prerelease: contains(github.ref_name, 'beta') || contains(github.ref_name, 'alpha')
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

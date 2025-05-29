@@ -1,10 +1,12 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:logger/logger.dart';
 import 'package:intl/intl.dart';
 import 'package:path/path.dart' as path;
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter/foundation.dart';
 
 import '../models/weighbridge_info.dart';
 import 'api_service.dart';
@@ -496,6 +498,9 @@ class WeighbridgeCrawlerService extends _$WeighbridgeCrawlerService {
         _logService?.info('创建过磅记录文件夹: $folderName');
       }
 
+      // 保存过磅记录信息到JSON文件
+      await _saveWeighbridgeRecordInfo(weighbridgeInfo, recordFolderPath);
+
       // 获取所有图片
       final allImages = weighbridgeInfo.getAllImages();
       int imageCount = 0;
@@ -541,6 +546,42 @@ class WeighbridgeCrawlerService extends _$WeighbridgeCrawlerService {
       _logger.e('下载过磅记录 ${weighbridgeInfo.reportInfoId} 的图片时出错: $e');
       _logService?.error('下载过磅记录 ${weighbridgeInfo.reportInfoId} 的图片时出错: $e');
       rethrow;
+    }
+  }
+
+  /// 保存过磅记录信息到JSON文件
+  Future<void> _saveWeighbridgeRecordInfo(WeighbridgeInfo weighbridgeInfo, String recordFolderPath) async {
+    try {
+      final recordInfoFile = File(path.join(recordFolderPath, 'record_info.json'));
+      
+      // 创建包含关键信息的JSON数据
+      final recordData = {
+        'reportInfoId': weighbridgeInfo.reportInfoId,
+        'projectName': weighbridgeInfo.projectName,
+        'weighbridgeName': weighbridgeInfo.weighbridgeName,
+        'materialName': weighbridgeInfo.materialName,
+        'model': weighbridgeInfo.model,
+        'carNumber': weighbridgeInfo.carNumber,
+        'onlyNumber': weighbridgeInfo.onlyNumber,
+        'supplyName': weighbridgeInfo.supplyName,
+        'createTime': weighbridgeInfo.createTime,
+        'weightMTime': weighbridgeInfo.weightMTime,
+        'weightPTime': weighbridgeInfo.weightPTime,
+        'userLocation': weighbridgeInfo.userLocation,
+        'amount': weighbridgeInfo.amount,
+        'weightM': weighbridgeInfo.weightM,
+        'weightP': weighbridgeInfo.weightP,
+        'weightJ': weighbridgeInfo.weightJ,
+      };
+      
+      await recordInfoFile.writeAsString(
+        const JsonEncoder.withIndent('  ').convert(recordData),
+      );
+      
+      _logger.d('过磅记录信息已保存: record_info.json');
+    } catch (e) {
+      _logger.e('保存过磅记录信息失败: $e');
+      // 不抛出异常，因为这不应该阻止图片下载
     }
   }
 
