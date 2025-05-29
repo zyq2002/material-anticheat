@@ -1,0 +1,281 @@
+name: Build macOS App
+
+on:
+  push:
+    branches: [ main, master ]
+    tags: 
+      - 'v*'
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+    inputs:
+      create_release:
+        description: '是否创建 Release'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+        - 'true'
+        - 'false'
+
+env:
+  FLUTTER_VERSION: '3.24.0'
+  PYTHON_VERSION: '3.11'
+
+jobs:
+  build-macos:
+    runs-on: macos-latest
+    
+    steps:
+    - name: 检出代码
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        
+    - name: 设置 Python 环境
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+        
+    - name: 安装 Python 依赖
+      run: |
+        python -m pip install --upgrade pip
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        
+    - name: 设置 Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: ${{ env.FLUTTER_VERSION }}
+        channel: 'stable'
+        cache: true
+        cache-key: flutter-${{ env.FLUTTER_VERSION }}
+        
+    - name: Flutter 缓存
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.pub-cache
+          ${{ runner.tool_cache }}/flutter
+        key: ${{ runner.os }}-flutter-${{ env.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-flutter-${{ env.FLUTTER_VERSION }}-
+          ${{ runner.os }}-flutter-
+        
+    - name: 启用 macOS 桌面支持
+      run: flutter config --enable-macos-desktop
+      
+    - name: 检查 Flutter 状态
+      run: flutter doctor -v
+      
+    - name: 获取依赖
+      run: flutter pub get
+      
+    - name: 代码生成
+      run: flutter packages pub run build_runner build --delete-conflicting-outputs
+      
+    - name: 分析代码
+      run: flutter analyze
+      continue-on-error: true
+      
+    - name: 运行测试
+      run: flutter test
+      continue-on-error: true
+      
+    - name: 构建 macOS 应用
+      run: flutter build macos --release --verbose
+      
+    - name: 验证构建结果
+      run: |
+        if [ -d "build/macos/Build/Products/Release/material_anticheat.app" ]; then
+          echo "✅ macOS应用构建成功"
+          ls -la build/macos/Build/Products/Release/
+          echo ""
+          echo "📁 构建产物详情:"
+          find build/macos/Build/Products/Release/ -type f | head -20
+        else
+          echo "❌ 构建失败 - app文件不存在"
+          echo "📂 当前构建目录内容:"
+          if [ -d "build/macos" ]; then
+            find build/macos -type f -name "*.app" 2>/dev/null || echo "未找到.app文件"
+            ls -la build/macos/Build/Products/ 2>/dev/null || echo "Release目录不存在"
+          else
+            echo "build/macos 目录不存在"
+          fi
+          exit 1
+        fi
+        
+    - name: 创建应用包
+      run: |
+        echo "📦 创建应用包..."
+        rm -rf macos-package
+        mkdir -p macos-package
+        
+        echo "📁 复制主程序文件..."
+        cp -R build/macos/Build/Products/Release/material_anticheat.app macos-package/
+        
+        echo "📄 复制 README 和说明文件..."
+        if [ -f "README_WINDOWS.md" ]; then
+          cp README_WINDOWS.md macos-package/README.md
+        fi
+        if [ -f "物资anticheat-发布说明.md" ]; then
+          cp "物资anticheat-发布说明.md" macos-package/
+        fi
+        
+        echo "📁 复制 Python 脚本 (如果存在)..."
+        if [ -d "python_scripts" ]; then
+          mkdir -p macos-package/python_scripts
+          cp -R python_scripts/* macos-package/python_scripts/
+        fi
+        
+        echo "✅ 应用包创建完成"
+        ls -la macos-package/
+        
+    - name: 创建版本信息
+      run: |
+        echo "📝 创建版本信息文件..."
+        cat > macos-package/VERSION.txt << EOF
+        物资anticheat macOS版本
+        构建时间: $(date)
+        构建分支: ${{ github.ref_name }}
+        提交哈希: ${{ github.sha }}
+        Flutter版本: ${{ env.FLUTTER_VERSION }}
+        
+        运行说明:
+        1. 双击 material_anticheat.app 启动应用
+        2. 首次运行可能需要在系统设置中允许运行
+        3. 如遇权限问题，右键选择"打开"
+        4. 首次运行需要配置接口地址和认证信息
+        EOF
+        
+    - name: 创建安装脚本
+      run: |
+        echo "📝 创建安装脚本..."
+        cat > macos-package/install.sh << 'EOF'
+        #!/bin/bash
+        echo "🚀 物资anticheat macOS 安装脚本"
+        echo ""
+        
+        # 检查是否有权限
+        if [ ! -w "/Applications" ]; then
+            echo "❌ 需要管理员权限安装到应用程序文件夹"
+            echo "请输入管理员密码："
+            sudo cp -R material_anticheat.app /Applications/
+        else
+            cp -R material_anticheat.app /Applications/
+        fi
+        
+        if [ $? -eq 0 ]; then
+            echo "✅ 安装成功！"
+            echo "📱 应用已安装到 /Applications/material_anticheat.app"
+            echo "🎯 您现在可以在启动台或应用程序文件夹中找到物资anticheat"
+        else
+            echo "❌ 安装失败，请手动拖拽到应用程序文件夹"
+        fi
+        EOF
+        chmod +x macos-package/install.sh
+        
+    - name: 压缩应用包
+      run: |
+        echo "🗜️ 创建压缩包..."
+        rm -f material-anticheat-macos.zip
+        cd macos-package && zip -r ../material-anticheat-macos.zip . && cd ..
+        
+        echo "✅ 压缩包创建完成"
+        ls -la material-anticheat-macos.zip
+        echo "📊 文件大小: $(du -h material-anticheat-macos.zip | cut -f1)"
+      
+    - name: 创建 DMG 安装包
+      run: |
+        echo "💿 创建DMG安装包..."
+        
+        # 创建临时DMG目录
+        mkdir -p dmg-temp
+        cp -R macos-package/material_anticheat.app dmg-temp/
+        
+        # 创建Applications链接
+        ln -s /Applications dmg-temp/Applications
+        
+        # 创建README
+        cat > dmg-temp/README.txt << EOF
+        物资anticheat - macOS版
+        
+        安装方法:
+        1. 将 material_anticheat.app 拖拽到 Applications 文件夹
+        2. 首次运行可能需要在系统设置中允许运行
+        3. 如遇权限问题，右键选择"打开"
+        
+        系统要求:
+        - macOS 10.14 或更高版本
+        - 4GB+ 内存
+        - 500MB+ 存储空间
+        EOF
+        
+        # 创建DMG
+        hdiutil create -volname "物资anticheat" -srcfolder dmg-temp -ov -format UDZO material-anticheat-macos.dmg
+        
+        echo "✅ DMG创建完成"
+        ls -la material-anticheat-macos.dmg
+        echo "📊 DMG大小: $(du -h material-anticheat-macos.dmg | cut -f1)"
+        
+    - name: 上传构建产物
+      uses: actions/upload-artifact@v4
+      with:
+        name: macos-app-${{ github.run_number }}
+        path: |
+          material-anticheat-macos.zip
+          material-anticheat-macos.dmg
+        retention-days: 90
+        
+    - name: 上传调试信息
+      if: failure()
+      uses: actions/upload-artifact@v4
+      with:
+        name: macos-debug-info-${{ github.run_number }}
+        path: |
+          build/macos/**/*.log
+          flutter_analyze.log
+        retention-days: 30
+        
+    - name: 创建 Release (如果是标签推送或手动触发)
+      if: (startsWith(github.ref, 'refs/tags/v') || (github.event_name == 'workflow_dispatch' && github.event.inputs.create_release == 'true'))
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          material-anticheat-macos.zip
+          material-anticheat-macos.dmg
+        name: 物资anticheat macOS版 ${{ github.ref_name }}
+        body: |
+          🎉 物资anticheat macOS版本发布
+          
+          📦 **包含内容:**
+          - `material-anticheat-macos.zip` - 应用包 (含安装脚本)
+          - `material-anticheat-macos.dmg` - DMG安装包 (推荐)
+          
+          🚀 **系统要求:**
+          - macOS 10.14 或更高版本
+          - Intel 或 Apple Silicon 芯片
+          - 4GB+ 内存
+          
+          📋 **安装说明:**
+          
+          **方法1 (推荐)**: 使用DMG安装包
+          1. 下载并双击 `material-anticheat-macos.dmg`
+          2. 将应用拖拽到Applications文件夹
+          3. 首次运行右键选择"打开"
+          
+          **方法2**: 使用ZIP包
+          1. 下载并解压 `material-anticheat-macos.zip`
+          2. 运行 `install.sh` 脚本自动安装
+          3. 或手动将app拖到Applications文件夹
+          
+          🔧 **构建信息:**
+          - 构建时间: ${{ github.event.head_commit.timestamp }}
+          - 提交: ${{ github.sha }}
+          - Flutter: ${{ env.FLUTTER_VERSION }}
+          
+          📝 **更新内容:**
+          ${{ github.event.head_commit.message }}
+        draft: false
+        prerelease: contains(github.ref_name, 'beta') || contains(github.ref_name, 'alpha')
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
