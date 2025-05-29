@@ -13,6 +13,11 @@ dependencies:
   
   # 状态管理
   flutter_riverpod: ^2.4.9
+  riverpod_annotation: ^2.3.5
+  
+  # 数据序列化
+  freezed_annotation: ^2.4.1
+  json_annotation: ^4.8.1
   
   # 网络请求
   dio: ^5.4.0
@@ -47,7 +52,17 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   
+  # 代码生成 - 更新到兼容版本
+  build_runner: ^2.4.8
+  freezed: ^2.4.7
+  json_serializable: ^6.7.1
+  riverpod_generator: ^2.3.9
+  
   flutter_lints: ^3.0.2
+
+dependency_overrides:
+  # 移除analyzer覆盖，让pub自动解析兼容版本
+  # analyzer: ^6.0.0
 
 flutter:
   uses-material-design: true 

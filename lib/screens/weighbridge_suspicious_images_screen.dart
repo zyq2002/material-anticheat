@@ -563,6 +563,11 @@ class WeighbridgeSuspiciousImageCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // 解析记录名称获取ID和车牌
+    final parts = result.recordName.split('__');
+    final reportId = parts.isNotEmpty ? parts[0].replaceFirst('WB', '') : '';
+    final carNumber = parts.length > 1 ? parts[1] : '';
+
     return Card(
       margin: const EdgeInsets.only(bottom: 16),
       elevation: 4,
@@ -579,149 +584,170 @@ class WeighbridgeSuspiciousImageCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // 头部信息
-              Row(
-                children: [
-                  Container(
-                    width: 36,
-                    height: 36,
-                    decoration: BoxDecoration(
-                      color: _getSimilarityColor(result.similarity).withOpacity(0.1),
-                      borderRadius: BorderRadius.circular(18),
+              // 可疑标识栏
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                margin: const EdgeInsets.only(bottom: 12),
+                decoration: BoxDecoration(
+                  color: _getSimilarityColor(result.similarity),
+                  borderRadius: BorderRadius.circular(6),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Icon(
+                      Icons.warning,
+                      color: Colors.white,
+                      size: 16,
                     ),
-                    child: Center(
-                      child: Text(
-                        '$index',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: _getSimilarityColor(result.similarity),
-                        ),
+                    const SizedBox(width: 6),
+                    Text(
+                      '可疑记录 #$index',
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
-                  ),
-                  const SizedBox(width: 12),
-                  Expanded(
+                    const SizedBox(width: 8),
+                    Text(
+                      '相似度: ${(result.similarity * 100).toStringAsFixed(1)}%',
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 11,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              
+              // 主要内容行
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // 左侧记录信息
+                  SizedBox(
+                    width: 200,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        // 过磅ID
+                        Container(
+                          width: 160,
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 12,
+                            vertical: 6,
+                          ),
+                          decoration: BoxDecoration(
+                            color: _getSimilarityColor(result.similarity).withOpacity(0.1),
+                            borderRadius: BorderRadius.circular(6),
+                            border: Border.all(
+                              color: _getSimilarityColor(result.similarity).withOpacity(0.3),
+                              width: 1,
+                            ),
+                          ),
+                          child: Text(
+                            '过磅ID: $reportId',
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                              color: _getSimilarityColor(result.similarity),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 12),
+                        
+                        // 车牌号码
                         Row(
                           children: [
+                            const Icon(Icons.local_shipping, size: 16, color: Colors.grey),
+                            const SizedBox(width: 8),
                             Text(
-                              '相似度: ${(result.similarity * 100).toStringAsFixed(1)}%',
+                              '车牌: $carNumber',
                               style: const TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
+                                fontSize: 13,
+                                fontWeight: FontWeight.w500,
                               ),
                             ),
+                          ],
+                        ),
+                        const SizedBox(height: 8),
+                        
+                        // 图片类型
+                        Row(
+                          children: [
+                            const Icon(Icons.category, size: 16, color: Colors.grey),
                             const SizedBox(width: 8),
-                            Container(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 8,
-                                vertical: 4,
+                            Text(
+                              '类型: ${result.imageType}',
+                              style: const TextStyle(
+                                fontSize: 13,
+                                fontWeight: FontWeight.w500,
                               ),
-                              decoration: BoxDecoration(
-                                color: _getSimilarityColor(result.similarity).withOpacity(0.1),
-                                borderRadius: BorderRadius.circular(12),
-                                border: Border.all(
-                                  color: _getSimilarityColor(result.similarity).withOpacity(0.3),
-                                ),
-                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 8),
+                        
+                        // 检测时间
+                        Row(
+                          children: [
+                            const Icon(Icons.access_time, size: 16, color: Colors.grey),
+                            const SizedBox(width: 8),
+                            Expanded(
                               child: Text(
-                                _getSimilarityLabel(result.similarity),
+                                '检测时间: ${_formatTime(result.detectionTime)}',
                                 style: TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.bold,
-                                  color: _getSimilarityColor(result.similarity),
+                                  fontSize: 13,
+                                  color: Colors.grey.shade600,
                                 ),
                               ),
                             ),
                           ],
                         ),
-                        const SizedBox(height: 4),
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.category,
-                              size: 16,
-                              color: Colors.grey.shade600,
-                            ),
-                            const SizedBox(width: 4),
-                            Text(
-                              result.imageType,
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.grey.shade600,
+                        const SizedBox(height: 12),
+                        
+                        // 相似度等级
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 12,
+                            vertical: 8,
+                          ),
+                          decoration: BoxDecoration(
+                            color: _getSimilarityColor(result.similarity).withOpacity(0.1),
+                            borderRadius: BorderRadius.circular(6),
+                            border: Border.all(color: _getSimilarityColor(result.similarity).withOpacity(0.3)),
+                          ),
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.analytics,
+                                size: 16,
+                                color: _getSimilarityColor(result.similarity),
                               ),
-                            ),
-                            const SizedBox(width: 16),
-                            Icon(
-                              Icons.access_time,
-                              size: 16,
-                              color: Colors.grey.shade600,
-                            ),
-                            const SizedBox(width: 4),
-                            Text(
-                              _formatTime(result.detectionTime),
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.grey.shade600,
+                              const SizedBox(width: 8),
+                              Expanded(
+                                child: Text(
+                                  '${_getSimilarityLabel(result.similarity)}风险',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.bold,
+                                    color: _getSimilarityColor(result.similarity),
+                                  ),
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ],
                     ),
                   ),
-                ],
-              ),
-              
-              const SizedBox(height: 16),
-              
-              // 图片对比
-              Row(
-                children: [
-                  // 可疑图片
-                  Expanded(
-                    child: _buildImageSection(
-                      '可疑图片',
-                      result.imagePath,
-                      result.recordName,
-                      true,
-                    ),
-                  ),
                   
                   const SizedBox(width: 16),
                   
-                  // 相似度连接
-                  Column(
-                    children: [
-                      Icon(
-                        Icons.compare_arrows,
-                        color: _getSimilarityColor(result.similarity),
-                        size: 32,
-                      ),
-                      const SizedBox(height: 4),
-                      Text(
-                        '${(result.similarity * 100).toStringAsFixed(0)}%',
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: _getSimilarityColor(result.similarity),
-                        ),
-                      ),
-                    ],
-                  ),
-                  
-                  const SizedBox(width: 16),
-                  
-                  // 匹配图片
+                  // 右侧图片对比区域
                   Expanded(
-                    child: _buildImageSection(
-                      '匹配图片',
-                      result.matchImagePath,
-                      result.matchRecordName,
-                      false,
-                    ),
+                    child: _buildImageComparisonGrid(context),
                   ),
                 ],
               ),
@@ -732,96 +758,161 @@ class WeighbridgeSuspiciousImageCard extends StatelessWidget {
     );
   }
 
-  Widget _buildImageSection(String title, String imagePath, String recordName, bool isSuspicious) {
+  /// 构建图片对比网格（2x1布局）
+  Widget _buildImageComparisonGrid(BuildContext context) {
+    return GridView.count(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      crossAxisCount: 2, // 2列：可疑图片和匹配图片
+      crossAxisSpacing: 16,
+      mainAxisSpacing: 8,
+      childAspectRatio: 1.2, // 稍微宽一点的比例
+      children: [
+        // 可疑图片
+        _buildImageCard(
+          '可疑图片',
+          result.imagePath,
+          result.recordName,
+          true,
+        ),
+        // 匹配图片
+        _buildImageCard(
+          '匹配图片',
+          result.matchImagePath,
+          result.matchRecordName,
+          false,
+        ),
+      ],
+    );
+  }
+
+  /// 构建单个图片卡片
+  Widget _buildImageCard(String title, String imagePath, String recordName, bool isSuspicious) {
     final file = File(imagePath);
     final fileName = path.basename(imagePath);
     
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
-          children: [
-            Text(
-              title,
-              style: const TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            if (isSuspicious) ...[
-              const SizedBox(width: 8),
-              Icon(
-                Icons.warning,
-                size: 16,
-                color: _getSimilarityColor(result.similarity),
-              ),
-            ],
-          ],
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: isSuspicious 
+              ? _getSimilarityColor(result.similarity) 
+              : Colors.grey.shade300,
+          width: isSuspicious ? 2 : 1,
         ),
-        const SizedBox(height: 8),
-        
-        Container(
-          height: 140,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            border: Border.all(
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // 图片标题
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+            decoration: BoxDecoration(
               color: isSuspicious 
-                  ? _getSimilarityColor(result.similarity) 
-                  : Colors.grey.shade300,
-              width: isSuspicious ? 2 : 1,
+                  ? _getSimilarityColor(result.similarity).withOpacity(0.1)
+                  : Colors.grey.shade100,
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(8),
+                topRight: Radius.circular(8),
+              ),
             ),
-            borderRadius: BorderRadius.circular(8),
+            child: Row(
+              children: [
+                Text(
+                  title,
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold,
+                    color: isSuspicious 
+                        ? _getSimilarityColor(result.similarity)
+                        : Colors.grey.shade700,
+                  ),
+                ),
+                if (isSuspicious) ...[
+                  const SizedBox(width: 4),
+                  Icon(
+                    Icons.warning,
+                    size: 12,
+                    color: _getSimilarityColor(result.similarity),
+                  ),
+                ],
+              ],
+            ),
           ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(8),
-            child: file.existsSync()
-                ? Image.file(
-                    file,
-                    fit: BoxFit.cover,
-                    errorBuilder: (context, error, stackTrace) {
-                      return Container(
-                        color: Colors.grey.shade300,
-                        child: const Icon(
-                          Icons.broken_image,
-                          color: Colors.grey,
+          
+          // 图片内容
+          Expanded(
+            child: ClipRRect(
+              borderRadius: const BorderRadius.only(
+                bottomLeft: Radius.circular(8),
+                bottomRight: Radius.circular(8),
+              ),
+              child: Stack(
+                children: [
+                  Container(
+                    width: double.infinity,
+                    height: double.infinity,
+                    child: file.existsSync()
+                        ? Image.file(
+                            file,
+                            fit: BoxFit.cover,
+                            errorBuilder: (context, error, stackTrace) {
+                              return Container(
+                                color: Colors.grey.shade300,
+                                child: const Icon(
+                                  Icons.broken_image,
+                                  color: Colors.grey,
+                                ),
+                              );
+                            },
+                          )
+                        : Container(
+                            color: Colors.grey.shade300,
+                            child: const Icon(
+                              Icons.image_not_supported,
+                              color: Colors.grey,
+                            ),
+                          ),
+                  ),
+                  
+                  // 文件名显示在底部
+                  Positioned(
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 8,
+                        vertical: 4,
+                      ),
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.bottomCenter,
+                          end: Alignment.topCenter,
+                          colors: [
+                            Colors.black.withOpacity(0.7),
+                            Colors.transparent,
+                          ],
                         ),
-                      );
-                    },
-                  )
-                : Container(
-                    color: Colors.grey.shade300,
-                    child: const Icon(
-                      Icons.image_not_supported,
-                      color: Colors.grey,
+                      ),
+                      child: Text(
+                        fileName,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 10,
+                        ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
                   ),
+                ],
+              ),
+            ),
           ),
-        ),
-        
-        const SizedBox(height: 8),
-        
-        Text(
-          recordName,
-          style: const TextStyle(
-            fontSize: 12,
-            fontWeight: FontWeight.w500,
-          ),
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-        ),
-        
-        const SizedBox(height: 4),
-        
-        Text(
-          fileName,
-          style: TextStyle(
-            fontSize: 11,
-            color: Colors.grey.shade600,
-          ),
-          maxLines: 2,
-          overflow: TextOverflow.ellipsis,
-        ),
-      ],
+        ],
+      ),
     );
   }
 

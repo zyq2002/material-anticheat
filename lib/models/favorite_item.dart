@@ -1,29 +1,62 @@
 import 'package:flutter/material.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'favorite_item.freezed.dart';
-part 'favorite_item.g.dart';
+class FavoriteItem {
+  final String id;
+  final FavoriteType type;
+  final String name; // ID号或车牌号
+  final DateTime createdAt;
+  final String? description;
+  final String? imagePath;
+  final String? date; // 对应的日期
+  final String? licensePlate; // 添加车牌信息字段
+  final String? materialName; // 添加物资信息字段
 
-@freezed
-class FavoriteItem with _$FavoriteItem {
-  const factory FavoriteItem({
-    required String id,
-    required FavoriteType type,
-    required String name, // ID号或车牌号
-    required DateTime createdAt,
-    String? description,
-    String? imagePath,
-    String? date, // 对应的日期
-  }) = _FavoriteItem;
+  const FavoriteItem({
+    required this.id,
+    required this.type,
+    required this.name,
+    required this.createdAt,
+    this.description,
+    this.imagePath,
+    this.date,
+    this.licensePlate,
+    this.materialName,
+  });
 
-  factory FavoriteItem.fromJson(Map<String, dynamic> json) =>
-      _$FavoriteItemFromJson(json);
+  factory FavoriteItem.fromJson(Map<String, dynamic> json) {
+    return FavoriteItem(
+      id: json['id'] as String,
+      type: FavoriteType.values.firstWhere(
+        (e) => e.name == json['type'],
+        orElse: () => FavoriteType.id,
+      ),
+      name: json['name'] as String,
+      createdAt: DateTime.parse(json['createdAt'] as String),
+      description: json['description'] as String?,
+      imagePath: json['imagePath'] as String?,
+      date: json['date'] as String?,
+      licensePlate: json['licensePlate'] as String?,
+      materialName: json['materialName'] as String?,
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'type': type.name,
+      'name': name,
+      'createdAt': createdAt.toIso8601String(),
+      'description': description,
+      'imagePath': imagePath,
+      'date': date,
+      'licensePlate': licensePlate,
+      'materialName': materialName,
+    };
+  }
 }
 
 enum FavoriteType {
-  @JsonValue('id')
   id,
-  @JsonValue('license_plate')
   licensePlate,
 }
 

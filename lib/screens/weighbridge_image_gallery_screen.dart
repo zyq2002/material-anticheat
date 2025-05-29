@@ -8,10 +8,14 @@ import 'package:path/path.dart' as path;
 import 'package:shared_preferences/shared_preferences.dart';
 import '../services/weighbridge_image_similarity_service.dart';
 import '../services/favorite_service.dart';
+import '../services/license_plate_filter_service.dart';
+import '../services/record_status_service.dart';
 import '../models/favorite_item.dart';
+import '../models/record_status.dart';
 import 'weighbridge_suspicious_images_screen.dart';
 import 'weighbridge_duplicate_detection_screen.dart';
 import 'favorites_screen.dart';
+import 'record_status_screen.dart';
 
 class WeighbridgeImageGalleryScreen extends HookConsumerWidget {
   const WeighbridgeImageGalleryScreen({super.key});
@@ -143,6 +147,19 @@ class WeighbridgeImageGalleryScreen extends HookConsumerWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) => const WeighbridgeSuspiciousImagesScreen(),
+                ),
+              );
+            },
+          ),
+          // 记录状态管理
+          IconButton(
+            icon: const Icon(Icons.flag),
+            tooltip: '记录状态管理',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const RecordStatusScreen(),
                 ),
               );
             },
@@ -754,7 +771,7 @@ class WeighbridgeImageGridView extends HookConsumerWidget {
 
     // 根据车牌筛选过滤图片组
     final filteredImageGroups = useMemoized(() {
-      if (licensePlateFilter.isEmpty) {
+      if (!licensePlateFilter.isActive || licensePlateFilter.currentFilter == null) {
         return imageGroups.value;
       }
       
@@ -762,9 +779,9 @@ class WeighbridgeImageGridView extends HookConsumerWidget {
         imageGroups.value.entries.where((entry) {
           // 检查过磅记录名称是否包含筛选的车牌号
           final recordName = entry.key;
-          final parts = recordName.split('_');
-          final carNumber = parts.length > 2 ? parts[2] : '';
-          return carNumber.contains(licensePlateFilter);
+          final parts = recordName.split('__');
+          final carNumber = parts.length > 1 ? parts[1] : '';
+          return carNumber.contains(licensePlateFilter.currentFilter!);
         }),
       );
     }, [imageGroups.value, licensePlateFilter]);
@@ -781,12 +798,12 @@ class WeighbridgeImageGridView extends HookConsumerWidget {
             const Icon(Icons.image_not_supported, size: 64, color: Colors.grey),
             const SizedBox(height: 16),
             Text(
-              licensePlateFilter.isNotEmpty 
-                  ? '没有找到车牌 "$licensePlateFilter" 的图片'
+              licensePlateFilter.isActive && licensePlateFilter.currentFilter != null
+                  ? '没有找到车牌 "${licensePlateFilter.currentFilter}" 的图片'
                   : '$date 没有过磅图片', 
               style: const TextStyle(color: Colors.grey)
             ),
-            if (licensePlateFilter.isNotEmpty) ...[
+            if (licensePlateFilter.isActive && licensePlateFilter.currentFilter != null) ...[
               const SizedBox(height: 8),
               TextButton(
                 onPressed: () {
@@ -895,12 +912,12 @@ class WeighbridgeImageGridView extends HookConsumerWidget {
                 const Icon(Icons.scale, size: 20, color: Colors.orange),
                 const SizedBox(width: 8),
                 Text(
-                  licensePlateFilter.isNotEmpty
-                      ? '$date - 车牌筛选: $licensePlateFilter (${filteredImageGroups.keys.length} 个匹配记录)'
+                  licensePlateFilter.isActive && licensePlateFilter.currentFilter != null
+                      ? '$date - 车牌筛选: ${licensePlateFilter.currentFilter} (${filteredImageGroups.keys.length} 个匹配记录)'
                       : '$date (${filteredImageGroups.keys.length} 个过磅记录)',
                   style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
-                if (licensePlateFilter.isNotEmpty) ...[
+                if (licensePlateFilter.isActive) ...[
                   const SizedBox(width: 8),
                   TextButton.icon(
                     onPressed: () {
@@ -1010,10 +1027,9 @@ class WeighbridgeRecordImagesCard extends HookConsumerWidget {
     }, [images]);
 
     // 解析过磅记录名称
-    final parts = recordName.split('_');
+    final parts = recordName.split('__'); // 修改为双下划线分割
     final reportId = parts.isNotEmpty ? parts[0].replaceFirst('WB', '') : '';
-    final materialName = parts.length > 1 ? parts[1] : '';
-    final carNumber = parts.length > 2 ? parts[2] : '';
+    final carNumber = parts.length > 1 ? parts[1] : '';
 
     // 统计可疑图片数量
     final suspiciousCount = images.where((image) => 
@@ -1029,13 +1045,74 @@ class WeighbridgeRecordImagesCard extends HookConsumerWidget {
       item.type == FavoriteType.licensePlate && item.name == carNumber
     );
 
+    // 检查记录状态
+    final recordStatusItems = ref.watch(recordStatusServiceProvider);
+    final recordStatus = recordStatusItems.where((item) => 
+      item.recordName == recordName || item.weighbridgeId == reportId
+    ).firstOrNull;
+
+    // 根据状态确定卡片样式
+    Color? cardBorderColor;
+    Color? cardBackgroundColor;
+    if (recordStatus != null) {
+      cardBorderColor = recordStatus.status.borderColor;
+      cardBackgroundColor = recordStatus.status.backgroundColor;
+    }
+
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          border: cardBorderColor != null 
+              ? Border.all(color: cardBorderColor, width: 2)
+              : null,
+          color: cardBackgroundColor,
+        ),
         padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // 状态标识栏（如果有状态标记）
+            if (recordStatus != null) ...[
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                margin: const EdgeInsets.only(bottom: 12),
+                decoration: BoxDecoration(
+                  color: recordStatus.status.color,
+                  borderRadius: BorderRadius.circular(6),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      recordStatus.status.icon,
+                      color: Colors.white,
+                      size: 16,
+                    ),
+                    const SizedBox(width: 6),
+                    Text(
+                      '${recordStatus.status.displayName}记录',
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    if (recordStatus.description != null && recordStatus.description!.isNotEmpty) ...[
+                      const SizedBox(width: 8),
+                      Text(
+                        '(${recordStatus.description})',
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 11,
+                        ),
+                      ),
+                    ],
+                  ],
+                ),
+              ),
+            ],
             // 顶部信息行
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -1074,24 +1151,6 @@ class WeighbridgeRecordImagesCard extends HookConsumerWidget {
                         ),
                       ),
                   const SizedBox(height: 12),
-                  
-                  // 物资名称
-                  Row(
-                    children: [
-                      const Icon(Icons.inventory_2, size: 16, color: Colors.grey),
-                      const SizedBox(width: 8),
-                      Expanded(
-                        child: Text(
-                          '物资: $materialName',
-                          style: const TextStyle(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 8),
                   
                   // 车牌号码
                   GestureDetector(
@@ -1235,6 +1294,7 @@ class WeighbridgeRecordImagesCard extends HookConsumerWidget {
                                   description: '过磅ID收藏',
                                   imagePath: images.isNotEmpty ? images.first.path : null,
                                   allImages: images, // 传递所有图片
+                                  licensePlate: carNumber,
                                 );
                           },
                           tooltip: isIdFavorited ? '取消收藏ID' : '收藏ID',
@@ -1268,6 +1328,7 @@ class WeighbridgeRecordImagesCard extends HookConsumerWidget {
                                   type: FavoriteType.licensePlate,
                                   description: '车牌收藏',
                                   // 车牌收藏不传递图片
+                                  licensePlate: carNumber,
                                 );
                           },
                           tooltip: isLicensePlateFavorited ? '取消收藏车牌' : '收藏车牌',
@@ -1312,6 +1373,114 @@ class WeighbridgeRecordImagesCard extends HookConsumerWidget {
                           ],
                         ),
                       ),
+                    const SizedBox(width: 24),
+                    
+                    // 状态标记按钮组
+                    Row(
+                      children: [
+                        // 可疑标记按钮
+                        Column(
+                          children: [
+                            IconButton(
+                              icon: Icon(
+                                recordStatus?.status == RecordStatusType.suspicious 
+                                    ? Icons.warning 
+                                    : Icons.warning_outlined,
+                                color: recordStatus?.status == RecordStatusType.suspicious 
+                                    ? Colors.red 
+                                    : Colors.grey,
+                                size: 20,
+                              ),
+                              onPressed: () async {
+                                if (recordStatus?.status == RecordStatusType.suspicious) {
+                                  // 如果已标记为可疑，则移除标记
+                                  await ref
+                                      .read(recordStatusServiceProvider.notifier)
+                                      .removeRecordStatus(recordName);
+                                } else {
+                                  // 标记为可疑
+                                  await _showStatusMarkDialog(
+                                    context, 
+                                    ref, 
+                                    recordName, 
+                                    reportId, 
+                                    RecordStatusType.suspicious,
+                                    images,
+                                  );
+                                }
+                              },
+                              tooltip: recordStatus?.status == RecordStatusType.suspicious 
+                                  ? '取消可疑标记' 
+                                  : '标记为可疑',
+                              padding: EdgeInsets.zero,
+                              constraints: const BoxConstraints(),
+                            ),
+                            Text(
+                              recordStatus?.status == RecordStatusType.suspicious 
+                                  ? '已标可疑' 
+                                  : '标记可疑',
+                              style: TextStyle(
+                                fontSize: 10,
+                                color: recordStatus?.status == RecordStatusType.suspicious 
+                                    ? Colors.red 
+                                    : Colors.grey,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(width: 16),
+                        // 正常标记按钮
+                        Column(
+                          children: [
+                            IconButton(
+                              icon: Icon(
+                                recordStatus?.status == RecordStatusType.normal 
+                                    ? Icons.check_circle 
+                                    : Icons.check_circle_outline,
+                                color: recordStatus?.status == RecordStatusType.normal 
+                                    ? Colors.green 
+                                    : Colors.grey,
+                                size: 20,
+                              ),
+                              onPressed: () async {
+                                if (recordStatus?.status == RecordStatusType.normal) {
+                                  // 如果已标记为正常，则移除标记
+                                  await ref
+                                      .read(recordStatusServiceProvider.notifier)
+                                      .removeRecordStatus(recordName);
+                                } else {
+                                  // 标记为正常
+                                  await _showStatusMarkDialog(
+                                    context, 
+                                    ref, 
+                                    recordName, 
+                                    reportId, 
+                                    RecordStatusType.normal,
+                                    images,
+                                  );
+                                }
+                              },
+                              tooltip: recordStatus?.status == RecordStatusType.normal 
+                                  ? '取消正常标记' 
+                                  : '标记为正常',
+                              padding: EdgeInsets.zero,
+                              constraints: const BoxConstraints(),
+                            ),
+                            Text(
+                              recordStatus?.status == RecordStatusType.normal 
+                                  ? '已标正常' 
+                                  : '标记正常',
+                              style: TextStyle(
+                                fontSize: 10,
+                                color: recordStatus?.status == RecordStatusType.normal 
+                                    ? Colors.green 
+                                    : Colors.grey,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ],
                 ),
                 
@@ -1960,4 +2129,122 @@ class WeighbridgeImagePreviewDialog extends HookWidget {
 
 String _formatTime(DateTime time) {
   return '${time.hour.toString().padLeft(2, '0')}:${time.minute.toString().padLeft(2, '0')}:${time.second.toString().padLeft(2, '0')}';
+}
+
+/// 显示状态标记对话框
+Future<void> _showStatusMarkDialog(
+  BuildContext context,
+  WidgetRef ref,
+  String recordName,
+  String weighbridgeId,
+  RecordStatusType statusType,
+  List<File> allImages, // 添加图片参数
+) async {
+  final controller = TextEditingController();
+  
+  final result = await showDialog<Map<String, dynamic>>(
+    context: context,
+    builder: (context) => AlertDialog(
+      title: Row(
+        children: [
+          Icon(
+            statusType.icon,
+            color: statusType.color,
+            size: 24,
+          ),
+          const SizedBox(width: 8),
+          Text('标记为${statusType.displayName}'),
+        ],
+      ),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            '过磅ID: $weighbridgeId',
+            style: const TextStyle(fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            '记录名称: $recordName',
+            style: TextStyle(
+              fontSize: 12,
+              color: Colors.grey[600],
+            ),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            '将复制 ${allImages.length} 张图片到标记目录',
+            style: TextStyle(
+              fontSize: 12,
+              color: Colors.blue[600],
+              fontStyle: FontStyle.italic,
+            ),
+          ),
+          const SizedBox(height: 16),
+          TextField(
+            controller: controller,
+            decoration: InputDecoration(
+              labelText: '备注 (可选)',
+              hintText: '请输入标记原因或备注信息...',
+              border: const OutlineInputBorder(),
+              prefixIcon: Icon(Icons.edit_note, color: statusType.color),
+            ),
+            maxLines: 3,
+          ),
+        ],
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(),
+          child: const Text('取消'),
+        ),
+        ElevatedButton(
+          onPressed: () => Navigator.of(context).pop({
+            'description': controller.text.isEmpty ? null : controller.text,
+          }),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: statusType.color,
+            foregroundColor: Colors.white,
+          ),
+          child: Text('标记为${statusType.displayName}'),
+        ),
+      ],
+    ),
+  );
+
+  if (result != null) {
+    // 获取当前日期作为关联日期
+    final now = DateTime.now();
+    final date = '${now.year}-${now.month.toString().padLeft(2, '0')}-${now.day.toString().padLeft(2, '0')}';
+
+    await ref.read(recordStatusServiceProvider.notifier).setRecordStatus(
+      recordName: recordName,
+      weighbridgeId: weighbridgeId,
+      status: statusType,
+      description: result['description'],
+      date: date,
+      allImages: allImages, // 传递图片列表
+    );
+
+    if (context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Row(
+            children: [
+              Icon(
+                statusType.icon,
+                color: Colors.white,
+                size: 16,
+              ),
+              const SizedBox(width: 8),
+              Text('已标记为${statusType.displayName}，并复制了 ${allImages.length} 张图片'),
+            ],
+          ),
+          backgroundColor: statusType.color,
+          duration: const Duration(seconds: 3),
+        ),
+      );
+    }
+  }
 } 

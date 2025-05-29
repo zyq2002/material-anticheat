@@ -57,23 +57,3 @@ python_scripts/build/
 物资anticheat-*/
 物资anticheat.app/
 *.app/
-
-# 排除图片和数据目录（避免仓库过大）
-pic/weighbridge/
-pic/favorites/
-pic/acceptance/
-
-# 排除错误日志和临时文件
-giterror/
-logs/
-*.tmp
-*.temp
-
-# 排除测试文件
-test_*.dart
-*_test_*.dart
-test_performance_*.dart
-
-# 排除性能优化报告（太大了）
-*性能优化*.md
-PERFORMANCE_OPTIMIZATION_*.md

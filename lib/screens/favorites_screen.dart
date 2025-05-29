@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -446,6 +447,46 @@ class FavoriteItemCard extends HookWidget {
                         const SizedBox(height: 8),
                       ],
                       
+                      // 车牌信息（如果有）
+                      if (item.licensePlate != null && item.licensePlate!.isNotEmpty) ...[
+                        Row(
+                          children: [
+                            const Icon(Icons.directions_car, size: 16, color: Colors.grey),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: Text(
+                                '车牌: ${item.licensePlate}',
+                                style: const TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 8),
+                      ],
+                      
+                      // 物资信息（如果有）
+                      if (item.materialName != null && item.materialName!.isNotEmpty) ...[
+                        Row(
+                          children: [
+                            const Icon(Icons.inventory_2, size: 16, color: Colors.grey),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: Text(
+                                '物资: ${item.materialName}',
+                                style: const TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 8),
+                      ],
+                      
                       // 图片数量（仅ID收藏）
                       if (item.type == FavoriteType.id) ...[
                         Row(
@@ -695,13 +736,82 @@ class FavoriteItemCard extends HookWidget {
         }
       }
 
-      // 按文件名排序
-      images.sort((a, b) => path.basename(a.path).compareTo(path.basename(b.path)));
+      // 按过磅时间排序而不是文件名排序
+      await _sortImagesByWeighbridgeTime(images);
       return images;
     } catch (e) {
       debugPrint('加载收藏图片失败: $e');
       return [];
     }
+  }
+
+  /// 按过磅时间排序图片
+  Future<void> _sortImagesByWeighbridgeTime(List<File> images) async {
+    final imageInfoList = <Map<String, dynamic>>[];
+    
+    for (final image in images) {
+      try {
+        DateTime weighbridgeTime;
+        
+        // 尝试从图片所在的记录文件夹中读取过磅时间
+        final imageDir = Directory(path.dirname(image.path));
+        final recordInfoFile = File(path.join(imageDir.path, 'record_info.json'));
+        
+        if (await recordInfoFile.exists()) {
+          try {
+            // 读取JSON文件获取创建时间（过磅时间）
+            final jsonContent = await recordInfoFile.readAsString();
+            final recordData = json.decode(jsonContent) as Map<String, dynamic>;
+            final createTimeStr = recordData['createTime'] as String?;
+            
+            if (createTimeStr != null && createTimeStr.isNotEmpty) {
+              // 解析createTime字符串，格式如: "2025-05-26 18:08:06"
+              weighbridgeTime = DateTime.parse(createTimeStr.replaceAll(' ', 'T'));
+            } else {
+              // 如果没有createTime，使用文件修改时间作为备选
+              final stat = await image.stat();
+              weighbridgeTime = stat.modified;
+            }
+          } catch (e) {
+            debugPrint('解析过磅记录时间失败: $e');
+            // 解析失败，使用文件修改时间作为备选
+            final stat = await image.stat();
+            weighbridgeTime = stat.modified;
+          }
+        } else {
+          // 如果没有record_info.json，使用文件修改时间作为备选
+          final stat = await image.stat();
+          weighbridgeTime = stat.modified;
+        }
+        
+        imageInfoList.add({
+          'file': image,
+          'weighbridgeTime': weighbridgeTime,
+          'fileName': path.basename(image.path),
+        });
+      } catch (e) {
+        debugPrint('获取图片 ${image.path} 的时间信息失败: $e');
+        // 如果获取时间失败，使用默认时间作为备选排序
+        imageInfoList.add({
+          'file': image,
+          'weighbridgeTime': DateTime.fromMillisecondsSinceEpoch(0),
+          'fileName': path.basename(image.path),
+        });
+      }
+    }
+    
+    // 按过磅时间排序（最新的在前），如果时间相同则按文件名排序
+    imageInfoList.sort((a, b) {
+      final timeCompare = (b['weighbridgeTime'] as DateTime).compareTo(a['weighbridgeTime'] as DateTime);
+      if (timeCompare != 0) {
+        return timeCompare;
+      }
+      return (a['fileName'] as String).compareTo(b['fileName'] as String);
+    });
+    
+    // 更新原列表顺序
+    images.clear();
+    images.addAll(imageInfoList.map((info) => info['file'] as File));
   }
 
   /// 显示图片预览对话框
